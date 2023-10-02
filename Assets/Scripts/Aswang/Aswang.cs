@@ -4,25 +4,25 @@ using UnityEngine;
 
 public class Aswang
 {
-    AswangBase _base;
-    int level;
+    public AswangBase Base { get; set; }
+    public int Level { get; set; }
 
-    public int currentHP { get; set; }
+    public int HP { get; set; }
 
 
 
     public List<Moves> moves {  get; set; }
     public Aswang(AswangBase abase, int alevel)
     {
-        _base = abase;
-        this.level = alevel;
-        currentHP = _base.maxhp;
+        Base = abase;
+        this.Level = alevel;
+        HP = Maxhp;
 
         //generate moves
         moves = new List<Moves>();
-        foreach (var move in _base.LearnableMoves)
+        foreach (var move in Base.LearnableMoves)
         {
-            if (move.Level <= level)
+            if (move.Level <= Level)
                 moves.Add(new Moves(move.movesbase));
 
             if (moves.Count >= 4)
@@ -32,32 +32,32 @@ public class Aswang
     }
         public int Attack
     {
-        get { return Mathf.FloorToInt((_base.attack * level) / 100f) + 5; }
+        get { return Mathf.FloorToInt((Base.attack * Level) / 100f) + 5; }
     }
 
        public int Maxhp
     {
-        get { return Mathf.FloorToInt((_base.maxhp * level) / 100f) + 5; }
+        get { return Mathf.FloorToInt((Base.maxhp * Level) / 100f) + 5; }
     }
 
        public int Magical
     {
-        get { return Mathf.FloorToInt((_base.magical * level) / 100f) + 5; }
+        get { return Mathf.FloorToInt((Base.magical * Level) / 100f) + 5; }
     }
 
     public int Defense
     {
-        get { return Mathf.FloorToInt((_base.defense * level) / 100f) + 5; }
+        get { return Mathf.FloorToInt((Base.defense * Level) / 100f) + 5; }
     }
 
     public int Faith
     {
-        get { return Mathf.FloorToInt((_base.faith * level) / 100f) + 5; }
+        get { return Mathf.FloorToInt((Base.faith * Level) / 100f) + 5; }
     }
 
     public int Speed
     {
-        get { return Mathf.FloorToInt((_base.speed * level) / 100f) + 5; }
+        get { return Mathf.FloorToInt((Base.speed * Level) / 100f) + 5; }
     }
 
 }
