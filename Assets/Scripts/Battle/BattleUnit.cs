@@ -1,20 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class BattleUnit : MonoBehaviour
 {
     [SerializeField] AswangBase _base;
     [SerializeField] int level;
+    [SerializeField] bool isPlayerUnit;
 
     public Aswang aswang { get; set; }
     public void Setup()
     {
-        new Aswang(_base, level);
+        aswang = new Aswang(_base, level);
         if (isPlayerUnit)
-            GetComponent<Image>().sprite = pokemon.Base.BackSprite;
+            GetComponent<Image>().sprite = aswang.Base.Backsprite;
         else
-            GetComponent<Image>().sprite = pokemon.Base.FrontSprite;
+            GetComponent<Image>().sprite = aswang.Base.Frontsprite;
 
     }
 }
