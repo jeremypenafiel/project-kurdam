@@ -11,7 +11,8 @@ public class AswangBase : ScriptableObject
     [TextArea]
     [SerializeField] string Description;
 
-    [SerializeField] Sprite FrontSprite;
+    [SerializeField] Sprite backSprite;
+    [SerializeField] Sprite frontSprite;
 
     [SerializeField] AswangType AswangType1;
 
@@ -33,9 +34,14 @@ public class AswangBase : ScriptableObject
         get { return Description; }
     }
 
-    public Sprite frontsprite
+    public Sprite Frontsprite
     {
-        get { return FrontSprite; }
+        get { return frontSprite; }
+    }
+
+    public Sprite Backsprite
+    {
+        get { return backSprite; }
     }
 
     public AswangType aswangType1

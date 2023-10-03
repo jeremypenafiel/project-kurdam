@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Aname: Tawo
   Description: Tawo lang man ni
-  FrontSprite: {fileID: 0}
+  backSprite: {fileID: -4445699719359273135, guid: 3111f23cd57d2be48b2ee6bac4a23588, type: 3}
+  frontSprite: {fileID: 7152930139536384079, guid: 3111f23cd57d2be48b2ee6bac4a23588, type: 3}
   AswangType1: 0
   MaxHP: 50
   Attack: 10
