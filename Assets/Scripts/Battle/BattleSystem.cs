@@ -104,7 +104,7 @@ public class BattleSystem : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            if (currentMove > playerUnit.aswang.moves.Count - 1)
+            if (currentMove > 0)
             {
                 --currentMove;
             }
@@ -123,7 +123,7 @@ public class BattleSystem : MonoBehaviour
                 currentMove -= 2;
             }
         }
-        dialogBox.UpdateMoveSelection(currentMove, playerUnit.aswang.moves[currentMove]);
+        dialogBox.UpdateMoveSelection(currentMove);
 
         if (Input.GetKeyDown(KeyCode.Z))
         {

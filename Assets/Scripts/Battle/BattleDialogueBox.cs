@@ -70,7 +70,7 @@ public class BattleDialogueBox : MonoBehaviour
         }
     }
 
-    public void UpdateMoveSelection(int selectedMove, Moves move)
+    public void UpdateMoveSelection(int selectedMove)
     {
         for (int i = 0; i < moveTexts.Count; i++)
         {
@@ -83,7 +83,7 @@ public class BattleDialogueBox : MonoBehaviour
                 moveTexts[i].color = Color.black;
             }
 
-            attackText.text = "Zinger Steak";
+            attackText.text = "Zinger";
             typeText.text = "Amazing";
         }
     }
