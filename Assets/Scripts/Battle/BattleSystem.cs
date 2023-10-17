@@ -7,6 +7,7 @@ public class BattleSystem : MonoBehaviour
 {
     [SerializeField] BattleUnit playerUnit;
     [SerializeField] BattleHud playerHud;
+    [SerializeField] DiceHud diceHud;
     [SerializeField] BattleUnit enemyUnit;
     [SerializeField] BattleHud enemyHud;
     [SerializeField] BattleDialogueBox dialogBox;
