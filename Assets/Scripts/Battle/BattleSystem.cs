@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,6 +18,7 @@ public class BattleSystem : MonoBehaviour
     {
         playerUnit.Setup();
         playerHud.SetData(playerUnit.aswang);
+        diceHud.setDice();
 
     }
 }

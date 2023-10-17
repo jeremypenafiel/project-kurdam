@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,7 +11,7 @@ public class Dice : MonoBehaviour
     [SerializeField] private List <Sprite> diceSides;
     // Reference to sprite renderer to change sprites
     private SpriteRenderer spriteRenderer;
-    [SerializeField] private bool isEnabled;
+    [SerializeField] public bool isEnabled;
 
     // Use this for initialization
     private void Start()
@@ -19,7 +20,6 @@ public class Dice : MonoBehaviour
         
         // Assign Renderer component
         spriteRenderer = GetComponent<SpriteRenderer>();
-        spriteRenderer.enabled = this.isEnabled;
 
         // Load dice sides sprites to array from DiceSides subfolder of Resources folder
        // diceSides = Resources.LoadAll<Sprite>($"d{this.sides}/");
@@ -46,7 +46,7 @@ public class Dice : MonoBehaviour
         for (int i = 0; i <= 20; i++)
         {
             // Pick up random value from 0 to 5 (All inclusive)
-            randomDiceSide = Random.Range(0, this.sides-1);
+            randomDiceSide = UnityEngine.Random.Range(0, this.sides-1);
 
             // Set sprite to upper face of dice from array according to random value
             spriteRenderer.sprite = diceSides[randomDiceSide];
@@ -63,6 +63,11 @@ public class Dice : MonoBehaviour
         Debug.Log(finalSide);
     }
 
+  
+    public void setDice(bool value)
+    {
+        this.spriteRenderer.enabled = value;
+    }
 
 
 }
