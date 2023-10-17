@@ -1,14 +1,13 @@
 using System.Collections;
-using Unity.Burst.Intrinsics;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Dice : MonoBehaviour
 {
     // number of sides of the dice
     [SerializeField] private int sides;
     // Array of dice sides sprites to load from Resources folder
-    private Sprite[] diceSides;
+    [SerializeField] private List <Sprite> diceSides;
     // Reference to sprite renderer to change sprites
     private SpriteRenderer spriteRenderer;
     [SerializeField] private bool isEnabled;
@@ -23,8 +22,7 @@ public class Dice : MonoBehaviour
         spriteRenderer.enabled = this.isEnabled;
 
         // Load dice sides sprites to array from DiceSides subfolder of Resources folder
-        diceSides = Resources.LoadAll<Sprite>($"d{this.sides}/");
-        Debug.Log(diceSides.Length);
+       // diceSides = Resources.LoadAll<Sprite>($"d{this.sides}/");
     }
 
     // If you left click over the dice then RollTheDice coroutine is started
