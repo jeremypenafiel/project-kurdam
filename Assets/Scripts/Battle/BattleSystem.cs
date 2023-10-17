@@ -6,6 +6,7 @@ public class BattleSystem : MonoBehaviour
 {
     [SerializeField] BattleUnit playerUnit;
     [SerializeField] BattleHud playerHud;
+    [SerializeField] BattleHud diceHud;
 
     private void Start()
     {
