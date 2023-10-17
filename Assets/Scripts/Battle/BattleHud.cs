@@ -7,13 +7,13 @@ using UnityEngine.UI;
 public class BattleHud : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI nameText;
-    [SerializeField] TextMeshProUGUI levelText;
+    [SerializeField] TextMeshProUGUI armorClassText;
     [SerializeField] HPBar hpBar;
 
     public void SetData(Aswang aswang)
     {
         nameText.text = aswang.Base.aname;
-        levelText.text = "Lvl" + aswang.Level;
+        armorClassText.text =  $"{aswang.Level}";
         hpBar.SetHP(0.5f);/*((float) aswang.HP / aswang.Maxhp)*/
 
     }

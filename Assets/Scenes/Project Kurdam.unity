@@ -3078,7 +3078,7 @@ GameObject:
   m_Component:
   - component: {fileID: 836188492}
   - component: {fileID: 836188491}
-  - component: {fileID: 836188490}
+  - component: {fileID: 836188493}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3086,14 +3086,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &836188490
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 836188489}
-  m_Enabled: 1
 --- !u!20 &836188491
 Camera:
   m_ObjectHideFlags: 0
@@ -3160,6 +3152,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &836188493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 836188489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d2670d98eb2a85428bb0b7e547308b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 564647493}
 --- !u!1 &919788628
 GameObject:
   m_ObjectHideFlags: 0
@@ -3575,7 +3580,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameText: {fileID: 919788630}
-  levelText: {fileID: 1296930718}
+  armorClassText: {fileID: 1296930718}
   hpBar: {fileID: 1988906110}
 --- !u!1 &1272933901
 GameObject:
@@ -3609,8 +3614,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2025567578}
-  - {fileID: 1077705717}
   - {fileID: 1352768475}
+  - {fileID: 1077705717}
   - {fileID: 1562102396}
   - {fileID: 1155195048}
   m_Father: {fileID: 1683472770}
@@ -3695,7 +3700,7 @@ GameObject:
   - component: {fileID: 1296930719}
   - component: {fileID: 1296930718}
   m_Layer: 0
-  m_Name: LevelText
+  m_Name: ArmorText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3717,8 +3722,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 239, y: -23.120003}
-  m_SizeDelta: {x: 69.83, y: 26.729996}
+  m_AnchoredPosition: {x: 258.2, y: -25.695}
+  m_SizeDelta: {x: 77.05, y: 31.88}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1296930718
 MonoBehaviour:
@@ -3740,9 +3745,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Lvl
-
-'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
@@ -3854,7 +3857,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -239.75, y: -50.75}
+  m_AnchoredPosition: {x: -232, y: -100}
   m_SizeDelta: {x: 134.3, y: 287.86}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1352768476
@@ -3908,7 +3911,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _base: {fileID: 11400000, guid: 72046347066b5a24eb23b39e47e72034, type: 2}
-  level: 0
+  level: 15
   isPlayerUnit: 1
 --- !u!1 &1373721891
 GameObject:
