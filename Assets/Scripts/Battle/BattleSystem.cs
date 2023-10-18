@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class BattleSystem : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class BattleSystem : MonoBehaviour
 
     public IEnumerator SetupBattle()
     {
+        diceHud.gameObject.SetActive(false);
         playerUnit.Setup();
         playerHud.SetData(playerUnit.aswang);
 
@@ -29,7 +31,7 @@ public class BattleSystem : MonoBehaviour
 
         yield return dialogBox.TypeDialog($"A wild {playerUnit.aswang.Base.aname} appeared.");
         yield return new WaitForSeconds(1f);
-
+        
         PlayerAction();
 
     }
@@ -50,6 +52,14 @@ public class BattleSystem : MonoBehaviour
 
 
     }
+
+    void DiceRoll()
+    {
+        state = BattleState.RollDice;
+        diceHud.gameObject.SetActive(true);
+    }
+
+
     private void Update()
     {
         if (state == BattleState.PlayerAction)
@@ -60,6 +70,17 @@ public class BattleSystem : MonoBehaviour
         else if (state == BattleState.PlayerMove)
         {
             HandleMoveSelection();
+        }else if(state == BattleState.RollDice)
+        {
+            HandleDiceRoll();
+        }
+    }
+
+    private void HandleDiceRoll()
+    {
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            diceHud.RollDice();
         }
     }
 
@@ -128,14 +149,15 @@ public class BattleSystem : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            if (currentMove == 0)
+            DiceRoll();
+            /*if (currentMove == 0)
             {
-                //
+                /
             }
             else if (currentMove == 1)
             {
                 //run
-            }
+            }*/
         }
 
 

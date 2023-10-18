@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public enum BattleState { Start, PlayerAction, EnemyMove, Busy, PlayerMove }
+public enum BattleState { Start, PlayerAction, EnemyMove, Busy, PlayerMove, RollDice }
 public class BattleDialogueBox : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI dialogText;

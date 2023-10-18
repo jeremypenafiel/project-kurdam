@@ -12,6 +12,7 @@ public class Dice : MonoBehaviour
     // Reference to sprite renderer to change sprites
     private SpriteRenderer spriteRenderer;
     [SerializeField] public bool isEnabled;
+    public int ReturnedSide { get; set; }
 
     // Use this for initialization
     private void Start()
@@ -26,20 +27,20 @@ public class Dice : MonoBehaviour
     }
 
     // If you left click over the dice then RollTheDice coroutine is started
-    private void OnMouseDown()
+    /*private void OnMouseDown()
     {
         StartCoroutine("RollTheDice");
-    }
+    }*/
 
     // Coroutine that rolls the dice
-    private IEnumerator RollTheDice()
+    public IEnumerator RollTheDice()
     {
         // Variable to contain random dice side number.
         // It needs to be assigned. Let it be 0 initially
         int randomDiceSide = 0;
 
         // Final side or value that dice reads in the end of coroutine
-        int finalSide = 0;
+        ReturnedSide = 0;
 
         // Loop to switch dice sides ramdomly
         // before final side appears. 20 itterations here.
@@ -57,10 +58,11 @@ public class Dice : MonoBehaviour
 
         // Assigning final side so you can use this value later in your game
         // for player movement for example
-        finalSide = randomDiceSide + 1;
+        ReturnedSide = randomDiceSide + 1;
 
         // Show final dice value in Console
-        Debug.Log(finalSide);
+        Debug.Log(ReturnedSide);
+        
     }
 
   
