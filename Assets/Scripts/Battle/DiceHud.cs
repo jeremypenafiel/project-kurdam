@@ -6,12 +6,15 @@ using UnityEngine;
 
 
 public enum RollState { AttackRoll, DamageRoll}
+//how to create map in c#?
+
 public class DiceHud : MonoBehaviour
 {
     [SerializeField] private Dice d6;
     /*[SerializeField] private Dice d8;
     [SerializeField] private Dice d20;*/
     [HideInInspector] public Dice currentDice;
+    [SerializeField] private TextMeshProUGUI Text { get; set; }
     private RollState state;
 
     
@@ -31,8 +34,11 @@ public class DiceHud : MonoBehaviour
             case RollState.AttackRoll:
                 
                 this.currentDice = d6;
+                this.Text.text = "Attack Roll";
                 break;
             case RollState.DamageRoll:
+                this.currentDice = d6;
+                this.Text.text = "Damage Roll";
                 break;
 
         }
@@ -43,4 +49,10 @@ public class DiceHud : MonoBehaviour
     {
         StartCoroutine(this.currentDice.RollTheDice());
     }
+    public void SwitchState()
+    {
+        this.state = this.state == RollState.DamageRoll? RollState.DamageRoll: RollState.AttackRoll ;
+    }
+
+ 
 }

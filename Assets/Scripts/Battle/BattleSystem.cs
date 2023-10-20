@@ -16,6 +16,9 @@ public class BattleSystem : MonoBehaviour
     BattleState state;
     int currentAction;
     int currentMove;
+    int attackRoll;
+
+
     private void Start()
     {
         StartCoroutine(SetupBattle());
