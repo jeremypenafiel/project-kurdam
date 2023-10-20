@@ -8,6 +8,9 @@ public class Aswang
     public int Level { get; set; }
 
     public int HP { get; set; }
+    
+    public int armorClass { get; set; }
+
 
 
 
@@ -17,6 +20,7 @@ public class Aswang
         Base = abase;
         this.Level = alevel;
         HP = Maxhp;
+        armorClass = ArmorClass;
 
         //generate moves
         moves = new List<Moves>();
@@ -38,6 +42,11 @@ public class Aswang
        public int Maxhp
     {
         get { return Mathf.FloorToInt((Base.maxhp * Level) / 100f) + 5; }
+    }
+
+        public int ArmorClass
+    {
+        get { return Base.armorClass;}
     }
 
        public int Magical

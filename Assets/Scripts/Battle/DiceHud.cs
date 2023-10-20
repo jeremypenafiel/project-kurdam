@@ -5,17 +5,16 @@ using TMPro;
 using UnityEngine;
 
 
-public enum RollState { AttackRoll, DamageRoll}
-//how to create map in c#?
+
 
 public class DiceHud : MonoBehaviour
 {
-    [SerializeField] private Dice d6;
+    /* [SerializeField] private Dice d6;*/
     /*[SerializeField] private Dice d8;
     [SerializeField] private Dice d20;*/
-    [HideInInspector] public Dice currentDice;
-    [SerializeField] private TextMeshProUGUI Text { get; set; }
-    private RollState state;
+    /*[HideInInspector] public Dice currentDice;*/
+    [SerializeField] private TextMeshProUGUI text;
+
 
     
 
@@ -23,13 +22,13 @@ public class DiceHud : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        this.currentDice = d6;
+       /* this.currentDice = d6;*/
     }
 
 
     private void Update()
     {
-        switch (this.state)
+/*        switch (this.state)
         {
             case RollState.AttackRoll:
                 
@@ -42,16 +41,19 @@ public class DiceHud : MonoBehaviour
                 break;
 
         }
-        this.currentDice.gameObject.SetActive(true);
+        this.currentDice.gameObject.SetActive(true);*/
     }
-
-    public void RollDice()
+   
+    public void SetText(BattleState state)
     {
-        StartCoroutine(this.currentDice.RollTheDice());
-    }
-    public void SwitchState()
-    {
-        this.state = this.state == RollState.DamageRoll? RollState.DamageRoll: RollState.AttackRoll ;
+        if (state == BattleState.AttackRoll)
+        {
+            this.text.text = "Attack Roll";
+        }
+        else
+        {
+            this.text.text = "Damage Roll";
+        }
     }
 
  

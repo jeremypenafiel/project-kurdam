@@ -12,6 +12,8 @@ public class BattleSystem : MonoBehaviour
     [SerializeField] BattleUnit enemyUnit;
     [SerializeField] BattleHud enemyHud;
     [SerializeField] BattleDialogueBox dialogBox;
+    [SerializeField] Dice d6;
+    [SerializeField] Dice d20;
 
     BattleState state;
     int currentAction;
@@ -28,6 +30,7 @@ public class BattleSystem : MonoBehaviour
     {
         diceHud.gameObject.SetActive(false);
         playerUnit.Setup();
+        enemyUnit.Setup();
         playerHud.SetData(playerUnit.aswang);
 
         dialogBox.SetMoveNames(playerUnit.aswang.moves);
@@ -56,9 +59,10 @@ public class BattleSystem : MonoBehaviour
 
     }
 
-    void DiceRoll()
+    void AttackRoll()
     {
-        state = BattleState.RollDice;
+        state = BattleState.AttackRoll;
+        StartCoroutine(dialogBox.TypeDialog("Roll the dice to attack."));   
         diceHud.gameObject.SetActive(true);
     }
 
@@ -73,19 +77,21 @@ public class BattleSystem : MonoBehaviour
         else if (state == BattleState.PlayerMove)
         {
             HandleMoveSelection();
-        }else if(state == BattleState.RollDice)
+        }else if(state == BattleState.AttackRoll)
         {
-            HandleDiceRoll();
+            StartCoroutine(HandleAttackRoll(d20));
+        }else if(state==BattleState.DamageRoll)
+        {
+            HandleDamageRoll(d20);
         }
     }
 
-    private void HandleDiceRoll()
+    private void HandleDamageRoll(Dice d20)
     {
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            diceHud.RollDice();
-        }
+        throw new NotImplementedException();
     }
+
+   
 
     void HandleActionSelection()
     {
@@ -152,7 +158,9 @@ public class BattleSystem : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            DiceRoll();
+            dialogBox.EnableMoveSelector(false);
+            dialogBox.EnableDialogText(true);
+            AttackRoll();
             /*if (currentMove == 0)
             {
                 /
@@ -162,8 +170,32 @@ public class BattleSystem : MonoBehaviour
                 //run
             }*/
         }
+    }
+    private IEnumerator HandleAttackRoll(Dice dice)
+    {
+        bool isHit;
+        diceHud.SetText(state);
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            yield return StartCoroutine(dice.RollTheDice());
+            yield return StartCoroutine(dialogBox.TypeDialog($"You rolled a {dice.ReturnedSide}."));
+            isHit =  CheckIfHit(dice);
 
-
+            if (isHit)
+            {
+                yield return StartCoroutine(dialogBox.TypeDialog($"You hit the enemy!"));
+                state = BattleState.DamageRoll;
+            }
+            else
+            {
+                yield return StartCoroutine(dialogBox.TypeDialog($"You missed the enemy!"));
+                state = BattleState.EnemyMove;
+            }
+        }
     }
 
+    private bool CheckIfHit(Dice dice)
+    {
+        return dice.ReturnedSide >= enemyUnit.aswang.armorClass;
+    }
 }

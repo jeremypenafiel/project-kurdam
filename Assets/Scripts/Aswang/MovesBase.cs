@@ -12,6 +12,7 @@ public class MovesBase : ScriptableObject
 
     [SerializeField] AswangType Type;
     [SerializeField] int baseDamage;
+    [SerializeField] Dice dice;
 
     public string MoveName
     {

@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Dice : MonoBehaviour
+[CreateAssetMenu(fileName = "Dice", menuName = "Dice/Create new Dice")]
+public class DiceBase : MonoBehaviour
 {
     // number of sides of the dice
     [SerializeField] private int sides;
     // Array of dice sides sprites to load from Resources folder
-    [SerializeField] private List <Sprite> diceSides;
+    [SerializeField] private List<Sprite> diceSides;
     // Reference to sprite renderer to change sprites
     private SpriteRenderer spriteRenderer;
     [SerializeField] public bool isEnabled;
@@ -16,13 +17,13 @@ public class Dice : MonoBehaviour
     // Use this for initialization
     private void Start()
     {
-   
-        
+
+
         // Assign Renderer component
         spriteRenderer = GetComponent<SpriteRenderer>();
 
         // Load dice sides sprites to array from DiceSides subfolder of Resources folder
-       // diceSides = Resources.LoadAll<Sprite>($"d{this.sides}/");
+        // diceSides = Resources.LoadAll<Sprite>($"d{this.sides}/");
     }
 
     // If you left click over the dice then RollTheDice coroutine is started
@@ -46,7 +47,7 @@ public class Dice : MonoBehaviour
         for (int i = 0; i <= 20; i++)
         {
             // Pick up random value from 0 to 5 (All inclusive)
-            randomDiceSide = UnityEngine.Random.Range(0, this.sides-1);
+            randomDiceSide = UnityEngine.Random.Range(0, this.sides - 1);
 
             // Set sprite to upper face of dice from array according to random value
             spriteRenderer.sprite = diceSides[randomDiceSide];
@@ -61,14 +62,12 @@ public class Dice : MonoBehaviour
 
         // Show final dice value in Console
         Debug.Log(ReturnedSide);
-        
+
     }
 
-  
+
     public void setDice(bool value)
     {
         this.spriteRenderer.enabled = value;
     }
-
-
 }
