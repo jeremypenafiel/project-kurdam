@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5173505041726f04fbdf0ccfcc97c26a, type: 3}
+  m_Name: d6
+  m_EditorClassIdentifier: 
+  sides: 6
+  diceSides:
+  - {fileID: 21300000, guid: e6694afabf33e6240a93af9cfe15cc08, type: 3}
+  - {fileID: 21300000, guid: 59ae4d7010c6cb94fa1ca8885e582f88, type: 3}
+  - {fileID: 21300000, guid: aaa031ced6d00224b8558f0a08daae00, type: 3}
+  - {fileID: 21300000, guid: 97b4b799406038a4da3aa168423bba4e, type: 3}
+  - {fileID: 21300000, guid: 107a14532142bf243bc4881e8491f1cf, type: 3}
+  - {fileID: 21300000, guid: ce1a3ad74c3cc6c4c94c49e03e664525, type: 3}

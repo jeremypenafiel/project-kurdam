@@ -4,14 +4,10 @@ using UnityEngine;
 
 public class Dice : MonoBehaviour
 {
-    // number of sides of the dice
-    [SerializeField] private int sides;
-    // Array of dice sides sprites to load from Resources folder
-    [SerializeField] private List <Sprite> diceSides;
-    // Reference to sprite renderer to change sprites
     private SpriteRenderer spriteRenderer;
-    [SerializeField] public bool isEnabled;
-    public int ReturnedSide { get; set; }
+
+    public DiceBase Base;
+
 
     // Use this for initialization
     private void Start()
@@ -25,13 +21,6 @@ public class Dice : MonoBehaviour
        // diceSides = Resources.LoadAll<Sprite>($"d{this.sides}/");
     }
 
-    // If you left click over the dice then RollTheDice coroutine is started
-    /*private void OnMouseDown()
-    {
-        StartCoroutine("RollTheDice");
-    }*/
-
-    // Coroutine that rolls the dice
     public IEnumerator RollTheDice()
     {
         // Variable to contain random dice side number.
@@ -39,17 +28,29 @@ public class Dice : MonoBehaviour
         int randomDiceSide = 0;
 
         // Final side or value that dice reads in the end of coroutine
-        ReturnedSide = 0;
+        Base.ReturnedSide = 0;
 
         // Loop to switch dice sides ramdomly
         // before final side appears. 20 itterations here.
         for (int i = 0; i <= 20; i++)
         {
             // Pick up random value from 0 to 5 (All inclusive)
-            randomDiceSide = UnityEngine.Random.Range(0, this.sides-1);
+            randomDiceSide = Random.Range( 0, Base.Sides);
 
             // Set sprite to upper face of dice from array according to random value
-            spriteRenderer.sprite = diceSides[randomDiceSide];
+
+
+
+
+            if (Base.DiceSides.Count == 1)
+            {
+                spriteRenderer.sprite = Base.DiceSides[0];
+            }
+            else
+            {
+                spriteRenderer.sprite = Base.DiceSides[randomDiceSide];
+            }
+
 
             // Pause before next itteration
             yield return new WaitForSeconds(0.05f);
@@ -57,17 +58,11 @@ public class Dice : MonoBehaviour
 
         // Assigning final side so you can use this value later in your game
         // for player movement for example
-        ReturnedSide = randomDiceSide + 1;
+        Base.ReturnedSide = randomDiceSide + 1;
 
         // Show final dice value in Console
-        Debug.Log(ReturnedSide);
-        
-    }
+        Debug.Log(Base.ReturnedSide);
 
-  
-    public void setDice(bool value)
-    {
-        this.spriteRenderer.enabled = value;
     }
 
 

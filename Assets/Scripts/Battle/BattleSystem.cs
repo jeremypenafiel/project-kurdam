@@ -18,7 +18,6 @@ public class BattleSystem : MonoBehaviour
     BattleState state;
     int currentAction;
     int currentMove;
-    int attackRoll;
 
 
     private void Start()
@@ -55,7 +54,12 @@ public class BattleSystem : MonoBehaviour
         dialogBox.EnableActionSelector(false);
         dialogBox.EnableDialogText(false);
         dialogBox.EnableMoveSelector(true);
+    }
 
+    void EnemyMove()
+    {
+        state = BattleState.EnemyMove;
+        StartCoroutine(dialogBox.TypeDialog("Enemy is attacking."));
 
     }
 
@@ -64,6 +68,12 @@ public class BattleSystem : MonoBehaviour
         state = BattleState.AttackRoll;
         StartCoroutine(dialogBox.TypeDialog("Roll the dice to attack."));   
         diceHud.gameObject.SetActive(true);
+    }
+
+    void DamageRoll()
+    {
+        state = BattleState.DamageRoll;
+        StartCoroutine(dialogBox.TypeDialog("Roll the dice for damage."));
     }
 
 
@@ -80,15 +90,32 @@ public class BattleSystem : MonoBehaviour
         }else if(state == BattleState.AttackRoll)
         {
             StartCoroutine(HandleAttackRoll(d20));
+
         }else if(state==BattleState.DamageRoll)
         {
-            HandleDamageRoll(d20);
+            StartCoroutine(HandleDamageRoll(d6));
+
+        } else if (state == BattleState.EnemyMove)
+        {
+            HandleEnemyMove();
         }
     }
 
-    private void HandleDamageRoll(Dice d20)
+    private void HandleEnemyMove()
     {
-        throw new NotImplementedException();
+        Debug.Log("enemy move");
+    }
+
+    private IEnumerator HandleDamageRoll(Dice dice)
+    {
+        diceHud.SetText(state);
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            yield return StartCoroutine(dice.RollTheDice());
+            yield return StartCoroutine(dialogBox.TypeDialog($"You rolled a {dice.Base.ReturnedSide}."));
+        }
+            
+
     }
 
    
@@ -178,24 +205,27 @@ public class BattleSystem : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Z))
         {
             yield return StartCoroutine(dice.RollTheDice());
-            yield return StartCoroutine(dialogBox.TypeDialog($"You rolled a {dice.ReturnedSide}."));
+            yield return StartCoroutine(dialogBox.TypeDialog($"You rolled a {dice.Base.ReturnedSide}."));
             isHit =  CheckIfHit(dice);
-
+            yield return new WaitForSeconds(2f);
+            
             if (isHit)
             {
                 yield return StartCoroutine(dialogBox.TypeDialog($"You hit the enemy!"));
-                state = BattleState.DamageRoll;
+                DamageRoll();
             }
             else
             {
                 yield return StartCoroutine(dialogBox.TypeDialog($"You missed the enemy!"));
-                state = BattleState.EnemyMove;
+                EnemyMove();
             }
+            
+            
         }
     }
 
     private bool CheckIfHit(Dice dice)
     {
-        return dice.ReturnedSide >= enemyUnit.aswang.armorClass;
+        return dice.Base.ReturnedSide >= enemyUnit.aswang.armorClass;
     }
 }
