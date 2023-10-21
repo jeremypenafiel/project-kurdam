@@ -18,7 +18,7 @@ MonoBehaviour:
   frontSprite: {fileID: 7152930139536384079, guid: 3111f23cd57d2be48b2ee6bac4a23588, type: 3}
   AswangType1: 0
   MaxHP: 50
-  ArmorClass: 10
+  ArmorClass: 1
   Attack: 10
   Magical: 0
   Defense: 20

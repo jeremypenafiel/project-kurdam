@@ -14,4 +14,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sides: 20
   diceSides:
-  - {fileID: 21300000, guid: ce1a3ad74c3cc6c4c94c49e03e664525, type: 3}
+  - {fileID: -1219925130, guid: d937feb67ebaf7846b5eeb95d23e493b, type: 3}
+  - {fileID: -1296199067, guid: d937feb67ebaf7846b5eeb95d23e493b, type: 3}
+  - {fileID: -696574593, guid: d937feb67ebaf7846b5eeb95d23e493b, type: 3}
+  - {fileID: 106109922, guid: d937feb67ebaf7846b5eeb95d23e493b, type: 3}
+  - {fileID: 1900264509, guid: d937feb67ebaf7846b5eeb95d23e493b, type: 3}
+  - {fileID: 653013962, guid: d937feb67ebaf7846b5eeb95d23e493b, type: 3}
+  - {fileID: 976800489, guid: d937feb67ebaf7846b5eeb95d23e493b, type: 3}
+  - {fileID: 1042741987, guid: d937feb67ebaf7846b5eeb95d23e493b, type: 3}
+  - {fileID: -452037807, guid: d937feb67ebaf7846b5eeb95d23e493b, type: 3}
+  - {fileID: -1317248245, guid: d937feb67ebaf7846b5eeb95d23e493b, type: 3}
+  - {fileID: 1036593818, guid: d937feb67ebaf7846b5eeb95d23e493b, type: 3}
+  - {fileID: -310554177, guid: d937feb67ebaf7846b5eeb95d23e493b, type: 3}
+  - {fileID: 1609461593, guid: d937feb67ebaf7846b5eeb95d23e493b, type: 3}
+  - {fileID: 499547543, guid: d937feb67ebaf7846b5eeb95d23e493b, type: 3}
+  - {fileID: -735422837, guid: d937feb67ebaf7846b5eeb95d23e493b, type: 3}
+  - {fileID: -1094959482, guid: d937feb67ebaf7846b5eeb95d23e493b, type: 3}
+  - {fileID: 495769382, guid: d937feb67ebaf7846b5eeb95d23e493b, type: 3}
+  - {fileID: 222190683, guid: d937feb67ebaf7846b5eeb95d23e493b, type: 3}
+  - {fileID: 2032185473, guid: d937feb67ebaf7846b5eeb95d23e493b, type: 3}
+  - {fileID: 769159036, guid: d937feb67ebaf7846b5eeb95d23e493b, type: 3}
