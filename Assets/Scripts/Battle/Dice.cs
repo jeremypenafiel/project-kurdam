@@ -39,17 +39,8 @@ public class Dice : MonoBehaviour
 
             // Set sprite to upper face of dice from array according to random value
 
-
-
-
-            if (Base.DiceSides.Count == 1)
-            {
-                spriteRenderer.sprite = Base.DiceSides[0];
-            }
-            else
-            {
                 spriteRenderer.sprite = Base.DiceSides[randomDiceSide];
-            }
+            
 
 
             // Pause before next itteration

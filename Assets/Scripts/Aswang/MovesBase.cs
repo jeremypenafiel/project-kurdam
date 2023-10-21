@@ -12,7 +12,7 @@ public class MovesBase : ScriptableObject
 
     [SerializeField] AswangType Type;
     [SerializeField] int baseDamage;
-    [SerializeField] Dice dice;
+    [SerializeField] DiceBase diceBase;
 
     public string MoveName
     {
@@ -34,8 +34,8 @@ public class MovesBase : ScriptableObject
         get { return baseDamage; }
     }
 
-    public Dice Dice
+    public DiceBase DiceBase
     {
-        get { return dice; }
+        get { return diceBase; }
     }
 }
