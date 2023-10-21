@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 318c1610fc9b7fa469b295fe289053a9, type: 3}
   m_Name: Bakunawa
   m_EditorClassIdentifier: 
-  Aname: 
+  Aname: Bakunawa
   Description: "The Bakunawa is a huge shark that has wings and is believed to devour
     the sun or moon.\r\n\r\nIt has a body of a large shark and gills of a big fish.
     Its jaw was said to be as large as a lake with reddish tongue and coarse whiskers.
@@ -24,11 +24,19 @@ MonoBehaviour:
   backSprite: {fileID: 0}
   frontSprite: {fileID: 0}
   AswangType1: 2
-  MaxHP: 0
+  MaxHP: 15
   ArmorClass: 1
   Attack: 0
   Magical: 0
   Defense: 0
   Faith: 0
   Speed: 0
-  learnableMoves: []
+  learnableMoves:
+  - movesBase: {fileID: 11400000, guid: fd25b464ec2393849a517ed7bcf4d390, type: 2}
+    level: 1
+  - movesBase: {fileID: 11400000, guid: 306c0afc6b38915408e84719288e72ed, type: 2}
+    level: 1
+  - movesBase: {fileID: 0}
+    level: 1
+  - movesBase: {fileID: 11400000, guid: eaf8f9a1318af4c4198aa30298e22af7, type: 2}
+    level: 1

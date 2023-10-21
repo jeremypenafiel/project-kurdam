@@ -33,4 +33,9 @@ public class MovesBase : ScriptableObject
     {
         get { return baseDamage; }
     }
+
+    public Dice Dice
+    {
+        get { return dice; }
+    }
 }

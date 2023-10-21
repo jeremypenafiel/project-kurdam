@@ -81,7 +81,7 @@ public class Aswang
         return false;
     }
 
-    public Moves RandomMove()
+    public Moves GetRandomMove()
     {
         int r = Random.Range(0, moves.Count);
         return moves[r];

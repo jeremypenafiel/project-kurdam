@@ -16,45 +16,38 @@ public class DiceHud : MonoBehaviour
     [SerializeField] private TextMeshProUGUI text;
 
 
-    
+
 
 
     // Start is called before the first frame update
     void Start()
     {
-       /* this.currentDice = d6;*/
+        /* this.currentDice = d6;*/
     }
 
 
     private void Update()
     {
-/*        switch (this.state)
-        {
-            case RollState.AttackRoll:
-                
-                this.currentDice = d6;
-                this.Text.text = "Attack Roll";
-                break;
-            case RollState.DamageRoll:
-                this.currentDice = d6;
-                this.Text.text = "Damage Roll";
-                break;
+        /*        switch (this.state)
+                {
+                    case RollState.AttackRoll:
 
-        }
-        this.currentDice.gameObject.SetActive(true);*/
+                        this.currentDice = d6;
+                        this.Text.text = "Attack Roll";
+                        break;
+                    case RollState.DamageRoll:
+                        this.currentDice = d6;
+                        this.Text.text = "Damage Roll";
+                        break;
+
+                }
+                this.currentDice.gameObject.SetActive(true);*/
     }
-   
-    public void SetText(BattleState state)
+
+    public void SetText(string text)
     {
-        if (state == BattleState.AttackRoll)
-        {
-            this.text.text = "Attack Roll";
-        }
-        else
-        {
-            this.text.text = "Damage Roll";
-        }
-    }
+        this.text.text = text;
 
- 
+
+    }
 }
