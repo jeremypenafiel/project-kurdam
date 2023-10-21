@@ -16,3 +16,4 @@ MonoBehaviour:
   Description: Gamit ka ya tiil aw?
   Type: 0
   baseDamage: 15
+  diceBase: {fileID: 11400000, guid: 1011f84f6de7211468f81954ebe9fe50, type: 2}

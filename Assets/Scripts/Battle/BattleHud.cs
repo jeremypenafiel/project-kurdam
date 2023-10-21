@@ -10,11 +10,18 @@ public class BattleHud : MonoBehaviour
     [SerializeField] TextMeshProUGUI armorClassText;
     [SerializeField] HPBar hpBar;
 
+    Aswang _aswang;
     public void SetData(Aswang aswang)
-    {
+    {   
+        _aswang = aswang;
         nameText.text = aswang.Base.aname;
-        armorClassText.text =  $"{aswang.Level}";
-        hpBar.SetHP(0.5f);/*((float) aswang.HP / aswang.Maxhp)*/
+        armorClassText.text =  $"{aswang.armorClass}";
+        hpBar.SetHP((float)aswang.HP / aswang.Maxhp);
 
     }
+    public void UpdateHP()
+    {
+        hpBar.SetHP((float) _aswang.HP / _aswang.Maxhp);
+    }
 }
+    
