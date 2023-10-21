@@ -69,4 +69,23 @@ public class Aswang
         get { return Mathf.FloorToInt((Base.speed * Level) / 100f) + 5; }
     }
 
+    public bool TakeDamage(Moves move, Aswang attacker, int damage)
+    {
+        HP -= damage;
+        if(HP <= 0)
+        {
+            HP = 0;
+            return true;
+        }
+
+        return false;
+    }
+
+    public Moves RandomMove()
+    {
+        int r = Random.Range(0, moves.Count);
+        return moves[r];
+
+    }
+
 }

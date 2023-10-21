@@ -25,7 +25,7 @@ MonoBehaviour:
   frontSprite: {fileID: 0}
   AswangType1: 2
   MaxHP: 0
-  ArmorClass: 12
+  ArmorClass: 1
   Attack: 0
   Magical: 0
   Defense: 0
