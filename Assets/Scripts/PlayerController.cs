@@ -6,6 +6,10 @@ public class PlayerController : MonoBehaviour
 {
     public float moveSpeed;
     public bool isMoving;
+
+    public LayerMask Encounterable;
+
+
     private Vector2 input;
 
     private Animator animator;
@@ -56,5 +60,21 @@ public class PlayerController : MonoBehaviour
         }
         transform.position = targetPos;
         isMoving = false;
+
+        CheckForEncounters();
+    }
+
+    private void CheckForEncounters()
+    {
+        if (Physics2D.OverlapCircle(transform.position, 0.2f, Encounterable) != null)
+        {
+            if (Random.Range(1, 101) <= 10)
+            {
+                Debug.Log("May nakita");
+            }
+        }
+        {
+
+        }
     }
 }
