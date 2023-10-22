@@ -16,4 +16,3 @@ MonoBehaviour:
   Description: Way na damo wakal! Sumbaga ah
   Type: 0
   baseDamage: 10
-  diceBase: {fileID: 11400000, guid: 1011f84f6de7211468f81954ebe9fe50, type: 2}

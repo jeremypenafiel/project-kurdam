@@ -1,53 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEngine;
 
-
-
-
 public class DiceHud : MonoBehaviour
 {
-    /* [SerializeField] private Dice d6;*/
-    /*[SerializeField] private Dice d8;
-    [SerializeField] private Dice d20;*/
-    /*[HideInInspector] public Dice currentDice;*/
-    [SerializeField] private TextMeshProUGUI text;
+    [SerializeField] private Dice d6;
+    [SerializeField] private Dice d8;
+    [SerializeField] private Dice d20;
+    [SerializeField] TextMeshPro textMesh;
+    private CanvasRenderer canvas;
 
-
-
+    
 
 
     // Start is called before the first frame update
     void Start()
     {
-        /* this.currentDice = d6;*/
+        canvas = GetComponent<CanvasRenderer>();
+        //canvas.enabled = false;
     }
 
-
-    private void Update()
+    public void setDice()
     {
-        /*        switch (this.state)
-                {
-                    case RollState.AttackRoll:
-
-                        this.currentDice = d6;
-                        this.Text.text = "Attack Roll";
-                        break;
-                    case RollState.DamageRoll:
-                        this.currentDice = d6;
-                        this.Text.text = "Damage Roll";
-                        break;
-
-                }
-                this.currentDice.gameObject.SetActive(true);*/
+        d6.setDice(true);
     }
 
-    public void SetText(string text)
+    void setText(string text)
     {
-        this.text.text = text;
-
-
+        this.textMesh.text = text;
     }
 }
