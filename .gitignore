@@ -71,5 +71,3 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 Assets/Scripts/Aswang/Aswang.cs
-Assets/Scenes/Project Kurdam.unity
-*.unity
