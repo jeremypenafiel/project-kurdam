@@ -12,24 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 318c1610fc9b7fa469b295fe289053a9, type: 3}
   m_Name: Duwende
   m_EditorClassIdentifier: 
-  Aname: 
-  Description: "The Duwendes are short creatures with high pitched voices and are
-    protective of their domiciles.\r\n\r\nThey are little men with short limbs but
-    with large hands and feet. Their fingers are long and bony with long and hard
-    nails. Their face is round with high cheeks with a brownish, rough skin. They
-    have large sharp eyes with large mouth and teeth. They possess a high pitched
-    voice.\r\n\r\nThe Duwendes live in an anthill or a cave and punish children who
-    are playing in his house without asking permission. People must say \u201Ctabitabipo\u201D
-    whenever they pass by to prevent unintentionally stepping on them. They are also
-    friendly beings and even help their human friends become lucky and rich."
+  aname: Duwende
+  description: 
   backSprite: {fileID: 0}
   frontSprite: {fileID: 0}
-  AswangType1: 2
-  MaxHP: 0
-  ArmorClass: 0
-  Attack: 0
-  Magical: 0
-  Defense: 0
-  Faith: 0
-  Speed: 0
+  aswangType1: 0
+  maxHP: 16
+  armorClass: 15
+  strength: 15
+  dexterity: 14
+  constitution: 14
+  intelligence: 12
+  wisdom: 10
+  charisma: 9
   learnableMoves: []

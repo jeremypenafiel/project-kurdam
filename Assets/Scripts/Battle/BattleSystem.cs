@@ -40,7 +40,7 @@ public class BattleSystem : MonoBehaviour
         currentDice = d20;
         dialogBox.SetMoveNames(playerUnit.aswang.moves);
 
-        yield return dialogBox.TypeDialog($"A wild {playerUnit.aswang.Base.aname} appeared.");
+        yield return dialogBox.TypeDialog($"A wild {playerUnit.aswang.Base.Aname} appeared.");
         yield return new WaitForSeconds(1f);
         
         ActionSelection();
@@ -219,6 +219,7 @@ public class BattleSystem : MonoBehaviour
         
         bool isHit;
         Moves move = playerUnit.aswang.moves[currentMove];
+        currentDice = d20;
         state = BattleState.Busy;
         dialogBox.SetDialog("");
         yield return StartCoroutine(d20.RollTheDice());
@@ -247,14 +248,14 @@ public class BattleSystem : MonoBehaviour
         currentDice = dice;
 
         yield return StartCoroutine(dice.RollTheDice());
-        yield return StartCoroutine(dialogBox.TypeDialog($"You rolled {dice.Base.ReturnedSide}."));
+        yield return StartCoroutine(dialogBox.TypeDialog($"You rolled {dice.Base.ReturnedSide} + {playerUnit.aswang.Strength}."));
         yield return new WaitForSeconds(1f);
         int damage = dice.Base.ReturnedSide;
         bool isDead = targetUnit.aswang.TakeDamage(move, playerUnit.aswang, damage);
         enemyHud.UpdateHP();
         if (isDead)
         {
-            yield return StartCoroutine(dialogBox.TypeDialog($"You defeated the enemy {targetUnit.aswang.Base.aname}!"));
+            yield return StartCoroutine(dialogBox.TypeDialog($"You defeated the enemy {targetUnit.aswang.Base.Aname}!"));
             yield return new WaitForSeconds(1f);
             //end battle
         }
@@ -268,8 +269,12 @@ public class BattleSystem : MonoBehaviour
     {
         state = BattleState.EnemyMove;
         Moves move = enemyUnit.aswang.GetRandomMove();
-        d20.gameObject.SetActive(true);
-        previousDice.gameObject.SetActive(false);
+        if (currentDice != d20)
+        {
+            previousDice.gameObject.SetActive(false);
+            d20.gameObject.SetActive(true);
+        }
+        
 
         Dice moveDice = GetDice(move);
         bool isHit;
@@ -291,7 +296,7 @@ public class BattleSystem : MonoBehaviour
             currentDice = moveDice;
             diceHud.SetText("Damage Roll");
             yield return StartCoroutine(moveDice.RollTheDice());
-            yield return StartCoroutine(dialogBox.TypeDialog($"Enemy rolled {moveDice.Base.ReturnedSide}."));
+            yield return StartCoroutine(dialogBox.TypeDialog($"Enemy rolled {moveDice.Base.ReturnedSide} + {enemyUnit.aswang.Strength}."));
             yield return new WaitForSeconds(1f);
 
             int damage = moveDice.Base.ReturnedSide;
@@ -300,7 +305,7 @@ public class BattleSystem : MonoBehaviour
 
             if (isDead)
             {
-                yield return StartCoroutine(dialogBox.TypeDialog($"You were defeated by the enemy {enemyUnit.aswang.Base.aname}!"));
+                yield return StartCoroutine(dialogBox.TypeDialog($"You were defeated by the enemy {enemyUnit.aswang.Base.Aname}!"));
                 yield return new WaitForSeconds(1f);
                 //end battle
             }
@@ -320,7 +325,7 @@ public class BattleSystem : MonoBehaviour
 
     private bool CheckIfHit(Dice dice, BattleUnit target )
     {
-        return dice.Base.ReturnedSide >= target.aswang.armorClass;
+        return dice.Base.ReturnedSide >= target.aswang.ArmorClass;
 
     }
 

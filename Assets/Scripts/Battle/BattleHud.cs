@@ -14,14 +14,14 @@ public class BattleHud : MonoBehaviour
     public void SetData(Aswang aswang)
     {   
         _aswang = aswang;
-        nameText.text = aswang.Base.aname;
-        armorClassText.text =  $"{aswang.armorClass}";
-        hpBar.SetHP((float)aswang.HP / aswang.Maxhp);
+        nameText.text = aswang.Base.Aname;
+        armorClassText.text =  $"{aswang.ArmorClass}";
+        hpBar.SetHP((float)aswang.HP / aswang.MaxHP);
 
     }
     public void UpdateHP()
     {
-        hpBar.SetHP((float) _aswang.HP / _aswang.Maxhp);
+        hpBar.SetHP((float) _aswang.HP / _aswang.MaxHP);
     }
 }
     

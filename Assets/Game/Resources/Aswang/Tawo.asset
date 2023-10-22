@@ -12,18 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 318c1610fc9b7fa469b295fe289053a9, type: 3}
   m_Name: Tawo
   m_EditorClassIdentifier: 
-  Aname: Tawo
-  Description: Tawo lang man ni
+  aname: Tawo
+  description: 
   backSprite: {fileID: -4445699719359273135, guid: 3111f23cd57d2be48b2ee6bac4a23588, type: 3}
   frontSprite: {fileID: 7152930139536384079, guid: 3111f23cd57d2be48b2ee6bac4a23588, type: 3}
-  AswangType1: 0
-  MaxHP: 50
-  ArmorClass: 1
-  Attack: 10
-  Magical: 0
-  Defense: 20
-  Faith: 5
-  Speed: 5
+  aswangType1: 0
+  maxHP: 11
+  armorClass: 12
+  strength: 13
+  dexterity: 11
+  constitution: 12
+  intelligence: 8
+  wisdom: 11
+  charisma: 8
   learnableMoves:
   - movesBase: {fileID: 11400000, guid: eaf8f9a1318af4c4198aa30298e22af7, type: 2}
     level: 10

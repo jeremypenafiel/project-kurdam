@@ -6,33 +6,34 @@ using UnityEngine;
 [CreateAssetMenu(fileName ="Aswang", menuName ="Aswang/Create new Aswang")]
 public class AswangBase : ScriptableObject
 {
-    [SerializeField] string Aname;
+    [SerializeField] string aname;
 
     [TextArea]
-    [SerializeField] string Description;
+    [SerializeField] string description;
 
     [SerializeField] Sprite backSprite;
     [SerializeField] Sprite frontSprite;
 
-    [SerializeField] AswangType AswangType1;
+    [SerializeField] AswangType aswangType1;
 
     //Base Stats
-    [SerializeField] int MaxHP;
-    [SerializeField] int ArmorClass;
-    [SerializeField] int Attack;
-    [SerializeField] int Magical;
-    [SerializeField] int Defense;
-    [SerializeField] int Faith;
-    [SerializeField] int Speed;
+    [SerializeField] int maxHP;
+    [SerializeField] int armorClass;
+    [SerializeField] int strength;
+    [SerializeField] int dexterity;
+    [SerializeField] int constitution;
+    [SerializeField] int intelligence;
+    [SerializeField] int wisdom;
+    [SerializeField] int charisma;
     [SerializeField] List<LearnableMove> learnableMoves;
 
-    public string aname
+    public string Aname
     {
-        get { return Aname; }
+        get { return aname; }
     }
-    public string description
+    public string Description
     {
-        get { return Description; }
+        get { return description; }
     }
 
     public Sprite Frontsprite
@@ -45,44 +46,44 @@ public class AswangBase : ScriptableObject
         get { return backSprite; }
     }
 
-    public AswangType aswangType1
+    public AswangType AswangType1
     {
-        get { return AswangType1; }
+        get { return aswangType1; }
     }
 
-    public int maxhp
+    public int MaxHP
     {
-        get { return MaxHP; }
+        get { return maxHP; }
     }
 
-    public int armorClass
+    public int ArmorClass
     {
-        get { return ArmorClass; }
+        get { return armorClass; }
     }   
 
-    public int attack
+    public int Strength
     {
-        get { return Attack; }
+        get { return strength; }
     }
 
-    public int magical
+    public int Dexterity
     {
-        get { return Magical; }
+        get { return dexterity; }
     }
 
-    public int defense
+    public int Constitution
     {
-        get { return Defense; }
+        get { return constitution; }
     }
 
-    public int faith
+    public int Intelligence
     {
-        get { return Faith; }
+        get { return intelligence; }
     }
 
-    public int speed
+    public int Charisma
     {
-        get { return Speed; }
+        get { return charisma; }
     }
 
     public List<LearnableMove> LearnableMoves
@@ -102,7 +103,7 @@ public class LearnableMove
         get { return level; }
     }
 
-    public MovesBase movesbase
+    public MovesBase MovesBase
     {
         get { return movesBase; }
     }
