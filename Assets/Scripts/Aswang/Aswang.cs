@@ -8,9 +8,6 @@ public class Aswang
     public int Level { get; set; }
 
     public int HP { get; set; }
-    
-    public int armorClass { get; set; }
-
 
 
 
@@ -20,7 +17,6 @@ public class Aswang
         Base = abase;
         this.Level = alevel;
         HP = Maxhp;
-        armorClass = ArmorClass;
 
         //generate moves
         moves = new List<Moves>();
@@ -44,11 +40,6 @@ public class Aswang
         get { return Mathf.FloorToInt((Base.maxhp * Level) / 100f) + 5; }
     }
 
-        public int ArmorClass
-    {
-        get { return Base.armorClass;}
-    }
-
        public int Magical
     {
         get { return Mathf.FloorToInt((Base.magical * Level) / 100f) + 5; }
@@ -67,25 +58,6 @@ public class Aswang
     public int Speed
     {
         get { return Mathf.FloorToInt((Base.speed * Level) / 100f) + 5; }
-    }
-
-    public bool TakeDamage(Moves move, Aswang attacker, int damage)
-    {
-        HP -= damage;
-        if(HP <= 0)
-        {
-            HP = 0;
-            return true;
-        }
-
-        return false;
-    }
-
-    public Moves GetRandomMove()
-    {
-        int r = Random.Range(0, moves.Count);
-        return moves[r];
-
     }
 
 }
