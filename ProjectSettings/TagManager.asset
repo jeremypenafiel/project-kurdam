@@ -13,7 +13,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Encounterable
   - 
   - 
   - 
@@ -49,4 +49,7 @@ TagManager:
     locked: 0
   - name: trees
     uniqueID: 1372572789
+    locked: 0
+  - name: Foreground
+    uniqueID: 2278589999
     locked: 0
