@@ -18,6 +18,7 @@ public class AswangBase : ScriptableObject
 
     //Base Stats
     [SerializeField] int MaxHP;
+    [SerializeField] int ArmorClass;
     [SerializeField] int Attack;
     [SerializeField] int Magical;
     [SerializeField] int Defense;
@@ -53,6 +54,11 @@ public class AswangBase : ScriptableObject
     {
         get { return MaxHP; }
     }
+
+    public int armorClass
+    {
+        get { return ArmorClass; }
+    }   
 
     public int attack
     {
