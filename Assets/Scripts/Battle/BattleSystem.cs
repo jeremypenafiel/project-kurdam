@@ -20,6 +20,7 @@ public class BattleSystem : MonoBehaviour
     BattleState state;
     int currentAction;
     int currentMove;
+    Dice currentDice;
 
 
     private void Start()
@@ -36,7 +37,7 @@ public class BattleSystem : MonoBehaviour
         enemyUnit.Setup();
         playerHud.SetData(playerUnit.aswang);
         enemyHud.SetData(enemyUnit.aswang);
-
+        currentDice = d20;
         dialogBox.SetMoveNames(playerUnit.aswang.moves);
 
         yield return dialogBox.TypeDialog($"A wild {playerUnit.aswang.Base.aname} appeared.");
@@ -65,8 +66,13 @@ public class BattleSystem : MonoBehaviour
     void PlayerAttackRoll()
     {
         state = BattleState.PlayerAttackRoll;
+        
         StartCoroutine(dialogBox.TypeDialog("Roll the dice to attack."));
         diceHud.SetText("Attack Roll");
+        if (currentDice != d20)
+        {
+            currentDice.gameObject.SetActive(false);
+        }
         d20.gameObject.SetActive(true);
         diceHud.gameObject.SetActive(true);
     }
@@ -102,10 +108,6 @@ public class BattleSystem : MonoBehaviour
 
         } 
     }
-
-
-
-  
 
     IEnumerator RollDialog(bool isHit, BattleUnit unit)
     {
@@ -199,7 +201,7 @@ public class BattleSystem : MonoBehaviour
     {  
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            StartCoroutine(PerformPlayerAttackRoll(dice, enemyUnit));
+            StartCoroutine(PerformPlayerAttackRoll(enemyUnit));
         }
     }
 
@@ -212,22 +214,17 @@ public class BattleSystem : MonoBehaviour
 
     }
 
-    private void HandleEnemyMove()
+    private IEnumerator PerformPlayerAttackRoll(BattleUnit targetUnit)
     {
         
-    }
-
-
-
-    private IEnumerator PerformPlayerAttackRoll(Dice dice, BattleUnit targetUnit)
-    {
         bool isHit;
         Moves move = playerUnit.aswang.moves[currentMove];
         state = BattleState.Busy;
-        yield return StartCoroutine(dice.RollTheDice());
-        yield return StartCoroutine(dialogBox.TypeDialog($"You rolled {dice.Base.ReturnedSide}."));
+        dialogBox.SetDialog("");
+        yield return StartCoroutine(d20.RollTheDice());
+        yield return StartCoroutine(dialogBox.TypeDialog($"You rolled {d20.Base.ReturnedSide}."));
         yield return new WaitForSeconds(1f);
-        isHit = CheckIfHit(dice, targetUnit);
+        isHit = CheckIfHit(d20, targetUnit);
         yield return StartCoroutine(RollDialog(isHit, playerUnit));
         if (isHit)
         {
@@ -235,7 +232,7 @@ public class BattleSystem : MonoBehaviour
         }
         else
         {
-            StartCoroutine(EnemyMove(dice));
+            StartCoroutine(EnemyMove(d20));
         }
     }
 
@@ -247,6 +244,7 @@ public class BattleSystem : MonoBehaviour
         state = BattleState.Busy;
         d20.gameObject.SetActive(false);
         dice.gameObject.SetActive(true);
+        currentDice = dice;
 
         yield return StartCoroutine(dice.RollTheDice());
         yield return StartCoroutine(dialogBox.TypeDialog($"You rolled {dice.Base.ReturnedSide}."));
@@ -290,6 +288,7 @@ public class BattleSystem : MonoBehaviour
         {
             d20.gameObject.SetActive(false);
             moveDice.gameObject.SetActive(true);
+            currentDice = moveDice;
             diceHud.SetText("Damage Roll");
             yield return StartCoroutine(moveDice.RollTheDice());
             yield return StartCoroutine(dialogBox.TypeDialog($"Enemy rolled {moveDice.Base.ReturnedSide}."));
