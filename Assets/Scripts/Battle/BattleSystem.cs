@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,13 +18,15 @@ public class BattleSystem : MonoBehaviour
     [SerializeField] Dice d6;
     [SerializeField] Dice d20;
 
+    public event Action<bool> OnBattleOver;
+
     BattleState state;
     int currentAction;
     int currentMove;
     Dice currentDice;
 
 
-    private void Start()
+    public void StartBattle()
     {
         StartCoroutine(SetupBattle());
     }
@@ -88,7 +91,7 @@ public class BattleSystem : MonoBehaviour
 
    
 
-    private void Update()
+    public void HandleUpdate()
     {
         if (state == BattleState.PlayerAction)
         {
@@ -256,6 +259,8 @@ public class BattleSystem : MonoBehaviour
         {
             yield return StartCoroutine(dialogBox.TypeDialog($"You defeated the enemy {targetUnit.aswang.Base.aname}!"));
             yield return new WaitForSeconds(1f);
+
+            OnBattleOver(true);
             //end battle
         }
         else
@@ -302,6 +307,8 @@ public class BattleSystem : MonoBehaviour
             {
                 yield return StartCoroutine(dialogBox.TypeDialog($"You were defeated by the enemy {enemyUnit.aswang.Base.aname}!"));
                 yield return new WaitForSeconds(1f);
+
+                OnBattleOver(false);
                 //end battle
             }
             else
