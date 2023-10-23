@@ -14,13 +14,15 @@ public class BattleSystem : MonoBehaviour
     [SerializeField] Dice d6;
     [SerializeField] Dice d20;
 
+    public event Action<bool> OnBattleOver;
+
     BattleState state;
     int currentAction;
     int currentMove;
     Dice currentDice;
 
 
-    private void Start()
+    public void StartBattle()
     {
         StartCoroutine(SetupBattle());
     }
@@ -89,7 +91,7 @@ public class BattleSystem : MonoBehaviour
         diceHud.SetText("Attack Roll");
     }
 
-    private void Update()
+    public void HandleUpdate()
     {
         if (state == BattleState.ActionSelection)
         {
