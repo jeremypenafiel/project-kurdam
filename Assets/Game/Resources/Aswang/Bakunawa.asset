@@ -17,8 +17,8 @@ MonoBehaviour:
   backSprite: {fileID: 0}
   frontSprite: {fileID: 408872336, guid: 6e84ea11b03c19d4fa8769988087fe16, type: 3}
   aswangType1: 0
-  maxHP: 22
-  armorClass: 10
+  maxHP: 5
+  armorClass: 2
   strength: 15
   dexterity: 10
   constitution: 13

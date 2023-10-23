@@ -294,12 +294,19 @@ public class BattleSystem : MonoBehaviour
         yield return StartCoroutine(dialogBox.TypeDialog($"{subject} rolled {dice.Base.ReturnedSide} + {sourceUnit.aswang.Strength} STRENGTH modifier."));
         yield return new WaitForSeconds(1f);
         int damage = dice.Base.ReturnedSide;
+
+        enemyUnit.PlayAttackAnimation();
+        yield return new WaitForSeconds(0.5f);
+
+        playerUnit.PlayHitAnimation();
+
         bool isDead = targetUnit.aswang.TakeDamage(move, sourceUnit.aswang, damage);
         yield return targetUnit.Hud.UpdateHP();
 
         if (isDead)
         {
             yield return (StartCoroutine(dialogBox.TypeDialog(targetUnit.GetDefeatText())));
+            playerUnit.PlayFaintAnimation();
             yield return new WaitForSeconds(1f);
             OnBattleOver(true);
         }
@@ -338,12 +345,19 @@ public class BattleSystem : MonoBehaviour
         yield return StartCoroutine(dialogBox.TypeDialog($"{subject} rolled {dice.Base.ReturnedSide} + {sourceUnit.aswang.Strength} STRENGTH modifier."));
         yield return new WaitForSeconds(1f);
         int damage = dice.Base.ReturnedSide;
+
+        playerUnit.PlayAttackAnimation();
+        yield return new WaitForSeconds(0.5f);
+
+        enemyUnit.PlayHitAnimation();
+
         bool isDead = targetUnit.aswang.TakeDamage(move, sourceUnit.aswang, damage);
         yield return targetUnit.Hud.UpdateHP();
 
         if (isDead)
         {
             yield return (StartCoroutine(dialogBox.TypeDialog(targetUnit.GetDefeatText())));
+            enemyUnit.PlayFaintAnimation();
             yield return new WaitForSeconds(1f);
             OnBattleOver(true);
         }
