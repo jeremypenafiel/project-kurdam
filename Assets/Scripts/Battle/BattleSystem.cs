@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using System;
+
 
 public enum BattleState { Start, PlayerAction, EnemyMove, Busy, PlayerMove, PlayerAttackRoll, PlayerDamageRoll, EnemyAttackRoll, EnemyDamageRoll }
 
