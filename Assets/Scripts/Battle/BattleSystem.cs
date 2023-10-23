@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -109,8 +110,14 @@ public class BattleSystem : MonoBehaviour
 
         } else if (state==BattleState.EnemyMove)
         {
-
+            HandleEnemyMove();
         }
+    }
+
+    private void PerformEnemyMove()
+    {
+        Debug.Log("Enemy movcew na");
+        StartCoroutine(PerformAttackRoll(enemyUnit, playerUnit, currentDice));
     }
 
     IEnumerator RollDialog(bool isHit, BattleUnit unit)
@@ -128,8 +135,6 @@ public class BattleSystem : MonoBehaviour
         yield return StartCoroutine(dialogBox.TypeDialog(text));
         yield return new WaitForSeconds(1f);    
     }
-
-   
 
     void HandleActionSelection()
     {
@@ -220,7 +225,7 @@ public class BattleSystem : MonoBehaviour
     
     private void HandleEnemyMove()
     {
-        StartCoroutine(PerformAttackRoll(enemyUnit, playerUnit, currentDice));
+        PerformEnemyMove();
     }
 
     IEnumerator PerformAttackRoll(BattleUnit sourceUnit, BattleUnit targetUnit, Dice previousDice)
@@ -233,7 +238,8 @@ public class BattleSystem : MonoBehaviour
         currentDice = d20;
 
         bool isHit;
-        string subject = sourceUnit.GetSubject(); ;
+        string subject = sourceUnit.GetSubject();
+        Debug.Log("Attack roll is this subject : " + subject);
 
         yield return StartCoroutine(d20.RollTheDice());
         yield return StartCoroutine(dialogBox.TypeDialog($"{subject} rolled {d20.Base.ReturnedSide}."));
@@ -246,7 +252,21 @@ public class BattleSystem : MonoBehaviour
             {
                 PlayerDamageRoll(GetDice(move));
             }
-            PerformDamageRoll(sourceUnit, targetUnit, d20, move);
+            else
+            {
+                StartCoroutine(PerformDamageRoll(sourceUnit, targetUnit, d20, move));
+            }
+        }
+        else
+        {
+            if (sourceUnit.IsPlayerUnit)
+            {
+                EnemyMove();
+            }
+            else
+            {
+                ActionSelection();
+            }
         }
 
     }
@@ -255,7 +275,7 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator PerformDamageRoll(BattleUnit sourceUnit, BattleUnit targetUnit, Dice previousDice, Moves move)
     {
-        state = BattleState.Busy;
+        state = BattleState.PerformMove;
         
         Dice dice = GetDice(move);
         string subject = sourceUnit.GetSubject();
@@ -275,6 +295,19 @@ public class BattleSystem : MonoBehaviour
             yield return (StartCoroutine(dialogBox.TypeDialog(targetUnit.GetDefeatText())));
             yield return new WaitForSeconds(1f);
         }
+        else
+        {
+            if(sourceUnit.IsPlayerUnit)
+            {
+                EnemyMove();
+            }
+            else
+            {
+                ActionSelection();
+            }
+        }
+
+        
     }
 
 
@@ -300,6 +333,17 @@ public class BattleSystem : MonoBehaviour
         {
             yield return (StartCoroutine(dialogBox.TypeDialog(targetUnit.GetDefeatText())));
             yield return new WaitForSeconds(1f);
+        }
+        else
+        {
+            if (sourceUnit.IsPlayerUnit)
+            {
+                EnemyMove();
+            }
+            else
+            {
+                ActionSelection();
+            }
         }
     }
 
