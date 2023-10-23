@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 318c1610fc9b7fa469b295fe289053a9, type: 3}
   m_Name: Bakunawa
   m_EditorClassIdentifier: 
-  aname: 
+  aname: Bakunawa
   description: 
   backSprite: {fileID: 0}
   frontSprite: {fileID: 21300000, guid: 4109c62d6689d76468445e1a4bdfd65e, type: 3}
