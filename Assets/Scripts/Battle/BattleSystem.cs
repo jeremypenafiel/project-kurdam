@@ -88,7 +88,6 @@ public class BattleSystem : MonoBehaviour
 
         diceHud.SetText("Attack Roll");
     }
-   
 
     private void Update()
     {
@@ -272,7 +271,6 @@ public class BattleSystem : MonoBehaviour
     }
 
 
-
     IEnumerator PerformDamageRoll(BattleUnit sourceUnit, BattleUnit targetUnit, Dice previousDice, Moves move)
     {
         state = BattleState.PerformMove;
@@ -284,7 +282,7 @@ public class BattleSystem : MonoBehaviour
         currentDice = dice;
 
         yield return StartCoroutine(dice.RollTheDice());
-        yield return StartCoroutine(dialogBox.TypeDialog($"{subject} rolled {dice.Base.ReturnedSide} + {playerUnit.aswang.Strength}."));
+        yield return StartCoroutine(dialogBox.TypeDialog($"{subject} rolled {dice.Base.ReturnedSide} + {playerUnit.aswang.Strength} STRENGTH modifier."));
         yield return new WaitForSeconds(1f);
         int damage = dice.Base.ReturnedSide;
         bool isDead = targetUnit.aswang.TakeDamage(move, sourceUnit.aswang, damage);
@@ -309,7 +307,6 @@ public class BattleSystem : MonoBehaviour
 
         
     }
-
 
     IEnumerator PerformDamageRoll(BattleUnit sourceUnit, BattleUnit targetUnit, Dice previousDice)
     {
@@ -346,115 +343,6 @@ public class BattleSystem : MonoBehaviour
             }
         }
     }
-
-
-
-
-    /*    private IEnumerator PerformPlayerAttackRoll(BattleUnit targetUnit)
-        {
-
-            state = BattleState.Busy;
-            bool isHit;
-            Moves move = playerUnit.aswang.moves[currentMove];
-            currentDice = d20;
-            dialogBox.SetDialog("");
-            yield return StartCoroutine(d20.RollTheDice());
-            yield return StartCoroutine(dialogBox.TypeDialog($"You rolled {d20.Base.ReturnedSide}."));
-            yield return new WaitForSeconds(1f);
-            isHit = CheckIfHit(d20, targetUnit);
-            yield return StartCoroutine(RollDialog(isHit, playerUnit));
-            if (isHit)
-            {
-                PlayerDamageRoll(GetDice(move));
-            }
-            else
-            {
-                StartCoroutine(PerformEnemyMove(d20));
-            }
-        }
-
-        private IEnumerator PerformPlayerDamageRoll(BattleUnit targetUnit)
-        {
-            state = BattleState.Busy;
-            Dice dice = GetDice(playerUnit.aswang.moves[currentMove]);
-            Moves move = playerUnit.aswang.moves[currentMove];
-
-            d20.gameObject.SetActive(false);
-            dice.gameObject.SetActive(true);
-            currentDice = dice;
-
-            yield return StartCoroutine(dice.RollTheDice());
-            yield return StartCoroutine(dialogBox.TypeDialog($"You rolled {dice.Base.ReturnedSide} + {playerUnit.aswang.Strength}."));
-            yield return new WaitForSeconds(1f);
-            int damage = dice.Base.ReturnedSide;
-            bool isDead = targetUnit.aswang.TakeDamage(move, playerUnit.aswang, damage);
-            enemyHud.UpdateHP();
-            if (isDead)
-            {
-                yield return StartCoroutine(dialogBox.TypeDialog($"You defeated the enemy {targetUnit.aswang.Base.Aname}!"));
-                yield return new WaitForSeconds(1f);
-                //end battle
-            }
-            else
-            {
-                StartCoroutine(PerformEnemyMove(dice));
-            }   
-        }*/
-
-    /*    IEnumerator PerformEnemyMove(Dice previousDice)
-        {
-            state = BattleState.EnemyMove;
-            Moves move = enemyUnit.aswang.GetRandomMove();
-            if (currentDice != d20)
-            {
-                previousDice.gameObject.SetActive(false);
-                d20.gameObject.SetActive(true);
-            }
-
-            Dice moveDice = GetDice(move);
-            bool isHit;
-
-            yield return StartCoroutine(d20.RollTheDice());
-            yield return StartCoroutine(dialogBox.TypeDialog($"Enemy rolled {d20.Base.ReturnedSide}."));
-            yield return new WaitForSeconds(1f);
-
-            isHit = CheckIfHit(d20, playerUnit);
-            yield return StartCoroutine(RollDialog(isHit, enemyUnit));
-            if (isHit)
-            {
-                d20.gameObject.SetActive(false);
-                moveDice.gameObject.SetActive(true);
-                currentDice = moveDice;
-                diceHud.SetText("Damage Roll");
-                yield return StartCoroutine(moveDice.RollTheDice());
-                yield return StartCoroutine(dialogBox.TypeDialog($"Enemy rolled {moveDice.Base.ReturnedSide} + {enemyUnit.aswang.Strength}."));
-                yield return new WaitForSeconds(1f);
-
-                int damage = moveDice.Base.ReturnedSide;
-                bool isDead = playerUnit.aswang.TakeDamage(move, enemyUnit.aswang, damage);
-                playerHud.UpdateHP();
-
-                if (isDead)
-                {
-                    yield return StartCoroutine(dialogBox.TypeDialog($"You were defeated by the enemy {enemyUnit.aswang.Base.Aname}!"));
-                    yield return new WaitForSeconds(1f);
-                    //end battle
-                }
-                else
-                {
-                    ActionSelection();
-                }
-            }
-            else
-            {
-                ActionSelection();
-            }
-
-        }*/
-
-
-
-
 
     private bool CheckIfHit(Dice dice, BattleUnit target )
     {
