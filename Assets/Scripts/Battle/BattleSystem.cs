@@ -15,6 +15,7 @@ public class BattleSystem : MonoBehaviour
     [SerializeField] Dice d20;
 
     public event Action<bool> OnBattleOver;
+    public event Action Run;
 
     BattleState state;
     int currentAction;
@@ -59,6 +60,7 @@ public class BattleSystem : MonoBehaviour
         dialogBox.EnableDialogText(false);
         dialogBox.EnableMoveSelector(true);
     }
+
 
     void PlayerAttackRoll()
     {
@@ -162,7 +164,8 @@ public class BattleSystem : MonoBehaviour
             }
             else if (currentAction == 1)
             {
-                //run
+
+                StartCoroutine(RunBattle());
             }
         }
     }
@@ -204,6 +207,12 @@ public class BattleSystem : MonoBehaviour
             dialogBox.EnableMoveSelector(false);
             dialogBox.EnableDialogText(true);
             PlayerAttackRoll();
+        }
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            dialogBox.EnableMoveSelector(false);
+            dialogBox.EnableDialogText(true);
+            ActionSelection();
         }
     }
     private void HandlePlayerAttackRoll(Dice dice)
@@ -305,6 +314,13 @@ public class BattleSystem : MonoBehaviour
                 ActionSelection();
             }
         }
+    }
+
+    IEnumerator RunBattle()
+    {
+        yield return StartCoroutine(dialogBox.TypeDialog("You Fled from the Aswang"));
+        yield return new WaitForSeconds(1f);
+        Run();
     }
 
     IEnumerator PerformDamageRoll(BattleUnit sourceUnit, BattleUnit targetUnit, Dice previousDice)
