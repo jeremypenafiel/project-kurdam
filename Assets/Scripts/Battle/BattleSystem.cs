@@ -304,8 +304,6 @@ public class BattleSystem : MonoBehaviour
                 ActionSelection();
             }
         }
-
-        
     }
 
     IEnumerator PerformDamageRoll(BattleUnit sourceUnit, BattleUnit targetUnit, Dice previousDice)
