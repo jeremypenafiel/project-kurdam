@@ -11,19 +11,11 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 318c1610fc9b7fa469b295fe289053a9, type: 3}
   m_Name: Bakunawa
-  m_EditorClassIdentifier:
-
-  aname: Bakunawa
-  Description: "The Bakunawa is a huge shark that has wings and is believed to devour
-    the sun or moon.\r\n\r\nIt has a body of a large shark and gills of a big fish.
-    Its jaw was said to be as large as a lake with reddish tongue and coarse whiskers.
-    On its\u2019 sides are two large wings.\r\n\r\nThe Bakunawa lives in the deepest
-    part of the ocean and would sometimes fly to the sky and devour the sun or moon
-    which would darken the world. People became frightened when it happened and made
-    lots of noise. The noise was heard by the Bakunawa and made it scared that it
-    released the sun or moon."
-  backSprite: {fileID: 408872336, guid: 6e84ea11b03c19d4fa8769988087fe16, type: 3}
-  frontSprite: {fileID: 408872336, guid: 6e84ea11b03c19d4fa8769988087fe16, type: 3}
+  m_EditorClassIdentifier: 
+  aname: 
+  description: 
+  backSprite: {fileID: 0}
+  frontSprite: {fileID: 21300000, guid: 4109c62d6689d76468445e1a4bdfd65e, type: 3}
   aswangType1: 0
   maxHP: 22
   armorClass: 10
@@ -34,11 +26,11 @@ MonoBehaviour:
   wisdom: 12
   charisma: 7
   learnableMoves:
-  - movesBase: {fileID: 11400000, guid: fd25b464ec2393849a517ed7bcf4d390, type: 2}
-    level: 1
-  - movesBase: {fileID: 11400000, guid: 306c0afc6b38915408e84719288e72ed, type: 2}
+  - movesBase: {fileID: 11400000, guid: eaf8f9a1318af4c4198aa30298e22af7, type: 2}
     level: 1
   - movesBase: {fileID: 11400000, guid: 96083b63a7cb7824695aacac6266463e, type: 2}
     level: 1
-  - movesBase: {fileID: 11400000, guid: eaf8f9a1318af4c4198aa30298e22af7, type: 2}
+  - movesBase: {fileID: 11400000, guid: 306c0afc6b38915408e84719288e72ed, type: 2}
+    level: 1
+  - movesBase: {fileID: 11400000, guid: fd25b464ec2393849a517ed7bcf4d390, type: 2}
     level: 1

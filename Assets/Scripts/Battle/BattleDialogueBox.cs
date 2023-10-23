@@ -90,13 +90,11 @@ public class BattleDialogueBox : MonoBehaviour
 
     public void SetMoveNames(List<Moves> moves)
     {
-        Debug.Log("SetMoveNames");
         for (int i = 0; i <= moves.Count; ++i)
         {
             if (i < moves.Count)
             {
                 moveTexts[i].text = moves[i].Base.MoveName;
-                Debug.Log(moves[i].Base.MoveName);
             }
             else
             {

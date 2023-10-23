@@ -52,7 +52,6 @@ public class Dice : MonoBehaviour
         Base.ReturnedSide = randomDiceSide;
 
         // Show final dice value in Console
-        Debug.Log(Base.ReturnedSide);
 
     }
 
