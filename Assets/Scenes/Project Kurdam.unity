@@ -103860,7 +103860,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _base: {fileID: 11400000, guid: 549514c8bdd42aa4d95b63aef881cff2, type: 2}
-  level: 0
+  hud: {fileID: 1156048722}
+  level: 10
   isPlayerUnit: 0
 --- !u!114 &1562102398
 MonoBehaviour:
