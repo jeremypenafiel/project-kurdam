@@ -21,8 +21,8 @@ MonoBehaviour:
     which would darken the world. People became frightened when it happened and made
     lots of noise. The noise was heard by the Bakunawa and made it scared that it
     released the sun or moon."
-  backSprite: {fileID: 0}
-  frontSprite: {fileID: 0}
+  backSprite: {fileID: 408872336, guid: 6e84ea11b03c19d4fa8769988087fe16, type: 3}
+  frontSprite: {fileID: 408872336, guid: 6e84ea11b03c19d4fa8769988087fe16, type: 3}
   AswangType1: 2
   MaxHP: 15
   ArmorClass: 1
