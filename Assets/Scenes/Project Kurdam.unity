@@ -103156,6 +103156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _base: {fileID: 11400000, guid: 72046347066b5a24eb23b39e47e72034, type: 2}
+  hud: {fileID: 1155195051}
   level: 7
   isPlayerUnit: 1
 --- !u!1 &1430304075
@@ -103859,8 +103860,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _base: {fileID: 11400000, guid: 549514c8bdd42aa4d95b63aef881cff2, type: 2}
-  level: 1
-  isPlayerUnit: 1
+  level: 0
+  isPlayerUnit: 0
 --- !u!114 &1562102398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104216,10 +104217,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerUnit: {fileID: 1352768478}
-  playerHud: {fileID: 1155195051}
   diceHud: {fileID: 492622624}
   enemyUnit: {fileID: 1562102397}
-  enemyHud: {fileID: 1156048722}
   dialogBox: {fileID: 1077705720}
   d6: {fileID: 644182410}
   d20: {fileID: 1435225851}

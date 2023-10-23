@@ -5,28 +5,28 @@ using UnityEngine;
 [CreateAssetMenu(fileName="Move", menuName ="Create new move")]
 public class MovesBase : ScriptableObject
 {
-    [SerializeField] string Name;
+    [SerializeField] string moveName;
 
     [TextArea]
-    [SerializeField] string Description;
+    [SerializeField] string description;
 
-    [SerializeField] AswangType Type;
+    [SerializeField] AswangType type;
     [SerializeField] int baseDamage;
     [SerializeField] DiceBase diceBase;
 
     public string MoveName
     {
-        get { return Name; }
+        get { return moveName; }
     }
 
-    public string description
+    public string Description
     {
-        get { return Description; }
+        get { return description; }
     }
 
-    public AswangType type
+    public AswangType Type
     {
-        get { return Type; }
+        get { return type; }
     }
 
     public int BaseDamage

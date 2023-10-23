@@ -8,69 +8,66 @@ public class Aswang
     public int Level { get; set; }
 
     public int HP { get; set; }
-    
-    public int armorClass { get; set; }
-
-
-
 
     public List<Moves> moves {  get; set; }
     public Aswang(AswangBase abase, int alevel)
     {
         Base = abase;
         this.Level = alevel;
-        HP = Maxhp;
-        armorClass = ArmorClass;
+        HP = MaxHP;
 
         //generate moves
         moves = new List<Moves>();
         foreach (var move in Base.LearnableMoves)
         {
             if (move.Level <= Level)
-                moves.Add(new Moves(move.movesbase));
+                moves.Add(new Moves(move.MovesBase));
 
             if (moves.Count >= 4)
                 break;
 
         }
     }
-        public int Attack
+
+    public int MaxHP
     {
-        get { return Mathf.FloorToInt((Base.attack * Level) / 100f) + 5; }
+        get { return Base.MaxHP; }
     }
 
-       public int Maxhp
+    public int ArmorClass
     {
-        get { return Mathf.FloorToInt((Base.maxhp * Level) / 100f) + 5; }
+        get { return Base.ArmorClass; }
     }
 
-        public int ArmorClass
+    public int Strength
     {
-        get { return Base.armorClass;}
+        get { return Mathf.FloorToInt((Base.Strength - 10) /2); }
     }
 
-       public int Magical
+       public int Dexterity
     {
-        get { return Mathf.FloorToInt((Base.magical * Level) / 100f) + 5; }
+        get { return Mathf.FloorToInt((Base.Dexterity - 10) / 2); }
     }
 
-    public int Defense
+    public int Constitution
     {
-        get { return Mathf.FloorToInt((Base.defense * Level) / 100f) + 5; }
+        get { return Mathf.FloorToInt((Base.Constitution - 10) / 2); }
     }
 
-    public int Faith
+    public int Intelligence
     {
-        get { return Mathf.FloorToInt((Base.faith * Level) / 100f) + 5; }
+        get { return Mathf.FloorToInt((Base.Intelligence - 10) / 2); }
     }
 
-    public int Speed
+    public int Charisma
     {
-        get { return Mathf.FloorToInt((Base.speed * Level) / 100f) + 5; }
+        get { return Mathf.FloorToInt((Base.Charisma - 10) / 2); }
     }
 
     public bool TakeDamage(Moves move, Aswang attacker, int damage)
     {
+        
+        damage += attacker.Strength;
         HP -= damage;
         if(HP <= 0)
         {

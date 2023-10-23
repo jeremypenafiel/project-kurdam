@@ -12,15 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 318c1610fc9b7fa469b295fe289053a9, type: 3}
   m_Name: Jorge
   m_EditorClassIdentifier: 
-  Aname: Jorge
-  Description: 
+  aname: Nyorn
+  description: 
   backSprite: {fileID: 0}
   frontSprite: {fileID: 0}
-  AswangType1: 0
-  MaxHP: 0
-  Attack: 0
-  Magical: 0
-  Defense: 0
-  Faith: 0
-  Speed: 0
+  aswangType1: 0
+  maxHP: 0
+  armorClass: 0
+  strength: 0
+  dexterity: 0
+  constitution: 0
+  intelligence: 0
+  wisdom: 0
+  charisma: 0
   learnableMoves: []

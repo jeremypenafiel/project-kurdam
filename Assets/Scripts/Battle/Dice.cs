@@ -35,11 +35,11 @@ public class Dice : MonoBehaviour
         for (int i = 0; i <= 20; i++)
         {
             // Pick up random value from 0 to 5 (All inclusive)
-            randomDiceSide = Random.Range( 0, Base.Sides);
+            randomDiceSide = Random.Range( 0, Base.Sides) +1;
 
             // Set sprite to upper face of dice from array according to random value
 
-                spriteRenderer.sprite = Base.DiceSides[randomDiceSide];
+                spriteRenderer.sprite = Base.DiceSides[randomDiceSide-1];
             
 
 
@@ -49,10 +49,9 @@ public class Dice : MonoBehaviour
 
         // Assigning final side so you can use this value later in your game
         // for player movement for example
-        Base.ReturnedSide = randomDiceSide + 1;
+        Base.ReturnedSide = randomDiceSide;
 
         // Show final dice value in Console
-        Debug.Log(Base.ReturnedSide);
 
     }
 
