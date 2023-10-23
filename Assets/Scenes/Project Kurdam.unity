@@ -1429,14 +1429,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 564647490}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c37fa7411b33007479641bd5b2b177bc, type: 3}
+  m_Script: {fileID: 11500000, guid: f53e7c453430c274d86ea97bb2bccdfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
   isMoving: 0
   Encounterable:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 0
 --- !u!1 &596007907
 GameObject:
   m_ObjectHideFlags: 0
