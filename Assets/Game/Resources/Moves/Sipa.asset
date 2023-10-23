@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c8391865b00ffb478bfb1ea52e710a7, type: 3}
   m_Name: Sipa
   m_EditorClassIdentifier: 
-  Name: Sipa
-  Description: Gamit ka ya tiil aw?
-  Type: 0
+  moveName: Sipa
+  description: 
+  type: 0
   baseDamage: 15
   diceBase: {fileID: 11400000, guid: 1011f84f6de7211468f81954ebe9fe50, type: 2}
