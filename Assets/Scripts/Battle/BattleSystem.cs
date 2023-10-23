@@ -286,7 +286,7 @@ public class BattleSystem : MonoBehaviour
         yield return new WaitForSeconds(1f);
         int damage = dice.Base.ReturnedSide;
         bool isDead = targetUnit.aswang.TakeDamage(move, sourceUnit.aswang, damage);
-        targetUnit.Hud.UpdateHP();
+        yield return targetUnit.Hud.UpdateHP();
 
         if (isDead)
         {
@@ -323,7 +323,7 @@ public class BattleSystem : MonoBehaviour
         yield return new WaitForSeconds(1f);
         int damage = dice.Base.ReturnedSide;
         bool isDead = targetUnit.aswang.TakeDamage(move, sourceUnit.aswang, damage);
-        targetUnit.Hud.UpdateHP();
+        yield return targetUnit.Hud.UpdateHP();
 
         if (isDead)
         {
