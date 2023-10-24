@@ -38,7 +38,7 @@ public class BattleSystem : MonoBehaviour
         currentDice = d20;
         dialogBox.SetMoveNames(playerUnit.aswang.moves);
 
-        yield return dialogBox.TypeDialog($"A wild {playerUnit.aswang.Base.Aname} appeared.");
+        yield return dialogBox.TypeDialog($"A wild {enemyUnit.aswang.Base.Aname} appeared.");
         yield return new WaitForSeconds(1f);
         
         ActionSelection();
