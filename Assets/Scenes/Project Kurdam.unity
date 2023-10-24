@@ -1436,7 +1436,7 @@ MonoBehaviour:
   isMoving: 0
   Encounterable:
     serializedVersion: 2
-    m_Bits: 32
+    m_Bits: 256
 --- !u!1 &596007907
 GameObject:
   m_ObjectHideFlags: 0
