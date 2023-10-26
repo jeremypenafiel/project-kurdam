@@ -83,8 +83,8 @@ public class BattleDialogueBox : MonoBehaviour
                 moveTexts[i].color = Color.black;
             }
 
-            attackText.text = "Zinger";
-            typeText.text = "Amazing";
+            attackText.text = "";
+            typeText.text = "";
         }
     }
 
