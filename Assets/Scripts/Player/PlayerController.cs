@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
 {
     public float moveSpeed;
     public bool isMoving;
+    public float distance;
+    [SerializeField] float distaanceThreshold = 0.5f;
 
     public LayerMask Encounterable;
 
@@ -55,19 +57,25 @@ public class PlayerController : MonoBehaviour
     IEnumerator Move(Vector3 targetPos)
     {
         isMoving = true;
+        distance = 0;
         while ((targetPos - transform.position).sqrMagnitude > Mathf.Epsilon) 
         {
             transform.position = Vector3.MoveTowards(transform.position, targetPos, moveSpeed * Time.deltaTime);
+            distance += moveSpeed*Time.deltaTime;
             yield return null;
         }
         transform.position = targetPos;
         isMoving = false;
-
-        CheckForEncounters();
+        if (distance >= distaanceThreshold)
+        {
+            distance = 0;
+            CheckForEncounters();
+        }
     }
 
     private void CheckForEncounters()
     {
+    /*limit using movement or counter*/
         if (Physics2D.OverlapCircle(transform.position, 0.2f, Encounterable) != null)
         {
             if (UnityEngine.Random.Range(1, 101) <= 10)
