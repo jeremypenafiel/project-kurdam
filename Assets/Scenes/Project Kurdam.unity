@@ -1393,7 +1393,7 @@ Transform:
   m_GameObject: {fileID: 564647490}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 51.9, y: -31.31, z: 0}
+  m_LocalPosition: {x: 74, y: 8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -97550,8 +97550,8 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1372572789
-  m_SortingLayer: 5
+  m_SortingLayerID: -575854451
+  m_SortingLayer: 1
   m_SortingOrder: 1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -104014,7 +104014,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -232, y: -100}
+  m_AnchoredPosition: {x: -219, y: -92.2}
   m_SizeDelta: {x: 134.3, y: 287.86}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1352768476
@@ -104069,7 +104069,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _base: {fileID: 11400000, guid: 72046347066b5a24eb23b39e47e72034, type: 2}
   hud: {fileID: 1155195051}
-  level: 7
+  level: 1
   isPlayerUnit: 1
 --- !u!1 &1430304075
 GameObject:
@@ -104924,7 +104924,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 165, y: 92.925}
+  m_AnchoredPosition: {x: 184.6, y: 104.5}
   m_SizeDelta: {x: 288.87, y: 263.97}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1562102397
@@ -104941,7 +104941,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _base: {fileID: 11400000, guid: 549514c8bdd42aa4d95b63aef881cff2, type: 2}
   hud: {fileID: 1156048722}
-  level: 10
+  level: 1
   isPlayerUnit: 0
 --- !u!114 &1562102398
 MonoBehaviour:
