@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float distaanceThreshold = 0.5f;
 
     public LayerMask Encounterable;
+    public LayerMask SolidObject;
 
     public event Action OnEncountered;
 
@@ -45,15 +46,24 @@ public class PlayerController : MonoBehaviour
                 var targetPos = transform.position;
                 targetPos.x += input.x;
                 targetPos.y += input.y;
-
-                StartCoroutine(Move(targetPos));
+                if (IsWalkable(targetPos))
+                {
+                    StartCoroutine(Move(targetPos));
+                }
             }
         }
         animator.SetBool("isMoving", isMoving);
 
     }
 
-
+    private bool IsWalkable(Vector3 targetPos)
+    {
+        if (Physics2D.OverlapCircle(targetPos, 0.2f, SolidObject) != null)
+        {
+            return false;
+        }
+        return true;
+    }
     IEnumerator Move(Vector3 targetPos)
     {
         isMoving = true;

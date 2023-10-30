@@ -12,7 +12,7 @@ TagManager:
   - Water
   - UI
   - 
-  - 
+  - SolidObjects
   - Encounterable
   - 
   - 
@@ -44,6 +44,9 @@ TagManager:
   - name: Background
     uniqueID: 3719112845
     locked: 0
+  - name: Foreground
+    uniqueID: 2278589999
+    locked: 0
   - name: Player
     uniqueID: 2664792995
     locked: 0
@@ -55,9 +58,6 @@ TagManager:
     locked: 0
   - name: trees
     uniqueID: 1372572789
-    locked: 0
-  - name: Foreground
-    uniqueID: 2278589999
     locked: 0
   - name: misc
     uniqueID: 1118444357
