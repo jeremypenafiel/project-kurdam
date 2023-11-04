@@ -23,7 +23,7 @@ public class BattleSystem : MonoBehaviour
     Dice currentDice;
 
 
-    public void StartBattle()
+    public void StartBattle(Aswang wildAswang)
     {
         StartCoroutine(SetupBattle());
     }
