@@ -66,23 +66,6 @@ public class Aswang
 
     public bool TakeDamage(Moves move, Aswang attacker, int damage)
     {
-        var playerStat = move.Base.Type.Modifier;
-        int modifier;
-        switch (playerStat)
-        {
-            case Modifier.Strength:
-                modifier = attacker.Strength;
-                break;
-            case Modifier.Dexterity:
-                modifier = attacker.Dexterity;
-                break;
-            default:
-                modifier = 0;
-                break;
-        }
-
-        
-        damage += modifier;
         HP -= damage;
         if(HP <= 0)
         {

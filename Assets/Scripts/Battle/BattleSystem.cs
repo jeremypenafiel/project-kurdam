@@ -1,5 +1,7 @@
+using DG.Tweening;
 using System;
 using System.Collections;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 
@@ -290,11 +292,14 @@ public class BattleSystem : MonoBehaviour
         dice.gameObject.SetActive(true);
         currentDice = dice;
         string modifierText = move.Base.Type.getModifierText();
+        int modifier = getModifier(move.Base.Type.Modifier, sourceUnit.aswang);
 
         yield return StartCoroutine(dice.RollTheDice());
-        yield return StartCoroutine(dialogBox.TypeDialog($"{subject} rolled {dice.Base.ReturnedSide} + {sourceUnit.aswang.Strength} {modifierText} modifier."));
+        yield return StartCoroutine(dialogBox.TypeDialog($"{subject} rolled {dice.Base.ReturnedSide} + {modifier} {modifierText} modifier."));
         yield return new WaitForSeconds(1f);
-        int damage = dice.Base.ReturnedSide;
+        int damageRoll = dice.Base.ReturnedSide;
+        int damage = CalculateTotalDamage(move, sourceUnit.aswang, targetUnit.aswang, damageRoll + modifier);
+        yield return StartCoroutine(dialogBox.TypeDialog($"{subject} did {damage} total damage."));
 
         enemyUnit.PlayAttackAnimation();
         yield return new WaitForSeconds(0.5f);
@@ -336,6 +341,7 @@ public class BattleSystem : MonoBehaviour
         state = BattleState.Busy;
         Moves move = sourceUnit.GetMove(currentMove);
         string modifierText = move.Base.Type.getModifierText();
+        int modifier = getModifier(move.Base.Type.Modifier, sourceUnit.aswang);
 
         Dice dice = GetDice(move);
         string subject = sourceUnit.GetSubject();
@@ -344,9 +350,11 @@ public class BattleSystem : MonoBehaviour
         currentDice = dice;
 
         yield return StartCoroutine(dice.RollTheDice());
-        yield return StartCoroutine(dialogBox.TypeDialog($"{subject} rolled {dice.Base.ReturnedSide} + {sourceUnit.aswang.Strength} {modifierText} modifier."));
+        yield return StartCoroutine(dialogBox.TypeDialog($"{subject} rolled {dice.Base.ReturnedSide} + {modifier} {modifierText} modifier."));
         yield return new WaitForSeconds(1f);
-        int damage = dice.Base.ReturnedSide;
+        int damageRoll = dice.Base.ReturnedSide;
+        int damage = CalculateTotalDamage(move, sourceUnit.aswang, targetUnit.aswang, damageRoll + modifier);
+        yield return StartCoroutine(dialogBox.TypeDialog($"{subject} did {damage} total damage."));
 
         playerUnit.PlayAttackAnimation();
         yield return new WaitForSeconds(0.5f);
@@ -393,5 +401,72 @@ public class BattleSystem : MonoBehaviour
             default:
                 return d6;
         }
+    }
+
+    private int CalculateTotalDamage(Moves move, Aswang sourceUnit, Aswang targetUnit, int damage)
+    {
+        Modifier playerStat = move.Base.Type.Modifier;
+        int modifier;
+        switch (playerStat)
+        {
+            case Modifier.Strength:
+                modifier = sourceUnit.Strength;
+                break;
+            case Modifier.Dexterity:
+                modifier = sourceUnit.Dexterity;
+                break;
+            default:
+                modifier = 0;
+                break;
+        }
+
+        damage += modifier;
+
+        for (int i = 0; i < targetUnit.Base.Resistances.Count; i++)
+        {
+            if (targetUnit.Base.Resistances[i] == move.Base.Type)
+            {
+                damage = Mathf.FloorToInt(damage / 2);
+                break;
+            }
+        }
+
+        for (int i = 0; i < targetUnit.Base.Vulnerabilities.Count; i++)
+        {
+            if (targetUnit.Base.Vulnerabilities[i] == move.Base.Type)
+            {
+                damage = Mathf.FloorToInt(damage * 2);
+                break;
+            }
+        }
+
+        return damage;
+    }
+    
+    private int getModifier(Modifier modifier, Aswang sourceUnit)
+    {
+        int playerModifier;
+
+        switch (modifier)
+        {
+            case Modifier.Strength:
+                playerModifier = sourceUnit.Strength;
+                break;
+            case Modifier.Dexterity:
+                playerModifier = sourceUnit.Dexterity;
+                break;
+/*            case Modifier.Constitution:
+                break;
+            case Modifier.Intelligence:
+                break;
+            case Modifier.Wisdom:
+                break;
+            case Modifier.Charisma:
+                break;*/
+            default:
+                playerModifier = 0;
+                break;
+        }
+        return playerModifier;
     }
 }
