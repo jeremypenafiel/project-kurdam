@@ -97,8 +97,6 @@ public class Aswang
 
     public bool TakeDamage(Moves move, Aswang attacker, int damage)
     {
-        
-        damage += attacker.Strength;
         HP -= damage;
         if(HP <= 0)
         {

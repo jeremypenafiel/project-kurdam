@@ -26,6 +26,8 @@ public class AswangBase : ScriptableObject
     [SerializeField] int wisdom;
     [SerializeField] int charisma;
     [SerializeField] List<LearnableMove> learnableMoves;
+    [SerializeField] List<DamageType> resistances;
+    [SerializeField] List<DamageType> vulnerabilities;
 
     public string Aname
     {
@@ -89,6 +91,16 @@ public class AswangBase : ScriptableObject
     public List<LearnableMove> LearnableMoves
     {
         get { return learnableMoves; }
+    }
+
+    public List<DamageType> Resistances
+    {
+        get { return resistances; }
+    }
+
+    public List<DamageType> Vulnerabilities
+    {
+        get { return vulnerabilities; }
     }
 }
 
