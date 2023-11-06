@@ -289,9 +289,10 @@ public class BattleSystem : MonoBehaviour
         previousDice.gameObject.SetActive(false);
         dice.gameObject.SetActive(true);
         currentDice = dice;
+        string modifierText = move.Base.Type.getModifierText();
 
         yield return StartCoroutine(dice.RollTheDice());
-        yield return StartCoroutine(dialogBox.TypeDialog($"{subject} rolled {dice.Base.ReturnedSide} + {sourceUnit.aswang.Strength} STRENGTH modifier."));
+        yield return StartCoroutine(dialogBox.TypeDialog($"{subject} rolled {dice.Base.ReturnedSide} + {sourceUnit.aswang.Strength} {modifierText} modifier."));
         yield return new WaitForSeconds(1f);
         int damage = dice.Base.ReturnedSide;
 
@@ -334,6 +335,7 @@ public class BattleSystem : MonoBehaviour
     {
         state = BattleState.Busy;
         Moves move = sourceUnit.GetMove(currentMove);
+        string modifierText = move.Base.Type.getModifierText();
 
         Dice dice = GetDice(move);
         string subject = sourceUnit.GetSubject();
@@ -342,7 +344,7 @@ public class BattleSystem : MonoBehaviour
         currentDice = dice;
 
         yield return StartCoroutine(dice.RollTheDice());
-        yield return StartCoroutine(dialogBox.TypeDialog($"{subject} rolled {dice.Base.ReturnedSide} + {sourceUnit.aswang.Strength} STRENGTH modifier."));
+        yield return StartCoroutine(dialogBox.TypeDialog($"{subject} rolled {dice.Base.ReturnedSide} + {sourceUnit.aswang.Strength} {modifierText} modifier."));
         yield return new WaitForSeconds(1f);
         int damage = dice.Base.ReturnedSide;
 

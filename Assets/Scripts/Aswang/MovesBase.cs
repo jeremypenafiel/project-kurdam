@@ -9,8 +9,8 @@ public class MovesBase : ScriptableObject
 
     [TextArea]
     [SerializeField] string description;
-
-    [SerializeField] AswangType type;
+    [SerializeField] int level;
+    [SerializeField] DamageType type;
     [SerializeField] int baseDamage;
     [SerializeField] DiceBase diceBase;
 
@@ -24,7 +24,7 @@ public class MovesBase : ScriptableObject
         get { return description; }
     }
 
-    public AswangType Type
+    public DamageType Type
     {
         get { return type; }
     }
