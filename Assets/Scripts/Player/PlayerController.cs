@@ -76,7 +76,7 @@ public class PlayerController : MonoBehaviour
         }
         transform.position = targetPos;
         isMoving = false;
-        if (distance >= distaanceThreshold)
+        if (distance >= distanceThreshold)
         {
             distance = 0;
             CheckForEncounters();
