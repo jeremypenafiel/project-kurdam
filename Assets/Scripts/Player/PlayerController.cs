@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed;
     public bool isMoving;
     public float distance;
-    [SerializeField] float distaanceThreshold = 0.5f;
+    [SerializeField] float distanceThreshold = 0.5f;
 
     public LayerMask Encounterable;
     public LayerMask SolidObject;
