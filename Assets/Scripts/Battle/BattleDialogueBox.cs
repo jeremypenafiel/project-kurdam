@@ -90,7 +90,7 @@ public class BattleDialogueBox : MonoBehaviour
 
     public void SetMoveNames(List<Moves> moves)
     {
-        for (int i = 0; i < moves.Count; ++i)
+        for (int i = 0; i <= moves.Count; ++i)
         {
             if (i < moves.Count)
             {

@@ -9,7 +9,6 @@ public class GameController : MonoBehaviour
     [SerializeField] PlayerController playerController;
     [SerializeField] BattleSystem battleSystem;
     [SerializeField] Camera worldCamera;
-    
 
     private void Start()
     {
@@ -24,11 +23,8 @@ public class GameController : MonoBehaviour
         state = GameState.Battle;
         battleSystem.gameObject.SetActive(true);
         worldCamera.gameObject.SetActive(false);
-
-        var player = playerController.GetComponent<Player>().GetPlayer();
-        var wildAswang = FindObjectOfType<MapArea>().GetComponent<MapArea>().GetRandomWildAswang();
-        battleSystem.StartBattle(player, wildAswang);
-
+        battleSystem.StartBattle();
+ 
     }
 
     void EndBattle()

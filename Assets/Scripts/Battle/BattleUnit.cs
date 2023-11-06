@@ -8,13 +8,11 @@ using DG.Tweening;
 public class BattleUnit : MonoBehaviour
 {
     [SerializeField] AswangBase _base;
-    [SerializeField] int level;
-
-
     [SerializeField] BattleHud hud;
+    [SerializeField] int level;
     [SerializeField] bool isPlayerUnit;
 
-    public Aswang Aswang { get; set; }
+    public Aswang aswang { get; set; }
 
     public BattleHud Hud { get { return hud; }}
 
@@ -34,9 +32,9 @@ public class BattleUnit : MonoBehaviour
         get { return isPlayerUnit; }
     }
 
-    public void Setup(Aswang aswang)
+    public void Setup()
     {
-        Aswang = aswang;
+        aswang = new Aswang(_base, level);
         if (isPlayerUnit)
             image.sprite = aswang.Base.Backsprite;
         else
@@ -100,8 +98,8 @@ public class BattleUnit : MonoBehaviour
 
     public Moves GetMove(int currentMove)
     {
-        if (isPlayerUnit) return Aswang.moves[currentMove] ;
-        return Aswang.GetRandomMove();
+        if (isPlayerUnit) return aswang.moves[currentMove] ;
+        return aswang.GetRandomMove();
     }
 
     public string GetDefeatText()

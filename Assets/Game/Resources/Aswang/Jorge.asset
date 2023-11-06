@@ -25,12 +25,4 @@ MonoBehaviour:
   intelligence: 0
   wisdom: 0
   charisma: 0
-  learnableMoves:
-  - movesBase: {fileID: 11400000, guid: 306c0afc6b38915408e84719288e72ed, type: 2}
-    level: 0
-  - movesBase: {fileID: 11400000, guid: 96083b63a7cb7824695aacac6266463e, type: 2}
-    level: 0
-  - movesBase: {fileID: 11400000, guid: fd25b464ec2393849a517ed7bcf4d390, type: 2}
-    level: 0
-  - movesBase: {fileID: 11400000, guid: eaf8f9a1318af4c4198aa30298e22af7, type: 2}
-    level: 0
+  learnableMoves: []
