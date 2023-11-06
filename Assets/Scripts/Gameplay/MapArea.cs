@@ -25,7 +25,7 @@ public class MapArea : MonoBehaviour
         var levelRange = aswangRecord.levelRange;
         int level = levelRange.y == 0 ? levelRange.x : Random.RandomRange(levelRange.x, levelRange.y + 1);
 
-        var wildAswang = new Aswang(aswangRecord.aswang, level);
+        var wildAswang = new Aswang(aswangRecord.aswangBase, level);
 
 
         wildAswang.Init();
@@ -38,7 +38,7 @@ public class MapArea : MonoBehaviour
 [System.Serializable]
 public class AswangEncounterRecord
 {
-    public AswangBase aswang;
+    public AswangBase aswangBase;
     public Vector2Int levelRange;
     public int chancePercentage;
 

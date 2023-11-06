@@ -11,23 +11,23 @@ public class Aswang
 
     public AswangBase Base 
     {
-        get 
-        { 
-            return _base;
-        }
+        get;
+
+        set;
     }
 
     public int Level 
     {
-        get
-        {
-            return level;
-        }
+        get;
+
+        set;
     }
 
     public int HP { get; set; }
 
     public List<Moves> moves {  get; set; }
+
+
     public void Init()
     {
         HP = MaxHP;
@@ -43,7 +43,22 @@ public class Aswang
 
     }
 
+    public Aswang(AswangBase abase, int alevel)
+    {
+        Base = abase;
+        Level = alevel;
+        HP = MaxHP; 
 
+        moves = new List<Moves>();
+        foreach (var move in Base.LearnableMoves)
+        {
+            if (move.level <= Level)
+            {
+                moves.Add(new Moves(move.MovesBase));
+            }
+        }
+
+    }
 
     public int MaxHP
     {
