@@ -34,3 +34,5 @@ MonoBehaviour:
     level: 0
   - movesBase: {fileID: 11400000, guid: fd25b464ec2393849a517ed7bcf4d390, type: 2}
     level: 0
+  resistances: []
+  vulnerabilities: []
