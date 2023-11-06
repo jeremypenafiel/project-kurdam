@@ -295,13 +295,13 @@ public class BattleSystem : MonoBehaviour
         dice.gameObject.SetActive(true);
         currentDice = dice;
         string modifierText = move.Base.Type.getModifierText();
-        int modifier = getModifier(move.Base.Type.Modifier, sourceUnit.aswang);
+        int modifier = getModifier(move.Base.Type.Modifier, sourceUnit.Aswang);
 
         yield return StartCoroutine(dice.RollTheDice());
         yield return StartCoroutine(dialogBox.TypeDialog($"{subject} rolled {dice.Base.ReturnedSide} + {modifier} {modifierText} modifier."));
         yield return new WaitForSeconds(1f);
         int damageRoll = dice.Base.ReturnedSide;
-        int damage = CalculateTotalDamage(move, sourceUnit.aswang, targetUnit.aswang, damageRoll + modifier);
+        int damage = CalculateTotalDamage(move, sourceUnit.Aswang, targetUnit.Aswang, damageRoll);
         yield return StartCoroutine(dialogBox.TypeDialog($"{subject} did {damage} total damage."));
 
         enemyUnit.PlayAttackAnimation();
@@ -344,7 +344,7 @@ public class BattleSystem : MonoBehaviour
         state = BattleState.Busy;
         Moves move = sourceUnit.GetMove(currentMove);
         string modifierText = move.Base.Type.getModifierText();
-        int modifier = getModifier(move.Base.Type.Modifier, sourceUnit.aswang);
+        int modifier = getModifier(move.Base.Type.Modifier, sourceUnit.Aswang);
 
         Dice dice = GetDice(move);
         string subject = sourceUnit.GetSubject();
@@ -356,7 +356,7 @@ public class BattleSystem : MonoBehaviour
         yield return StartCoroutine(dialogBox.TypeDialog($"{subject} rolled {dice.Base.ReturnedSide} + {modifier} {modifierText} modifier."));
         yield return new WaitForSeconds(1f);
         int damageRoll = dice.Base.ReturnedSide;
-        int damage = CalculateTotalDamage(move, sourceUnit.aswang, targetUnit.aswang, damageRoll + modifier);
+        int damage = CalculateTotalDamage(move, sourceUnit.Aswang, targetUnit.Aswang, damageRoll);
         yield return StartCoroutine(dialogBox.TypeDialog($"{subject} did {damage} total damage."));
 
         playerUnit.PlayAttackAnimation();
