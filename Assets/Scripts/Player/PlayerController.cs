@@ -12,6 +12,18 @@ public class PlayerController : MonoBehaviour
 
     public LayerMask Encounterable;
     public LayerMask SolidObject;
+    public LayerMask portallayer;
+
+    public LayerMask PortalLayer
+    
+    {
+        get => portallayer; /*set=>PortalLayer = value;*/
+    }
+    public static PlayerController i { get; set; }
+    public LayerMask TriggerableLayers
+    {
+        get => portallayer;
+    }
 
     public event Action OnEncountered;
 
@@ -22,7 +34,9 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         animator = GetComponent<Animator>();
+        i = this;
     }
+
 
     public void HandleUpdate()
     {
@@ -66,6 +80,16 @@ public class PlayerController : MonoBehaviour
     }
     IEnumerator Move(Vector3 targetPos)
     {
+        var colliders =(Physics2D.OverlapCircleAll(transform.position, 0.2f, PlayerController.i.TriggerableLayers));
+        foreach (var collider in colliders)
+        {
+            var triggerable =collider.GetComponent < IPLayerTriggerable >();
+            if (triggerable != null)
+            {
+                triggerable.OnPlayerTriggered(this);
+                break;
+            }
+        }
         isMoving = true;
         distance = 0;
         while ((targetPos - transform.position).sqrMagnitude > Mathf.Epsilon)
@@ -96,4 +120,9 @@ public class PlayerController : MonoBehaviour
         }
 
     }
+
+   /* void Interact()
+    {
+
+    }*/
 }
