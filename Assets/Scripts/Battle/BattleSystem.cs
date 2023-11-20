@@ -1,11 +1,12 @@
 using DG.Tweening;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using Random = System.Random;
 
-
-public enum BattleState { Start, ActionSelection, EnemyMove, Busy, MoveSelection, PlayerAttackRoll, PlayerDamageRoll, PerformMove }
+public enum BattleState { Start, ActionSelection, EnemyMove, Busy, MoveSelection, PlayerAttackRoll, PlayerDamageRoll, PerformMove, Flirt }
 
 public class BattleSystem : MonoBehaviour
 {
@@ -66,6 +67,13 @@ public class BattleSystem : MonoBehaviour
         dialogBox.EnableMoveSelector(true);
     }
 
+    void FlirtAction()
+    {
+        state = BattleState.Flirt;
+        dialogBox.EnableActionSelector(false);
+        dialogBox.EnableDialogText(true);
+    }
+
 
     void PlayerAttackRoll()
     {
@@ -116,10 +124,39 @@ public class BattleSystem : MonoBehaviour
         {
             HandlePlayerDamageRoll();
 
-        } else if (state==BattleState.EnemyMove)
+        }else if (state==BattleState.EnemyMove)
         {
             HandleEnemyMove();
+        }else if(state == BattleState.Flirt)
+        {
+            HandleFlirt();
         }
+    }
+
+    private void HandleFlirt()
+    {
+        StartCoroutine(Flirt());
+    }
+
+    IEnumerator Flirt()
+    {
+        state = BattleState.Busy;
+        string enemyName = enemyUnit.Aswang.Base.Aname;
+        Random rnd = new();
+
+        List<string> responseList = new()
+        {
+            $"The {enemyName} is flattered.",
+            $"The {enemyName} is confused.",
+            $"The {enemyName} is embarrassed."
+        };
+        int index = rnd.Next(responseList.Count);
+        yield return StartCoroutine(dialogBox.TypeDialog("You flirted with the enemy."));
+        yield return new WaitForSeconds(1f);
+        yield return StartCoroutine(dialogBox.TypeDialog(responseList[index]));
+        yield return new WaitForSeconds(1f);
+        ActionSelection();
+
     }
 
     private void PerformEnemyMove()
@@ -159,6 +196,20 @@ public class BattleSystem : MonoBehaviour
                 --currentAction;
             }
         }
+        else if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            if (currentAction == 0)
+            {
+               currentAction += 2;
+            }
+        }
+        else if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            if (currentAction == 2)
+            {
+                currentAction -= 2;
+            }
+        }
         dialogBox.UpdateActionSelection(currentAction);
 
         if (Input.GetKeyDown(KeyCode.Z))
@@ -171,6 +222,9 @@ public class BattleSystem : MonoBehaviour
             {
 
                 StartCoroutine(RunBattle());
+            }else if(currentAction == 2)
+            {
+                FlirtAction();
             }
         }
     }
@@ -458,14 +512,6 @@ public class BattleSystem : MonoBehaviour
             case Modifier.Dexterity:
                 playerModifier = sourceUnit.Dexterity;
                 break;
-/*            case Modifier.Constitution:
-                break;
-            case Modifier.Intelligence:
-                break;
-            case Modifier.Wisdom:
-                break;
-            case Modifier.Charisma:
-                break;*/
             default:
                 playerModifier = 0;
                 break;
