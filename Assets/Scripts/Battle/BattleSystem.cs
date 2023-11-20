@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.UIElements;
 using Random = System.Random;
 
 public enum BattleState { Start, ActionSelection, EnemyMove, Busy, MoveSelection, PlayerAttackRoll, PlayerDamageRoll, PerformMove, Flirt }
@@ -342,21 +343,40 @@ public class BattleSystem : MonoBehaviour
     IEnumerator PerformDamageRoll(BattleUnit sourceUnit, BattleUnit targetUnit, Dice previousDice, Moves move)
     {
         state = BattleState.PerformMove;
-        
+        string sourceUnitSubject = sourceUnit.GetSubject();
+        string targetUnitSubject = targetUnit.GetSubject();
+
+        //DICE
         Dice dice = GetDice(move);
-        string subject = sourceUnit.GetSubject();
         previousDice.gameObject.SetActive(false);
         dice.gameObject.SetActive(true);
         currentDice = dice;
+
+        // MODIFIERS
         string modifierText = move.Base.Type.getModifierText();
         int modifier = getModifier(move.Base.Type.Modifier, sourceUnit.Aswang);
 
+        // DAMAGE REACTIONS
+        Random random = new();
+        List<string> damageReactions = new()
+         {
+            "Oginago",
+            "Y0depota",
+            "Spagkalinti",
+            "Agay ah",
+            "Baw ah"
+        };
+        int responseIndex = random.Next(damageReactions.Count);
+
         yield return StartCoroutine(dice.RollTheDice());
-        yield return StartCoroutine(dialogBox.TypeDialog($"{subject} rolled {dice.Base.ReturnedSide} + {modifier} {modifierText} modifier."));
+        yield return StartCoroutine(dialogBox.TypeDialog($"{sourceUnitSubject} rolled {dice.Base.ReturnedSide} + {modifier} {modifierText} modifier."));
         yield return new WaitForSeconds(1f);
         int damageRoll = dice.Base.ReturnedSide;
         int damage = CalculateTotalDamage(move, sourceUnit.Aswang, targetUnit.Aswang, damageRoll);
-        yield return StartCoroutine(dialogBox.TypeDialog($"{subject} did {damage} total damage."));
+        yield return StartCoroutine(dialogBox.TypeDialog($"{sourceUnitSubject} did {damage} total damage."));
+        yield return new WaitForSeconds(1f);
+        yield return StartCoroutine(dialogBox.TypeDialog($"{targetUnitSubject}: {damageReactions[responseIndex]}"));
+        yield return new WaitForSeconds(1f);
 
         enemyUnit.PlayAttackAnimation();
         yield return new WaitForSeconds(0.5f);
@@ -396,22 +416,42 @@ public class BattleSystem : MonoBehaviour
     IEnumerator PerformDamageRoll(BattleUnit sourceUnit, BattleUnit targetUnit, Dice previousDice)
     {
         state = BattleState.Busy;
+        string sourceUnitsubject = sourceUnit.GetSubject();
+        string targetUnitsubject = targetUnit.GetSubject();
+
         Moves move = sourceUnit.GetMove(currentMove);
+
+        // MODIFIERS
         string modifierText = move.Base.Type.getModifierText();
         int modifier = getModifier(move.Base.Type.Modifier, sourceUnit.Aswang);
 
+        // DICE
         Dice dice = GetDice(move);
-        string subject = sourceUnit.GetSubject();
         previousDice.gameObject.SetActive(false);
         dice.gameObject.SetActive(true);
         currentDice = dice;
 
+
+        // DAMAGE REACTIONS
+        Random random = new();
+        List<string> damageReactions = new()
+         {
+            "Oginago",
+            "Y0depota",
+            "Spagkalinti",
+            "Agay ah",
+            "Baw ah"
+        };
+        int responseIndex = random.Next(damageReactions.Count);
+
         yield return StartCoroutine(dice.RollTheDice());
-        yield return StartCoroutine(dialogBox.TypeDialog($"{subject} rolled {dice.Base.ReturnedSide} + {modifier} {modifierText} modifier."));
+        yield return StartCoroutine(dialogBox.TypeDialog($"{sourceUnitsubject} rolled {dice.Base.ReturnedSide} + {modifier} {modifierText} modifier."));
         yield return new WaitForSeconds(1f);
         int damageRoll = dice.Base.ReturnedSide;
         int damage = CalculateTotalDamage(move, sourceUnit.Aswang, targetUnit.Aswang, damageRoll);
-        yield return StartCoroutine(dialogBox.TypeDialog($"{subject} did {damage} total damage."));
+        yield return StartCoroutine(dialogBox.TypeDialog($"{sourceUnitsubject} did {damage} total damage."));
+        yield return new WaitForSeconds(1f);
+        yield return StartCoroutine(dialogBox.TypeDialog($"{targetUnitsubject}: {damageReactions[responseIndex]}"));
 
         playerUnit.PlayAttackAnimation();
         yield return new WaitForSeconds(0.5f);
