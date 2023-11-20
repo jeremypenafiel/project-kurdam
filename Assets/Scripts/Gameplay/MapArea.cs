@@ -23,7 +23,7 @@ public class MapArea : MonoBehaviour
         int randVal = Random.Range(1, 101);
         var aswangRecord = wildAswangs.First(a => randVal >= a.chanceLower && randVal <= a.chanceUpper);
         var levelRange = aswangRecord.levelRange;
-        int level = levelRange.y == 0 ? levelRange.x : Random.RandomRange(levelRange.x, levelRange.y + 1);
+        int level = levelRange.y == 0 ? levelRange.x : Random.Range(levelRange.x, levelRange.y + 1);
 
         var wildAswang = new Aswang(aswangRecord.aswangBase, level);
 
