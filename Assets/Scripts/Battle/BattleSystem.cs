@@ -24,12 +24,9 @@ public class BattleSystem : MonoBehaviour
     int currentMove;
     Dice currentDice;
 
-    Aswang wildAswang;
-    Aswang player;
-    public void StartBattle(Aswang player, Aswang wildAswang)
+
+    public void StartBattle()
     {
-        this.player = player;
-        this.wildAswang = wildAswang;
         StartCoroutine(SetupBattle());
     }
 
@@ -38,12 +35,12 @@ public class BattleSystem : MonoBehaviour
         diceHud.gameObject.SetActive(false);
         d6.gameObject.SetActive(false);
         d20.gameObject.SetActive(false);
-        playerUnit.Setup(player);
-        enemyUnit.Setup(wildAswang);
+        playerUnit.Setup();
+        enemyUnit.Setup();
         currentDice = d20;
-        dialogBox.SetMoveNames(playerUnit.Aswang.moves);
+        dialogBox.SetMoveNames(playerUnit.aswang.moves);
 
-        yield return dialogBox.TypeDialog($"A wild {enemyUnit.Aswang.Base.Aname} appeared.");
+        yield return dialogBox.TypeDialog($"A wild {enemyUnit.aswang.Base.Aname} appeared.");
         yield return new WaitForSeconds(1f);
         
         ActionSelection();
@@ -179,7 +176,7 @@ public class BattleSystem : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            if (currentMove < playerUnit.Aswang.moves.Count - 1)
+            if (currentMove < playerUnit.aswang.moves.Count - 1)
             {
                 ++currentMove;
             }
@@ -193,7 +190,7 @@ public class BattleSystem : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            if (currentMove < playerUnit.Aswang.moves.Count - 2)
+            if (currentMove < playerUnit.aswang.moves.Count - 2)
             {
                 currentMove += 2;
             }
@@ -257,7 +254,7 @@ public class BattleSystem : MonoBehaviour
         yield return StartCoroutine(d20.RollTheDice());
         yield return StartCoroutine(dialogBox.TypeDialog($"{subject} rolled {d20.Base.ReturnedSide}."));
         yield return new WaitForSeconds(1f);
-        isHit = CheckIfHit(d20, targetUnit);
+        isHit = CheckIfHit(20, targetUnit);
         yield return StartCoroutine(RollDialog(isHit, sourceUnit));
         if (isHit)
         {
@@ -301,7 +298,7 @@ public class BattleSystem : MonoBehaviour
         yield return StartCoroutine(dialogBox.TypeDialog($"{subject} rolled {dice.Base.ReturnedSide} + {modifier} {modifierText} modifier."));
         yield return new WaitForSeconds(1f);
         int damageRoll = dice.Base.ReturnedSide;
-        int damage = CalculateTotalDamage(move, sourceUnit.aswang, targetUnit.aswang, damageRoll + modifier);
+        int damage = CalculateTotalDamage(move, sourceUnit.aswang, targetUnit.aswang, damageRoll);
         yield return StartCoroutine(dialogBox.TypeDialog($"{subject} did {damage} total damage."));
 
         enemyUnit.PlayAttackAnimation();
@@ -309,7 +306,7 @@ public class BattleSystem : MonoBehaviour
 
         playerUnit.PlayHitAnimation();
 
-        bool isDead = targetUnit.Aswang.TakeDamage(move, sourceUnit.Aswang, damage);
+        bool isDead = targetUnit.aswang.TakeDamage(move, sourceUnit.aswang, damage);
         yield return targetUnit.Hud.UpdateHP();
 
         if (isDead)
@@ -356,7 +353,7 @@ public class BattleSystem : MonoBehaviour
         yield return StartCoroutine(dialogBox.TypeDialog($"{subject} rolled {dice.Base.ReturnedSide} + {modifier} {modifierText} modifier."));
         yield return new WaitForSeconds(1f);
         int damageRoll = dice.Base.ReturnedSide;
-        int damage = CalculateTotalDamage(move, sourceUnit.aswang, targetUnit.aswang, damageRoll + modifier);
+        int damage = CalculateTotalDamage(move, sourceUnit.aswang, targetUnit.aswang, damageRoll);
         yield return StartCoroutine(dialogBox.TypeDialog($"{subject} did {damage} total damage."));
 
         playerUnit.PlayAttackAnimation();
@@ -364,7 +361,7 @@ public class BattleSystem : MonoBehaviour
 
         enemyUnit.PlayHitAnimation();
 
-        bool isDead = targetUnit.Aswang.TakeDamage(move, sourceUnit.Aswang, damage);
+        bool isDead = targetUnit.aswang.TakeDamage(move, sourceUnit.aswang, damage);
         yield return targetUnit.Hud.UpdateHP();
 
         if (isDead)
@@ -387,9 +384,9 @@ public class BattleSystem : MonoBehaviour
         }
     }
 
-    private bool CheckIfHit(Dice dice, BattleUnit target )
+    private bool CheckIfHit(int roll, BattleUnit target )
     {
-        return dice.Base.ReturnedSide >= target.Aswang.ArmorClass;
+        return roll >= target.aswang.ArmorClass;
 
     }
 

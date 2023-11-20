@@ -2,62 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
 public class Aswang
 {
-    [SerializeField] AswangBase _base;
-    [SerializeField] int level;
-
-
-    public AswangBase Base 
-    {
-        get;
-
-        set;
-    }
-
-    public int Level 
-    {
-        get;
-
-        set;
-    }
+    public AswangBase Base { get; set; }
+    public int Level { get; set; }
 
     public int HP { get; set; }
 
     public List<Moves> moves {  get; set; }
-
-
-    public void Init()
-    {
-        HP = MaxHP;
-
-        moves = new List<Moves>();
-        foreach (var move in Base.LearnableMoves)
-        {
-            if (move.level <= Level)
-            {
-                moves.Add(new Moves(move.MovesBase));
-            }
-        }
-
-    }
-
     public Aswang(AswangBase abase, int alevel)
     {
         Base = abase;
-        Level = alevel;
-        HP = MaxHP; 
+        this.Level = alevel;
+        HP = MaxHP;
 
+        //generate moves
         moves = new List<Moves>();
         foreach (var move in Base.LearnableMoves)
         {
-            if (move.level <= Level)
-            {
+            if (move.Level <= Level)
                 moves.Add(new Moves(move.MovesBase));
-            }
-        }
 
+            if (moves.Count >= 4)
+                break;
+
+        }
     }
 
     public int MaxHP
@@ -113,6 +82,5 @@ public class Aswang
         return moves[r];
 
     }
-
 
 }
