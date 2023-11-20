@@ -159,6 +159,20 @@ public class BattleSystem : MonoBehaviour
                 --currentAction;
             }
         }
+        else if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            if (currentAction == 0)
+            {
+               currentAction += 2;
+            }
+        }
+        else if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            if (currentAction == 2)
+            {
+                currentAction -= 2;
+            }
+        }
         dialogBox.UpdateActionSelection(currentAction);
 
         if (Input.GetKeyDown(KeyCode.Z))
@@ -171,6 +185,9 @@ public class BattleSystem : MonoBehaviour
             {
 
                 StartCoroutine(RunBattle());
+            }else if(currentAction == 2)
+            {
+                //
             }
         }
     }
