@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aname: Tawo
   description: 
-  backSprite: {fileID: -4445699719359273135, guid: 3111f23cd57d2be48b2ee6bac4a23588, type: 3}
-  frontSprite: {fileID: 7152930139536384079, guid: 3111f23cd57d2be48b2ee6bac4a23588, type: 3}
+  backSprite: {fileID: 21300000, guid: f780c6346181c2544911f950c98825db, type: 3}
+  frontSprite: {fileID: 21300000, guid: e04cce209943ce64bb8a7f5f29c19827, type: 3}
   aswangType1: 0
   maxHP: 11
   armorClass: 2

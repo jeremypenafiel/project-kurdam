@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aname: Duwende
   description: 
-  backSprite: {fileID: 21300000, guid: 180e27b70d0a96847982ad04bd61c125, type: 3}
-  frontSprite: {fileID: 21300000, guid: 180e27b70d0a96847982ad04bd61c125, type: 3}
+  backSprite: {fileID: 21300000, guid: 5d2c24fc8055b7c4e8416624a6b409f9, type: 3}
+  frontSprite: {fileID: 21300000, guid: 5d2c24fc8055b7c4e8416624a6b409f9, type: 3}
   aswangType1: 0
   maxHP: 16
   armorClass: 15

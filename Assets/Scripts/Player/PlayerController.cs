@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
+using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
 {
@@ -13,7 +15,14 @@ public class PlayerController : MonoBehaviour
     public LayerMask Encounterable;
     public LayerMask SolidObject;
     public LayerMask portallayer;
+    public LayerMask feces;
 
+    public bool stepped;
+    public int stepCounter;
+
+    [SerializeField] public Tilemap fecesmap;
+    [SerializeField] public Tile steppedFeces;
+  
     public LayerMask PortalLayer
     
     {
@@ -35,6 +44,8 @@ public class PlayerController : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         i = this;
+
+      
     }
 
 
@@ -58,15 +69,18 @@ public class PlayerController : MonoBehaviour
                 animator.SetFloat("moveY", input.y);
 
                 var targetPos = transform.position;
+                CheckForFeces(Vector3Int.FloorToInt(targetPos));
                 targetPos.x += input.x;
                 targetPos.y += input.y;
                 if (IsWalkable(targetPos))
                 {
+                    
                     StartCoroutine(Move(targetPos));
                 }
             }
         }
         animator.SetBool("isMoving", isMoving);
+        
 
     }
 
@@ -80,6 +94,8 @@ public class PlayerController : MonoBehaviour
     }
     IEnumerator Move(Vector3 targetPos)
     {
+      
+        
         var colliders =(Physics2D.OverlapCircleAll(transform.position, 0.2f, PlayerController.i.TriggerableLayers));
         foreach (var collider in colliders)
         {
@@ -105,6 +121,8 @@ public class PlayerController : MonoBehaviour
             distance = 0;
             CheckForEncounters();
         }
+        
+       
     }
 
     private void CheckForEncounters()
@@ -121,8 +139,21 @@ public class PlayerController : MonoBehaviour
 
     }
 
-   /* void Interact()
+   
+    private void CheckForFeces(Vector3Int targetPos)
     {
+       
+   
+        if (Physics2D.OverlapCircle(transform.position, 0.2f, feces) != null)
+        {
 
-    }*/
+            stepCounter = 4;
+            stepped = true;
+        }
+        if((stepped==true)&&(stepCounter>0))
+        {  
+            fecesmap.SetTile(Vector3Int.FloorToInt(targetPos), steppedFeces);
+            stepCounter--;
+        }
+    }
 }

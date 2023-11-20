@@ -15,7 +15,7 @@ MonoBehaviour:
   aname: Bakunawa
   description: 
   backSprite: {fileID: 0}
-  frontSprite: {fileID: 408872336, guid: 6e84ea11b03c19d4fa8769988087fe16, type: 3}
+  frontSprite: {fileID: 21300000, guid: a1681140b4f7c174f8dd64e8df43035c, type: 3}
   aswangType1: 0
   maxHP: 5
   armorClass: 2
