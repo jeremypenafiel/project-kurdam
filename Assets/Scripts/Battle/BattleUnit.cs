@@ -89,7 +89,7 @@ public class BattleUnit : MonoBehaviour
     {
         if (isPlayerUnit)
             return "You";
-        return _base.Aname;
+        return Aswang.Base.Aname;
     }
 
     public BattleState GetState()
