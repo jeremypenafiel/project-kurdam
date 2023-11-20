@@ -8,17 +8,5 @@ public class TileData : ScriptableObject
 {
     public TileBase[] tiles;
 
-    public TileData GetTileData(Vector3Int tileposition)
-    {
-        TileBase tile = map.GetTile(tileposition);
-        if (tile == null)
-        {
-            return null;
-        }
-        else
-        {
-            return dataFromTiles[tile];
-        }
-    }
 
 }

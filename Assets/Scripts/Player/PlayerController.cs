@@ -17,7 +17,10 @@ public class PlayerController : MonoBehaviour
     public LayerMask portallayer;
     public LayerMask feces;
 
-    [SerializeField] public Tilemap map;
+    public bool stepped;
+    public int stepCounter;
+
+    [SerializeField] public Tilemap fecesmap;
     [SerializeField] public Tile steppedFeces;
   
     public LayerMask PortalLayer
@@ -143,9 +146,14 @@ public class PlayerController : MonoBehaviour
    
         if (Physics2D.OverlapCircle(transform.position, 0.2f, feces) != null)
         {
-            
-            map.SetTile(Vector3Int.FloorToInt(targetPos), steppedFeces);
-        }
 
+            stepCounter = 4;
+            stepped = true;
+        }
+        if((stepped==true)&&(stepCounter>0))
+        {  
+            fecesmap.SetTile(Vector3Int.FloorToInt(targetPos), steppedFeces);
+            stepCounter--;
+        }
     }
 }
