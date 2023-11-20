@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4257ea22e66e57746bfdd79ba3fee8d9, type: 3}
+  m_Name: Feces
+  m_EditorClassIdentifier: 
+  tiles:
+  - {fileID: 11400000, guid: d16efd75c563e764993575396da18757, type: 2}
+  - {fileID: 11400000, guid: 7e9cb108d31db2c458eb5cb6eea2c83b, type: 2}
