@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55e1786166df4b24aa8504442930aa08, type: 3}
   m_Name: Piercing
   m_EditorClassIdentifier: 
-  modifier: 0
+  modifier: 1

@@ -254,7 +254,7 @@ public class BattleSystem : MonoBehaviour
         yield return StartCoroutine(d20.RollTheDice());
         yield return StartCoroutine(dialogBox.TypeDialog($"{subject} rolled {d20.Base.ReturnedSide}."));
         yield return new WaitForSeconds(1f);
-        isHit = CheckIfHit(d20, targetUnit);
+        isHit = CheckIfHit(20, targetUnit);
         yield return StartCoroutine(RollDialog(isHit, sourceUnit));
         if (isHit)
         {
@@ -298,7 +298,7 @@ public class BattleSystem : MonoBehaviour
         yield return StartCoroutine(dialogBox.TypeDialog($"{subject} rolled {dice.Base.ReturnedSide} + {modifier} {modifierText} modifier."));
         yield return new WaitForSeconds(1f);
         int damageRoll = dice.Base.ReturnedSide;
-        int damage = CalculateTotalDamage(move, sourceUnit.aswang, targetUnit.aswang, damageRoll + modifier);
+        int damage = CalculateTotalDamage(move, sourceUnit.aswang, targetUnit.aswang, damageRoll);
         yield return StartCoroutine(dialogBox.TypeDialog($"{subject} did {damage} total damage."));
 
         enemyUnit.PlayAttackAnimation();
@@ -353,7 +353,7 @@ public class BattleSystem : MonoBehaviour
         yield return StartCoroutine(dialogBox.TypeDialog($"{subject} rolled {dice.Base.ReturnedSide} + {modifier} {modifierText} modifier."));
         yield return new WaitForSeconds(1f);
         int damageRoll = dice.Base.ReturnedSide;
-        int damage = CalculateTotalDamage(move, sourceUnit.aswang, targetUnit.aswang, damageRoll + modifier);
+        int damage = CalculateTotalDamage(move, sourceUnit.aswang, targetUnit.aswang, damageRoll);
         yield return StartCoroutine(dialogBox.TypeDialog($"{subject} did {damage} total damage."));
 
         playerUnit.PlayAttackAnimation();
@@ -384,9 +384,9 @@ public class BattleSystem : MonoBehaviour
         }
     }
 
-    private bool CheckIfHit(Dice dice, BattleUnit target )
+    private bool CheckIfHit(int roll, BattleUnit target )
     {
-        return dice.Base.ReturnedSide >= target.aswang.ArmorClass;
+        return roll >= target.aswang.ArmorClass;
 
     }
 
