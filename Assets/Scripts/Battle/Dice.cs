@@ -10,7 +10,7 @@ public class Dice : MonoBehaviour
 
 
     // Use this for initialization
-    private void Start()
+    private void Awake()
     {
    
         
