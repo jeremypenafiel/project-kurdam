@@ -47,14 +47,17 @@ TagManager:
   - name: Foreground
     uniqueID: 2278589999
     locked: 0
-  - name: Player
-    uniqueID: 2664792995
-    locked: 0
   - name: fences
     uniqueID: 2331796277
     locked: 0
   - name: buildings
     uniqueID: 1925268741
+    locked: 0
+  - name: Player
+    uniqueID: 2664792995
+    locked: 0
+  - name: buildings above
+    uniqueID: 1170746105
     locked: 0
   - name: trees
     uniqueID: 1372572789
