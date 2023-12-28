@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     public LayerMask Encounterable;
     public LayerMask SolidObject;
     public LayerMask portallayer;
+    public LayerMask interactableLayer;
 
     public LayerMask PortalLayer
     
@@ -42,12 +43,8 @@ public class PlayerController : MonoBehaviour
     {
         if (!isMoving)
         {
-
-
             input.x = Input.GetAxisRaw("Horizontal");
             input.y = Input.GetAxisRaw("Vertical");
-
-
 
             // remove diagonal movement 
             if (input.x != 0) input.y = 0;
@@ -67,12 +64,16 @@ public class PlayerController : MonoBehaviour
             }
         }
         animator.SetBool("isMoving", isMoving);
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            Interact();
+        }
 
     }
 
     private bool IsWalkable(Vector3 targetPos)
     {
-        if (Physics2D.OverlapCircle(targetPos, 0.2f, SolidObject) != null)
+        if (Physics2D.OverlapCircle(targetPos, 0.1f, SolidObject | interactableLayer) != null)
         {
             return false;
         }
@@ -121,8 +122,14 @@ public class PlayerController : MonoBehaviour
 
     }
 
-   /* void Interact()
+    void Interact()
     {
-
-    }*/
+        var facingDirection = new Vector3(animator.GetFloat("moveX"), animator.GetFloat("moveY"));
+        var interactPosition = transform.position + facingDirection;
+        var collider = Physics2D.OverlapCircle(interactPosition, 0.1f, interactableLayer);
+        if (collider != null)
+        {
+            collider.GetComponent<Interactable>()?.Interact();
+        }
+    }
 }
