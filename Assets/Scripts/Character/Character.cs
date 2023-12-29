@@ -80,5 +80,22 @@ public class Character : MonoBehaviour
         return true;
     }
 
+    public void LookTowards(Vector3 targetPos)
+    {
+        var xDifference = Mathf.Floor(targetPos.x - transform.position.x);
+        var yDifference = Mathf.Floor(targetPos.y - transform.position.y);
+
+        if(xDifference == 0 || yDifference == 0)
+        {
+            animator.MoveX = Mathf.Clamp(xDifference, -1f, 1f);
+            animator.MoveY = Mathf.Clamp(yDifference, -1f, 1f);
+        }
+        else
+        {
+            Debug.LogError("Character is not aligned with the grid");
+        }
+
+    }
+
     public CharacterAnimator Animator { get => animator; }
 }
