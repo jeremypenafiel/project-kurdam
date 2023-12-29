@@ -23,8 +23,8 @@ public class Character : MonoBehaviour
     public IEnumerator Move(Vector3 moveVector, Action OnMoveOver = null)
     {
 
-        animator.MoveX = moveVector.x;
-        animator.MoveY = moveVector.y;
+        animator.MoveX = Mathf.Clamp(moveVector.x, -1f, 1f);
+        animator.MoveY = Mathf.Clamp(moveVector.y, -1f, 1f);
 
         var targetPos = transform.position;
         targetPos.x += moveVector.x;
