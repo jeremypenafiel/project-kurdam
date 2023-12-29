@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float moveSpeed;
-    public bool isMoving;
+    
+
     public float distance;
     [SerializeField] float distanceThreshold = 0.5f;
 
@@ -31,17 +31,20 @@ public class PlayerController : MonoBehaviour
     private Vector2 input;
 
     private CharacterAnimator animator;
+    private Character character;
 
     private void Awake()
     {
         animator = GetComponent<CharacterAnimator>();
+        character = GetComponent<Character>();
+
         i = this;
     }
 
 
     public void HandleUpdate()
     {
-        if (!isMoving)
+        if (!animator.IsMoving)
         {
             input.x = Input.GetAxisRaw("Horizontal");
             input.y = Input.GetAxisRaw("Vertical");
@@ -51,19 +54,20 @@ public class PlayerController : MonoBehaviour
 
             if (input != Vector2.zero)
             {
-                animator.MoveX = input.x;
-                animator.MoveY = input.y;
-
-                var targetPos = transform.position;
-                targetPos.x += input.x;
-                targetPos.y += input.y;
-                if (IsWalkable(targetPos))
+                var colliders = (Physics2D.OverlapCircleAll(transform.position, 0.2f, PlayerController.i.TriggerableLayers));
+                foreach (var collider in colliders)
                 {
-                    StartCoroutine(Move(targetPos));
+                    var triggerable = collider.GetComponent<IPLayerTriggerable>();
+                    if (triggerable != null)
+                    {
+                        triggerable.OnPlayerTriggered(this);
+                        break;
+                    }
                 }
+                StartCoroutine(character.Move(input, CheckForEncounters));
             }
         }
-        animator.IsMoving = isMoving;
+
         if (Input.GetKeyDown(KeyCode.Z))
         {
             Interact();
@@ -71,7 +75,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    private bool IsWalkable(Vector3 targetPos)
+   /* private bool IsWalkable(Vector3 targetPos)
     {
         if (Physics2D.OverlapCircle(targetPos, 0.1f, SolidObject | interactableLayer) != null)
         {
@@ -106,7 +110,7 @@ public class PlayerController : MonoBehaviour
             distance = 0;
             CheckForEncounters();
         }
-    }
+    }*/
 
     private void CheckForEncounters()
     {
