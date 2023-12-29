@@ -65,7 +65,7 @@ public class CharacterAnimator : MonoBehaviour
         {
             currentAnimator.Start();
         }
-
+         
         if (IsMoving)
         {
             currentAnimator.HandleUpdate();
