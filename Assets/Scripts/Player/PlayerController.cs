@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     public LayerMask Encounterable;
     public LayerMask SolidObject;
     public LayerMask portallayer;
+    public LayerMask interactableLayer;
 
     public LayerMask PortalLayer
     
@@ -29,11 +30,11 @@ public class PlayerController : MonoBehaviour
 
     private Vector2 input;
 
-    private Animator animator;
+    private CharacterAnimator animator;
 
     private void Awake()
     {
-        animator = GetComponent<Animator>();
+        animator = GetComponent<CharacterAnimator>();
         i = this;
     }
 
@@ -42,20 +43,16 @@ public class PlayerController : MonoBehaviour
     {
         if (!isMoving)
         {
-
-
             input.x = Input.GetAxisRaw("Horizontal");
             input.y = Input.GetAxisRaw("Vertical");
-
-
 
             // remove diagonal movement 
             if (input.x != 0) input.y = 0;
 
             if (input != Vector2.zero)
             {
-                animator.SetFloat("moveX", input.x);
-                animator.SetFloat("moveY", input.y);
+                animator.MoveX = input.x;
+                animator.MoveY = input.y;
 
                 var targetPos = transform.position;
                 targetPos.x += input.x;
@@ -66,13 +63,17 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
-        animator.SetBool("isMoving", isMoving);
+        animator.IsMoving = isMoving;
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            Interact();
+        }
 
     }
 
     private bool IsWalkable(Vector3 targetPos)
     {
-        if (Physics2D.OverlapCircle(targetPos, 0.2f, SolidObject) != null)
+        if (Physics2D.OverlapCircle(targetPos, 0.1f, SolidObject | interactableLayer) != null)
         {
             return false;
         }
@@ -114,15 +115,21 @@ public class PlayerController : MonoBehaviour
         {
             if (UnityEngine.Random.Range(1, 101) <= 10)
             {
-                animator.SetBool("isMoving", false);
+                animator.IsMoving = false;
                 OnEncountered();
             }
         }
 
     }
 
-   /* void Interact()
+    void Interact()
     {
-
-    }*/
+        var facingDirection = new Vector3(animator.MoveX, animator.MoveY);
+        var interactPosition = transform.position + facingDirection;
+        var collider = Physics2D.OverlapCircle(interactPosition, 0.1f, interactableLayer);
+        if (collider != null)
+        {
+            collider.GetComponent<Interactable>()?.Interact();
+        }
+    }
 }
