@@ -8,12 +8,16 @@ public class DialogManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI dialogText;
     [SerializeField] GameObject dialogBox;
     [SerializeField] int lettersPerSecond;
+
     int currentLine = 0;
     Dialog dialog;
     bool isTyping;
 
     public event Action OnShowDialog;
     public event Action OnCloseDialog;
+    Action onDialogFinished; 
+
+    public bool IsShowing { get; private set; }
 
 
 
@@ -23,13 +27,15 @@ public class DialogManager : MonoBehaviour
     {
         Instance = this;
     }
-    public IEnumerator ShowDialog(Dialog dialog)
+    public IEnumerator ShowDialog(Dialog dialog, Action onFinished=null)
     {
         yield return new WaitForEndOfFrame();
         OnShowDialog?.Invoke();
 
+        IsShowing = true;
         this.dialog = dialog;
         dialogBox.SetActive(true);
+        onDialogFinished = onFinished;
 
         StartCoroutine(TypeDialog(dialog.Lines[0]));
 
@@ -62,7 +68,9 @@ public class DialogManager : MonoBehaviour
             else
             {
                 currentLine = 0;
+                IsShowing = false;
                 dialogBox.SetActive(false);
+                onDialogFinished?.Invoke();
                 OnCloseDialog?.Invoke();
             }
         }
