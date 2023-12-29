@@ -22,12 +22,18 @@ public class NPCController : MonoBehaviour, Interactable
     public void Interact()
     {
         if (state == NPCState.Idle)
-            StartCoroutine(DialogManager.Instance.ShowDialog(dialog));
+        {
+            state = NPCState.Dialog;
+            StartCoroutine(DialogManager.Instance.ShowDialog(dialog, () =>
+            {
+                idleTimer = 0f;
+                state = NPCState.Idle;
+            }));
+        }
     }
 
     private void Update()
     {
-        if (DialogManager.Instance.IsShowing) return;
 
         if (state == NPCState.Idle)
         {
@@ -50,12 +56,17 @@ public class NPCController : MonoBehaviour, Interactable
     {
         state = NPCState.Walking;
 
+        var oldPosition = transform.position;
+
         yield return character.Move(movementPattern[currentPattern]);
-        currentPattern = (currentPattern + 1) % movementPattern.Count;
+
+        if (transform.position != oldPosition)
+            currentPattern = (currentPattern + 1) % movementPattern.Count;
+
 
         state = NPCState.Idle;
 
     }
 
-    public enum NPCState { Idle, Walking }
+    public enum NPCState { Idle, Walking, Dialog }
 }

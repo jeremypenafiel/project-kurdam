@@ -30,7 +30,7 @@ public class Character : MonoBehaviour
         targetPos.x += moveVector.x;
         targetPos.y += moveVector.y;
 
-        if(!IsWalkable(targetPos))
+        if(!IsPathClear(targetPos))
         {
             yield break;
         }
@@ -66,6 +66,18 @@ public class Character : MonoBehaviour
     public void HandleUpdate()
     {
         animator.IsMoving = IsMoving;
+    }
+
+    private bool IsPathClear(Vector3 targetPos)
+    {
+        var difference = targetPos - transform.position;
+        var direction = difference.normalized;
+
+        if (Physics2D.BoxCast(transform.position + direction, new Vector2(0.2f, 0.2f), 0f, direction, difference.magnitude - 1, GameLayers.i.SolidObjectLayer | GameLayers.i.InteractableLayer | GameLayers.i.PlayerLayer) == true)
+        {
+            return false;
+        };
+        return true;
     }
 
     public CharacterAnimator Animator { get => animator; }
