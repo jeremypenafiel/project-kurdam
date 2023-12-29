@@ -11,6 +11,7 @@ public class Character : MonoBehaviour
     public float moveSpeed;
     public float distance;
     public float distanceThreshold = 0.5f;
+    public bool IsMoving { get; private set; }
 
 
     private void Awake()
@@ -35,7 +36,7 @@ public class Character : MonoBehaviour
         }
 
         
-        animator.IsMoving = true;
+        IsMoving = true;
         distance = 0;
         while ((targetPos - transform.position).sqrMagnitude > Mathf.Epsilon)
         {
@@ -44,7 +45,7 @@ public class Character : MonoBehaviour
             yield return null;
         }
         transform.position = targetPos;
-        animator.IsMoving = false;
+        IsMoving = false;
         if (distance >= distanceThreshold)
         {
             distance = 0;
@@ -55,10 +56,17 @@ public class Character : MonoBehaviour
 
     private bool IsWalkable(Vector3 targetPos)
     {
-        if (Physics2D.OverlapCircle(targetPos, 0.1f, SolidObject | interactableLayer) != null)
+        if (Physics2D.OverlapCircle(targetPos, 0.1f, GameLayers.i.SolidObjectLayer| GameLayers.i.InteractableLayer) != null)
         {
             return false;
         }
         return true;
     }
+
+    public void HandleUpdate()
+    {
+        animator.IsMoving = IsMoving;
+    }
+
+    public CharacterAnimator Animator { get => animator; }
 }

@@ -8,12 +8,10 @@ public class PlayerController : MonoBehaviour
     
 
     public float distance;
-    [SerializeField] float distanceThreshold = 0.5f;
+    /*[SerializeField] float distanceThreshold = 0.5f;*/
 
     public LayerMask Encounterable;
-    public LayerMask SolidObject;
     public LayerMask portallayer;
-    public LayerMask interactableLayer;
 
     public LayerMask PortalLayer
     
@@ -30,12 +28,10 @@ public class PlayerController : MonoBehaviour
 
     private Vector2 input;
 
-    private CharacterAnimator animator;
     private Character character;
 
     private void Awake()
     {
-        animator = GetComponent<CharacterAnimator>();
         character = GetComponent<Character>();
 
         i = this;
@@ -44,7 +40,7 @@ public class PlayerController : MonoBehaviour
 
     public void HandleUpdate()
     {
-        if (!animator.IsMoving)
+        if (!character.IsMoving)
         {
             input.x = Input.GetAxisRaw("Horizontal");
             input.y = Input.GetAxisRaw("Vertical");
@@ -67,6 +63,8 @@ public class PlayerController : MonoBehaviour
                 StartCoroutine(character.Move(input, CheckForEncounters));
             }
         }
+
+        character.HandleUpdate();
 
         if (Input.GetKeyDown(KeyCode.Z))
         {
@@ -119,7 +117,7 @@ public class PlayerController : MonoBehaviour
         {
             if (UnityEngine.Random.Range(1, 101) <= 10)
             {
-                animator.IsMoving = false;
+                character.Animator.IsMoving = false;
                 OnEncountered();
             }
         }
@@ -128,9 +126,9 @@ public class PlayerController : MonoBehaviour
 
     void Interact()
     {
-        var facingDirection = new Vector3(animator.MoveX, animator.MoveY);
+        var facingDirection = new Vector3(character.Animator.MoveX, character.Animator.MoveY);
         var interactPosition = transform.position + facingDirection;
-        var collider = Physics2D.OverlapCircle(interactPosition, 0.1f, interactableLayer);
+        var collider = Physics2D.OverlapCircle(interactPosition, 0.1f, GameLayers.i.InteractableLayer);
         if (collider != null)
         {
             collider.GetComponent<Interactable>()?.Interact();
