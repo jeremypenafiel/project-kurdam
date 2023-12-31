@@ -65,9 +65,7 @@ public class BattleSystem : MonoBehaviour
     void PlayerAttackRoll()
     {
         state = BattleState.PlayerAttackRoll;
-        
         StartCoroutine(dialogBox.TypeDialog("Roll the dice to attack."));
-        
         diceSystem.SetupAttackRoll();
     }
 
