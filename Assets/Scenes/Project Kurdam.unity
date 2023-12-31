@@ -13711,7 +13711,6 @@ GameObject:
   - component: {fileID: 564647498}
   - component: {fileID: 564647499}
   - component: {fileID: 564647500}
-  - component: {fileID: 564647501}
   m_Layer: 11
   m_Name: Player
   m_TagString: Untagged
@@ -13938,41 +13937,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!70 &564647501
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 564647490}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.030433655, y: -0.46956635}
-  m_Size: {x: 0.87, y: 0.34}
-  m_Direction: 1
 --- !u!1 &579602723
 GameObject:
   m_ObjectHideFlags: 0
@@ -125200,6 +125164,53 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1600990377
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1600990379}
+  - component: {fileID: 1600990378}
+  m_Layer: 0
+  m_Name: DiceSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1600990378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1600990377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 312790a270a07c342833aa024e75c9c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  d6: {fileID: 644182410}
+  d20: {fileID: 1435225851}
+  diceHud: {fileID: 492622624}
+--- !u!4 &1600990379
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1600990377}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 59.999695, y: -8.000545, z: -0.010025175}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1683472770
 Transform:
   m_ObjectHideFlags: 0
@@ -125467,11 +125478,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerUnit: {fileID: 1352768478}
-  diceHud: {fileID: 492622624}
   enemyUnit: {fileID: 1562102397}
   dialogBox: {fileID: 1077705720}
-  d6: {fileID: 644182410}
-  d20: {fileID: 1435225851}
+  diceSystem: {fileID: 1600990378}
 --- !u!1 &1779067598
 GameObject:
   m_ObjectHideFlags: 0
@@ -135478,3 +135487,4 @@ SceneRoots:
   - {fileID: 557887077}
   - {fileID: 1527324612}
   - {fileID: 1845906817}
+  - {fileID: 1600990379}
