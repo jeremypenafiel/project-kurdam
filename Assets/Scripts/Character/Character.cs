@@ -97,5 +97,10 @@ public class Character : MonoBehaviour
 
     }
 
+    public void SetPositionAndSnapToTile(Vector3 pos)
+    {
+        ;
+    }
+
     public CharacterAnimator Animator { get => animator; }
 }
