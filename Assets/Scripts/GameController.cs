@@ -2,15 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum GameState {FreeRoam, Battle, Dialog }
+public enum GameState {FreeRoam, Battle, Dialog, paused }
 public class GameController : MonoBehaviour
 {
     GameState state;
     [SerializeField] PlayerController playerController;
     [SerializeField] BattleSystem battleSystem;
     [SerializeField] Camera worldCamera;
-    
 
+    public static GameController Instance { get; private set; }
+
+    private void Awake()
+    {
+        Instance = this;
+
+    }
     private void Start()
     {
 
