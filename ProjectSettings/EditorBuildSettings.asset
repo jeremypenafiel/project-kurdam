@@ -11,4 +11,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LoversLane.unity
     guid: 3ddf07aceb1e5b24d9733f9e8c278672
+  - enabled: 1
+    path: Assets/Scenes/HSU.unity
+    guid: 935cea85718dc1746a665257ff9d1c80
+  - enabled: 1
+    path: Assets/Scenes/CAS.unity
+    guid: aa6446431cc63414e8abb5a32db4d453
+  - enabled: 1
+    path: Assets/Scenes/NewAdmin.unity
+    guid: 5268bb3f694c04d43a69bb5f25310d4c
   m_configObjects: {}

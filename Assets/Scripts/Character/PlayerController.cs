@@ -134,4 +134,6 @@ public class PlayerController : MonoBehaviour
             collider.GetComponent<Interactable>()?.Interact(transform);
         }
     }
+
+    public Character Character => character;
 }

@@ -26,7 +26,7 @@ public class Portal : MonoBehaviour, IPLayerTriggerable
         yield return SceneManager.LoadSceneAsync(sceneToLoad);
         var destPortal = FindObjectsOfType<Portal>().First(x => x != this && x.destinationPortal == this.destinationPortal);
 
-        player.character.SetPositionAndSnapToTile(destPortal.Spawnpoint.position);
+        player.Character.SetPositionAndSnapToTile(destPortal.Spawnpoint.position);
         GameController.Instance.PauseGame(false);
 
         Destroy(gameObject);
