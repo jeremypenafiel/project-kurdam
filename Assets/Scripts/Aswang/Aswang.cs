@@ -22,7 +22,7 @@ public class Aswang
 
         set;
     }
-
+    public int Exp { get; set; }
     public int HP { get; set; }
 
     public List<Moves> moves {  get; set; }
@@ -40,7 +40,7 @@ public class Aswang
                 moves.Add(new Moves(move.MovesBase));
             }
         }
-
+        Exp = Base.GetExpForLevel(Level);
     }
 
     public Aswang(AswangBase abase, int alevel)
@@ -89,12 +89,24 @@ public class Aswang
     {
         get { return Mathf.FloorToInt((Base.Intelligence - 10) / 2); }
     }
-
+    
     public int Charisma
     {
         get { return Mathf.FloorToInt((Base.Charisma - 10) / 2); }
     }
 
+    public bool CheckForLevelUp()
+    {
+        if (Exp> Base.GetExpForLevel(level + 1))
+        {
+            ++level;
+            return true;
+        }
+        else
+        {
+            return false;   
+        }
+    }
     public bool TakeDamage(Moves move, Aswang attacker, int damage)
     {
         HP -= damage;

@@ -11,12 +11,14 @@ public class Character : MonoBehaviour
     public float moveSpeed;
     public float distance;
     public float distanceThreshold = 0.5f;
+    public float offsetY = 0.3f;
     public bool IsMoving { get; private set; }
 
-
+    
     private void Awake()
     {
         animator = GetComponent<CharacterAnimator>();
+        SetPositionAndSnapToTile(transform.position);
     
     }
 
@@ -54,7 +56,8 @@ public class Character : MonoBehaviour
     }
 
 
-    private bool IsWalkable(Vector3 targetPos)
+
+   public bool IsWalkable(Vector3 targetPos)
     {
         if (Physics2D.OverlapCircle(targetPos, 0.1f, GameLayers.i.SolidObjectLayer| GameLayers.i.InteractableLayer) != null)
         {
@@ -95,6 +98,13 @@ public class Character : MonoBehaviour
             Debug.LogError("Character is not aligned with the grid");
         }
 
+    }
+
+    public void SetPositionAndSnapToTile(Vector2 pos)
+    {
+        pos.x = Mathf.Floor(pos.x) + 0.5f;
+        pos.y = Mathf.Floor(pos.y) + 0.8f;
+        transform.position = pos;
     }
 
     public CharacterAnimator Animator { get => animator; }
