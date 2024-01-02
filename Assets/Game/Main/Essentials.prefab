@@ -4183,7 +4183,7 @@ Transform:
   m_GameObject: {fileID: 8635733759808163774}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 42.5, y: -140, z: 0.55099404}
+  m_LocalPosition: {x: 67, y: -140, z: 0.55099404}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4254,9 +4254,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distance: 0
-  Encounterable:
+  encounterable:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 0
   portallayer:
     serializedVersion: 2
     m_Bits: 512
@@ -4321,6 +4321,7 @@ MonoBehaviour:
   moveSpeed: 5
   distance: 0
   distanceThreshold: 0.5
+  offsetY: 0.3
 --- !u!61 &2311226915819172143
 BoxCollider2D:
   m_ObjectHideFlags: 0

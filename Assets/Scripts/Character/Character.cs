@@ -11,9 +11,10 @@ public class Character : MonoBehaviour
     public float moveSpeed;
     public float distance;
     public float distanceThreshold = 0.5f;
+    public float offsetY = 0.3f;
     public bool IsMoving { get; private set; }
 
-
+    
     private void Awake()
     {
         animator = GetComponent<CharacterAnimator>();
@@ -55,7 +56,8 @@ public class Character : MonoBehaviour
     }
 
 
-    private bool IsWalkable(Vector3 targetPos)
+
+   public bool IsWalkable(Vector3 targetPos)
     {
         if (Physics2D.OverlapCircle(targetPos, 0.1f, GameLayers.i.SolidObjectLayer| GameLayers.i.InteractableLayer) != null)
         {
