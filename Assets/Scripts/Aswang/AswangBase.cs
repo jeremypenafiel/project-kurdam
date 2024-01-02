@@ -25,6 +25,8 @@ public class AswangBase : ScriptableObject
     [SerializeField] int intelligence;
     [SerializeField] int wisdom;
     [SerializeField] int charisma;
+
+    [SerializeField] int expYield;
     [SerializeField] List<LearnableMove> learnableMoves;
     [SerializeField] List<DamageType> resistances;
     [SerializeField] List<DamageType> vulnerabilities;
@@ -88,6 +90,11 @@ public class AswangBase : ScriptableObject
         get { return charisma; }
     }
 
+    public int ExpYield
+    {
+        get { return expYield; }
+    }
+
     public List<LearnableMove> LearnableMoves
     {
         get { return learnableMoves; }
@@ -102,7 +109,13 @@ public class AswangBase : ScriptableObject
     {
         get { return vulnerabilities; }
     }
+    public int GetExpForLevel(int level)
+    {
+        return level * level * level;
+    }
 }
+
+
 
 [System.Serializable]
 public class LearnableMove

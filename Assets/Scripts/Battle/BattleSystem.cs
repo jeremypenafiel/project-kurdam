@@ -275,10 +275,7 @@ public class BattleSystem : MonoBehaviour
 
         if (isDead)
         {
-            yield return (StartCoroutine(dialogBox.TypeDialog(targetUnit.GetDefeatText())));
-            targetUnit.PlayFaintAnimation();
-            yield return new WaitForSeconds(1f);
-            OnBattleOver(true);
+            yield return HandleAswangKill(targetUnit);
         }
         else
             onDamageRollOver?.Invoke();
@@ -306,6 +303,33 @@ public class BattleSystem : MonoBehaviour
 
         yield return StartCoroutine(dialogBox.TypeDialog(text));
         yield return new WaitForSeconds(1f);
+    }
+
+    IEnumerator HandleAswangKill(BattleUnit KilledUnit)
+    {
+        yield return (StartCoroutine(dialogBox.TypeDialog(KilledUnit.GetDefeatText())));
+        KilledUnit.PlayFaintAnimation();
+        yield return new WaitForSeconds(1f);
+        
+        if (!KilledUnit.IsPlayerUnit)
+        {
+            int expYield =KilledUnit.Aswang.Base.ExpYield;
+            int enemyLevel = KilledUnit.Aswang.Level;
+            int expGain = Mathf.FloorToInt(expYield * enemyLevel / 7);
+            playerUnit.Aswang.Exp += expGain;
+            yield return dialogBox.TypeDialog($"{playerUnit.Aswang.Base.Aname} gained {expGain} exp");
+
+            yield return playerUnit.Hud.SetExpSmooth();
+
+            while (playerUnit.Aswang.CheckForLevelUp())
+            {
+                yield return dialogBox.TypeDialog($"{playerUnit.Aswang.Base.Aname} leveled up");
+                yield return playerUnit.Hud.SetExpSmooth(true);
+
+            }
+
+        }
+        OnBattleOver(true);
     }
 
 
@@ -373,4 +397,6 @@ public class BattleSystem : MonoBehaviour
         }
         return playerModifier;
     }
+
+
 }
