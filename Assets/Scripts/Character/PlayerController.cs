@@ -5,28 +5,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    
-
     public float distance;
-    /*[SerializeField] float distanceThreshold = 0.5f;*/
-
-    public LayerMask encounterable;
-    public LayerMask Encounterable
-    {
-        get => encounterable;
-    }
-    public LayerMask portallayer;
-
-    public LayerMask PortalLayer
-    
-    {
-        get => portallayer; /*set=>PortalLayer = value;*/
-    }
-    public static PlayerController i { get; set; }
-    public LayerMask TriggerableLayers
-    {
-        get => portallayer|encounterable;
-    }
 
     public event Action OnEncountered;
 
@@ -34,13 +13,11 @@ public class PlayerController : MonoBehaviour
 
     private Character character;
 
+
     private void Awake()
     {
         character = GetComponent<Character>();
-
-        i = this;
     }
-
 
     public void HandleUpdate()
     {
@@ -54,7 +31,7 @@ public class PlayerController : MonoBehaviour
 
             if (input != Vector2.zero)
             {
-                var colliders = (Physics2D.OverlapCircleAll(transform.position, 0.2f, PlayerController.i.TriggerableLayers));
+                var colliders = (Physics2D.OverlapCircleAll(transform.position, 0.2f, GameLayers.I.TriggerableLayer));
                 foreach (var collider in colliders)
                 {
                     var triggerable = collider.GetComponent<IPLayerTriggerable>();
@@ -118,7 +95,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnMoveOver()
     {
-        var colliders = (Physics2D.OverlapCircleAll(transform.position - new Vector3(0, Character.offsetY), 0.2f, PlayerController.i.TriggerableLayers));
+        var colliders = (Physics2D.OverlapCircleAll(transform.position - new Vector3(0, Character.offsetY), 0.2f,  GameLayers.I.TriggerableLayer));
         foreach (var collider in colliders)
         {
             var triggerable = collider.GetComponent<IPLayerTriggerable>();
@@ -137,7 +114,7 @@ public class PlayerController : MonoBehaviour
     {
         var facingDirection = new Vector3(character.Animator.MoveX, character.Animator.MoveY);
         var interactPosition = transform.position + facingDirection;
-        var collider = Physics2D.OverlapCircle(interactPosition, 0.1f, GameLayers.i.InteractableLayer);
+        var collider = Physics2D.OverlapCircle(interactPosition, 0.1f, GameLayers.I.InteractableLayer);
         if (collider != null)
         {
             collider.GetComponent<Interactable>()?.Interact(transform);
