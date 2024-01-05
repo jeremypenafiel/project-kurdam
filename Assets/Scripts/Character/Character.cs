@@ -78,6 +78,7 @@ public class Character : MonoBehaviour
 
         if (Physics2D.BoxCast(transform.position + direction, new Vector2(0.2f, 0.2f), 0f, direction, difference.magnitude - 1, GameLayers.I.SolidObjectLayer | GameLayers.I.InteractableLayer | GameLayers.I.PlayerLayer) == true)
         {
+            Debug.Log("false");
             return false;
         };
         return true;

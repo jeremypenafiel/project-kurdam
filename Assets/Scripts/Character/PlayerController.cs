@@ -12,11 +12,13 @@ public class PlayerController : MonoBehaviour
     private Vector2 input;
 
     private Character character;
+    private Vector3 offset;
 
 
     private void Awake()
     {
         character = GetComponent<Character>();
+        offset = new Vector3(0, Character.offsetY);
     }
 
     public void HandleUpdate()
@@ -95,7 +97,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnMoveOver()
     {
-        var colliders = (Physics2D.OverlapCircleAll(transform.position - new Vector3(0, Character.offsetY), 0.2f,  GameLayers.I.TriggerableLayer));
+        var colliders = (Physics2D.OverlapCircleAll(transform.position - offset, 0.2f,  GameLayers.I.TriggerableLayer));
         foreach (var collider in colliders)
         {
             var triggerable = collider.GetComponent<IPLayerTriggerable>();
