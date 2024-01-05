@@ -59,7 +59,7 @@ public class Character : MonoBehaviour
 
    public bool IsWalkable(Vector3 targetPos)
     {
-        if (Physics2D.OverlapCircle(targetPos, 0.1f, GameLayers.i.SolidObjectLayer| GameLayers.i.InteractableLayer) != null)
+        if (Physics2D.OverlapCircle(targetPos, 0.1f, GameLayers.I.SolidObjectLayer| GameLayers.I.InteractableLayer) != null)
         {
             return false;
         }
@@ -76,8 +76,9 @@ public class Character : MonoBehaviour
         var difference = targetPos - transform.position;
         var direction = difference.normalized;
 
-        if (Physics2D.BoxCast(transform.position + direction, new Vector2(0.2f, 0.2f), 0f, direction, difference.magnitude - 1, GameLayers.i.SolidObjectLayer | GameLayers.i.InteractableLayer | GameLayers.i.PlayerLayer) == true)
+        if (Physics2D.BoxCast(transform.position + direction, new Vector2(0.2f, 0.2f), 0f, direction, difference.magnitude - 1, GameLayers.I.SolidObjectLayer | GameLayers.I.InteractableLayer | GameLayers.I.PlayerLayer) == true)
         {
+            Debug.Log("false");
             return false;
         };
         return true;
