@@ -103,7 +103,7 @@ public class PlayerController : MonoBehaviour
             var triggerable = collider.GetComponent<IPLayerTriggerable>();
             if (triggerable != null)
             {
-                character.Animator.IsMoving = false;
+                
                 triggerable.OnPlayerTriggered(this);
                 break;
             }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
 public class LocationPortal : MonoBehaviour, IPLayerTriggerable
 {
@@ -14,6 +15,7 @@ public class LocationPortal : MonoBehaviour, IPLayerTriggerable
     public void OnPlayerTriggered(PlayerController player)
     {
         this.player = player;
+        player.Character.Animator.IsMoving = false;
         StartCoroutine(Teleport());
     }
 

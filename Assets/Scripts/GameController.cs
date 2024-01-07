@@ -48,7 +48,7 @@ public class GameController : MonoBehaviour
         worldCamera.gameObject.SetActive(false);
 
         var player = playerController.GetComponent<Player>().GetPlayer();
-        var wildAswang = FindObjectOfType<MapArea>().GetComponent<MapArea>().GetRandomWildAswang();
+        var wildAswang = CurrentScene.GetComponent<MapArea>().GetRandomWildAswang();
         battleSystem.StartBattle(player, wildAswang);
 
     }

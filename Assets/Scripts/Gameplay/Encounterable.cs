@@ -1,17 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.TextCore.Text;
 
 public class EncounterableArea : MonoBehaviour, IPLayerTriggerable
 {
     public void OnPlayerTriggered(PlayerController player)
     {
-        if(player.Character.distance > player.Character.distanceThreshold)
+        if(Random.Range(1, 101) <= 10)
         {
-            Debug.Log(gameObject.name);
-            Debug.Log(player.Character.distance);
-            Debug.Log(player.Character.distanceThreshold);
+            player.Character.Animator.IsMoving = false;
             GameController.Instance.StartBattle();
         }
     }

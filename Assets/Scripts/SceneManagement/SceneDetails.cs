@@ -23,7 +23,9 @@ public class SceneDetails : MonoBehaviour
                 scene.LoadScene();
             }
 
-            if(GameController.Instance.PreviousScene != null)
+            var previousScene = GameController.Instance.PreviousScene;
+
+            if(previousScene != null)
             {
                 var previouslyLoadedScenes = GameController.Instance.PreviousScene.connectedScenes;
                 foreach(var scene in previouslyLoadedScenes)
@@ -33,7 +35,14 @@ public class SceneDetails : MonoBehaviour
                         scene.UnloadScene();
                     }   
                 }   
+
+                if(!connectedScenes.Contains(previousScene))
+                {
+                    previousScene.UnloadScene();
+                }
             }
+
+
 
         }
     }

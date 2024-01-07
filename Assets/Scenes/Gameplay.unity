@@ -283,6 +283,7 @@ GameObject:
   - component: {fileID: 1153281146}
   - component: {fileID: 1153281147}
   - component: {fileID: 1153281148}
+  - component: {fileID: 1153281149}
   m_Layer: 0
   m_Name: HSU
   m_TagString: Untagged
@@ -365,6 +366,25 @@ MonoBehaviour:
   connectedScenes:
   - {fileID: 1550750726}
   - {fileID: 1029692284}
+--- !u!114 &1153281149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1153281145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad517350047cc5843b5647450bbc28b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wildAswangs:
+  - aswangBase: {fileID: 11400000, guid: fc0bc972d044eda41984d418eb0e8c19, type: 2}
+    levelRange: {x: 1, y: 3}
+    chancePercentage: 50
+  - aswangBase: {fileID: 11400000, guid: 549514c8bdd42aa4d95b63aef881cff2, type: 2}
+    levelRange: {x: 1, y: 3}
+    chancePercentage: 50
 --- !u!1 &1550750723
 GameObject:
   m_ObjectHideFlags: 0
@@ -376,6 +396,7 @@ GameObject:
   - component: {fileID: 1550750725}
   - component: {fileID: 1550750724}
   - component: {fileID: 1550750726}
+  - component: {fileID: 1550750727}
   m_Layer: 0
   m_Name: LoversLane
   m_TagString: Untagged
@@ -456,6 +477,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   connectedScenes: []
+--- !u!114 &1550750727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1550750723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad517350047cc5843b5647450bbc28b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wildAswangs:
+  - aswangBase: {fileID: 11400000, guid: 72046347066b5a24eb23b39e47e72034, type: 2}
+    levelRange: {x: 5, y: 15}
+    chancePercentage: 40
+  - aswangBase: {fileID: 11400000, guid: fc0bc972d044eda41984d418eb0e8c19, type: 2}
+    levelRange: {x: 5, y: 10}
+    chancePercentage: 35
+  - aswangBase: {fileID: 11400000, guid: 549514c8bdd42aa4d95b63aef881cff2, type: 2}
+    levelRange: {x: 15, y: 20}
+    chancePercentage: 25
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

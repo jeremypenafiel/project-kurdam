@@ -146,8 +146,8 @@ public class BattleSystem : MonoBehaviour
             }
             else if (currentAction == 1)
             {
-
-                StartCoroutine(RunBattle());
+                Flee();
+                
             }
         }
     }
@@ -280,7 +280,12 @@ public class BattleSystem : MonoBehaviour
         else
             onDamageRollOver?.Invoke();
     }
+    void Flee()
+    {
+        state = BattleState.Busy;
+        StartCoroutine(RunBattle());
 
+    }
     IEnumerator RunBattle()
     {
         yield return StartCoroutine(dialogBox.TypeDialog("You fled from the aswang."));
