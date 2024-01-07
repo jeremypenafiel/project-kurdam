@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
 
             if (input != Vector2.zero)
             {
-                /*var colliders = (Physics2D.OverlapCircleAll(transform.position, 0.2f, GameLayers.I.TriggerableLayer));
+                var colliders = (Physics2D.OverlapCircleAll(transform.position, 0.2f, GameLayers.I.TriggerableLayer));
                 foreach (var collider in colliders)
                 {
                     var triggerable = collider.GetComponent<IPLayerTriggerable>();
@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
                         triggerable.OnPlayerTriggered(this);
                         break;
                     }
-                }*/
+                }
                 if (Character.IsWalkable(transform.position)==true){ 
                 StartCoroutine(character.Move(input, OnMoveOver));
                 }
@@ -103,7 +103,7 @@ public class PlayerController : MonoBehaviour
             var triggerable = collider.GetComponent<IPLayerTriggerable>();
             if (triggerable != null)
             {
-                
+                character.Animator.IsMoving = false;
                 triggerable.OnPlayerTriggered(this);
                 break;
             }

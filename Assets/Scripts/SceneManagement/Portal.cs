@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class Portal : MonoBehaviour, IPLayerTriggerable
 {
     [SerializeField] Transform spawnPoint;
+    [SerializeField] int sceneToLoad = -1;
     [SerializeField] DestinationIdentifier destinationPortal;
 
     PlayerController player;
@@ -29,6 +30,7 @@ public class Portal : MonoBehaviour, IPLayerTriggerable
 
         GameController.Instance.PauseGame(true);
         yield return fader.FadeIn(0.5f);
+        yield return SceneManager.LoadSceneAsync(sceneToLoad);
         var destPortal = FindObjectsOfType<Portal>().First(x => x != this && x.destinationPortal == this.destinationPortal);
 
         player.Character.SetPositionAndSnapToTile(destPortal.Spawnpoint.position);
