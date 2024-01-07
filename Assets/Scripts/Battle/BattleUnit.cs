@@ -95,7 +95,7 @@ public class BattleUnit : MonoBehaviour
     public BattleState GetState()
     {
         if(isPlayerUnit) return BattleState.Busy;
-        return BattleState.EnemyMove;
+        return BattleState.EnemyAttackRoll;
     }
 
     public Moves GetMove(int currentMove)

@@ -2,17 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum GameState {FreeRoam, Battle, Dialog }
+public enum GameState { FreeRoam, Battle, Dialog, Paused }
 public class GameController : MonoBehaviour
 {
     GameState state;
+    GameState stateBeforePause;
+
     [SerializeField] PlayerController playerController;
     [SerializeField] BattleSystem battleSystem;
     [SerializeField] Camera worldCamera;
-    
 
+    public SceneDetails CurrentScene { get; private set; }
+    public SceneDetails PreviousScene { get; private set; }
+
+    public static GameController Instance { get; private set; }
+
+    private void Awake()
+    {
+        Instance = this;
+
+    }
     private void Start()
     {
+
         playerController.OnEncountered += StartBattle;
         battleSystem.OnBattleOver += EndBattle;
         battleSystem.Run += EndBattle;
@@ -29,18 +41,29 @@ public class GameController : MonoBehaviour
         };
     }
 
-    void StartBattle()
+    public void StartBattle()
     {
         state = GameState.Battle;
         battleSystem.gameObject.SetActive(true);
         worldCamera.gameObject.SetActive(false);
 
         var player = playerController.GetComponent<Player>().GetPlayer();
-        var wildAswang = FindObjectOfType<MapArea>().GetComponent<MapArea>().GetRandomWildAswang();
+        var wildAswang = CurrentScene.GetComponent<MapArea>().GetRandomWildAswang();
         battleSystem.StartBattle(player, wildAswang);
 
     }
-
+    public void PauseGame(bool pause)
+    {
+        if (pause == true)
+        {
+            stateBeforePause = state;
+            state = GameState.Paused;
+        }
+        else
+        {
+            state = stateBeforePause;
+        }
+    }
     void EndBattle()
     {
         state = GameState.FreeRoam;
@@ -51,20 +74,29 @@ public class GameController : MonoBehaviour
     {
         state = GameState.FreeRoam;
         battleSystem.gameObject.SetActive(false);
-        worldCamera.gameObject.SetActive(true );
+        worldCamera.gameObject.SetActive(true);
     }
+
+    public void SetCurrentScene(SceneDetails currentScene)
+    {
+        PreviousScene = CurrentScene;
+        CurrentScene = currentScene;
+    }
+    
+
     private void Update()
     {
-        
 
-        if(state == GameState.FreeRoam)
+
+        if (state == GameState.FreeRoam)
         {
             playerController.HandleUpdate();
         }
         else if (state == GameState.Battle)
         {
             battleSystem.HandleUpdate();
-        }else if (state == GameState.Dialog)
+        }
+        else if (state == GameState.Dialog)
         {
             DialogManager.Instance.HandleUpdate();
         }

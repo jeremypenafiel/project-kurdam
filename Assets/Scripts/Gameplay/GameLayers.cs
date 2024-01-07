@@ -7,12 +7,15 @@ public class GameLayers : MonoBehaviour
     [SerializeField] LayerMask solidObject;
     [SerializeField] LayerMask interactableLayer;
     [SerializeField] LayerMask playerLayer;
+    [SerializeField] LayerMask encounterableLayer;
+    [SerializeField] LayerMask portalLayer;
 
-    public static GameLayers i { get; set;}
+
+    public static GameLayers I { get; set;}
 
     private void Awake()
     {
-        i = this;
+        I = this;
     }
 
 
@@ -29,5 +32,20 @@ public class GameLayers : MonoBehaviour
     public LayerMask PlayerLayer
     {
         get => playerLayer;
+    }
+
+    public LayerMask EncounterableLayer
+    {
+        get => encounterableLayer;
+    }
+
+    public LayerMask PortalLayer
+    {
+        get => portalLayer;
+    }
+
+    public LayerMask TriggerableLayer
+    {
+        get => portalLayer|encounterableLayer;
     }
 }

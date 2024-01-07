@@ -1,12 +1,11 @@
 using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using System.Linq;
-using UnityEngine.SceneManagement;
+using UnityEngine;
+using UnityEngine.TextCore.Text;
 
-
-public class Portal : MonoBehaviour, IPLayerTriggerable
+public class LocationPortal : MonoBehaviour, IPLayerTriggerable
 {
+    // Start is called before the first frame update
     [SerializeField] Transform spawnPoint;
     [SerializeField] DestinationIdentifier destinationPortal;
 
@@ -16,20 +15,19 @@ public class Portal : MonoBehaviour, IPLayerTriggerable
     public void OnPlayerTriggered(PlayerController player)
     {
         this.player = player;
-        StartCoroutine(SwitchScene());
+        player.Character.Animator.IsMoving = false;
+        StartCoroutine(Teleport());
     }
 
     private void Start()
     {
         fader = FindObjectOfType<Fader>();
     }
-    IEnumerator SwitchScene()
+    IEnumerator Teleport()
     {
-        DontDestroyOnLoad(gameObject);
-
         GameController.Instance.PauseGame(true);
         yield return fader.FadeIn(0.5f);
-        var destPortal = FindObjectsOfType<Portal>().First(x => x != this && x.destinationPortal == this.destinationPortal);
+        var destPortal = FindObjectsOfType<LocationPortal>().First(x => x != this && x.destinationPortal == this.destinationPortal);
 
         player.Character.SetPositionAndSnapToTile(destPortal.Spawnpoint.position);
 

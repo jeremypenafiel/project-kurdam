@@ -5,38 +5,21 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    
-
     public float distance;
-    /*[SerializeField] float distanceThreshold = 0.5f;*/
-
-    public LayerMask Encounterable;
-    public LayerMask portallayer;
-
-    public LayerMask PortalLayer
-    
-    {
-        get => portallayer; /*set=>PortalLayer = value;*/
-    }
-    public static PlayerController i { get; set; }
-    public LayerMask TriggerableLayers
-    {
-        get => portallayer;
-    }
 
     public event Action OnEncountered;
 
     private Vector2 input;
 
     private Character character;
+    private Vector3 offset;
+
 
     private void Awake()
     {
         character = GetComponent<Character>();
-
-        i = this;
+        offset = new Vector3(0, Character.offsetY);
     }
-
 
     public void HandleUpdate()
     {
@@ -50,7 +33,7 @@ public class PlayerController : MonoBehaviour
 
             if (input != Vector2.zero)
             {
-                var colliders = (Physics2D.OverlapCircleAll(transform.position, 0.2f, PlayerController.i.TriggerableLayers));
+                /*var colliders = (Physics2D.OverlapCircleAll(transform.position, 0.2f, GameLayers.I.TriggerableLayer));
                 foreach (var collider in colliders)
                 {
                     var triggerable = collider.GetComponent<IPLayerTriggerable>();
@@ -59,8 +42,10 @@ public class PlayerController : MonoBehaviour
                         triggerable.OnPlayerTriggered(this);
                         break;
                     }
+                }*/
+                if (Character.IsWalkable(transform.position)==true){ 
+                StartCoroutine(character.Move(input, OnMoveOver));
                 }
-                StartCoroutine(character.Move(input, CheckForEncounters));
             }
         }
 
@@ -73,65 +58,70 @@ public class PlayerController : MonoBehaviour
 
     }
 
-   /* private bool IsWalkable(Vector3 targetPos)
+    /* private bool IsWalkable(Vector3 targetPos)
+     {
+         if (Physics2D.OverlapCircle(targetPos, 0.1f, SolidObject | interactableLayer) != null)
+         {
+             return false;
+         }
+         return true;
+     }
+     IEnumerator Move(Vector3 targetPos)
+     {
+         var colliders =(Physics2D.OverlapCircleAll(transform.position, 0.2f, PlayerController.i.TriggerableLayers));
+         foreach (var collider in colliders)
+         {
+             var triggerable =collider.GetComponent < IPLayerTriggerable >();
+             if (triggerable != null)
+             {
+                 triggerable.OnPlayerTriggered(this);
+                 break;
+             }
+         }
+         isMoving = true;
+         distance = 0;
+         while ((targetPos - transform.position).sqrMagnitude > Mathf.Epsilon)
+         {
+             transform.position = Vector3.MoveTowards(transform.position, targetPos, moveSpeed * Time.deltaTime);
+             distance += moveSpeed * Time.deltaTime;
+             yield return null;
+         }
+         transform.position = targetPos;
+         isMoving = false;
+         if (distance >= distanceThreshold)
+         {
+             distance = 0;
+             CheckForEncounters();
+         }
+     }*/
+
+    private void OnMoveOver()
     {
-        if (Physics2D.OverlapCircle(targetPos, 0.1f, SolidObject | interactableLayer) != null)
-        {
-            return false;
-        }
-        return true;
-    }
-    IEnumerator Move(Vector3 targetPos)
-    {
-        var colliders =(Physics2D.OverlapCircleAll(transform.position, 0.2f, PlayerController.i.TriggerableLayers));
+        var colliders = (Physics2D.OverlapCircleAll(transform.position - offset, 0.2f,  GameLayers.I.TriggerableLayer));
         foreach (var collider in colliders)
         {
-            var triggerable =collider.GetComponent < IPLayerTriggerable >();
+            var triggerable = collider.GetComponent<IPLayerTriggerable>();
             if (triggerable != null)
             {
+                
                 triggerable.OnPlayerTriggered(this);
                 break;
             }
         }
-        isMoving = true;
-        distance = 0;
-        while ((targetPos - transform.position).sqrMagnitude > Mathf.Epsilon)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, targetPos, moveSpeed * Time.deltaTime);
-            distance += moveSpeed * Time.deltaTime;
-            yield return null;
-        }
-        transform.position = targetPos;
-        isMoving = false;
-        if (distance >= distanceThreshold)
-        {
-            distance = 0;
-            CheckForEncounters();
-        }
-    }*/
-
-    private void CheckForEncounters()
-    {
-        /*limit using movement or counter*/
-        if (Physics2D.OverlapCircle(transform.position, 0.2f, Encounterable) != null)
-        {
-            if (UnityEngine.Random.Range(1, 101) <= 10)
-            {
-                character.Animator.IsMoving = false;
-                OnEncountered();
-            }
-        }
-
     }
+
+  
 
     void Interact()
     {
         var facingDirection = new Vector3(character.Animator.MoveX, character.Animator.MoveY);
         var interactPosition = transform.position + facingDirection;
-        var collider = Physics2D.OverlapCircle(interactPosition, 0.1f, GameLayers.i.InteractableLayer);
+        var collider = Physics2D.OverlapCircle(interactPosition, 0.1f, GameLayers.I.InteractableLayer);
         if (collider != null)
         {
             collider.GetComponent<Interactable>()?.Interact(transform);
         }
     }
+
+    public Character Character => character;
 }

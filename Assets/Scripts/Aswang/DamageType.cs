@@ -10,7 +10,7 @@ public class DamageType: ScriptableObject
     [SerializeField] private Modifier modifier;
     public Modifier Modifier { get { return modifier; } }
 
-    public string getModifierText()
+    public string GetModifierText()
     {
         return modifier.ToString();
     }

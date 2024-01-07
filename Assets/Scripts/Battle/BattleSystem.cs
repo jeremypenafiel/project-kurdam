@@ -1,20 +1,19 @@
 using DG.Tweening;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 
-public enum BattleState { Start, ActionSelection, EnemyMove, Busy, MoveSelection, PlayerAttackRoll, PlayerDamageRoll, PerformMove }
+public enum BattleState { Start, ActionSelection, EnemyAttackRoll, EnemyDamageRoll, Busy, MoveSelection, PlayerAttackRoll, PlayerDamageRoll, PerformMove }
 
 public class BattleSystem : MonoBehaviour
 {
     [SerializeField] BattleUnit playerUnit;
-    [SerializeField] DiceHud diceHud;
     [SerializeField] BattleUnit enemyUnit;
     [SerializeField] BattleDialogueBox dialogBox;
-    [SerializeField] Dice d6;
-    [SerializeField] Dice d20;
+    [SerializeField] DiceSystem diceSystem;
 
     public event Action<bool> OnBattleOver;
     public event Action Run;
@@ -22,7 +21,6 @@ public class BattleSystem : MonoBehaviour
     BattleState state;
     int currentAction;
     int currentMove;
-    Dice currentDice;
 
     Aswang wildAswang;
     Aswang player;
@@ -35,12 +33,10 @@ public class BattleSystem : MonoBehaviour
 
     public IEnumerator SetupBattle()
     {
-        diceHud.gameObject.SetActive(false);
-        d6.gameObject.SetActive(false);
-        d20.gameObject.SetActive(false);
+        diceSystem.Setup();
         playerUnit.Setup(player);
         enemyUnit.Setup(wildAswang);
-        currentDice = d20;
+  
         dialogBox.SetMoveNames(playerUnit.Aswang.moves);
 
         yield return dialogBox.TypeDialog($"A wild {enemyUnit.Aswang.Base.Aname} appeared.");
@@ -50,11 +46,11 @@ public class BattleSystem : MonoBehaviour
 
     }
 
+    // State Setups
     void ActionSelection()
     {
         state = BattleState.ActionSelection;
         StartCoroutine(dialogBox.TypeDialog("Choose An Action"));
-        diceHud.gameObject.SetActive(false);
         dialogBox.EnableActionSelector(true);
     }
 
@@ -66,36 +62,33 @@ public class BattleSystem : MonoBehaviour
         dialogBox.EnableMoveSelector(true);
     }
 
-
     void PlayerAttackRoll()
     {
         state = BattleState.PlayerAttackRoll;
-        
         StartCoroutine(dialogBox.TypeDialog("Roll the dice to attack."));
-        diceHud.SetText("Attack Roll");
-        if (currentDice != d20)
-        {
-            currentDice.gameObject.SetActive(false);
-        }
-        d20.gameObject.SetActive(true);
-        diceHud.gameObject.SetActive(true);
+        diceSystem.SetupAttackRoll();
     }
 
-    void PlayerDamageRoll(Dice dice)
+    void PlayerDamageRoll(Moves move)
     {
         state = BattleState.PlayerDamageRoll;
         StartCoroutine(dialogBox.TypeDialog("Roll the dice for damage."));
-        d20.gameObject.SetActive(false);
-        dice.gameObject.SetActive(true);
-        diceHud.SetText("Damage Roll");
+        diceSystem.SetupDamageRoll(move);
     }
 
-    void EnemyMove()
+    void EnemyAttackRoll()
     {
-        state = BattleState.EnemyMove;
+        state = BattleState.EnemyAttackRoll;
         StartCoroutine(dialogBox.TypeDialog("Enemy is attacking."));
 
-        diceHud.SetText("Attack Roll");
+        diceSystem.SetupAttackRoll();
+    }
+
+    void EnemyDamageRoll(Moves move)
+    {
+        state = BattleState.EnemyDamageRoll;
+        StartCoroutine(dialogBox.TypeDialog("Enemy is rolling for damage."));
+        diceSystem.SetupDamageRoll(move);
     }
 
     public void HandleUpdate()
@@ -110,39 +103,23 @@ public class BattleSystem : MonoBehaviour
             HandleMoveSelection();
         }else if(state == BattleState.PlayerAttackRoll)
         {
-            HandlePlayerAttackRoll(d20);
+            HandlePlayerAttackRoll();
 
         }else if(state==BattleState.PlayerDamageRoll)
         {
             HandlePlayerDamageRoll();
 
-        } else if (state==BattleState.EnemyMove)
+        } else if (state==BattleState.EnemyAttackRoll)
         {
-            HandleEnemyMove();
+            HandleEnemyAttackRoll();
+        }else if(state==BattleState.EnemyDamageRoll)
+        {
+            HandleEnemyDamageRoll();
         }
     }
 
-    private void PerformEnemyMove()
-    {
-        StartCoroutine(PerformAttackRoll(enemyUnit, playerUnit, currentDice));
-    }
 
-    IEnumerator RollDialog(bool isHit, BattleUnit unit)
-    {
-        string text;
-        if (unit == playerUnit)
-        {
-            text = isHit ? "You hit the enemy!" : "You missed the enemy.";
-        }
-        else
-        {
-            text = isHit ? "The enemy hit you!" : "The enemy missed.";
-        }
-            
-        yield return StartCoroutine(dialogBox.TypeDialog(text));
-        yield return new WaitForSeconds(1f);    
-    }
-
+    // Enter states / Handle states
     void HandleActionSelection()
     {
         if (Input.GetKeyDown(KeyCode.DownArrow))
@@ -169,8 +146,8 @@ public class BattleSystem : MonoBehaviour
             }
             else if (currentAction == 1)
             {
-
-                StartCoroutine(RunBattle());
+                Flee();
+                
             }
         }
     }
@@ -220,11 +197,11 @@ public class BattleSystem : MonoBehaviour
             ActionSelection();
         }
     }
-    private void HandlePlayerAttackRoll(Dice dice)
+    private void HandlePlayerAttackRoll()
     {  
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            StartCoroutine(PerformAttackRoll(playerUnit, enemyUnit, currentDice));
+            StartCoroutine(PerformAttackRoll(playerUnit, enemyUnit, PlayerDamageRoll, EnemyAttackRoll));
         }
     }
 
@@ -232,178 +209,139 @@ public class BattleSystem : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            StartCoroutine(PerformDamageRoll(playerUnit,enemyUnit, currentDice));
+            StartCoroutine(PerformDamageRoll(playerUnit,enemyUnit, EnemyAttackRoll));
         }
-
     }
-    
-    private void HandleEnemyMove()
+    private void HandleEnemyAttackRoll()
     {
-        PerformEnemyMove();
+        StartCoroutine(PerformAttackRoll(enemyUnit, playerUnit, EnemyDamageRoll, PlayerAttackRoll));
     }
 
-    IEnumerator PerformAttackRoll(BattleUnit sourceUnit, BattleUnit targetUnit, Dice previousDice)
+    private void HandleEnemyDamageRoll()
+    {
+        StartCoroutine(PerformDamageRoll(enemyUnit, playerUnit, ActionSelection));
+    }
+
+    // Performing the Attack/Damage Rolls
+     IEnumerator PerformAttackRoll(BattleUnit sourceUnit, BattleUnit targetUnit, Action<Moves> onHit, Action onMiss)
     {
         state = BattleState.PerformMove;
         Moves move = sourceUnit.GetMove(currentMove);
-
-        if (previousDice != d20) previousDice.gameObject.SetActive(false);
-        d20.gameObject.SetActive(true);
-        currentDice = d20;
 
         bool isHit;
         string subject = sourceUnit.GetSubject();
 
-        yield return StartCoroutine(d20.RollTheDice());
-        yield return StartCoroutine(dialogBox.TypeDialog($"{subject} rolled {d20.Base.ReturnedSide}."));
+        yield return StartCoroutine(diceSystem.AttackRoll());
+        yield return StartCoroutine(dialogBox.TypeDialog($"{subject} rolled {diceSystem.GetDiceRollValue()}."));
+
         yield return new WaitForSeconds(1f);
-        isHit = CheckIfHit(d20, targetUnit);
+
+        isHit = CheckIfHit(diceSystem.CurrentDice, targetUnit);
         yield return StartCoroutine(RollDialog(isHit, sourceUnit));
-        if (isHit)
-        {
-            if (sourceUnit.IsPlayerUnit)
-            {
-                PlayerDamageRoll(GetDice(move));
-            }
-            else
-            {
-                StartCoroutine(PerformDamageRoll(sourceUnit, targetUnit, d20, move));
-            }
-        }
-        else
-        {
-            if (sourceUnit.IsPlayerUnit)
-            {
-                EnemyMove();
-            }
-            else
-            {
-                ActionSelection();
-            }
-        }
+
+        if (isHit) 
+            onHit?.Invoke(move);
+        else 
+            onMiss?.Invoke();
 
     }
 
-
-    IEnumerator PerformDamageRoll(BattleUnit sourceUnit, BattleUnit targetUnit, Dice previousDice, Moves move)
+    IEnumerator PerformDamageRoll(BattleUnit sourceUnit, BattleUnit targetUnit, Action onDamageRollOver)
     {
-        state = BattleState.PerformMove;
-        
-        Dice dice = GetDice(move);
+        state = BattleState.Busy;
+        Moves move = sourceUnit.GetMove(currentMove);
+        string modifierText = move.Base.Type.GetModifierText();
+        int modifier = GetModifier(move.Base.Type.Modifier, sourceUnit.Aswang);
         string subject = sourceUnit.GetSubject();
-        previousDice.gameObject.SetActive(false);
-        dice.gameObject.SetActive(true);
-        currentDice = dice;
-        string modifierText = move.Base.Type.getModifierText();
-        int modifier = getModifier(move.Base.Type.Modifier, sourceUnit.Aswang);
 
-        yield return StartCoroutine(dice.RollTheDice());
-        yield return StartCoroutine(dialogBox.TypeDialog($"{subject} rolled {dice.Base.ReturnedSide} + {modifier} {modifierText} modifier."));
+        yield return StartCoroutine(diceSystem.DamageRoll());
+        int damageRoll = diceSystem.GetDiceRollValue();
+
+        yield return StartCoroutine(dialogBox.TypeDialog($"{subject} rolled {damageRoll} + {modifier} {modifierText} modifier."));
+
         yield return new WaitForSeconds(1f);
-        int damageRoll = dice.Base.ReturnedSide;
+
         int damage = CalculateTotalDamage(move, sourceUnit.Aswang, targetUnit.Aswang, damageRoll);
+
         yield return StartCoroutine(dialogBox.TypeDialog($"{subject} did {damage} total damage."));
 
-        enemyUnit.PlayAttackAnimation();
+        sourceUnit.PlayAttackAnimation();
         yield return new WaitForSeconds(0.5f);
 
-        playerUnit.PlayHitAnimation();
+        targetUnit.PlayHitAnimation();
 
         bool isDead = targetUnit.Aswang.TakeDamage(move, sourceUnit.Aswang, damage);
         yield return targetUnit.Hud.UpdateHP();
 
         if (isDead)
         {
-            yield return (StartCoroutine(dialogBox.TypeDialog(targetUnit.GetDefeatText())));
-            playerUnit.PlayFaintAnimation();
-            yield return new WaitForSeconds(1f);
-            OnBattleOver(true);
+            yield return HandleAswangKill(targetUnit);
         }
         else
-        {
-            if(sourceUnit.IsPlayerUnit)
-            {
-                EnemyMove();
-            }
-            else
-            {
-                ActionSelection();
-            }
-        }
+            onDamageRollOver?.Invoke();
     }
+    void Flee()
+    {
+        state = BattleState.Busy;
+        StartCoroutine(RunBattle());
 
+    }
     IEnumerator RunBattle()
     {
-        yield return StartCoroutine(dialogBox.TypeDialog("You Fled from the Aswang"));
+        yield return StartCoroutine(dialogBox.TypeDialog("You fled from the aswang."));
         yield return new WaitForSeconds(1f);
         Run();
     }
 
-    IEnumerator PerformDamageRoll(BattleUnit sourceUnit, BattleUnit targetUnit, Dice previousDice)
+    // Helper Methods
+    IEnumerator RollDialog(bool isHit, BattleUnit unit)
     {
-        state = BattleState.Busy;
-        Moves move = sourceUnit.GetMove(currentMove);
-        string modifierText = move.Base.Type.getModifierText();
-        int modifier = getModifier(move.Base.Type.Modifier, sourceUnit.Aswang);
-
-        Dice dice = GetDice(move);
-        string subject = sourceUnit.GetSubject();
-        previousDice.gameObject.SetActive(false);
-        dice.gameObject.SetActive(true);
-        currentDice = dice;
-
-        yield return StartCoroutine(dice.RollTheDice());
-        yield return StartCoroutine(dialogBox.TypeDialog($"{subject} rolled {dice.Base.ReturnedSide} + {modifier} {modifierText} modifier."));
-        yield return new WaitForSeconds(1f);
-        int damageRoll = dice.Base.ReturnedSide;
-        int damage = CalculateTotalDamage(move, sourceUnit.Aswang, targetUnit.Aswang, damageRoll);
-        yield return StartCoroutine(dialogBox.TypeDialog($"{subject} did {damage} total damage."));
-
-        playerUnit.PlayAttackAnimation();
-        yield return new WaitForSeconds(0.5f);
-
-        enemyUnit.PlayHitAnimation();
-
-        bool isDead = targetUnit.Aswang.TakeDamage(move, sourceUnit.Aswang, damage);
-        yield return targetUnit.Hud.UpdateHP();
-
-        if (isDead)
+        string text;
+        if (unit == playerUnit)
         {
-            yield return (StartCoroutine(dialogBox.TypeDialog(targetUnit.GetDefeatText())));
-            enemyUnit.PlayFaintAnimation();
-            yield return new WaitForSeconds(1f);
-            OnBattleOver(true);
+            text = isHit ? "You hit the enemy!" : "You missed the enemy.";
         }
         else
         {
-            if (sourceUnit.IsPlayerUnit)
-            {
-                EnemyMove();
-            }
-            else
-            {
-                ActionSelection();
-            }
+            text = isHit ? "The enemy hit you!" : "The enemy missed.";
         }
+
+        yield return StartCoroutine(dialogBox.TypeDialog(text));
+        yield return new WaitForSeconds(1f);
     }
+
+    IEnumerator HandleAswangKill(BattleUnit KilledUnit)
+    {
+        yield return (StartCoroutine(dialogBox.TypeDialog(KilledUnit.GetDefeatText())));
+        KilledUnit.PlayFaintAnimation();
+        yield return new WaitForSeconds(1f);
+        
+        if (!KilledUnit.IsPlayerUnit)
+        {
+            int expYield =KilledUnit.Aswang.Base.ExpYield;
+            int enemyLevel = KilledUnit.Aswang.Level;
+            int expGain = Mathf.FloorToInt(expYield * enemyLevel / 7);
+            playerUnit.Aswang.Exp += expGain;
+            yield return dialogBox.TypeDialog($"{playerUnit.Aswang.Base.Aname} gained {expGain} exp");
+
+            yield return playerUnit.Hud.SetExpSmooth();
+
+            while (playerUnit.Aswang.CheckForLevelUp())
+            {
+                yield return dialogBox.TypeDialog($"{playerUnit.Aswang.Base.Aname} leveled up");
+                yield return playerUnit.Hud.SetExpSmooth(true);
+
+            }
+
+        }
+        OnBattleOver(true);
+    }
+
 
     private bool CheckIfHit(Dice dice, BattleUnit target )
     {
         return dice.Base.ReturnedSide >= target.Aswang.ArmorClass;
 
-    }
-
-    private Dice GetDice(Moves move)
-    {
-        switch (move.Base.DiceBase.Sides)
-        {
-            case 6:
-                return d6;
-            case 20:
-                return d20;
-            default:
-                return d6;
-        }
     }
 
     private int CalculateTotalDamage(Moves move, Aswang sourceUnit, Aswang targetUnit, int damage)
@@ -446,7 +384,7 @@ public class BattleSystem : MonoBehaviour
         return damage;
     }
     
-    private int getModifier(Modifier modifier, Aswang sourceUnit)
+    private int GetModifier(Modifier modifier, Aswang sourceUnit)
     {
         int playerModifier;
 
@@ -458,18 +396,12 @@ public class BattleSystem : MonoBehaviour
             case Modifier.Dexterity:
                 playerModifier = sourceUnit.Dexterity;
                 break;
-/*            case Modifier.Constitution:
-                break;
-            case Modifier.Intelligence:
-                break;
-            case Modifier.Wisdom:
-                break;
-            case Modifier.Charisma:
-                break;*/
             default:
                 playerModifier = 0;
                 break;
         }
         return playerModifier;
     }
+
+
 }
