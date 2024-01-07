@@ -12,6 +12,9 @@ public class GameController : MonoBehaviour
     [SerializeField] BattleSystem battleSystem;
     [SerializeField] Camera worldCamera;
 
+    public SceneDetails CurrentScene { get; private set; }
+    public SceneDetails PreviousScene { get; private set; }
+
     public static GameController Instance { get; private set; }
 
     private void Awake()
@@ -45,7 +48,7 @@ public class GameController : MonoBehaviour
         worldCamera.gameObject.SetActive(false);
 
         var player = playerController.GetComponent<Player>().GetPlayer();
-        var wildAswang = FindObjectOfType<MapArea>().GetComponent<MapArea>().GetRandomWildAswang();
+        var wildAswang = CurrentScene.GetComponent<MapArea>().GetRandomWildAswang();
         battleSystem.StartBattle(player, wildAswang);
 
     }
@@ -66,13 +69,23 @@ public class GameController : MonoBehaviour
         state = GameState.FreeRoam;
         battleSystem.gameObject.SetActive(false);
         worldCamera.gameObject.SetActive(true);
+        AudioManager.i.PlayMusic(CurrentScene.SceneMusic, fade: true);
     }
     void EndBattle(bool won)
     {
         state = GameState.FreeRoam;
         battleSystem.gameObject.SetActive(false);
         worldCamera.gameObject.SetActive(true);
+        AudioManager.i.PlayMusic(CurrentScene.SceneMusic, fade: true);
     }
+
+    public void SetCurrentScene(SceneDetails currentScene)
+    {
+        PreviousScene = CurrentScene;
+        CurrentScene = currentScene;
+    }
+    
+
     private void Update()
     {
 
