@@ -63,11 +63,11 @@ public class BattleUnit : MonoBehaviour
     {
         var sequence = DOTween.Sequence();
         if (isPlayerUnit)
-            sequence.Append(image.transform.DOLocalMoveX(originalPos.x + 50f, 0.25f));
+            sequence.Append(image.transform.DOLocalMoveX(originalPos.x + 50f, 0.5f));
         else
-            sequence.Append(image.transform.DOLocalMoveX(originalPos.x - 50f, 0.25f));
+            sequence.Append(image.transform.DOLocalMoveX(originalPos.x - 50f, 0.5f));
 
-        sequence.Append(image.transform.DOLocalMoveX(originalPos.x, 0.25f));
+        sequence.Append(image.transform.DOLocalMoveX(originalPos.x, 0.5f));
     }
 
     public void PlayHitAnimation()
