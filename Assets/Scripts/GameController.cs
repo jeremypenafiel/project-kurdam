@@ -12,6 +12,9 @@ public class GameController : MonoBehaviour
     [SerializeField] BattleSystem battleSystem;
     [SerializeField] Camera worldCamera;
 
+    public SceneDetails CurrentScene { get; private set; }
+    public SceneDetails PreviousScene { get; private set; }
+
     public static GameController Instance { get; private set; }
 
     private void Awake()
@@ -73,6 +76,14 @@ public class GameController : MonoBehaviour
         battleSystem.gameObject.SetActive(false);
         worldCamera.gameObject.SetActive(true);
     }
+
+    public void SetCurrentScene(SceneDetails currentScene)
+    {
+        PreviousScene = CurrentScene;
+        CurrentScene = currentScene;
+    }
+    
+
     private void Update()
     {
 

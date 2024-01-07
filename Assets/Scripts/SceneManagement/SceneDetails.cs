@@ -1,18 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SceneDetails : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] List<SceneDetails> connectedScenes;
+    public bool IsLoaded { get; private  set; } = false;
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if (collision.tag == "Player")
+        {
+            Debug.Log($"Entered {gameObject.name}");
+            LoadScene();
+            GameController.Instance.SetCurrentScene(this);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void LoadScene()
     {
-        
+        if (!IsLoaded)
+        {
+            IsLoaded = true;
+            SceneManager.LoadSceneAsync(gameObject.name);
+        }
     }
 }
