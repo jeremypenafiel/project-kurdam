@@ -22,7 +22,7 @@ public class SceneDetails : MonoBehaviour
         if (!IsLoaded)
         {
             IsLoaded = true;
-            SceneManager.LoadSceneAsync(gameObject.name);
+            SceneManager.LoadSceneAsync(gameObject.name, LoadSceneMode.Additive);
         }
     }
 }

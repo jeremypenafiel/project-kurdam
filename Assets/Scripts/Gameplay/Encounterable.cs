@@ -6,10 +6,8 @@ using UnityEngine.TextCore.Text;
 public class EncounterableArea : MonoBehaviour, IPLayerTriggerable
 {
     public void OnPlayerTriggered(PlayerController player)
-    {  
-        if (UnityEngine.Random.Range(1, 101) <= 10)
-        { 
-            GameController.Instance.StartBattle();
-        }
+    {
+        Debug.Log(gameObject.name);
+        GameController.Instance.StartBattle();
     }
 }

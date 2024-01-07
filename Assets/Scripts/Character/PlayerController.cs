@@ -101,11 +101,18 @@ public class PlayerController : MonoBehaviour
         foreach (var collider in colliders)
         {
             var triggerable = collider.GetComponent<IPLayerTriggerable>();
-            if (triggerable != null)
+            if (triggerable != null && !(triggerable is EncounterableArea))
             {
                 character.Animator.IsMoving = false;
                 triggerable.OnPlayerTriggered(this);
                 break;
+            }else if(triggerable != null && triggerable is EncounterableArea)
+            {
+                if (character.distance > character.distanceThreshold)
+                {
+                    character.Animator.IsMoving = false;
+                    triggerable.OnPlayerTriggered(this);
+                }
             }
         }
     }
