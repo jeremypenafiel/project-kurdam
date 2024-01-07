@@ -13,6 +13,7 @@ public class MovesBase : ScriptableObject
     [SerializeField] DamageType type;
     [SerializeField] int baseDamage;
     [SerializeField] DiceBase diceBase;
+    [SerializeField] AudioClip sound;
 
     public string MoveName
     {
@@ -38,4 +39,6 @@ public class MovesBase : ScriptableObject
     {
         get { return diceBase; }
     }
+    public AudioClip Sound => sound;
+
 }

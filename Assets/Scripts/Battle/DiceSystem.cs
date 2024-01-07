@@ -80,6 +80,12 @@ public class DiceSystem : MonoBehaviour
         }
     }
 
+    public void DisableHud()
+    {
+        diceHud.gameObject.SetActive(false);
+        CurrentDice?.gameObject.SetActive(false);
+    }
+
 
 
 }

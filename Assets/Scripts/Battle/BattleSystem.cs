@@ -254,6 +254,7 @@ public class BattleSystem : MonoBehaviour
     {
         state = BattleState.Busy;
         Moves move = sourceUnit.GetMove(currentMove);
+        var moveSfx = move.Base.Sound;
         string modifierText = move.Base.Type.GetModifierText();
         int modifier = GetModifier(move.Base.Type.Modifier, sourceUnit.Aswang);
         string subject = sourceUnit.GetSubject();
@@ -269,10 +270,12 @@ public class BattleSystem : MonoBehaviour
 
         yield return StartCoroutine(dialogBox.TypeDialog($"{subject} did {damage} total damage."));
 
+        AudioManager.i.PlaySFX(moveSfx);
         sourceUnit.PlayAttackAnimation();
         yield return new WaitForSeconds(0.5f);
 
         targetUnit.PlayHitAnimation();
+        AudioManager.i.PlaySFX(AudioId.Hit);
 
         bool isDead = targetUnit.Aswang.TakeDamage(move, sourceUnit.Aswang, damage);
         yield return targetUnit.Hud.UpdateHP();
@@ -311,17 +314,20 @@ public class BattleSystem : MonoBehaviour
         }
 
         yield return StartCoroutine(dialogBox.TypeDialog(text));
-        yield return new WaitForSeconds(1f);
+        yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Z));
     }
 
     IEnumerator HandleAswangKill(BattleUnit KilledUnit)
     {
         yield return (StartCoroutine(dialogBox.TypeDialog(KilledUnit.GetDefeatText())));
+        diceSystem.DisableHud();
         KilledUnit.PlayFaintAnimation();
+        AudioManager.i.PlaySFX(AudioId.Faint);
         yield return new WaitForSeconds(1f);
         
         if (!KilledUnit.IsPlayerUnit)
         {
+
             AudioManager.i.PlayMusic(victoryMusic);
 
             int expYield =KilledUnit.Aswang.Base.ExpYield;
@@ -331,6 +337,7 @@ public class BattleSystem : MonoBehaviour
             yield return dialogBox.TypeDialog($"{playerUnit.Aswang.Base.Aname} gained {expGain} exp");
 
             yield return playerUnit.Hud.SetExpSmooth();
+            yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Z));
 
             while (playerUnit.Aswang.CheckForLevelUp())
             {

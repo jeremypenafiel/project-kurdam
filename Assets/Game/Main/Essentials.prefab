@@ -49,6 +49,12 @@ MonoBehaviour:
   sfxList:
   - id: 0
     clip: {fileID: 8300000, guid: f1b42cbfb5a22074a99264d747b49e8b, type: 3}
+  - id: 1
+    clip: {fileID: 8300000, guid: 057bf37228ec4294dbc6a3a4b3299c2f, type: 3}
+  - id: 2
+    clip: {fileID: 8300000, guid: 3156e4ee9823af94b879bc9c6048b876, type: 3}
+  - id: 3
+    clip: {fileID: 8300000, guid: f02adeecbc1e6604aa73f7e6b8152e57, type: 3}
   musicPlayer: {fileID: 5272802298605382632}
   sfxPlayer: {fileID: 5154787695184884005}
   fadeDuration: 0.75
