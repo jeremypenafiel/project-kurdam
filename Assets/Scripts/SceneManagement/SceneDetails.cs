@@ -19,8 +19,11 @@ public class SceneDetails : MonoBehaviour
 
             LoadScene();
             GameController.Instance.SetCurrentScene(this);
-            
-            AudioManager.i.PlayMusic(sceneMusic);
+
+            if(sceneMusic != null)
+            {
+                AudioManager.i.PlayMusic(sceneMusic);
+            }
 
             foreach(var scene in connectedScenes)
             {
