@@ -212,7 +212,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   connectedScenes:
   - {fileID: 1153281148}
-  sceneMusic: {fileID: 8300000, guid: 1c5cd9e939b968f47b41a85c6e46403d, type: 3}
+  - {fileID: 1922535835}
+  sceneMusic: {fileID: 8300000, guid: c2af170cae0fc0f43853a6a05fc2c34a, type: 3}
 --- !u!61 &1029692285
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -438,7 +439,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 53.553955, y: 4.054779}
+  m_Offset: {x: 21.073547, y: 72.71562}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -449,7 +450,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 130.03131, y: 72.94931}
+  m_Size: {x: 64.03818, y: 128.63849}
   m_EdgeRadius: 0
 --- !u!4 &1550750725
 Transform:
@@ -460,7 +461,7 @@ Transform:
   m_GameObject: {fileID: 1550750723}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 89.5, z: 0}
+  m_LocalPosition: {x: -21, y: 89.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -478,7 +479,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9faa2cbc2720de2479ffaa95238cd1da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  connectedScenes: []
+  connectedScenes:
+  - {fileID: 1153281148}
   sceneMusic: {fileID: 8300000, guid: 98a3184be63966f41be7ece9ce0242b5, type: 3}
 --- !u!114 &1550750727
 MonoBehaviour:
@@ -561,7 +563,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9faa2cbc2720de2479ffaa95238cd1da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  connectedScenes: []
+  connectedScenes:
+  - {fileID: 1029692284}
   sceneMusic: {fileID: 8300000, guid: 2942699256c88654a9e88cdf340b6b97, type: 3}
 --- !u!61 &1922535836
 BoxCollider2D:
@@ -592,7 +595,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 2.2187881, y: 4.0650635}

@@ -6768,7 +6768,7 @@ GameObject:
   - component: {fileID: 1978446187}
   - component: {fileID: 1978446190}
   m_Layer: 9
-  m_Name: ToLoversLane
+  m_Name: HSUToLoversLane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6849,6 +6849,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 1185292707}
   destinationPortal: 0
+  sceneToLoad: LLToHSU
 --- !u!1 &2012098498
 GameObject:
   m_ObjectHideFlags: 0
@@ -6960,7 +6961,7 @@ GameObject:
   - component: {fileID: 8833406517561254633}
   - component: {fileID: 8833406517561254632}
   m_Layer: 9
-  m_Name: ToNewAdmin
+  m_Name: HSUToNewAdmin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7057,6 +7058,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 1270263391961272720}
   destinationPortal: 0
+  sceneToLoad: NewAdToHSU
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

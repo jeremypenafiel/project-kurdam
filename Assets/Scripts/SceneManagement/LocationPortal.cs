@@ -8,6 +8,7 @@ public class LocationPortal : MonoBehaviour, IPLayerTriggerable
     // Start is called before the first frame update
     [SerializeField] Transform spawnPoint;
     [SerializeField] DestinationIdentifier destinationPortal;
+    [SerializeField] string sceneToLoad;
 
     PlayerController player;
     Fader fader;
@@ -27,8 +28,15 @@ public class LocationPortal : MonoBehaviour, IPLayerTriggerable
     {
         GameController.Instance.PauseGame(true);
         yield return fader.FadeIn(0.5f);
-        //var destPortal = FindObjectsOfType<LocationPortal>().First(x => x != this && x.destinationPortal == this.destinationPortal && x.gameObject.name == sceneToLoad);
-        var destPortal = FindObjectsOfType<LocationPortal>().First(x => x != this && x.destinationPortal == this.destinationPortal);
+        // var destPortal = FindObjectsOfType<LocationPortal>().First(x => x != this && x.destinationPortal == this.destinationPortal);
+        var destPortals = FindObjectsOfType<LocationPortal>();
+
+        foreach(var portal in destPortals)
+        {
+            Debug.Log(portal);
+        }
+
+        var destPortal = FindObjectsOfType<LocationPortal>().First(x => x != this && x.destinationPortal == this.destinationPortal && x.gameObject.name == sceneToLoad);
 
         player.Character.SetPositionAndSnapToTile(destPortal.Spawnpoint.position);
 
