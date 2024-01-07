@@ -101037,7 +101037,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1636545835217590431, guid: ece101dcfd564de47a836b0053ffff29, type: 3}
       propertyPath: m_Name
-      value: Portal
+      value: LocationPortal
       objectReference: {fileID: 0}
     - target: {fileID: 3312544947789917652, guid: ece101dcfd564de47a836b0053ffff29, type: 3}
       propertyPath: sceneToLoad

@@ -2376,8 +2376,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4320185381199854394}
-  - component: {fileID: 3312544947928794227}
   - component: {fileID: 8745418129012258113}
+  - component: {fileID: 8745418129012258114}
   m_Layer: 9
   m_Name: ToNewAdmin
   m_TagString: Untagged
@@ -2385,21 +2385,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &3312544947928794227
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1636545835079430456}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: daa53bd6d50cbcf479e9c30b274a91b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 1327302717514335801}
-  sceneToLoad: 3
-  destinationPortal: 1
 --- !u!4 &4320185381199854394
 Transform:
   m_ObjectHideFlags: 0
@@ -2477,6 +2462,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 12.2, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &8745418129012258114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1636545835079430456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c22298e16413ce4fafd17d9017f113d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPoint: {fileID: 1327302717514335801}
+  destinationPortal: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

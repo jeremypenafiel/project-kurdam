@@ -76,10 +76,10 @@ public class Character : MonoBehaviour
         var difference = targetPos - transform.position;
         var direction = difference.normalized;
 
-        var thingy = BoxCast(transform.position + direction, new Vector2(0.2f, 0.2f), 0f, direction, difference.magnitude - 1, GameLayers.I.SolidObjectLayer | GameLayers.I.InteractableLayer | GameLayers.I.PlayerLayer);
-        Debug.Log(thingy.collider);
+        //var thingy = BoxCast(transform.position + direction, new Vector2(0.2f, 0.2f), 0f, direction, difference.magnitude - 1, GameLayers.I.SolidObjectLayer | GameLayers.I.InteractableLayer | GameLayers.I.PlayerLayer);
+        /*Debug.Log(thingy.collider);
         Debug.Log(transform.position);
-        Debug.Log(targetPos);
+        Debug.Log(targetPos);*/
         if (Physics2D.BoxCast(transform.position + direction, new Vector2(0.2f, 0.2f), 0f, direction, difference.magnitude - 1, GameLayers.I.SolidObjectLayer | GameLayers.I.InteractableLayer | GameLayers.I.PlayerLayer) == true)
         {
             Debug.Log("something ion the way");
