@@ -17,7 +17,7 @@ MonoBehaviour:
   backSprite: {fileID: -4445699719359273135, guid: 3111f23cd57d2be48b2ee6bac4a23588, type: 3}
   frontSprite: {fileID: 7152930139536384079, guid: 3111f23cd57d2be48b2ee6bac4a23588, type: 3}
   aswangType1: 0
-  maxHP: 11
+  maxHP: 1
   armorClass: 2
   strength: 13
   dexterity: 11
@@ -25,6 +25,7 @@ MonoBehaviour:
   intelligence: 8
   wisdom: 11
   charisma: 8
+  expYield: 0
   learnableMoves:
   - movesBase: {fileID: 11400000, guid: eaf8f9a1318af4c4198aa30298e22af7, type: 2}
     level: 0

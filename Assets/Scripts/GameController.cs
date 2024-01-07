@@ -11,7 +11,7 @@ public class GameController : MonoBehaviour
     [SerializeField] PlayerController playerController;
     [SerializeField] BattleSystem battleSystem;
     [SerializeField] Camera worldCamera;
-
+    [SerializeField] LocationPortal locationPortal;
     public SceneDetails CurrentScene { get; private set; }
     public SceneDetails PreviousScene { get; private set; }
 
@@ -28,6 +28,7 @@ public class GameController : MonoBehaviour
         playerController.OnEncountered += StartBattle;
         battleSystem.OnBattleOver += EndBattle;
         battleSystem.Run += EndBattle;
+        battleSystem.PlayerFaint += MovetoSpawn;
         DialogManager.Instance.OnShowDialog += () =>
         {
             state = GameState.Dialog;
@@ -85,6 +86,13 @@ public class GameController : MonoBehaviour
         CurrentScene = currentScene;
     }
     
+    public void MovetoSpawn()
+    {
+        state = GameState.FreeRoam;
+        battleSystem.gameObject.SetActive(false);
+        worldCamera.gameObject.SetActive(true);
+        locationPortal.SpawnPlayer(playerController);
+    }
 
     private void Update()
     {
