@@ -790,6 +790,7 @@ GameObject:
   - component: {fileID: 616188501}
   - component: {fileID: 616188500}
   - component: {fileID: 616188499}
+  - component: {fileID: 616188502}
   m_Layer: 7
   m_Name: collider
   m_TagString: Untagged
@@ -941,6 +942,8 @@ EdgeCollider2D:
   - {x: -47.44432, y: 51.52542}
   - {x: -42.796196, y: 51.397568}
   - {x: -42.704636, y: 35.165817}
+  - {x: -35.01126, y: 29.294844}
+  - {x: -35.10762, y: 35.369034}
   - {x: -22.072968, y: 35.22197}
   - {x: -22.21347, y: 32.17006}
   - {x: -18.677017, y: 32.152508}
@@ -949,7 +952,8 @@ EdgeCollider2D:
   - {x: -3.9305115, y: 32.060867}
   - {x: -0.7225876, y: 32.07444}
   - {x: -0.8026581, y: 37.69721}
-  - {x: 20.169476, y: 37.54682}
+  - {x: 15.561836, y: 37.579865}
+  - {x: 15.255192, y: 29.062336}
   - {x: 19.943398, y: 51.719933}
   - {x: 29.193993, y: 51.667}
   - {x: 29.36805, y: 29.160875}
@@ -1043,6 +1047,47 @@ EdgeCollider2D:
   - {x: -24.182014, y: 17.397015}
   - {x: -24.190315, y: -21.18064}
   - {x: -47.50444, y: -21.238258}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
+--- !u!68 &616188502
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 616188495}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0.48
+  m_Points:
+  - {x: -47.289284, y: -31.43333}
+  - {x: 29.554535, y: -31.476225}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -13925,7 +13970,7 @@ Transform:
   m_GameObject: {fileID: 1524279292}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -125.4, y: -35.3, z: -0.38897663}
+  m_LocalPosition: {x: -118.2, y: -35.4, z: -0.38897663}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -14447,7 +14492,7 @@ Transform:
   m_GameObject: {fileID: 3503882297549913661}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -52.3, y: -35.4, z: -0.38897663}
+  m_LocalPosition: {x: -59.41, y: -35.16, z: -0.38897663}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
