@@ -2510,14 +2510,13 @@ GameObject:
   - component: {fileID: 1529449037}
   - component: {fileID: 1529449036}
   - component: {fileID: 1529449035}
-  - component: {fileID: 1529449040}
   m_Layer: 8
   m_Name: Encounterable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1529449034
 Transform:
   m_ObjectHideFlags: 0
@@ -2569,17 +2568,7 @@ CompositeCollider2D:
   m_GeometryType: 1
   m_GenerationType: 0
   m_EdgeRadius: 0
-  m_ColliderPaths:
-  - m_Collider: {fileID: 1529449037}
-    m_ColliderPaths:
-    - - X: 220000000
-        Y: -220000000
-      - X: 150000000
-        Y: -220000000
-      - X: 150000000
-        Y: -260000000
-      - X: 220000000
-        Y: -260000000
+  m_ColliderPaths: []
   m_CompositePaths:
     m_Paths:
     - - {x: 21.999971, y: -26}

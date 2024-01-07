@@ -26,6 +26,7 @@ public class LocationPortal : MonoBehaviour, IPLayerTriggerable
     }
     IEnumerator Teleport()
     {
+        Debug.Log("teleported");
         GameController.Instance.PauseGame(true);
         yield return fader.FadeIn(0.5f);
         // var destPortal = FindObjectsOfType<LocationPortal>().First(x => x != this && x.destinationPortal == this.destinationPortal);
