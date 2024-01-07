@@ -20,13 +20,14 @@ public class BattleSystem : MonoBehaviour
 
     public event Action<bool> OnBattleOver;
     public event Action Run;
-
+    public event Action PlayerFaint;
     BattleState state;
     int currentAction;
     int currentMove;
 
     Aswang wildAswang;
     Aswang player;
+
     public void StartBattle(Aswang player, Aswang wildAswang)
     {
         this.player = player;
@@ -346,6 +347,15 @@ public class BattleSystem : MonoBehaviour
 
             }
 
+        }
+
+        else
+        {
+            yield return dialogBox.TypeDialog($"You fainted");
+            yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Z));
+            player.HP = player.MaxHP;
+            PlayerFaint();
+            
         }
         OnBattleOver(true);
     }
