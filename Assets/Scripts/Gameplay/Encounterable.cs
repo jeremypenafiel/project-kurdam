@@ -7,7 +7,12 @@ public class EncounterableArea : MonoBehaviour, IPLayerTriggerable
 {
     public void OnPlayerTriggered(PlayerController player)
     {
-        Debug.Log(gameObject.name);
-        GameController.Instance.StartBattle();
+        if(player.Character.distance > player.Character.distanceThreshold)
+        {
+            Debug.Log(gameObject.name);
+            Debug.Log(player.Character.distance);
+            Debug.Log(player.Character.distanceThreshold);
+            GameController.Instance.StartBattle();
+        }
     }
 }
