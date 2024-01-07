@@ -27,6 +27,7 @@ public class LocationPortal : MonoBehaviour, IPLayerTriggerable
     {
         GameController.Instance.PauseGame(true);
         yield return fader.FadeIn(0.5f);
+        //var destPortal = FindObjectsOfType<LocationPortal>().First(x => x != this && x.destinationPortal == this.destinationPortal && x.gameObject.name == sceneToLoad);
         var destPortal = FindObjectsOfType<LocationPortal>().First(x => x != this && x.destinationPortal == this.destinationPortal);
 
         player.Character.SetPositionAndSnapToTile(destPortal.Spawnpoint.position);

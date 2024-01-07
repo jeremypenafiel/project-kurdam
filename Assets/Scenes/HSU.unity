@@ -6849,6 +6849,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 1185292707}
   destinationPortal: 0
+  sceneToLoad: 
 --- !u!1 &2012098498
 GameObject:
   m_ObjectHideFlags: 0
@@ -7057,6 +7058,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 1270263391961272720}
   destinationPortal: 0
+  sceneToLoad: ToHSU
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

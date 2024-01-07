@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class SceneDetails : MonoBehaviour
 {
     [SerializeField] List<SceneDetails> connectedScenes;
+    [SerializeField] AudioClip sceneMusic;
+
 
 
     public bool IsLoaded { get; private  set; } = false;
@@ -17,6 +19,8 @@ public class SceneDetails : MonoBehaviour
 
             LoadScene();
             GameController.Instance.SetCurrentScene(this);
+            
+            AudioManager.i.PlayMusic(sceneMusic);
 
             foreach(var scene in connectedScenes)
             {
