@@ -26,21 +26,20 @@ public class AudioManager : MonoBehaviour
     private void Start()
     {
         originalMusicVolume = musicPlayer.volume;
-        sfxList.ToDictionary(x => x.id);
+        sfxLookup = sfxList.ToDictionary(x => x.id);
     }
 
     public void PlaySFX(AudioClip clip)
     {
         if (clip == null) return;
-
         sfxPlayer.PlayOneShot(clip);
     }
 
     public void PlaySFX(AudioId audioId)
     {
-        if (sfxLookup.ContainsKey(audioId)) return;
+        if (!sfxLookup.ContainsKey(audioId)) return;
 
-        var audioData = sfxList.Find(x => x.id == audioId);
+        var audioData = sfxLookup[audioId];
 
         PlaySFX(audioData.clip);
     }

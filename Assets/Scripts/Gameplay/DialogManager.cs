@@ -33,8 +33,12 @@ public class DialogManager : MonoBehaviour
         OnShowDialog?.Invoke();
 
         IsShowing = true;
+        Debug.Log("Showing dialog");
         this.dialog = dialog;
         dialogBox.SetActive(true);
+
+        
+
         onDialogFinished = onFinished;
 
         StartCoroutine(TypeDialog(dialog.Lines[0]));
@@ -60,6 +64,7 @@ public class DialogManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Z) && !isTyping)
         {
+            AudioManager.i.PlaySFX(AudioId.UISelect);
             ++currentLine;
             if (currentLine < dialog.Lines.Count)
             {
