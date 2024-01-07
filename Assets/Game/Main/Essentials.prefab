@@ -483,7 +483,7 @@ MonoBehaviour:
   dialogBox: {fileID: 3388336685824379264}
   diceSystem: {fileID: 2163020704840747999}
   battleMusic: {fileID: 8300000, guid: 1c5cd9e939b968f47b41a85c6e46403d, type: 3}
-  victoryMusic: {fileID: 8300000, guid: 444242375513cb64dbb8c31aab34edcc, type: 3}
+  victoryMusic: {fileID: 8300000, guid: e9faf0a48effe424ba7a94daa33a69fe, type: 3}
 --- !u!1 &1602621839165476655
 GameObject:
   m_ObjectHideFlags: 0
@@ -2769,7 +2769,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.12
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0

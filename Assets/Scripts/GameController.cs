@@ -76,6 +76,7 @@ public class GameController : MonoBehaviour
         state = GameState.FreeRoam;
         battleSystem.gameObject.SetActive(false);
         worldCamera.gameObject.SetActive(true);
+        AudioManager.i.PlayMusic(CurrentScene.SceneMusic, fade: true);
     }
 
     public void SetCurrentScene(SceneDetails currentScene)
