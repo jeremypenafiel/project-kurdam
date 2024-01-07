@@ -212,7 +212,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   connectedScenes:
   - {fileID: 1153281148}
-  sceneMusic: {fileID: 0}
+  sceneMusic: {fileID: 8300000, guid: 1c5cd9e939b968f47b41a85c6e46403d, type: 3}
 --- !u!61 &1029692285
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -479,7 +479,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   connectedScenes: []
-  sceneMusic: {fileID: 0}
+  sceneMusic: {fileID: 8300000, guid: 1c5cd9e939b968f47b41a85c6e46403d, type: 3}
 --- !u!114 &1550750727
 MonoBehaviour:
   m_ObjectHideFlags: 0

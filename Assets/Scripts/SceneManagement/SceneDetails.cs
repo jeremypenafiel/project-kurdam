@@ -22,7 +22,7 @@ public class SceneDetails : MonoBehaviour
 
             if(sceneMusic != null)
             {
-                AudioManager.i.PlayMusic(sceneMusic);
+                AudioManager.i.PlayMusic(sceneMusic, fade: true);
             }
 
             foreach(var scene in connectedScenes)

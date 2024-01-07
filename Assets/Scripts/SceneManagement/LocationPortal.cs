@@ -35,7 +35,6 @@ public class LocationPortal : MonoBehaviour, IPLayerTriggerable
         yield return fader.FadeOut(0.5f);
         GameController.Instance.PauseGame(false);
 
-        Destroy(gameObject);
     }
 
     public Transform Spawnpoint => spawnPoint;

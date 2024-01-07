@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicPlayer: {fileID: 5272802298605382632}
   sfxPlayer: {fileID: 5154787695184884005}
+  fadeDuration: 0.75
 --- !u!1 &590915731709113773
 GameObject:
   m_ObjectHideFlags: 0
@@ -2766,7 +2767,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.12
   m_Pitch: 1
   Loop: 0
   Mute: 0
