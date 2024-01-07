@@ -15,6 +15,9 @@ public class BattleSystem : MonoBehaviour
     [SerializeField] BattleDialogueBox dialogBox;
     [SerializeField] DiceSystem diceSystem;
 
+    [SerializeField] AudioClip battleMusic;
+    [SerializeField] AudioClip victoryMusic;
+
     public event Action<bool> OnBattleOver;
     public event Action Run;
 
@@ -28,6 +31,7 @@ public class BattleSystem : MonoBehaviour
     {
         this.player = player;
         this.wildAswang = wildAswang;
+        AudioManager.i.PlayMusic(battleMusic);
         StartCoroutine(SetupBattle());
     }
 
@@ -318,6 +322,8 @@ public class BattleSystem : MonoBehaviour
         
         if (!KilledUnit.IsPlayerUnit)
         {
+            AudioManager.i.PlayMusic(victoryMusic);
+
             int expYield =KilledUnit.Aswang.Base.ExpYield;
             int enemyLevel = KilledUnit.Aswang.Level;
             int expGain = Mathf.FloorToInt(expYield * enemyLevel / 7);

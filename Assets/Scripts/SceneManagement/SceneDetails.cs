@@ -71,4 +71,6 @@ public class SceneDetails : MonoBehaviour
             IsLoaded = false;
         }
     }
+    
+    public AudioClip SceneMusic => sceneMusic;
 }

@@ -101032,7 +101032,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 823603925}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103578,7 +103578,7 @@ GameObject:
   - component: {fileID: 1641906156}
   - component: {fileID: 1641906155}
   - component: {fileID: 1641906154}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LocationPortal
   m_TagString: Untagged
   m_Icon: {fileID: 0}

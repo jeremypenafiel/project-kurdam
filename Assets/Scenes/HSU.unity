@@ -6849,7 +6849,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 1185292707}
   destinationPortal: 0
-  sceneToLoad: 
 --- !u!1 &2012098498
 GameObject:
   m_ObjectHideFlags: 0
@@ -6958,8 +6957,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4052965534614039699}
-  - component: {fileID: 8833406517561254632}
   - component: {fileID: 8833406517561254633}
+  - component: {fileID: 8833406517561254632}
   m_Layer: 9
   m_Name: ToNewAdmin
   m_TagString: Untagged
@@ -7058,7 +7057,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 1270263391961272720}
   destinationPortal: 0
-  sceneToLoad: ToHSU
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
