@@ -9,13 +9,8 @@ public class DialogManager : MonoBehaviour
     [SerializeField] GameObject dialogBox;
     [SerializeField] int lettersPerSecond;
 
-    int currentLine = 0;
-    Dialog dialog;
-    bool isTyping;
-
     public event Action OnShowDialog;
     public event Action OnCloseDialog;
-    Action onDialogFinished; 
 
     public bool IsShowing { get; private set; }
 
@@ -27,24 +22,29 @@ public class DialogManager : MonoBehaviour
     {
         Instance = this;
     }
-    public IEnumerator ShowDialog(Dialog dialog, Action onFinished=null)
+    public IEnumerator ShowDialog(Dialog dialog)
     {
         yield return new WaitForEndOfFrame();
+
         OnShowDialog?.Invoke();
 
         IsShowing = true;
-        this.dialog = dialog;
         dialogBox.SetActive(true);
-        onDialogFinished = onFinished;
 
-        StartCoroutine(TypeDialog(dialog.Lines[0]));
+        foreach(var line in dialog.Lines)
+        {
+            AudioManager.i.PlaySFX(AudioId.UISelect);
+            yield return TypeDialog(line);
+            yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Z));
+        }
 
-
+        dialogBox.SetActive(false);
+        IsShowing = false;
+        OnCloseDialog?.Invoke();
     }
 
     public IEnumerator TypeDialog(string line)
     {
-        isTyping = true;
 
         dialogText.text = "";
         foreach (var letter in line.ToCharArray())
@@ -52,27 +52,11 @@ public class DialogManager : MonoBehaviour
             dialogText.text += letter;
             yield return new WaitForSeconds(1f / lettersPerSecond);
         }
-        isTyping = false;
     }
 
 
     public void HandleUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.Z) && !isTyping)
-        {
-            ++currentLine;
-            if (currentLine < dialog.Lines.Count)
-            {
-                StartCoroutine(TypeDialog(dialog.Lines[currentLine]));
-            }
-            else
-            {
-                currentLine = 0;
-                IsShowing = false;
-                dialogBox.SetActive(false);
-                onDialogFinished?.Invoke();
-                OnCloseDialog?.Invoke();
-            }
-        }
+      
     }
 }
