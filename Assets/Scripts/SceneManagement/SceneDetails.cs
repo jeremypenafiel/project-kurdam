@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 using UnityEngine.SceneManagement;
 
 public class SceneDetails : MonoBehaviour
@@ -8,7 +9,13 @@ public class SceneDetails : MonoBehaviour
     [SerializeField] List<SceneDetails> connectedScenes;
     [SerializeField] AudioClip sceneMusic;
 
+    GameObject sceneNamePopUp;
+    TextMeshProUGUI sceneNameText;
 
+/*    private void Start()
+    {
+        
+    }*/
 
     public bool IsLoaded { get; private  set; } = false;
     private void OnTriggerEnter2D(Collider2D collision)
@@ -19,6 +26,11 @@ public class SceneDetails : MonoBehaviour
 
             LoadScene();
             GameController.Instance.SetCurrentScene(this);
+
+            sceneNamePopUp?.SetActive(true);
+            /*sceneNameText.text = gameObject.name;*/
+
+
 
             if(sceneMusic != null)
             {
@@ -58,6 +70,11 @@ public class SceneDetails : MonoBehaviour
     {
         if (!IsLoaded)
         {
+            sceneNamePopUp = GameObject.Find("SceneName");
+            sceneNameText = sceneNamePopUp.GetComponentInChildren<TextMeshProUGUI>();
+            sceneNameText.text = gameObject.name;
+            sceneNamePopUp.SetActive(false);
+            Debug.Log($"Loading {sceneNamePopUp.name}");
             IsLoaded = true;
             SceneManager.LoadSceneAsync(gameObject.name, LoadSceneMode.Additive);
         }
