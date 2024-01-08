@@ -1,17 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum GameState { FreeRoam, Battle, Dialog, Paused }
 public class GameController : MonoBehaviour
 {
     GameState state;
     GameState stateBeforePause;
+    int sceneBeforePause;
 
     [SerializeField] PlayerController playerController;
     [SerializeField] BattleSystem battleSystem;
     [SerializeField] Camera worldCamera;
     [SerializeField] LocationPortal locationPortal;
+
+    Fader fader;
     public SceneDetails CurrentScene { get; private set; }
     public SceneDetails PreviousScene { get; private set; }
 
@@ -20,7 +24,7 @@ public class GameController : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-
+        fader = FindObjectOfType<Fader>();
     }
     private void Start()
     {
@@ -29,6 +33,7 @@ public class GameController : MonoBehaviour
         battleSystem.OnBattleOver += EndBattle;
         battleSystem.Run += EndBattle;
         battleSystem.PlayerFaint += MovetoSpawn;
+        playerController.PauseScreen += PauseGame;
         DialogManager.Instance.OnShowDialog += () =>
         {
             state = GameState.Dialog;
@@ -59,12 +64,35 @@ public class GameController : MonoBehaviour
         {
             stateBeforePause = state;
             state = GameState.Paused;
+
+
         }
         else
         {
             state = stateBeforePause;
+
         }
     }
+    public void PauseGame()
+    {
+        if (state != GameState.Paused)
+        {
+            
+            stateBeforePause = state;
+            state = GameState.Paused;
+            SceneManager.LoadSceneAsync(6);
+            
+
+        }
+        else
+        {
+            
+            state = stateBeforePause;
+            SceneManager.LoadSceneAsync(1);
+            
+        }
+    }
+
     void EndBattle()
     {
         state = GameState.FreeRoam;
