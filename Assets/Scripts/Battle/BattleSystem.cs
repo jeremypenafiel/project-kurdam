@@ -294,12 +294,13 @@ public class BattleSystem : MonoBehaviour
         targetUnit.PlayHitAnimation();
         AudioManager.i.PlaySFX(AudioId.Hit);
 
-        yield return StartCoroutine(dialogBox.TypeDialog($"{subject} did {damage} total damage."));
-        yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Z));
-        AudioManager.i.PlaySFX(AudioId.UISelect);
 
         bool isDead = targetUnit.Aswang.TakeDamage(move, sourceUnit.Aswang, damage);
         yield return targetUnit.Hud.UpdateHP();
+        yield return StartCoroutine(dialogBox.TypeDialog($"{subject} did {damage} total damage."));
+
+        yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Z));
+        AudioManager.i.PlaySFX(AudioId.UISelect);
 
         if (isDead)
         {
@@ -357,7 +358,7 @@ public class BattleSystem : MonoBehaviour
             int enemyLevel = KilledUnit.Aswang.Level;
             int expGain = Mathf.FloorToInt(expYield * enemyLevel / 7);
             playerUnit.Aswang.Exp += expGain;
-            yield return dialogBox.TypeDialog($"{playerUnit.Aswang.Base.Aname} gained {expGain} exp");
+            yield return dialogBox.TypeDialog($"{playerUnit.Aswang.Base.Aname} gained {expGain} EXP. Points!");
 
             yield return playerUnit.Hud.SetExpSmooth();
             yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Z));
@@ -365,7 +366,7 @@ public class BattleSystem : MonoBehaviour
 
             while (playerUnit.Aswang.CheckForLevelUp())
             {
-                yield return dialogBox.TypeDialog($"{playerUnit.Aswang.Base.Aname} leveled up");
+                yield return dialogBox.TypeDialog($"{playerUnit.Aswang.Base.Aname} leveled up.");
                 yield return playerUnit.Hud.SetExpSmooth(true);
                 yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Z));
                 AudioManager.i.PlaySFX(AudioId.UISelect);
@@ -376,7 +377,7 @@ public class BattleSystem : MonoBehaviour
 
         else
         {
-            yield return dialogBox.TypeDialog($"You fainted");
+            yield return dialogBox.TypeDialog($"You fainted.");
             yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Z));
             player.HP = player.MaxHP;
             PlayerFaint();
