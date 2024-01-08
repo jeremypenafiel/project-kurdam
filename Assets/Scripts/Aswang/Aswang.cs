@@ -74,27 +74,27 @@ public class Aswang
 
     public int Strength
     {
-        get { return Mathf.FloorToInt((Base.Strength - 10) /2 ); }
+        get { return Mathf.FloorToInt((Base.Strength - 10) /2  + Mathf.FloorToInt(Growthrate * Level)); }
     }
 
        public int Dexterity
     {
-        get { return Mathf.FloorToInt((Base.Dexterity - 10) / 2 + Mathf.FloorToInt(Growthrate * level)); }
+        get { return Mathf.FloorToInt((Base.Dexterity - 10) / 2) + Mathf.FloorToInt(Growthrate * Level); }
     }
 
     public int Constitution
     {
-        get { return Mathf.FloorToInt((Base.Constitution - 10) / 2 + Mathf.FloorToInt(Growthrate * level)); }
+        get { return Mathf.FloorToInt((Base.Constitution - 10) / 2) + Mathf.FloorToInt(Growthrate * Level); }
     }
 
     public int Intelligence
     {
-        get { return Mathf.FloorToInt((Base.Intelligence - 10) / 2 + Mathf.FloorToInt(Growthrate * level)); }
+        get { return Mathf.FloorToInt((Base.Intelligence - 10) / 2 + Mathf.FloorToInt(Growthrate * Level)); }
     }
     
     public int Charisma
     {
-        get { return Mathf.FloorToInt((Base.Charisma - 10) / 2 + Mathf.FloorToInt(Growthrate * level)); }
+        get { return Mathf.FloorToInt((Base.Charisma - 10) / 2 + Mathf.FloorToInt(Growthrate * Level)); }
     }
 
     public float Growthrate

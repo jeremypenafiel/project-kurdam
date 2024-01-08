@@ -20,6 +20,7 @@ public class BattleHud : MonoBehaviour
         nameText.text = aswang.Base.Aname;
         armorClassText.text =  $"{aswang.ArmorClass}";
         hpBar.SetHP((float)aswang.HP / aswang.MaxHP);
+        lvl.text = "Lvl " + _aswang.Level;
         SetExp();
 
     }
@@ -27,7 +28,7 @@ public class BattleHud : MonoBehaviour
     public void SetExp()
     {
         if (expBar == null) return;
-        lvl.text = "Lvl " + _aswang.Strength;
+        
         float normalizedExp = GetNormalizedExp();
         expBar.transform.localScale = new Vector3(normalizedExp, 1, 1);
     }
@@ -47,6 +48,7 @@ public class BattleHud : MonoBehaviour
         }
         float normalizedExp = GetNormalizedExp();
         yield return expBar.transform.DOScaleX(normalizedExp, 1.5f).WaitForCompletion();
+        lvl.text = "Lvl " + _aswang.Level;
     }
 
     float GetNormalizedExp()

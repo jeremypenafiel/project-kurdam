@@ -7,7 +7,6 @@ public class PlayerController : MonoBehaviour
 {
     public float distance;
 
-    public event Action OnEncountered;
 
     private Vector2 input;
 
