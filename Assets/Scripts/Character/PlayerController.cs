@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     private Character character;
     private Vector3 offset;
 
+    public event Action PauseScreen;
 
     private void Awake()
     {
@@ -22,6 +23,10 @@ public class PlayerController : MonoBehaviour
 
     public void HandleUpdate()
     {
+        if(Input.GetKeyUp(KeyCode.Escape))
+        {
+            PauseScreen();
+        }
         if (!character.IsMoving)
         {
             input.x = Input.GetAxisRaw("Horizontal");
