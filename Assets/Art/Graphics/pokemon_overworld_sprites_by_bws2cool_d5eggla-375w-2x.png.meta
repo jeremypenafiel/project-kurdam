@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -108,7 +108,2023 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 336
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31999452c8b2f2a4db2deb38a8ba8f69
+      internalID: -621037040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 336
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0e59fbbc9c62e24f8e449ee3d7bf88c
+      internalID: 1715786138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 336
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b359a0923c520db468e690fea042fc4b
+      internalID: 282519944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 336
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00da3b29301099648a12f93503848c75
+      internalID: 1577617523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 336
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12c0e3cd2f80cc1438711d54e15410d6
+      internalID: -217463282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 336
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f52ecd9f081a3154fbd41020f9b4507f
+      internalID: -151026825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_6
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 336
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef915c362f61b414c9feaa60496d9c8a
+      internalID: 931845420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_7
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 336
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5df91f61f4a97fd499624d97da4bd3d1
+      internalID: 1367664574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_8
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 336
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0af0780d1d59b3f47a4744bf2f5666b6
+      internalID: 2036252320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_9
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 336
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ae540c13d53be6479be4d5c8f49917c
+      internalID: 1551223736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_10
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 336
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6b7f0128fe20e74995746b4283c4626
+      internalID: -2102790708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_11
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 336
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62666d4fa8e2d5a48a4438588c5d2fe8
+      internalID: -1986135740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 288
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd117a98930dc5249b30e6564e0a2941
+      internalID: 1297508239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_13
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 288
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32a737cc9785df049806f5ba007a6c4e
+      internalID: -1592305565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_14
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 288
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 771328970cf08314cb0505408b9c0dcc
+      internalID: -536248465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_15
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 288
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 103b6439d6a69d443a2393ed8bce020a
+      internalID: -993872417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_16
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 288
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83c9ec85c42e1a14e9dda96b80909dfc
+      internalID: 254421338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_17
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 288
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31f1672dd18916442b81dc136066919b
+      internalID: 1296793750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_18
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 288
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6dc30aae492da1944add20b2d540957a
+      internalID: -430821261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_19
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 288
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d38b1da6dae74cf43b4950b38b75f8f7
+      internalID: 263997459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_20
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 288
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f78805df09653847a859c723bfd48d7
+      internalID: 1020442866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_21
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 288
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3302d8236e47f441881416f55eb57ea
+      internalID: -1252046993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_22
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 288
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cab23204b852774181addae09476229
+      internalID: 1893833787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_23
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 288
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0a7c229e87636349868720beef10ebc
+      internalID: -1180355991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 240
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6140ddccec1bd1149aa01b947cd082e4
+      internalID: -1516179806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_25
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 240
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5812377dc4e002a4ea17602d4767e530
+      internalID: 280150831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_26
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 240
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9127bda29961bd24991b4c350c5dbc2a
+      internalID: 1768435441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_27
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 240
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d870826cc51d4814496b6d3d243e8772
+      internalID: -36773149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_28
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 240
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99f063d1ae6e2bd4ba025e79b56819b4
+      internalID: 1041340787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_29
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 240
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ff221669473f3b4888f8aad120ef428
+      internalID: 1290762032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_30
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 240
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22befe347429cda419f74c5403736d21
+      internalID: 1125310232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_31
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 240
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2ed0ddadb4ac6d4b9ac4908f452c0e5
+      internalID: -1180857903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_32
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 240
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9844e699d4b2f6948b296e520818a05a
+      internalID: 352818784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_33
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 240
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fc2be0b706eed54d95522213094762c
+      internalID: -902415141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_34
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 240
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8118b557ecafdbf49b6201f03fb1d70c
+      internalID: 1596735592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_35
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 240
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5aa204cd3478d7641ab85d284f789e0d
+      internalID: -1332286037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_36
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f996791df9ce84248b444574c76b5755
+      internalID: 1703434920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_37
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 192
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac0ba4e5acc2ece42b53dfc4d546e1fc
+      internalID: -1176330801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_38
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 192
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7f35e6f065975b4f88378eb3766c5ba
+      internalID: -2007969390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_39
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 192
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa96db5823ff8184dad43d5fa564d07b
+      internalID: 242147626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_40
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 192
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fde1a6f226fa32e498332f0fd16dfbce
+      internalID: 898031993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_41
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 192
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9dc614d4438b97d4f9fed82130f1ae6c
+      internalID: -1744094087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_42
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 192
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 252d816d89ace1148938f39f93eba27e
+      internalID: -1116199853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_43
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 192
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81b3242d72e5d774da65720adc8e7c1f
+      internalID: -2047630741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_44
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 192
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 175692186b4f89144a5e25ef776764c4
+      internalID: 1079037656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_45
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 192
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3eeeaa7fb6b8af7438caf1e295c1ecda
+      internalID: 256006954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_46
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 192
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c969e53c132aa14eb33336ca9e5d646
+      internalID: -1163386915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_47
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 192
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a79226a8c594b634ab3b471b99e62971
+      internalID: -1151117147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_48
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 144
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d80f44cc39fa2e458333870e9678b3f
+      internalID: -1294651128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_49
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 144
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8aff06861fb6294a856bcb8f19d5335
+      internalID: -1640011270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_50
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 144
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10a6066413d4e694287cecbc2c4aa8c6
+      internalID: -600825996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_51
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 144
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e3f7f93b39162841ac4b08f6057f86e
+      internalID: 1105319546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_52
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 144
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 124eda85d68f6164a9acec7898bea2a9
+      internalID: -1042508389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_53
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 144
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ede188baf0f62549be10561c34b8df7
+      internalID: -1862949284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_54
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 144
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 364f5802fe4fca341be0ed229c28f431
+      internalID: 1793571052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_55
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 144
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 538aa676bef41be4f86b8d4d059079e8
+      internalID: 105729321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_56
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 144
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ddb4905af223674c904c3b57a838eb8
+      internalID: -633369808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_57
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 144
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de6f554efcaf4014eaa688042de2203f
+      internalID: -1325194126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_58
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 144
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac4a69d4f66e90a47a52beb6d575acdc
+      internalID: 1369592011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_59
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 144
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a3faf6875717544598957304e713a20
+      internalID: 931195912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_60
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b816365ecb06d554d9cf14bbe577b04d
+      internalID: 1345052252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_61
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 96
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18dcd135996977144ac823b1cd818455
+      internalID: 1656305020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_62
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 96
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eac1ce93167b2984c97d30d341f5004f
+      internalID: -538293249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_63
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 96
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25330afae7e267b44b87b165c4c29347
+      internalID: 1142456956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_64
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 96
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff96d5e06b00c3f438b699ca6d075874
+      internalID: 1217021388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_65
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 96
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02c6ec00dfef8954d8d4bb16aafe072a
+      internalID: 1942320782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_66
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 96
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9ba72ecef7a50344a9df8998adfac02
+      internalID: -533288997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_67
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 96
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ca150c7d2860f34f9517e915c989d37
+      internalID: -447163544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_68
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 96
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bf6b07849440a149839f44f317989d1
+      internalID: 1322142646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_69
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 96
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54a1892a1e3cee845800d97a3dce1234
+      internalID: -62497550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_70
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 96
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe9b2d120897d924ba901a7033bd4ecb
+      internalID: -1222478385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_71
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 96
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c70111530bb92147a18016b5073f595
+      internalID: -526133092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_72
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 48
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b42d37b44dad54541a90884db16f337b
+      internalID: -1683823363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_73
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 48
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2a4ac0bc25af53499ad769d24180a1e
+      internalID: 996102509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_74
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 48
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab0aefed8a6bcce48a137af0a83016b9
+      internalID: -1259794696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_75
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 48
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bd1979935cbd2247b8e6f69174f09cb
+      internalID: 1677553814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_76
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 48
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de4b8f907a9afe54b9320d882912c71f
+      internalID: -1921077637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_77
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 48
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9601567ee3b35a14cab288c2e7373ea1
+      internalID: -1780268263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_78
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 48
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99192bb12629da14e87547b85e59444a
+      internalID: -1054927084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_79
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 48
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e638053d4b566e145a7fbb86d737df60
+      internalID: 1508106350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_80
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 48
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afdb80409fcabce46a283b996651736b
+      internalID: 2046853683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_81
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 48
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96e744f7f9690e8489dde2bf92a804c4
+      internalID: 1109911227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_82
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 48
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 831a9aeb094b9ad4fb20aba6912697de
+      internalID: 1606392242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_83
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 48
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c594b98aa4a444419170f3f9d0810eb
+      internalID: 912234254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_84
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a09d3c70de54b7c43ab05282a8bca454
+      internalID: -1826329846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_85
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86839213ea7c9b348a11c8b318bc8931
+      internalID: -2113788977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_86
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d6bb5904b3b07549a19103dd70bdfc5
+      internalID: 1656568734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_87
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e530b4c6b4c80944eb955f82f5f8bff9
+      internalID: -65891852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_88
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 420ef89fd0106f341b12f94a4bd9a6df
+      internalID: 1056820752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_89
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf7c7f9baff5f3f4f9e15db2dd10a1dd
+      internalID: -1378537488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_90
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 866cda50272aadf4dbbeb4f68aef0775
+      internalID: -232214229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_91
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 0
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55956cac7b96c1346918c0403c3628e5
+      internalID: 1267465371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_92
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f1301df29babfa4ebc7caafe4fa02d4
+      internalID: 1659915028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_93
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1524770d0e3fada458f3dc0e44f1bd52
+      internalID: -336515096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_94
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6dd497f63884f5409a37e27c01d9a44
+      internalID: 840281638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_95
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 0
+        width: 32
+        height: 48
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5a5f1ec99858f548bc06c12e462e06b
+      internalID: 1080098806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +2135,103 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_0: -621037040
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_1: 1715786138
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_10: -2102790708
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_11: -1986135740
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_12: 1297508239
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_13: -1592305565
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_14: -536248465
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_15: -993872417
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_16: 254421338
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_17: 1296793750
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_18: -430821261
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_19: 263997459
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_2: 282519944
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_20: 1020442866
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_21: -1252046993
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_22: 1893833787
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_23: -1180355991
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_24: -1516179806
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_25: 280150831
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_26: 1768435441
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_27: -36773149
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_28: 1041340787
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_29: 1290762032
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_3: 1577617523
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_30: 1125310232
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_31: -1180857903
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_32: 352818784
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_33: -902415141
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_34: 1596735592
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_35: -1332286037
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_36: 1703434920
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_37: -1176330801
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_38: -2007969390
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_39: 242147626
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_4: -217463282
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_40: 898031993
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_41: -1744094087
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_42: -1116199853
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_43: -2047630741
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_44: 1079037656
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_45: 256006954
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_46: -1163386915
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_47: -1151117147
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_48: -1294651128
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_49: -1640011270
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_5: -151026825
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_50: -600825996
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_51: 1105319546
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_52: -1042508389
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_53: -1862949284
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_54: 1793571052
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_55: 105729321
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_56: -633369808
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_57: -1325194126
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_58: 1369592011
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_59: 931195912
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_6: 931845420
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_60: 1345052252
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_61: 1656305020
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_62: -538293249
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_63: 1142456956
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_64: 1217021388
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_65: 1942320782
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_66: -533288997
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_67: -447163544
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_68: 1322142646
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_69: -62497550
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_7: 1367664574
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_70: -1222478385
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_71: -526133092
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_72: -1683823363
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_73: 996102509
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_74: -1259794696
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_75: 1677553814
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_76: -1921077637
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_77: -1780268263
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_78: -1054927084
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_79: 1508106350
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_8: 2036252320
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_80: 2046853683
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_81: 1109911227
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_82: 1606392242
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_83: 912234254
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_84: -1826329846
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_85: -2113788977
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_86: 1656568734
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_87: -65891852
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_88: 1056820752
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_89: -1378537488
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_9: 1551223736
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_90: -232214229
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_91: 1267465371
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_92: 1659915028
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_93: -336515096
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_94: 840281638
+      pokemon_overworld_sprites_by_bws2cool_d5eggla-375w-2x_95: 1080098806
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
