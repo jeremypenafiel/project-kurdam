@@ -79,19 +79,22 @@ public class GameController : MonoBehaviour
     {
         if (state != GameState.Paused)
         {
-            
+            StartCoroutine(fader.FadeOut(0.5f));
             stateBeforePause = state;
             state = GameState.Paused;
             SceneManager.LoadSceneAsync(6);
-            
+            StartCoroutine(fader.FadeIn(0.5f));
+
 
         }
         else
         {
-            
+            StartCoroutine(fader.FadeIn(0.5f));
+
             state = stateBeforePause;
             SceneManager.LoadSceneAsync(1);
-            
+            StartCoroutine(fader.FadeOut(0.5f));
+
         }
     }
 
