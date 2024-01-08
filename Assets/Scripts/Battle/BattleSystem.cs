@@ -73,6 +73,7 @@ public class BattleSystem : MonoBehaviour
     {
         state = BattleState.PlayerAttackRoll;
         StartCoroutine(dialogBox.TypeDialog("Roll the dice to attack."));
+
         diceSystem.SetupAttackRoll();
     }
 
@@ -129,6 +130,7 @@ public class BattleSystem : MonoBehaviour
     // Enter states / Handle states
     void HandleActionSelection()
     {
+        
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             if (currentAction < 1)
@@ -147,6 +149,7 @@ public class BattleSystem : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Z))
         {
+            AudioManager.i.PlaySFX(AudioId.UISelect);
             if (currentAction == 0)
             {
                 MoveSelection();
@@ -193,12 +196,16 @@ public class BattleSystem : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Z))
         {
+
+            AudioManager.i.PlaySFX(AudioId.UISelect);
             dialogBox.EnableMoveSelector(false);
             dialogBox.EnableDialogText(true);
             PlayerAttackRoll();
         }
         if (Input.GetKeyDown(KeyCode.X))
         {
+    
+            AudioManager.i.PlaySFX(AudioId.UISelect);
             dialogBox.EnableMoveSelector(false);
             dialogBox.EnableDialogText(true);
             ActionSelection();
@@ -233,6 +240,7 @@ public class BattleSystem : MonoBehaviour
      IEnumerator PerformAttackRoll(BattleUnit sourceUnit, BattleUnit targetUnit, Action<Moves> onHit, Action onMiss)
     {
         state = BattleState.PerformMove;
+        AudioManager.i.PlaySFX(AudioId.UISelect);
         Moves move = sourceUnit.GetMove(currentMove);
 
         bool isHit;
@@ -241,7 +249,9 @@ public class BattleSystem : MonoBehaviour
         yield return StartCoroutine(diceSystem.AttackRoll());
         yield return StartCoroutine(dialogBox.TypeDialog($"{subject} rolled {diceSystem.GetDiceRollValue()}."));
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Z));
+        AudioManager.i.PlaySFX(AudioId.UISelect);
+
 
         isHit = CheckIfHit(diceSystem.CurrentDice, targetUnit);
         yield return StartCoroutine(RollDialog(isHit, sourceUnit));
@@ -256,6 +266,8 @@ public class BattleSystem : MonoBehaviour
     IEnumerator PerformDamageRoll(BattleUnit sourceUnit, BattleUnit targetUnit, Action onDamageRollOver)
     {
         state = BattleState.Busy;
+        AudioManager.i.PlaySFX(AudioId.UISelect);
+
         Moves move = sourceUnit.GetMove(currentMove);
         var moveSfx = move.Base.Sound;
         string modifierText = move.Base.Type.GetModifierText();
@@ -267,18 +279,24 @@ public class BattleSystem : MonoBehaviour
 
         yield return StartCoroutine(dialogBox.TypeDialog($"{subject} rolled {damageRoll} + {modifier} {modifierText} modifier."));
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Z));
+        AudioManager.i.PlaySFX(AudioId.UISelect);
 
         int damage = CalculateTotalDamage(move, sourceUnit.Aswang, targetUnit.Aswang, damageRoll);
 
-        yield return StartCoroutine(dialogBox.TypeDialog($"{subject} did {damage} total damage."));
-
         AudioManager.i.PlaySFX(moveSfx);
+        
+
         sourceUnit.PlayAttackAnimation();
         yield return new WaitForSeconds(0.5f);
 
+
         targetUnit.PlayHitAnimation();
         AudioManager.i.PlaySFX(AudioId.Hit);
+
+        yield return StartCoroutine(dialogBox.TypeDialog($"{subject} did {damage} total damage."));
+        yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Z));
+        AudioManager.i.PlaySFX(AudioId.UISelect);
 
         bool isDead = targetUnit.Aswang.TakeDamage(move, sourceUnit.Aswang, damage);
         yield return targetUnit.Hud.UpdateHP();
@@ -299,7 +317,8 @@ public class BattleSystem : MonoBehaviour
     IEnumerator RunBattle()
     {
         yield return StartCoroutine(dialogBox.TypeDialog("You fled from the aswang."));
-        yield return new WaitForSeconds(1f);
+        yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Z));
+        AudioManager.i.PlaySFX(AudioId.UISelect);
         Run();
     }
 
@@ -318,6 +337,7 @@ public class BattleSystem : MonoBehaviour
 
         yield return StartCoroutine(dialogBox.TypeDialog(text));
         yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Z));
+        AudioManager.i.PlaySFX(AudioId.UISelect);
     }
 
     IEnumerator HandleAswangKill(BattleUnit KilledUnit)
@@ -341,11 +361,14 @@ public class BattleSystem : MonoBehaviour
 
             yield return playerUnit.Hud.SetExpSmooth();
             yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Z));
+            AudioManager.i.PlaySFX(AudioId.UISelect);
 
             while (playerUnit.Aswang.CheckForLevelUp())
             {
                 yield return dialogBox.TypeDialog($"{playerUnit.Aswang.Base.Aname} leveled up");
                 yield return playerUnit.Hud.SetExpSmooth(true);
+                yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Z));
+                AudioManager.i.PlaySFX(AudioId.UISelect);
 
             }
 
