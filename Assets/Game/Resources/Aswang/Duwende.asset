@@ -25,6 +25,8 @@ MonoBehaviour:
   intelligence: 12
   wisdom: 10
   charisma: 9
+  growthrate: 0
+  expYield: 100
   learnableMoves:
   - movesBase: {fileID: 11400000, guid: fd25b464ec2393849a517ed7bcf4d390, type: 2}
     level: 0

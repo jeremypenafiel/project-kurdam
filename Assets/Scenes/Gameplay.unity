@@ -191,6 +191,7 @@ GameObject:
   - component: {fileID: 1029692286}
   - component: {fileID: 1029692285}
   - component: {fileID: 1029692284}
+  - component: {fileID: 1029692287}
   m_Layer: 0
   m_Name: NewAdmin
   m_TagString: Untagged
@@ -274,6 +275,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1029692287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1029692283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad517350047cc5843b5647450bbc28b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wildAswangs:
+  - aswangBase: {fileID: 11400000, guid: 72046347066b5a24eb23b39e47e72034, type: 2}
+    levelRange: {x: 5, y: 15}
+    chancePercentage: 40
+  - aswangBase: {fileID: 11400000, guid: fc0bc972d044eda41984d418eb0e8c19, type: 2}
+    levelRange: {x: 5, y: 10}
+    chancePercentage: 35
+  - aswangBase: {fileID: 11400000, guid: 549514c8bdd42aa4d95b63aef881cff2, type: 2}
+    levelRange: {x: 15, y: 20}
+    chancePercentage: 25
 --- !u!1 &1153281145
 GameObject:
   m_ObjectHideFlags: 0
