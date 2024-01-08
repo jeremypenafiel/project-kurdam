@@ -34,7 +34,7 @@ public class GameController : MonoBehaviour
         battleSystem.Run += EndBattle;
         battleSystem.PlayerFaint += MovetoSpawn;
         playerController.PauseScreen += PauseGame;
-        battleSystem.PauseScreen += PauseGame;
+        battleSystem.Pause += PauseGame;
 
         DialogManager.Instance.OnShowDialog += () =>
         {
