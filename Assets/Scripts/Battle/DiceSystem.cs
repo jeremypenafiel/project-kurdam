@@ -26,7 +26,7 @@ public class DiceSystem : MonoBehaviour
     public Dice CurrentDice
     {
         get => currentDice;
-
+            
         set => currentDice = value;
     }
 
