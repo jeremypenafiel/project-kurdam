@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Tracing;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -20,7 +21,9 @@ public class Pause : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            yield return UnityEditor.EditorApplication.isPlaying = false;
+            Application.Quit();
+            yield return null;
+            
         }
     }
 }
