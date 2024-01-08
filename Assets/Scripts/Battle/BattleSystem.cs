@@ -2,7 +2,6 @@ using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 
@@ -21,12 +20,24 @@ public class BattleSystem : MonoBehaviour
     public event Action<bool> OnBattleOver;
     public event Action Run;
     public event Action PlayerFaint;
+    public event Action Pause;
     BattleState state;
     int currentAction;
     int currentMove;
 
     Aswang wildAswang;
     Aswang player;
+
+
+    private void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.Escape))
+        {
+            Pause();
+        }
+    }
+
+
 
     public void StartBattle(Aswang player, Aswang wildAswang)
     {
@@ -452,5 +463,5 @@ public class BattleSystem : MonoBehaviour
         return playerModifier;
     }
 
-
+    
 }
