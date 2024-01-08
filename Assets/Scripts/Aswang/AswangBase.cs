@@ -25,6 +25,7 @@ public class AswangBase : ScriptableObject
     [SerializeField] int intelligence;
     [SerializeField] int wisdom;
     [SerializeField] int charisma;
+    [SerializeField] float growthrate;
 
     [SerializeField] int expYield;
     [SerializeField] List<LearnableMove> learnableMoves;
@@ -93,6 +94,11 @@ public class AswangBase : ScriptableObject
     public int ExpYield
     {
         get { return expYield; }
+    }
+
+    public float Growthrate
+    {
+        get { return growthrate; }
     }
 
     public List<LearnableMove> LearnableMoves

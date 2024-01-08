@@ -44,6 +44,8 @@ public class BattleSystem : MonoBehaviour
   
         dialogBox.SetMoveNames(playerUnit.Aswang.moves);
 
+         
+
         yield return dialogBox.TypeDialog($"A wild {enemyUnit.Aswang.Base.Aname} appeared.");
         yield return new WaitForSeconds(1f);
         

@@ -2359,7 +2359,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Exp
+  m_text: LV
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
@@ -2601,6 +2601,7 @@ MonoBehaviour:
   armorClassText: {fileID: 4945669263234092753}
   hpBar: {fileID: 3772653466213705211}
   expBar: {fileID: 8587172728483530462}
+  lvl: {fileID: 6280127437407742612}
 --- !u!1 &5619380222710539261
 GameObject:
   m_ObjectHideFlags: 0
@@ -3414,6 +3415,7 @@ MonoBehaviour:
   armorClassText: {fileID: 3915150643838949324}
   hpBar: {fileID: 7199381076598025477}
   expBar: {fileID: 0}
+  lvl: {fileID: 0}
 --- !u!1 &6630402850630045349
 GameObject:
   m_ObjectHideFlags: 0
@@ -5432,6 +5434,10 @@ PrefabInstance:
     - target: {fileID: 1843455397611351688, guid: 3fcc7e8f83e983c4f9a1f6fbeeab54c0, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2500359263501857979, guid: 3fcc7e8f83e983c4f9a1f6fbeeab54c0, type: 3}
+      propertyPath: playerlevel
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 2696640200519575285, guid: 3fcc7e8f83e983c4f9a1f6fbeeab54c0, type: 3}
       propertyPath: m_LocalPosition.x

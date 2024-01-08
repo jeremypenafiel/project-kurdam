@@ -11,7 +11,7 @@ public class BattleHud : MonoBehaviour
     [SerializeField] TextMeshProUGUI armorClassText;
     [SerializeField] HPBar hpBar;
     [SerializeField] GameObject expBar;
-
+    [SerializeField] TextMeshProUGUI lvl;
 
     Aswang _aswang;
     public void SetData(Aswang aswang)
@@ -23,10 +23,11 @@ public class BattleHud : MonoBehaviour
         SetExp();
 
     }
+
     public void SetExp()
     {
         if (expBar == null) return;
-
+        lvl.text = "Lvl " + _aswang.Strength;
         float normalizedExp = GetNormalizedExp();
         expBar.transform.localScale = new Vector3(normalizedExp, 1, 1);
     }

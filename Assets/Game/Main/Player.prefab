@@ -117,7 +117,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playertype: {fileID: 11400000, guid: 72046347066b5a24eb23b39e47e72034, type: 2}
-  playerlevel: 15
+  playerlevel: 50
 --- !u!114 &2972687145675103942
 MonoBehaviour:
   m_ObjectHideFlags: 0

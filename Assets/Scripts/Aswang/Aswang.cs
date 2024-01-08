@@ -7,6 +7,7 @@ public class Aswang
 {
     [SerializeField] AswangBase _base;
     [SerializeField] int level;
+    
 
 
     public AswangBase Base 
@@ -24,6 +25,7 @@ public class Aswang
     }
     public int Exp { get; set; }
     public int HP { get; set; }
+
 
     public List<Moves> moves {  get; set; }
 
@@ -72,29 +74,33 @@ public class Aswang
 
     public int Strength
     {
-        get { return Mathf.FloorToInt((Base.Strength - 10) /2); }
+        get { return Mathf.FloorToInt((Base.Strength - 10) /2 ); }
     }
 
        public int Dexterity
     {
-        get { return Mathf.FloorToInt((Base.Dexterity - 10) / 2); }
+        get { return Mathf.FloorToInt((Base.Dexterity - 10) / 2 + Mathf.FloorToInt(Growthrate * level)); }
     }
 
     public int Constitution
     {
-        get { return Mathf.FloorToInt((Base.Constitution - 10) / 2); }
+        get { return Mathf.FloorToInt((Base.Constitution - 10) / 2 + Mathf.FloorToInt(Growthrate * level)); }
     }
 
     public int Intelligence
     {
-        get { return Mathf.FloorToInt((Base.Intelligence - 10) / 2); }
+        get { return Mathf.FloorToInt((Base.Intelligence - 10) / 2 + Mathf.FloorToInt(Growthrate * level)); }
     }
     
     public int Charisma
     {
-        get { return Mathf.FloorToInt((Base.Charisma - 10) / 2); }
+        get { return Mathf.FloorToInt((Base.Charisma - 10) / 2 + Mathf.FloorToInt(Growthrate * level)); }
     }
 
+    public float Growthrate
+    {
+        get { return Base.Growthrate; }
+    }
     public bool CheckForLevelUp()
     {
         if (Exp> Base.GetExpForLevel(level + 1))
