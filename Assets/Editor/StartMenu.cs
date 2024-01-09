@@ -15,6 +15,8 @@ public class StartMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Return))
         {
+            Debug.Log("pakana kamio");
+
             yield return SceneManager.LoadSceneAsync(1);
         }
 

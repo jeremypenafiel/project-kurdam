@@ -57,6 +57,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Z))
         {
+
             StartCoroutine(Interact());
         }
 
@@ -123,6 +124,7 @@ public class PlayerController : MonoBehaviour
         var collider = Physics2D.OverlapCircle(interactPosition, 0.1f, GameLayers.I.InteractableLayer);
         if (collider != null)
         {
+
            yield return collider.GetComponent<Interactable>()?.Interact(transform);
         }
     }
