@@ -17,16 +17,25 @@ MonoBehaviour:
   backSprite: {fileID: 0}
   frontSprite: {fileID: 21300000, guid: 257ca668a4ecd91438af7ce49f607800, type: 3}
   aswangType1: 0
-  maxHP: 0
-  armorClass: 0
-  strength: 0
-  dexterity: 0
-  constitution: 0
-  intelligence: 0
-  wisdom: 0
-  charisma: 0
-  growthrate: 0
-  expYield: 0
-  learnableMoves: []
+  maxHP: 7
+  armorClass: 3
+  strength: 7
+  dexterity: 4
+  constitution: 3
+  intelligence: 5
+  wisdom: 1
+  charisma: 2
+  growthrate: 5
+  expYield: 30
+  learnableMoves:
+  - movesBase: {fileID: 11400000, guid: b0a844fe13be3cb4bba8e8cc1bfc2542, type: 2}
+    level: 0
+  - movesBase: {fileID: 11400000, guid: 51da9a9c076e81b429810a430d8ab13a, type: 2}
+    level: 0
+  - movesBase: {fileID: 11400000, guid: 96083b63a7cb7824695aacac6266463e, type: 2}
+    level: 0
+  - movesBase: {fileID: 11400000, guid: eaf8f9a1318af4c4198aa30298e22af7, type: 2}
+    level: 0
   resistances: []
-  vulnerabilities: []
+  vulnerabilities:
+  - {fileID: 11400000, guid: a0d96a551c6282a4ba58a68d976a7634, type: 2}
