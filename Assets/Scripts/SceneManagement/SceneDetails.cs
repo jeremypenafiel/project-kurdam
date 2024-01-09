@@ -1,14 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
 
 public class SceneDetails : MonoBehaviour
 {
     [SerializeField] List<SceneDetails> connectedScenes;
     [SerializeField] AudioClip sceneMusic;
+    [SerializeField] /*GameObject dialogBox;
+    [SerializeField] TextMeshProUGUI sceneNameText;*/
 
 
+    GameObject sceneNamePopUp;
+    TextMeshProUGUI sceneNameText;
+    Vector3 origPos;
+
+    private void Start()
+    {
+        sceneNamePopUp = GameObject.Find("SceneName");
+        sceneNameText = sceneNamePopUp.GetComponentInChildren<TextMeshProUGUI>();
+        origPos = sceneNamePopUp.transform.localPosition;
+    }
 
     public bool IsLoaded { get; private  set; } = false;
     private void OnTriggerEnter2D(Collider2D collision)
@@ -19,8 +33,27 @@ public class SceneDetails : MonoBehaviour
 
             LoadScene();
             GameController.Instance.SetCurrentScene(this);
-
-            if(sceneMusic != null)
+            switch (gameObject.name)
+            {
+                case "LoversLane": 
+                     sceneNameText.text = "Lovers' Lane";
+                    break;
+                case "CAS":
+                    sceneNameText.text = "CAS";
+                    break;
+                case "HSU":
+                    sceneNameText.text = "HSU";
+                    break;
+                case "NewAdmin":
+                    sceneNameText.text = "New Admin";
+                    break;
+                default:
+                    Debug.Log("Scene name not found");
+                    Debug.Log(sceneNamePopUp.name);
+                    break;
+            }
+            StartCoroutine(PlayPopUpAnimation());
+            if (sceneMusic != null)
             {
                 AudioManager.i.PlayMusic(sceneMusic, fade: true);
             }
@@ -71,6 +104,15 @@ public class SceneDetails : MonoBehaviour
             IsLoaded = false;
         }
     }
-    
+    public IEnumerator PlayPopUpAnimation()
+    {
+        var sequence = DOTween.Sequence();
+        sequence.Append(sceneNamePopUp.transform.DOLocalMoveY(origPos.y - 100f, 0.5f));
+        yield return new WaitForSeconds(2.5f);
+        sequence.Append(sceneNamePopUp.transform.DOLocalMoveY(origPos.y, 0.5f));
+    }
+
+
+
     public AudioClip SceneMusic => sceneMusic;
 }
