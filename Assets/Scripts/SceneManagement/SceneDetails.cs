@@ -33,7 +33,7 @@ public class SceneDetails : MonoBehaviour
 
             LoadScene();
             GameController.Instance.SetCurrentScene(this);
-            switch (sceneNamePopUp.name)
+            switch (gameObject.name)
             {
                 case "LoversLane": 
                      sceneNameText.text = "Lovers' Lane";
@@ -46,6 +46,10 @@ public class SceneDetails : MonoBehaviour
                     break;
                 case "NewAdmin":
                     sceneNameText.text = "New Admin";
+                    break;
+                default:
+                    Debug.Log("Scene name not found");
+                    Debug.Log(sceneNamePopUp.name);
                     break;
             }
             StartCoroutine(PlayPopUpAnimation());
