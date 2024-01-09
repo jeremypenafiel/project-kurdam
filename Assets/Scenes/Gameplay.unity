@@ -349,7 +349,6 @@ MonoBehaviour:
   - {fileID: 1153281148}
   - {fileID: 1922535835}
   sceneMusic: {fileID: 8300000, guid: 98a3184be63966f41be7ece9ce0242b5, type: 3}
-  sceneNamePopUp: {fileID: 0}
 --- !u!61 &1029692285
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -423,15 +422,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wildAswangs:
-  - aswangBase: {fileID: 11400000, guid: 72046347066b5a24eb23b39e47e72034, type: 2}
+  - aswangBase: {fileID: 11400000, guid: 0df1b9ecf9bdd3745ba3c13155aacbe7, type: 2}
     levelRange: {x: 5, y: 15}
-    chancePercentage: 40
-  - aswangBase: {fileID: 11400000, guid: fc0bc972d044eda41984d418eb0e8c19, type: 2}
+    chancePercentage: 5
+  - aswangBase: {fileID: 11400000, guid: 4773e14136c2bfd4caffbbf7dba62ba0, type: 2}
     levelRange: {x: 5, y: 10}
-    chancePercentage: 35
-  - aswangBase: {fileID: 11400000, guid: 549514c8bdd42aa4d95b63aef881cff2, type: 2}
+    chancePercentage: 45
+  - aswangBase: {fileID: 11400000, guid: b51449335080fd54bb51e44626705b14, type: 2}
     levelRange: {x: 15, y: 20}
-    chancePercentage: 25
+    chancePercentage: 50
 --- !u!1 &1153281145
 GameObject:
   m_ObjectHideFlags: 0
@@ -527,7 +526,6 @@ MonoBehaviour:
   - {fileID: 1550750726}
   - {fileID: 1029692284}
   sceneMusic: {fileID: 8300000, guid: 98a3184be63966f41be7ece9ce0242b5, type: 3}
-  sceneNamePopUp: {fileID: 0}
 --- !u!114 &1153281149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -641,7 +639,6 @@ MonoBehaviour:
   connectedScenes:
   - {fileID: 1153281148}
   sceneMusic: {fileID: 8300000, guid: 98a3184be63966f41be7ece9ce0242b5, type: 3}
-  sceneNamePopUp: {fileID: 0}
 --- !u!114 &1550750727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -655,15 +652,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wildAswangs:
-  - aswangBase: {fileID: 11400000, guid: 72046347066b5a24eb23b39e47e72034, type: 2}
+  - aswangBase: {fileID: 11400000, guid: b51449335080fd54bb51e44626705b14, type: 2}
     levelRange: {x: 5, y: 15}
-    chancePercentage: 40
-  - aswangBase: {fileID: 11400000, guid: fc0bc972d044eda41984d418eb0e8c19, type: 2}
+    chancePercentage: 50
+  - aswangBase: {fileID: 11400000, guid: 4773e14136c2bfd4caffbbf7dba62ba0, type: 2}
     levelRange: {x: 5, y: 10}
-    chancePercentage: 35
-  - aswangBase: {fileID: 11400000, guid: 549514c8bdd42aa4d95b63aef881cff2, type: 2}
-    levelRange: {x: 15, y: 20}
-    chancePercentage: 25
+    chancePercentage: 50
 --- !u!1 &1626062231
 GameObject:
   m_ObjectHideFlags: 0
@@ -891,7 +885,6 @@ MonoBehaviour:
   connectedScenes:
   - {fileID: 1029692284}
   sceneMusic: {fileID: 8300000, guid: 98a3184be63966f41be7ece9ce0242b5, type: 3}
-  sceneNamePopUp: {fileID: 0}
 --- !u!61 &1922535836
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -950,15 +943,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wildAswangs:
-  - aswangBase: {fileID: 11400000, guid: 72046347066b5a24eb23b39e47e72034, type: 2}
+  - aswangBase: {fileID: 11400000, guid: 5b4de7f613dca2b43afe52cdf4e8e9c9, type: 2}
     levelRange: {x: 5, y: 15}
-    chancePercentage: 40
+    chancePercentage: 25
   - aswangBase: {fileID: 11400000, guid: fc0bc972d044eda41984d418eb0e8c19, type: 2}
     levelRange: {x: 5, y: 10}
-    chancePercentage: 35
+    chancePercentage: 40
   - aswangBase: {fileID: 11400000, guid: 549514c8bdd42aa4d95b63aef881cff2, type: 2}
     levelRange: {x: 15, y: 20}
-    chancePercentage: 25
+    chancePercentage: 35
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
