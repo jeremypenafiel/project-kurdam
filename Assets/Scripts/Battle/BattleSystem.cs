@@ -55,8 +55,8 @@ public class BattleSystem : MonoBehaviour
   
         dialogBox.SetMoveNames(playerUnit.Aswang.moves);
 
-         
 
+        
         yield return dialogBox.TypeDialog($"A wild {enemyUnit.Aswang.Base.Aname} appeared.");
         yield return new WaitForSeconds(1f);
         
@@ -329,7 +329,6 @@ public class BattleSystem : MonoBehaviour
     IEnumerator RunBattle()
     {
         yield return StartCoroutine(dialogBox.TypeDialog("You fled from the aswang."));
-        yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Z));
         AudioManager.i.PlaySFX(AudioId.UISelect);
         Run();
     }
