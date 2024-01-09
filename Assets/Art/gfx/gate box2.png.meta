@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b50ffe45bfd010f4aa7164844d60146f
+guid: b457074f932c38d4e8b983437b526ab4
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 10
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: arrow indicator_0
+      name: gate box2_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 48
-        width: 16
-        height: 16
+        x: 5
+        y: 112
+        width: 12
+        height: 12
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b42edcf044946924f8cfb4c62d97b6f6
-      internalID: 319328082
+      spriteID: dee0182dfa56dcb45a88df7d1b695f00
+      internalID: 831334654
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arrow indicator_1
+      name: gate box2_1
       rect:
         serializedVersion: 2
-        x: 16
-        y: 48
-        width: 16
-        height: 16
+        x: 17
+        y: 112
+        width: 12
+        height: 12
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3f58fb4df8dabe044b8d8fa41cdee502
-      internalID: 1371631005
+      spriteID: 7defedfd10b4ac6459b4bf978877b864
+      internalID: -856556157
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arrow indicator_2
+      name: gate box2_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 32
-        width: 16
-        height: 16
+        x: 5
+        y: 100
+        width: 12
+        height: 12
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 65e81bc0060a86345816a7a54acbcc1f
-      internalID: -1962443165
+      spriteID: c24369471c8490a4d9defb585cb2f960
+      internalID: -1050404047
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arrow indicator_3
+      name: gate box2_3
       rect:
         serializedVersion: 2
-        x: 16
-        y: 32
-        width: 16
-        height: 16
+        x: 17
+        y: 100
+        width: 12
+        height: 12
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,20 +187,167 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b630b725d833f2e439abbb7ed84c76ab
-      internalID: 1349113432
+      spriteID: d87d3785e5a931d49865cd780c1b11a7
+      internalID: -1693037478
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arrow indicator_4
+      name: gate box2_4
       rect:
         serializedVersion: 2
-        x: 0
+        x: 5
+        y: 88
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac50f0910aceba24fb2270544033314b
+      internalID: 357942405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gate box2_5
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 88
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9269bfab657703c4cb4b7d1a8931e829
+      internalID: 1648260103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gate box2_6
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 76
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36bedb262053add4fbef2856c501406d
+      internalID: -127410502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gate box2_7
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 64
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 274f3c85a7a14d34a893ffb476a249d2
+      internalID: 766450261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gate box2_8
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 52
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 916f04122cf50e8419609f0dddb46b57
+      internalID: 153337375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gate box2_9
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 40
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5a77e16bc85a82478ea164929d46379
+      internalID: -1009596664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gate box2_10
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 28
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b657f3bec2e8b4d4b90a6d4bb63a5dbc
+      internalID: 1959507879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gate box2_11
+      rect:
+        serializedVersion: 2
+        x: 17
         y: 16
-        width: 16
-        height: 16
+        width: 12
+        height: 12
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -208,20 +355,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a9c47e1e6ca631b4fbaae393b5b4eb8d
-      internalID: -465929820
+      spriteID: 8a383ae4a33af674eaf3a4fdd2eff047
+      internalID: 1536138105
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arrow indicator_5
+      name: gate box2_12
       rect:
         serializedVersion: 2
-        x: 16
-        y: 16
-        width: 16
-        height: 16
+        x: 17
+        y: 4
+        width: 12
+        height: 12
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -229,50 +376,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e17fc082ccf610d4d83475ad4c953913
-      internalID: -336123833
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: arrow indicator_6
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 916961d88e898ed44b6f2da19f1c22fe
-      internalID: 606821664
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: arrow indicator_7
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d2602b1206e98974393121fa139c41cb
-      internalID: -1601236225
+      spriteID: c8ca3709f26265342a143a51304f6353
+      internalID: -396302414
       vertices: []
       indices: 
       edges: []
@@ -288,14 +393,19 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      arrow indicator_0: 319328082
-      arrow indicator_1: 1371631005
-      arrow indicator_2: -1962443165
-      arrow indicator_3: 1349113432
-      arrow indicator_4: -465929820
-      arrow indicator_5: -336123833
-      arrow indicator_6: 606821664
-      arrow indicator_7: -1601236225
+      gate box2_0: 831334654
+      gate box2_1: -856556157
+      gate box2_10: 1959507879
+      gate box2_11: 1536138105
+      gate box2_12: -396302414
+      gate box2_2: -1050404047
+      gate box2_3: -1693037478
+      gate box2_4: 357942405
+      gate box2_5: 1648260103
+      gate box2_6: -127410502
+      gate box2_7: 766450261
+      gate box2_8: 153337375
+      gate box2_9: -1009596664
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
