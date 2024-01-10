@@ -376,11 +376,11 @@ public class BattleSystem : MonoBehaviour
 
             while (playerUnit.Aswang.CheckForLevelUp())
             {
-                yield return dialogBox.TypeDialog($"{playerUnit.Aswang.Base.Aname} leveled up.");
+                player.Level++;
+                yield return dialogBox.TypeDialog($"{playerUnit.Aswang.Base.Aname} leveled up to Level {player.Level}.");
                 yield return playerUnit.Hud.SetExpSmooth(true);
                 yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Z));
                 AudioManager.i.PlaySFX(AudioId.UISelect);
-
             }
 
         }
@@ -389,6 +389,7 @@ public class BattleSystem : MonoBehaviour
         {
             yield return dialogBox.TypeDialog($"You fainted.");
             yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Z));
+           
             player.HP = player.MaxHP;
             PlayerFaint();
             
