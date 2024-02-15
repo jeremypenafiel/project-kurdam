@@ -3148,6 +3148,7 @@ GameObject:
   - component: {fileID: 2943565300153928672}
   - component: {fileID: 8904270053142815537}
   - component: {fileID: 6354007809652629726}
+  - component: {fileID: 3883348242580643662}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -3228,6 +3229,18 @@ MonoBehaviour:
   portalLayer:
     serializedVersion: 2
     m_Bits: 512
+--- !u!114 &3883348242580643662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6021599357922479573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 279d112f8622a134cabb7f2bbcee9618, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6116732493591363067
 GameObject:
   m_ObjectHideFlags: 0

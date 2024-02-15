@@ -1,5 +1,7 @@
+using GDEUtils.StateMachine;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,7 +10,8 @@ public class GameController : MonoBehaviour
 {
     GameState state;
     GameState stateBeforePause;
-    int sceneBeforePause;
+    
+    public StateMachine<GameController> StateMachine { get; private set; }
 
     [SerializeField] PlayerController playerController;
     [SerializeField] BattleSystem battleSystem;
@@ -29,7 +32,9 @@ public class GameController : MonoBehaviour
     private void Start()
     {
 
-        
+        StateMachine = new StateMachine<GameController>(this);
+        StateMachine.ChangeState(FreeRoamState.i);
+
         battleSystem.OnBattleOver += EndBattle;
         battleSystem.Run += EndBattle;
         battleSystem.PlayerFaint += MovetoSpawn;
@@ -130,12 +135,9 @@ public class GameController : MonoBehaviour
     private void Update()
     {
 
+        StateMachine.Execute();
 
-        if (state == GameState.FreeRoam)
-        {
-            playerController.HandleUpdate();
-        }
-        else if (state == GameState.Battle)
+        if (state == GameState.Battle)
         {
             battleSystem.HandleUpdate();
         }

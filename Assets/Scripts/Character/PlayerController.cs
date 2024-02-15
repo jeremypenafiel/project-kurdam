@@ -14,11 +14,13 @@ public class PlayerController : MonoBehaviour
     private Vector3 offset;
 
     public event Action PauseScreen;
+    public static PlayerController i { get; private set; }
 
     private void Awake()
     {
         character = GetComponent<Character>();
         offset = new Vector3(0, Character.offsetY);
+        i = this;
     }
 
     public void HandleUpdate()
