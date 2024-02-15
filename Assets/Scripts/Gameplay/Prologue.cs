@@ -18,9 +18,9 @@ public class Prologue : MonoBehaviour
     {
 
         yield return new WaitUntil(()=>Input.GetKeyDown(KeyCode.Z));
-        yield return fader.FadeIn(0.5f);
+        fader.FadeIn(0.5f);
         yield return SceneManager.LoadSceneAsync(2);
-        yield return fader.FadeOut(0.5f);    
+        fader.FadeOut(0.5f);    
     }
     
 }

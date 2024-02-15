@@ -82,9 +82,9 @@ public class GameController : MonoBehaviour
     }
     public void PauseGame()
     {
-        if (state != GameState.Paused)
+/*        if (state != GameState.Paused)
         {
-            StartCoroutine(fader.FadeOut(0.5f));
+            fader.FadeOut(0.5f);
             stateBeforePause = state;
             state = GameState.Paused;
             SceneManager.LoadSceneAsync(7);
@@ -100,22 +100,22 @@ public class GameController : MonoBehaviour
             SceneManager.LoadSceneAsync(2);
             StartCoroutine(fader.FadeOut(0.5f));
 
-        }
+        }*/
     }
 
     public void PauseOnEnter()
     {
-        StartCoroutine(fader.FadeOut(0.5f));
+        fader.FadeOut(0.5f);
         SceneManager.LoadSceneAsync(7);
-        StartCoroutine(fader.FadeIn(0.5f));
+        fader.FadeIn(0.5f);
     }
 
 
     public void PauseOnExit()
     {
-        StartCoroutine(fader.FadeIn(0.5f));
+        fader.FadeIn(0.5f);
         SceneManager.LoadSceneAsync(2);
-        StartCoroutine(fader.FadeOut(0.5f));
+        fader.FadeOut(0.5f);
     }
 
     void EndBattle()
