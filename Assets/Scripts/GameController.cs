@@ -103,6 +103,21 @@ public class GameController : MonoBehaviour
         }
     }
 
+    public void PauseOnEnter()
+    {
+        StartCoroutine(fader.FadeOut(0.5f));
+        SceneManager.LoadSceneAsync(7);
+        StartCoroutine(fader.FadeIn(0.5f));
+    }
+
+
+    public void PauseOnExit()
+    {
+        StartCoroutine(fader.FadeIn(0.5f));
+        SceneManager.LoadSceneAsync(2);
+        StartCoroutine(fader.FadeOut(0.5f));
+    }
+
     void EndBattle()
     {
         state = GameState.FreeRoam;
@@ -145,5 +160,20 @@ public class GameController : MonoBehaviour
         {
             DialogManager.Instance.HandleUpdate();
         }
+    }
+
+
+    //FOR DEBUGGING 
+
+    private void OnGUI()
+    {
+        var style = new GUIStyle();
+        style.fontSize = 24;
+        GUILayout.Label("STATE STACK", style);
+        foreach (var state in StateMachine.StateStack)
+        {
+            GUILayout.Label(state.GetType().ToString(), style);
+        }
+
     }
 }

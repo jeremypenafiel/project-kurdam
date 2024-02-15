@@ -25,10 +25,10 @@ public class PlayerController : MonoBehaviour
 
     public void HandleUpdate()
     {
-        if(Input.GetKeyUp(KeyCode.Escape))
+        /*if(Input.GetKeyUp(KeyCode.Escape))
         {
             PauseScreen();
-        }
+        }*/
         if (!character.IsMoving)
         {
             input.x = Input.GetAxisRaw("Horizontal");

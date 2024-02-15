@@ -15,13 +15,18 @@ public class FreeRoamState : State<GameController>
 
     GameController gc;
 
+    public override void Enter(GameController owner)
+    {
+        gc = owner;
+    }
+
     public override void Execute()
     {
         PlayerController.i.HandleUpdate();
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            gc.PauseGame();
+            gc.StateMachine.Push(PauseGameState.i);
         }else if (Input.GetKeyDown(KeyCode.I))
         {
             gc.StateMachine.Push(InventoryState.i);
