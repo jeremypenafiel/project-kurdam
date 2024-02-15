@@ -52,7 +52,7 @@ public class SceneDetails : MonoBehaviour
                     Debug.Log(sceneNamePopUp.name);
                     break;
             }
-            StartCoroutine(PlayPopUpAnimation());
+            PlayPopUpAnimation();
             if (sceneMusic != null)
             {
                 AudioManager.i.PlayMusic(sceneMusic, fade: true);
@@ -104,11 +104,11 @@ public class SceneDetails : MonoBehaviour
             IsLoaded = false;
         }
     }
-    public IEnumerator PlayPopUpAnimation()
+    public void PlayPopUpAnimation()
     {
         var sequence = DOTween.Sequence();
         sequence.Append(sceneNamePopUp.transform.DOLocalMoveY(origPos.y - 100f, 0.5f));
-        yield return new WaitForSeconds(2.5f);
+        sequence.AppendInterval(2.5f);
         sequence.Append(sceneNamePopUp.transform.DOLocalMoveY(origPos.y, 0.5f));
     }
 
