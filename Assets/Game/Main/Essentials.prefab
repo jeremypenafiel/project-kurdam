@@ -3151,6 +3151,7 @@ GameObject:
   - component: {fileID: 3883348242580643662}
   - component: {fileID: 1334267822330527187}
   - component: {fileID: 3295171525748425011}
+  - component: {fileID: 275516375438702190}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -3265,6 +3266,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 019d76873638ba04190eb3afb659eb7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &275516375438702190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6021599357922479573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 991bf3740a97c6e438aead4c5f1571c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6116732493591363067
