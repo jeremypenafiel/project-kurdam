@@ -56,7 +56,8 @@ public class GameController : MonoBehaviour
 
     public void StartBattle()
     {
-        state = GameState.Battle;
+        /*state = GameState.Battle;*/
+        StateMachine.Push(BattleState1.i);
         battleSystem.gameObject.SetActive(true);
         worldCamera.gameObject.SetActive(false);
 
@@ -152,11 +153,11 @@ public class GameController : MonoBehaviour
 
         StateMachine.Execute();
 
-        if (state == GameState.Battle)
+        /*if (state == GameState.Battle)
         {
             battleSystem.HandleUpdate();
         }
-        else if (state == GameState.Dialog)
+        else */if (state == GameState.Dialog)
         {
             DialogManager.Instance.HandleUpdate();
         }

@@ -28,6 +28,12 @@ public class BattleSystem : MonoBehaviour
     Aswang wildAswang;
     Aswang player;
 
+    public static BattleSystem i; 
+
+    private void Awake()
+    {
+        i = this;
+    }
 
     private void Update()
     {
