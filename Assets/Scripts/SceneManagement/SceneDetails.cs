@@ -19,6 +19,11 @@ public class SceneDetails : MonoBehaviour
 
     private void Start()
     {
+        Init();
+    }
+
+    private void Init()
+    {
         sceneNamePopUp = GameObject.Find("SceneName");
         sceneNameText = sceneNamePopUp.GetComponentInChildren<TextMeshProUGUI>();
         origPos = sceneNamePopUp.transform.localPosition;
@@ -31,7 +36,11 @@ public class SceneDetails : MonoBehaviour
         {
             Debug.Log($"Entered {gameObject.name}");
 
-            LoadScene();
+            StartCoroutine(LoadScene());
+            if(sceneNamePopUp == null)
+            {
+                Init();
+            }
             GameController.Instance.SetCurrentScene(this);
             switch (gameObject.name)
             {
@@ -53,6 +62,7 @@ public class SceneDetails : MonoBehaviour
                     break;
             }
             PlayPopUpAnimation();
+
             if (sceneMusic != null)
             {
                 AudioManager.i.PlayMusic(sceneMusic, fade: true);
@@ -60,7 +70,7 @@ public class SceneDetails : MonoBehaviour
 
             foreach(var scene in connectedScenes)
             {
-                scene.LoadScene();
+                StartCoroutine(scene.LoadScene());
             }
 
             var previousScene = GameController.Instance.PreviousScene;
@@ -87,12 +97,18 @@ public class SceneDetails : MonoBehaviour
         }
     }
 
-    public void LoadScene()
+    public IEnumerator LoadScene()
     {
         if (!IsLoaded)
         {
+            AsyncOperation asyncLoad =  SceneManager.LoadSceneAsync(gameObject.name, LoadSceneMode.Additive);
+
+            
+            while (!asyncLoad.isDone)
+            {
+                yield return null;
+            }
             IsLoaded = true;
-            SceneManager.LoadSceneAsync(gameObject.name, LoadSceneMode.Additive);
         }
     }
 
@@ -107,9 +123,9 @@ public class SceneDetails : MonoBehaviour
     public void PlayPopUpAnimation()
     {
         var sequence = DOTween.Sequence();
-        sequence.Append(sceneNamePopUp.transform.DOLocalMoveY(origPos.y - 100f, 0.5f));
+        sequence.Append(sceneNamePopUp?.transform.DOLocalMoveY(origPos.y - 100f, 0.5f));
         sequence.AppendInterval(2.5f);
-        sequence.Append(sceneNamePopUp.transform.DOLocalMoveY(origPos.y, 0.5f));
+        sequence.Append(sceneNamePopUp?.transform.DOLocalMoveY(origPos.y, 0.5f));
     }
 
 
