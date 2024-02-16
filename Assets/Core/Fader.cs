@@ -14,13 +14,13 @@ public class Fader : MonoBehaviour
         image = GetComponent<Image>();
     }
 
-    public IEnumerator FadeIn(float time)
+    public void FadeIn(float time)
     {
-       yield return image.DOFade(1f, time).WaitForCompletion();
+       image.DOFade(1f, time).WaitForCompletion();
     }
-    public IEnumerator FadeOut(float time)
+    public void FadeOut(float time)
     {
-       yield return image.DOFade(0f, time).WaitForCompletion();
+       image.DOFade(0f, time).WaitForCompletion();
     }
 
 

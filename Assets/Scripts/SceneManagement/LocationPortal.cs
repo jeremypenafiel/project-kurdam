@@ -17,18 +17,18 @@ public class LocationPortal : MonoBehaviour, IPLayerTriggerable
     {
         this.player = player;
         player.Character.Animator.IsMoving = false;
-        StartCoroutine(Teleport());
+        Teleport();
     }
 
     private void Start()
     {
         fader = FindObjectOfType<Fader>();
     }
-    IEnumerator Teleport()
+    void Teleport()
     {
         Debug.Log("teleported");
         GameController.Instance.PauseGame(true);
-        yield return fader.FadeIn(0.5f);
+        fader.FadeIn(0.5f);
         // var destPortal = FindObjectsOfType<LocationPortal>().First(x => x != this && x.destinationPortal == this.destinationPortal);
         
 
@@ -38,7 +38,7 @@ public class LocationPortal : MonoBehaviour, IPLayerTriggerable
 
         player.Character.SetPositionAndSnapToTile(destPortal.Spawnpoint.position);
 
-        yield return fader.FadeOut(0.5f);
+        fader.FadeOut(0.5f);
         GameController.Instance.PauseGame(false);
 
     }
@@ -46,18 +46,18 @@ public class LocationPortal : MonoBehaviour, IPLayerTriggerable
     {
         Debug.Log("SpawnPlayer");
         player.Character.Animator.IsMoving = false;
-        StartCoroutine(Spawn(player));
+        Spawn(player);
     }
-    IEnumerator Spawn(PlayerController player)
+    void Spawn(PlayerController player)
     {
         GameController.Instance.PauseGame(true);
-        yield return fader.FadeIn(0.5f);
+        fader.FadeIn(0.5f);
         var destPortal = FindObjectsOfType<LocationPortal>().First(x=>x.gameObject.name == "Spawn");
         Debug.Log(destPortal.gameObject.name);
         Debug.Log(destPortal.Spawnpoint.position);
 
         player.Character.SetPositionAndSnapToTile(destPortal.Spawnpoint.position);
-        yield return fader.FadeOut(0.5f);
+        fader.FadeOut(0.5f);
         GameController.Instance.PauseGame(false);
     }
     public Transform Spawnpoint => spawnPoint;
