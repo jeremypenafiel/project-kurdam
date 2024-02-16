@@ -42,8 +42,8 @@ public class EnemyChase : MonoBehaviour
 
         if (shouldRotate)
         {
-            anim.SetFloat("X", dir.x);
-            anim.SetFloat("Y", dir.y);
+            anim.SetFloat("x", dir.x);
+            anim.SetFloat("y", dir.y);
         }
     }
 
