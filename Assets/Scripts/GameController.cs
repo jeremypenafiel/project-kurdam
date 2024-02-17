@@ -39,9 +39,9 @@ public class GameController : MonoBehaviour
         StateMachine = new StateMachine<GameController>(this);
         StateMachine.ChangeState(FreeRoamState.i);
 
-        battleSystem.OnBattleOver += EndBattle;
-        battleSystem.Run += EndBattle;
-        battleSystem.PlayerFaint += MovetoSpawn;
+        /*battleSystem.OnBattleOver += EndBattle;
+        battleSystem.OnBattleOver += EndBattle;*/
+        //battleSystem.PlayerFaint += MovetoSpawn;
         playerController.PauseScreen += PauseGame;
         battleSystem.Pause += PauseGame;
 
@@ -117,20 +117,14 @@ public class GameController : MonoBehaviour
         fader.FadeOut(0.5f);
     }
 
-    void EndBattle()
+   public void EndBattle()
     {
-        state = GameState.FreeRoam;
+        /*state = GameState.FreeRoam;
         battleSystem.gameObject.SetActive(false);
-        worldCamera.gameObject.SetActive(true);
+        worldCamera.gameObject.SetActive(true);*/
         AudioManager.i.PlayMusic(CurrentScene.SceneMusic, fade: true);
     }
-    void EndBattle(bool won)
-    {
-        state = GameState.FreeRoam;
-        battleSystem.gameObject.SetActive(false);
-        worldCamera.gameObject.SetActive(true);
-        AudioManager.i.PlayMusic(CurrentScene.SceneMusic, fade: true);
-    }
+
 
     public void SetCurrentScene(SceneDetails currentScene)
     {
@@ -140,9 +134,9 @@ public class GameController : MonoBehaviour
     
     public void MovetoSpawn()
     {
-        state = GameState.FreeRoam;
+        /*state = GameState.FreeRoam;
         battleSystem.gameObject.SetActive(false);
-        worldCamera.gameObject.SetActive(true);
+        worldCamera.gameObject.SetActive(true);*/
         locationPortal.SpawnPlayer(playerController);
     }
 

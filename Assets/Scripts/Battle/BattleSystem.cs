@@ -17,8 +17,8 @@ public class BattleSystem : MonoBehaviour
     [SerializeField] AudioClip battleMusic;
     [SerializeField] AudioClip victoryMusic;
 
-    public event Action<bool> OnBattleOver;
-    public event Action Run;
+    public event Action OnBattleOver;
+    /*public event Action Run;*/
     public event Action PlayerFaint;
     public event Action Pause;
     BattleSystemState state;
@@ -336,7 +336,7 @@ public class BattleSystem : MonoBehaviour
     {
         yield return StartCoroutine(dialogBox.TypeDialog("You fled from the aswang."));
         AudioManager.i.PlaySFX(AudioId.UISelect);
-        Run();
+        OnBattleOver();
     }
 
     // Helper Methods
@@ -400,7 +400,7 @@ public class BattleSystem : MonoBehaviour
             PlayerFaint();
             
         }
-        OnBattleOver(true);
+        OnBattleOver();
     }
 
 

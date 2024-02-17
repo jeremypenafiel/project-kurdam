@@ -23,10 +23,34 @@ public class BattleState : State<GameController>
         var wildAswang = gc.CurrentScene.GetComponent<MapArea>().GetRandomWildAswang();
         battleSystem.StartBattle(player, wildAswang);
 
+        // Subscribes to OnBattleOver and PlayerFaint events
+        battleSystem.OnBattleOver += EndBattle;
+        battleSystem.PlayerFaint += Respawn;
+
     }
     public override void Execute()
     {
-        Debug.Log("BattleState");
         BattleSystem.i.HandleUpdate();
+    }
+
+     public override void Exit()
+    {
+        battleSystem.gameObject.SetActive(false);
+        gc.WorldCamera.gameObject.SetActive(true);
+
+        // Unsubscribes to OnBattleOver and PlayerFaint events
+        battleSystem.OnBattleOver -= EndBattle;
+        battleSystem.PlayerFaint -= Respawn;
+    }
+
+    private void EndBattle()
+    {
+        gc.EndBattle();
+        gc.StateMachine.Pop();
+    }
+
+    private void Respawn()
+    {
+        gc.MovetoSpawn();
     }
 }
