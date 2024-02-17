@@ -17,6 +17,7 @@ public class GameController : MonoBehaviour
     [SerializeField] BattleSystem battleSystem;
     [SerializeField] Camera worldCamera;
     [SerializeField] LocationPortal locationPortal;
+    [SerializeField] GameObject pauseScreen;
 
     Fader fader;
     public SceneDetails CurrentScene { get; private set; }
@@ -27,6 +28,12 @@ public class GameController : MonoBehaviour
     public Camera WorldCamera => worldCamera;
 
     public PlayerController PlayerController => playerController;
+
+    public Fader Fader => fader;
+
+    public GameObject PauseScreen => pauseScreen;
+
+    
 
     private void Awake()
     {

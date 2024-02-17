@@ -31,6 +31,11 @@ public class BattleState : State<GameController>
     public override void Execute()
     {
         BattleSystem.i.HandleUpdate();
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            gc.StateMachine.Push(PauseGameState.i);
+        }
     }
 
      public override void Exit()
