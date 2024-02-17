@@ -475,6 +475,8 @@ public class BattleSystem : MonoBehaviour
     public IEnumerator TestAswangKill()
     {
         state = BattleSystemState.Busy;
+        dialogBox.EnableActionSelector(false);
+
         var targetUnit = enemyUnit;
         var damage = targetUnit.Aswang.HP;
 
@@ -495,6 +497,7 @@ public class BattleSystem : MonoBehaviour
     public IEnumerator TestPlayerKill()
     {
         state = BattleSystemState.Busy;
+        dialogBox.EnableActionSelector(false);
         var targetUnit = playerUnit;
         var damage = playerUnit.Aswang.HP;
         var subject = enemyUnit.GetSubject();
@@ -516,11 +519,15 @@ public class BattleSystem : MonoBehaviour
 
     public void AswangKillButtonFn()
     {
+        StopAllCoroutines();
+
         StartCoroutine(TestAswangKill());   
     }
 
     public void PlayerKillButtonFn()
     {
+        StopAllCoroutines();
+
         StartCoroutine(TestPlayerKill());
 
     }
