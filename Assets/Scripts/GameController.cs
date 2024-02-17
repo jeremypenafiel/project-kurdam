@@ -24,6 +24,10 @@ public class GameController : MonoBehaviour
 
     public static GameController Instance { get; private set; }
 
+    public Camera WorldCamera => worldCamera;
+
+    public PlayerController PlayerController => playerController;
+
     private void Awake()
     {
         Instance = this;
@@ -57,13 +61,7 @@ public class GameController : MonoBehaviour
     public void StartBattle()
     {
         /*state = GameState.Battle;*/
-        StateMachine.Push(BattleState1.i);
-        battleSystem.gameObject.SetActive(true);
-        worldCamera.gameObject.SetActive(false);
-
-        var player = playerController.GetComponent<Player>().GetPlayer();
-        var wildAswang = CurrentScene.GetComponent<MapArea>().GetRandomWildAswang();
-        battleSystem.StartBattle(player, wildAswang);
+        StateMachine.Push(BattleState.i);
 
     }
     public void PauseGame(bool pause)
