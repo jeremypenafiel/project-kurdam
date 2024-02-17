@@ -2,6 +2,7 @@ using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Linq;
 using UnityEngine;
 
 
@@ -467,6 +468,61 @@ public class BattleSystem : MonoBehaviour
                 break;
         }
         return playerModifier;
+    }
+
+    // FOR TESTING
+
+    public IEnumerator TestAswangKill()
+    {
+        state = BattleSystemState.Busy;
+        var targetUnit = enemyUnit;
+        var damage = targetUnit.Aswang.HP;
+
+        targetUnit.PlayHitAnimation();
+        AudioManager.i.PlaySFX(AudioId.Hit);
+
+        bool isDead = targetUnit.Aswang.TakeDamage(playerUnit.Aswang.moves[0], playerUnit.Aswang, damage);
+        yield return targetUnit.Hud.UpdateHP();
+        yield return StartCoroutine(dialogBox.TypeDialog($" You did {damage} total damage."));
+
+        yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Z));
+        AudioManager.i.PlaySFX(AudioId.UISelect);
+
+        yield return HandleAswangKill(targetUnit);
+
+    }
+
+    public IEnumerator TestPlayerKill()
+    {
+        state = BattleSystemState.Busy;
+        var targetUnit = playerUnit;
+        var damage = playerUnit.Aswang.HP;
+        var subject = enemyUnit.GetSubject();
+
+        targetUnit.PlayHitAnimation();
+        AudioManager.i.PlaySFX(AudioId.Hit);
+
+        
+        bool isDead = targetUnit.Aswang.TakeDamage(enemyUnit.Aswang.GetRandomMove(), enemyUnit.Aswang, damage);
+        yield return targetUnit.Hud.UpdateHP();
+        yield return StartCoroutine(dialogBox.TypeDialog($"{subject} did {damage} total damage."));
+
+        yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Z));
+        AudioManager.i.PlaySFX(AudioId.UISelect);
+
+        yield return HandleAswangKill(targetUnit);
+
+    }
+
+    public void AswangKillButtonFn()
+    {
+        StartCoroutine(TestAswangKill());   
+    }
+
+    public void PlayerKillButtonFn()
+    {
+        StartCoroutine(TestPlayerKill());
+
     }
 
     

@@ -349,6 +349,7 @@ MonoBehaviour:
   - {fileID: 1153281148}
   - {fileID: 1922535835}
   sceneMusic: {fileID: 8300000, guid: 98a3184be63966f41be7ece9ce0242b5, type: 3}
+  sceneNamePopUp: {fileID: 0}
 --- !u!61 &1029692285
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -526,6 +527,7 @@ MonoBehaviour:
   - {fileID: 1550750726}
   - {fileID: 1029692284}
   sceneMusic: {fileID: 8300000, guid: 98a3184be63966f41be7ece9ce0242b5, type: 3}
+  sceneNamePopUp: {fileID: 0}
 --- !u!114 &1153281149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -639,6 +641,7 @@ MonoBehaviour:
   connectedScenes:
   - {fileID: 1153281148}
   sceneMusic: {fileID: 8300000, guid: 98a3184be63966f41be7ece9ce0242b5, type: 3}
+  sceneNamePopUp: {fileID: 0}
 --- !u!114 &1550750727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -885,6 +888,7 @@ MonoBehaviour:
   connectedScenes:
   - {fileID: 1029692284}
   sceneMusic: {fileID: 8300000, guid: 98a3184be63966f41be7ece9ce0242b5, type: 3}
+  sceneNamePopUp: {fileID: 0}
 --- !u!61 &1922535836
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -156,7 +156,7 @@ public class GameController : MonoBehaviour
     }
 
 
-    //FOR DEBUGGING 
+    //FOR TESTING AND DEBUGGING 
 
     private void OnGUI()
     {
@@ -168,5 +168,10 @@ public class GameController : MonoBehaviour
             GUILayout.Label(state.GetType().ToString(), style);
         }
 
+    }
+
+    public void StartEncounterFn()
+    {
+        StartBattle();
     }
 }
