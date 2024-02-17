@@ -2,10 +2,11 @@ using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Linq;
 using UnityEngine;
 
 
-public enum BattleState { Start, ActionSelection, EnemyAttackRoll, EnemyDamageRoll, Busy, MoveSelection, PlayerAttackRoll, PlayerDamageRoll, PerformMove }
+public enum BattleSystemState { Start, ActionSelection, EnemyAttackRoll, EnemyDamageRoll, Busy, MoveSelection, PlayerAttackRoll, PlayerDamageRoll, PerformMove }
 
 public class BattleSystem : MonoBehaviour
 {
@@ -17,17 +18,23 @@ public class BattleSystem : MonoBehaviour
     [SerializeField] AudioClip battleMusic;
     [SerializeField] AudioClip victoryMusic;
 
-    public event Action<bool> OnBattleOver;
-    public event Action Run;
+    public event Action OnBattleOver;
+    /*public event Action Run;*/
     public event Action PlayerFaint;
     public event Action Pause;
-    BattleState state;
+    BattleSystemState state;
     int currentAction;
     int currentMove;
 
     Aswang wildAswang;
     Aswang player;
 
+    public static BattleSystem i; 
+
+    private void Awake()
+    {
+        i = this;
+    }
 
     private void Update()
     {
@@ -67,14 +74,14 @@ public class BattleSystem : MonoBehaviour
     // State Setups
     void ActionSelection()
     {
-        state = BattleState.ActionSelection;
+        state = BattleSystemState.ActionSelection;
         StartCoroutine(dialogBox.TypeDialog("Choose An Action"));
         dialogBox.EnableActionSelector(true);
     }
 
     void MoveSelection()
     {
-        state = BattleState.MoveSelection;
+        state = BattleSystemState.MoveSelection;
         dialogBox.EnableActionSelector(false);
         dialogBox.EnableDialogText(false);
         dialogBox.EnableMoveSelector(true);
@@ -82,7 +89,7 @@ public class BattleSystem : MonoBehaviour
 
     void PlayerAttackRoll()
     {
-        state = BattleState.PlayerAttackRoll;
+        state = BattleSystemState.PlayerAttackRoll;
         StartCoroutine(dialogBox.TypeDialog("Roll the dice to attack."));
 
         diceSystem.SetupAttackRoll();
@@ -90,14 +97,14 @@ public class BattleSystem : MonoBehaviour
 
     void PlayerDamageRoll(Moves move)
     {
-        state = BattleState.PlayerDamageRoll;
+        state = BattleSystemState.PlayerDamageRoll;
         StartCoroutine(dialogBox.TypeDialog("Roll the dice for damage."));
         diceSystem.SetupDamageRoll(move);
     }
 
     void EnemyAttackRoll()
     {
-        state = BattleState.EnemyAttackRoll;
+        state = BattleSystemState.EnemyAttackRoll;
         StartCoroutine(dialogBox.TypeDialog("Enemy is attacking."));
 
         diceSystem.SetupAttackRoll();
@@ -105,33 +112,33 @@ public class BattleSystem : MonoBehaviour
 
     void EnemyDamageRoll(Moves move)
     {
-        state = BattleState.EnemyDamageRoll;
+        state = BattleSystemState.EnemyDamageRoll;
         StartCoroutine(dialogBox.TypeDialog("Enemy is rolling for damage."));
         diceSystem.SetupDamageRoll(move);
     }
 
     public void HandleUpdate()
     {
-        if (state == BattleState.ActionSelection)
+        if (state == BattleSystemState.ActionSelection)
         {
             HandleActionSelection();
         }
 
-        else if (state == BattleState.MoveSelection)
+        else if (state == BattleSystemState.MoveSelection)
         {
             HandleMoveSelection();
-        }else if(state == BattleState.PlayerAttackRoll)
+        }else if(state == BattleSystemState.PlayerAttackRoll)
         {
             HandlePlayerAttackRoll();
 
-        }else if(state==BattleState.PlayerDamageRoll)
+        }else if(state==BattleSystemState.PlayerDamageRoll)
         {
             HandlePlayerDamageRoll();
 
-        } else if (state==BattleState.EnemyAttackRoll)
+        } else if (state==BattleSystemState.EnemyAttackRoll)
         {
             HandleEnemyAttackRoll();
-        }else if(state==BattleState.EnemyDamageRoll)
+        }else if(state==BattleSystemState.EnemyDamageRoll)
         {
             HandleEnemyDamageRoll();
         }
@@ -250,7 +257,7 @@ public class BattleSystem : MonoBehaviour
     // Performing the Attack/Damage Rolls
      IEnumerator PerformAttackRoll(BattleUnit sourceUnit, BattleUnit targetUnit, Action<Moves> onHit, Action onMiss)
     {
-        state = BattleState.PerformMove;
+        state = BattleSystemState.PerformMove;
         AudioManager.i.PlaySFX(AudioId.UISelect);
         Moves move = sourceUnit.GetMove(currentMove);
 
@@ -276,7 +283,7 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator PerformDamageRoll(BattleUnit sourceUnit, BattleUnit targetUnit, Action onDamageRollOver)
     {
-        state = BattleState.Busy;
+        state = BattleSystemState.Busy;
         AudioManager.i.PlaySFX(AudioId.UISelect);
 
         Moves move = sourceUnit.GetMove(currentMove);
@@ -322,7 +329,7 @@ public class BattleSystem : MonoBehaviour
     }
     void Flee()
     {
-        state = BattleState.Busy;
+        state = BattleSystemState.Busy;
         StartCoroutine(RunBattle());
 
     }
@@ -330,7 +337,7 @@ public class BattleSystem : MonoBehaviour
     {
         yield return StartCoroutine(dialogBox.TypeDialog("You fled from the aswang."));
         AudioManager.i.PlaySFX(AudioId.UISelect);
-        Run();
+        OnBattleOver();
     }
 
     // Helper Methods
@@ -394,7 +401,7 @@ public class BattleSystem : MonoBehaviour
             PlayerFaint();
             
         }
-        OnBattleOver(true);
+        OnBattleOver();
     }
 
 
@@ -461,6 +468,61 @@ public class BattleSystem : MonoBehaviour
                 break;
         }
         return playerModifier;
+    }
+
+    // FOR TESTING
+
+    public IEnumerator TestAswangKill()
+    {
+        state = BattleSystemState.Busy;
+        var targetUnit = enemyUnit;
+        var damage = targetUnit.Aswang.HP;
+
+        targetUnit.PlayHitAnimation();
+        AudioManager.i.PlaySFX(AudioId.Hit);
+
+        bool isDead = targetUnit.Aswang.TakeDamage(playerUnit.Aswang.moves[0], playerUnit.Aswang, damage);
+        yield return targetUnit.Hud.UpdateHP();
+        yield return StartCoroutine(dialogBox.TypeDialog($" You did {damage} total damage."));
+
+        yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Z));
+        AudioManager.i.PlaySFX(AudioId.UISelect);
+
+        yield return HandleAswangKill(targetUnit);
+
+    }
+
+    public IEnumerator TestPlayerKill()
+    {
+        state = BattleSystemState.Busy;
+        var targetUnit = playerUnit;
+        var damage = playerUnit.Aswang.HP;
+        var subject = enemyUnit.GetSubject();
+
+        targetUnit.PlayHitAnimation();
+        AudioManager.i.PlaySFX(AudioId.Hit);
+
+        
+        bool isDead = targetUnit.Aswang.TakeDamage(enemyUnit.Aswang.GetRandomMove(), enemyUnit.Aswang, damage);
+        yield return targetUnit.Hud.UpdateHP();
+        yield return StartCoroutine(dialogBox.TypeDialog($"{subject} did {damage} total damage."));
+
+        yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Z));
+        AudioManager.i.PlaySFX(AudioId.UISelect);
+
+        yield return HandleAswangKill(targetUnit);
+
+    }
+
+    public void AswangKillButtonFn()
+    {
+        StartCoroutine(TestAswangKill());   
+    }
+
+    public void PlayerKillButtonFn()
+    {
+        StartCoroutine(TestPlayerKill());
+
     }
 
     

@@ -24,6 +24,10 @@ public class GameController : MonoBehaviour
 
     public static GameController Instance { get; private set; }
 
+    public Camera WorldCamera => worldCamera;
+
+    public PlayerController PlayerController => playerController;
+
     private void Awake()
     {
         Instance = this;
@@ -35,9 +39,9 @@ public class GameController : MonoBehaviour
         StateMachine = new StateMachine<GameController>(this);
         StateMachine.ChangeState(FreeRoamState.i);
 
-        battleSystem.OnBattleOver += EndBattle;
-        battleSystem.Run += EndBattle;
-        battleSystem.PlayerFaint += MovetoSpawn;
+        /*battleSystem.OnBattleOver += EndBattle;
+        battleSystem.OnBattleOver += EndBattle;*/
+        //battleSystem.PlayerFaint += MovetoSpawn;
         playerController.PauseScreen += PauseGame;
         battleSystem.Pause += PauseGame;
 
@@ -56,13 +60,8 @@ public class GameController : MonoBehaviour
 
     public void StartBattle()
     {
-        state = GameState.Battle;
-        battleSystem.gameObject.SetActive(true);
-        worldCamera.gameObject.SetActive(false);
-
-        var player = playerController.GetComponent<Player>().GetPlayer();
-        var wildAswang = CurrentScene.GetComponent<MapArea>().GetRandomWildAswang();
-        battleSystem.StartBattle(player, wildAswang);
+        /*state = GameState.Battle;*/
+        StateMachine.Push(BattleState.i);
 
     }
     public void PauseGame(bool pause)
@@ -118,20 +117,14 @@ public class GameController : MonoBehaviour
         fader.FadeOut(0.5f);
     }
 
-    void EndBattle()
+   public void EndBattle()
     {
-        state = GameState.FreeRoam;
+        /*state = GameState.FreeRoam;
         battleSystem.gameObject.SetActive(false);
-        worldCamera.gameObject.SetActive(true);
+        worldCamera.gameObject.SetActive(true);*/
         AudioManager.i.PlayMusic(CurrentScene.SceneMusic, fade: true);
     }
-    void EndBattle(bool won)
-    {
-        state = GameState.FreeRoam;
-        battleSystem.gameObject.SetActive(false);
-        worldCamera.gameObject.SetActive(true);
-        AudioManager.i.PlayMusic(CurrentScene.SceneMusic, fade: true);
-    }
+
 
     public void SetCurrentScene(SceneDetails currentScene)
     {
@@ -141,9 +134,9 @@ public class GameController : MonoBehaviour
     
     public void MovetoSpawn()
     {
-        state = GameState.FreeRoam;
+        /*state = GameState.FreeRoam;
         battleSystem.gameObject.SetActive(false);
-        worldCamera.gameObject.SetActive(true);
+        worldCamera.gameObject.SetActive(true);*/
         locationPortal.SpawnPlayer(playerController);
     }
 
@@ -152,18 +145,18 @@ public class GameController : MonoBehaviour
 
         StateMachine.Execute();
 
-        if (state == GameState.Battle)
+        /*if (state == GameState.Battle)
         {
             battleSystem.HandleUpdate();
         }
-        else if (state == GameState.Dialog)
+        else */if (state == GameState.Dialog)
         {
             DialogManager.Instance.HandleUpdate();
         }
     }
 
 
-    //FOR DEBUGGING 
+    //FOR TESTING AND DEBUGGING 
 
     private void OnGUI()
     {
@@ -175,5 +168,10 @@ public class GameController : MonoBehaviour
             GUILayout.Label(state.GetType().ToString(), style);
         }
 
+    }
+
+    public void StartEncounterFn()
+    {
+        StartBattle();
     }
 }

@@ -92,10 +92,10 @@ public class BattleUnit : MonoBehaviour
         return "Enemy";
     }
 
-    public BattleState GetState()
+    public BattleSystemState GetState()
     {
-        if(isPlayerUnit) return BattleState.Busy;
-        return BattleState.EnemyAttackRoll;
+        if(isPlayerUnit) return BattleSystemState.Busy;
+        return BattleSystemState.EnemyAttackRoll;
     }
 
     public Moves GetMove(int currentMove)
