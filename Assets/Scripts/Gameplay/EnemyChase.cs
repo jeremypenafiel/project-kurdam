@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,7 +20,7 @@ public class EnemyChase : MonoBehaviour
 
     private bool isInChaseRange;
     private bool isInEncounterRange;
-
+    
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -31,7 +32,6 @@ public class EnemyChase : MonoBehaviour
     private void Update()
     {
         anim.SetBool("isRunning", isInChaseRange);
-
         isInChaseRange = Physics2D.OverlapCircle(transform.position, checkRadius, chase);
         isInEncounterRange = Physics2D.OverlapCircle(transform.position, encounterRadius, chase);
 
@@ -56,8 +56,12 @@ public class EnemyChase : MonoBehaviour
         if (isInEncounterRange)
         {
             rb.velocity = Vector2.zero;
+            gameObject.name = "Encounter";
+            GameController.Instance.StartBattle();
+            GameObject.Destroy(gameObject);
         }
     }
+
 
     private void MoveCharacter(Vector2 dir)
     {
