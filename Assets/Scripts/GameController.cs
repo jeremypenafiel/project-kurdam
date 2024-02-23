@@ -181,4 +181,12 @@ public class GameController : MonoBehaviour
     {
         StartBattle();
     }
+
+    public bool IsInFreeRoamState()
+    {
+        if (StateMachine.CurrentState is FreeRoamState)
+            return true;
+        else
+            return false;
+    }
 }

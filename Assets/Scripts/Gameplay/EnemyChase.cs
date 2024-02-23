@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,7 +20,8 @@ public class EnemyChase : MonoBehaviour
 
     private bool isInChaseRange;
     private bool isInEncounterRange;
-
+    private bool canMove;
+    
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -31,12 +33,10 @@ public class EnemyChase : MonoBehaviour
     private void Update()
     {
         anim.SetBool("isRunning", isInChaseRange);
-
         isInChaseRange = Physics2D.OverlapCircle(transform.position, checkRadius, chase);
         isInEncounterRange = Physics2D.OverlapCircle(transform.position, encounterRadius, chase);
-
-        dir = target.position - transform.position;
-        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        canMove = GameController.Instance.IsInFreeRoamState();
+        dir = target.position - transform.position; float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         dir.Normalize();
         movement = dir;
 
@@ -49,17 +49,22 @@ public class EnemyChase : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (isInChaseRange && !isInEncounterRange)
+        if (isInChaseRange && !isInEncounterRange && canMove)
         {
             MoveCharacter(movement);
         }
         if (isInEncounterRange)
         {
             rb.velocity = Vector2.zero;
+            gameObject.name = "Encounter";
+            GameController.Instance.StartBattle();
+            GameObject.Destroy(gameObject);
+
+
         }
     }
 
-    private void MoveCharacter(Vector2 dir)
+        private void MoveCharacter(Vector2 dir)
     {
         rb.MovePosition((Vector2)transform.position + (dir * speed * Time.deltaTime));
 

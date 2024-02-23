@@ -16,11 +16,15 @@ public class BattleState : State<GameController>
     public override void Enter(GameController owner)
     {
         gc = owner;
-        battleSystem.gameObject.SetActive(true);
+        battleSystem.gameObject.SetActive(true) ;
         gc.WorldCamera.gameObject.SetActive(false);
 
+        var enemy = GameObject.Find("Encounter");
         var player = gc.PlayerController.GetComponent<Player>().GetPlayer();
-        var wildAswang = gc.CurrentScene.GetComponent<MapArea>().GetRandomWildAswang();
+
+
+        var wildAswang = enemy.GetComponent<MapArea>().GetRandomWildAswang();
+        Debug.Log(wildAswang.Base.Aname);
         battleSystem.StartBattle(player, wildAswang);
 
         // Subscribes to OnBattleOver and PlayerFaint events
