@@ -11,4 +11,9 @@ public class Moves
         Base = pBase;
 
     }
+
+    public DamageType type
+    {
+        get {return Base.Type; }
+    }
 }
