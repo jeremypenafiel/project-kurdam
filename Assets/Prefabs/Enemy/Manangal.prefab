@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7885742871532884934}
   - component: {fileID: 7602046381097046216}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Manangal
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,10 +74,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1630174301
-  m_SortingLayer: 5
+  m_SortingLayerID: 1170746105
+  m_SortingLayer: 6
   m_SortingOrder: 0
-  m_Sprite: {fileID: -4465137455631916842, guid: 14ced2238d82c7149b8f5a0481222249, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 257ca668a4ecd91438af7ce49f607800, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -169,9 +169,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wildAswangs:
-  - aswangBase: {fileID: 11400000, guid: 549514c8bdd42aa4d95b63aef881cff2, type: 2}
-    levelRange: {x: 4, y: 6}
-    chancePercentage: 50
-  - aswangBase: {fileID: 11400000, guid: 549514c8bdd42aa4d95b63aef881cff2, type: 2}
+  - aswangBase: {fileID: 11400000, guid: b51449335080fd54bb51e44626705b14, type: 2}
     levelRange: {x: 4, y: 6}
     chancePercentage: 100
