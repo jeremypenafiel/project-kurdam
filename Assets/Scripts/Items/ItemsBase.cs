@@ -8,7 +8,7 @@ public class ItemsBase : ScriptableObject
 {
     [SerializeField] string iname;
     [SerializeField] string type;
-    [SerializeField] DamageType weaponType;
+    [SerializeField] DamageType armasType;
     [SerializeField] List<Aswang> advantage;
     [SerializeField] List<Aswang> disadvantage;
     [SerializeField] Sprite icon;
@@ -26,9 +26,9 @@ public class ItemsBase : ScriptableObject
         get { return type; }
     }
 
-    public DamageType WeaponType
+    public DamageType ArmasType
     {
-        get { return weaponType; }
+        get { return armasType; }
     }
 
     public List<Aswang> Advantage

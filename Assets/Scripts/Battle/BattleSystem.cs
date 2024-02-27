@@ -17,6 +17,7 @@ public class BattleSystem : MonoBehaviour
 
     [SerializeField] AudioClip battleMusic;
     [SerializeField] AudioClip victoryMusic;
+    [SerializeField] GameObject playerObject;
 
     public event Action OnBattleOver;
     /*public event Action Run;*/
@@ -29,8 +30,9 @@ public class BattleSystem : MonoBehaviour
     Aswang wildAswang;
     Aswang player;
 
-    public static BattleSystem i; 
+    public static BattleSystem i;
 
+    private DamageType armasType;
     private void Awake()
     {
         i = this;
@@ -50,6 +52,7 @@ public class BattleSystem : MonoBehaviour
     {
         this.player = player;
         this.wildAswang = wildAswang;
+        armasType = playerObject.GetComponent<EquippedItems>().Armas.ArmasType;
         AudioManager.i.PlayMusic(battleMusic);
         StartCoroutine(SetupBattle());
     }
@@ -535,9 +538,7 @@ public class BattleSystem : MonoBehaviour
     public void ValidAttack(BattleUnit sourceUnit)
     {
         Moves move = sourceUnit.GetMove(currentMove);
-        var weapon = GameObject.Find("Player").GetComponent<EquippedItems>();
-        var weaponType = weapon.Type;
-        if (move.type == weaponType)
+        if (move.type == armasType)
         {
             PlayerAttackRoll();
         }

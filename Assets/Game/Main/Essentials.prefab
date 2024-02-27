@@ -628,6 +628,7 @@ MonoBehaviour:
   diceSystem: {fileID: 2163020704840747999}
   battleMusic: {fileID: 8300000, guid: 1c5cd9e939b968f47b41a85c6e46403d, type: 3}
   victoryMusic: {fileID: 8300000, guid: e9faf0a48effe424ba7a94daa33a69fe, type: 3}
+  playerObject: {fileID: 8635733759808163774}
 --- !u!1 &1602621839165476655
 GameObject:
   m_ObjectHideFlags: 0
@@ -6088,7 +6089,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9182170654130672178, guid: 3fcc7e8f83e983c4f9a1f6fbeeab54c0, type: 3}
   m_PrefabInstance: {fileID: 7948025356329443638}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 8635733759808163774}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f53e7c453430c274d86ea97bb2bccdfb, type: 3}
@@ -6102,5 +6103,10 @@ Transform:
 --- !u!20 &6963550489127820022 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 1075954269064428480, guid: 3fcc7e8f83e983c4f9a1f6fbeeab54c0, type: 3}
+  m_PrefabInstance: {fileID: 7948025356329443638}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8635733759808163774 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1843455397611351688, guid: 3fcc7e8f83e983c4f9a1f6fbeeab54c0, type: 3}
   m_PrefabInstance: {fileID: 7948025356329443638}
   m_PrefabAsset: {fileID: 0}
