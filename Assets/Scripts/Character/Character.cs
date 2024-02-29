@@ -12,6 +12,8 @@ public class Character : MonoBehaviour
     public float distance;
     public float distanceThreshold = 0.5f;
     public float offsetY = 0.3f;
+    public float runSpeed;
+
     public bool IsMoving { get; private set; }
 
     

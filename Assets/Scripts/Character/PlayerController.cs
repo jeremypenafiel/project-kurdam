@@ -9,10 +9,21 @@ public class PlayerController : MonoBehaviour
 
 
     private Vector2 input;
+    private const float walkSpeed = 5.0f;
+
+    private const float runSpeed = 7.5f;
+
+    private const float sneakSpeed = 3.0f;
+
+    private bool isRunning =  false;
+
+    private bool isSneaking =  false;
 
     private Character character;
     private Vector3 offset;
     public static PlayerController i { get; private set; }
+    public bool IsRunning { get => isRunning; }
+    public bool IsSneaking { get => isSneaking; }
 
     private void Awake()
     {
@@ -23,32 +34,36 @@ public class PlayerController : MonoBehaviour
 
     public void HandleUpdate()
     {
-        /*if(Input.GetKeyUp(KeyCode.Escape))
-        {
-            PauseScreen();
-        }*/
+
         if (!character.IsMoving)
         {
             input.x = Input.GetAxisRaw("Horizontal");
             input.y = Input.GetAxisRaw("Vertical");
 
+            isRunning = Input.GetKey(KeyCode.X);
+            isSneaking = Input.GetKey(KeyCode.C);
+
+            if (isRunning)
+            {
+                character.moveSpeed = runSpeed;
+            }else if(isSneaking)
+            {
+                character.moveSpeed = sneakSpeed;
+            }
+            else
+            {
+                character.moveSpeed = walkSpeed;
+            }
+
             // remove diagonal movement 
-             //if (input.x != 0) input.y = 0;                                                                               //the movement overhaul lol
+            //if (input.x != 0) input.y = 0;                                                                               //the movement overhaul lol
 
             if (input != Vector2.zero)
             {
-                /*var colliders = (Physics2D.OverlapCircleAll(transform.position, 0.2f, GameLayers.I.TriggerableLayer));
-                foreach (var collider in colliders)
-                {
-                    var triggerable = collider.GetComponent<IPLayerTriggerable>();
-                    if (triggerable != null)
-                    {
-                        triggerable.OnPlayerTriggered(this);
-                        break;
-                    }
-                }*/
+
                 if (Character.IsWalkable(transform.position)==true){ 
-                StartCoroutine(character.Move(input, OnMoveOver));
+
+                    StartCoroutine(character.Move(input, OnMoveOver));
                 }
             }
         }
@@ -63,42 +78,6 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    /* private bool IsWalkable(Vector3 targetPos)
-     {
-         if (Physics2D.OverlapCircle(targetPos, 0.1f, SolidObject | interactableLayer) != null)
-         {
-             return false;
-         }
-         return true;
-     }
-     IEnumerator Move(Vector3 targetPos)
-     {
-         var colliders =(Physics2D.OverlapCircleAll(transform.position, 0.2f, PlayerController.i.TriggerableLayers));
-         foreach (var collider in colliders)
-         {
-             var triggerable =collider.GetComponent < IPLayerTriggerable >();
-             if (triggerable != null)
-             {
-                 triggerable.OnPlayerTriggered(this);
-                 break;
-             }
-         }
-         isMoving = true;
-         distance = 0;
-         while ((targetPos - transform.position).sqrMagnitude > Mathf.Epsilon)
-         {
-             transform.position = Vector3.MoveTowards(transform.position, targetPos, moveSpeed * Time.deltaTime);
-             distance += moveSpeed * Time.deltaTime;
-             yield return null;
-         }
-         transform.position = targetPos;
-         isMoving = false;
-         if (distance >= distanceThreshold)
-         {
-             distance = 0;
-             CheckForEncounters();
-         }
-     }*/
 
     private void OnMoveOver()
     {
@@ -130,4 +109,6 @@ public class PlayerController : MonoBehaviour
     }
 
     public Character Character => character;
+
+
 }
