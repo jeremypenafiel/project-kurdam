@@ -12,8 +12,6 @@ public class PlayerController : MonoBehaviour
 
     private Character character;
     private Vector3 offset;
-
-    public event Action PauseScreen;
     public static PlayerController i { get; private set; }
 
     private void Awake()

@@ -1,4 +1,5 @@
 using GDEUtils.StateMachine;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -47,28 +48,22 @@ public class GameController : MonoBehaviour
         StateMachine = new StateMachine<GameController>(this);
         StateMachine.ChangeState(FreeRoamState.i);
 
-        /*battleSystem.OnBattleOver += EndBattle;
-        battleSystem.OnBattleOver += EndBattle;*/
-        //battleSystem.PlayerFaint += MovetoSpawn;
-        playerController.PauseScreen += PauseGame;
-        battleSystem.Pause += PauseGame;
 
+        // DialogState is pushed to the state stack if DialogManager.OnShowDialog runs
         DialogManager.Instance.OnShowDialog += () =>
         {
-            state = GameState.Dialog;
+            StateMachine.Push(DialogState.i);
         };
+
+        // DialogState is popped from the state stack if DialogManager.OnCloseDialog runs
         DialogManager.Instance.OnCloseDialog += () =>
         {
-            if (state == GameState.Dialog)
-            {
-                state = GameState.FreeRoam;
-            }
+            StateMachine.Pop();
         };
     }
 
     public void StartBattle()
     {
-        /*state = GameState.Battle;*/
         StateMachine.Push(BattleState.i);
 
     }
@@ -78,8 +73,6 @@ public class GameController : MonoBehaviour
         {
             stateBeforePause = state;
             state = GameState.Paused;
-
-
         }
         else
         {
@@ -87,28 +80,7 @@ public class GameController : MonoBehaviour
 
         }
     }
-    public void PauseGame()
-    {
-/*        if (state != GameState.Paused)
-        {
-            fader.FadeOut(0.5f);
-            stateBeforePause = state;
-            state = GameState.Paused;
-            SceneManager.LoadSceneAsync(7);
-            StartCoroutine(fader.FadeIn(0.5f));
 
-
-        }
-        else
-        {
-            StartCoroutine(fader.FadeIn(0.5f));
-
-            state = stateBeforePause;
-            SceneManager.LoadSceneAsync(2);
-            StartCoroutine(fader.FadeOut(0.5f));
-
-        }*/
-    }
 
     public void PauseOnEnter()
     {
@@ -127,9 +99,7 @@ public class GameController : MonoBehaviour
 
    public void EndBattle()
     {
-        /*state = GameState.FreeRoam;
-        battleSystem.gameObject.SetActive(false);
-        worldCamera.gameObject.SetActive(true);*/
+
         AudioManager.i.PlayMusic(CurrentScene.SceneMusic, fade: true);
     }
 
@@ -142,9 +112,6 @@ public class GameController : MonoBehaviour
     
     public void MovetoSpawn()
     {
-        /*state = GameState.FreeRoam;
-        battleSystem.gameObject.SetActive(false);
-        worldCamera.gameObject.SetActive(true);*/
         locationPortal.SpawnPlayer(playerController);
     }
 
@@ -153,14 +120,6 @@ public class GameController : MonoBehaviour
 
         StateMachine.Execute();
 
-        /*if (state == GameState.Battle)
-        {
-            battleSystem.HandleUpdate();
-        }
-        else */if (state == GameState.Dialog)
-        {
-            DialogManager.Instance.HandleUpdate();
-        }
     }
 
 
