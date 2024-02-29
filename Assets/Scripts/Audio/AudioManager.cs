@@ -25,6 +25,7 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
+        i = this;
         originalMusicVolume = musicPlayer.volume;
         sfxLookup = sfxList.ToDictionary(x => x.id);
     }

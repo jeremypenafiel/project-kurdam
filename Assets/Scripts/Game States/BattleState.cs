@@ -18,6 +18,7 @@ public class BattleState : State<GameController>
         gc = owner;
         battleSystem.gameObject.SetActive(true) ;
         gc.WorldCamera.gameObject.SetActive(false);
+        gc.VisionLimiter.SetActive(false);
 
         var enemy = GameObject.Find("Encounter");
         var player = gc.PlayerController.GetComponent<Player>().GetPlayer();
@@ -46,6 +47,7 @@ public class BattleState : State<GameController>
     {
         battleSystem.gameObject.SetActive(false);
         gc.WorldCamera.gameObject.SetActive(true);
+        gc.VisionLimiter.SetActive(true);
 
         // Unsubscribes to OnBattleOver and PlayerFaint events
         battleSystem.OnBattleOver -= EndBattle;
