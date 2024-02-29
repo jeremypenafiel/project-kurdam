@@ -18,6 +18,7 @@ public class GameController : MonoBehaviour
     [SerializeField] Camera worldCamera;
     [SerializeField] LocationPortal locationPortal;
     [SerializeField] GameObject pauseScreen;
+    [SerializeField] GameObject visionLimiter;
 
     Fader fader;
     public SceneDetails CurrentScene { get; private set; }
@@ -33,7 +34,7 @@ public class GameController : MonoBehaviour
 
     public GameObject PauseScreen => pauseScreen;
 
-    
+    public GameObject VisionLimiter => visionLimiter;  
 
     private void Awake()
     {

@@ -48,6 +48,7 @@ public class BattleSystem : MonoBehaviour
 
     public void StartBattle(Aswang player, Aswang wildAswang)
     {
+
         this.player = player;
         this.wildAswang = wildAswang;
         AudioManager.i.PlayMusic(battleMusic);
