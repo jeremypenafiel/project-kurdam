@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  checkRadius: 5
+  checkRadiusDefault: 5
   encounterRadius: 0
   shouldRotate: 1
   chase:
