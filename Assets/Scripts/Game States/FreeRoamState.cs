@@ -8,12 +8,13 @@ public class FreeRoamState : State<GameController>
 
     public static FreeRoamState i { get; private set; }
 
+    GameController gc;
+
+
     public void Awake()
     {
         i = this;
     }
-
-    GameController gc;
 
     public override void Enter(GameController owner)
     {
