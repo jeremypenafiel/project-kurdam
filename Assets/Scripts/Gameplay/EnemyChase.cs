@@ -6,8 +6,9 @@ using UnityEngine;
 public class EnemyChase : MonoBehaviour
 {
     public float speed;
-    public float checkRadius;
+    public float checkRadiusDefault;
     public float encounterRadius;
+    private float currentCheckRadius;
 
     public bool shouldRotate;
     public LayerMask chase;
@@ -21,19 +22,42 @@ public class EnemyChase : MonoBehaviour
     private bool isInChaseRange;
     private bool isInEncounterRange;
     private bool canMove;
+
+    private PlayerController playerController;
     
     private void Start()
     {
+        currentCheckRadius = checkRadiusDefault;
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         target = GameObject.FindWithTag("Player").transform;
+        playerController = target.GetComponent<PlayerController>();
 
     }
 
     private void Update()
     {
+        if (playerController.IsSneaking)
+        {
+            currentCheckRadius = 0.5f * checkRadiusDefault;
+        }
+        else
+        {
+            currentCheckRadius = checkRadiusDefault;
+        }
+
+
+        if (playerController.IsRunning)
+        {
+            currentCheckRadius = 1.1f * checkRadiusDefault;
+        }
+        else
+        {
+            currentCheckRadius = checkRadiusDefault;
+        }
+
         anim.SetBool("isRunning", isInChaseRange);
-        isInChaseRange = Physics2D.OverlapCircle(transform.position, checkRadius, chase);
+        isInChaseRange = Physics2D.OverlapCircle(transform.position, currentCheckRadius, chase);
         isInEncounterRange = Physics2D.OverlapCircle(transform.position, encounterRadius, chase);
         canMove = GameController.Instance.IsInFreeRoamState();
         dir = target.position - transform.position; float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
@@ -49,6 +73,8 @@ public class EnemyChase : MonoBehaviour
 
     private void FixedUpdate()
     {
+        
+
         if (isInChaseRange && !isInEncounterRange && canMove)
         {
             MoveCharacter(movement);

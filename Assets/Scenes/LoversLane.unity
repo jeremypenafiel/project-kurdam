@@ -721,7 +721,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  checkRadius: 5
+  checkRadiusDefault: 0
   encounterRadius: 0
   shouldRotate: 1
   chase:
@@ -7659,9 +7659,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawner: {fileID: 1672655788}
   spawnList:
-  - {fileID: 2054259669}
   - {fileID: 642794967}
-  - {fileID: 897223612}
   maxspawn: 3
 --- !u!4 &1672655790
 Transform:
@@ -7758,7 +7756,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  checkRadius: 5
+  checkRadiusDefault: 0
   encounterRadius: 0
   shouldRotate: 1
   chase:
