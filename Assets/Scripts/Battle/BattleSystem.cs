@@ -295,12 +295,21 @@ public class BattleSystem : MonoBehaviour
         int modifier = GetModifier(move.Base.Type.Modifier, sourceUnit.Aswang);
         string subject = sourceUnit.GetSubject();
 
-        yield return StartCoroutine(diceSystem.DamageRoll());
-        int damageRoll = diceSystem.GetDiceRollValue();
+        int damageRoll = 0;
+        for (int roll = 0; roll < move.Base.RollNumber; roll++)
+        {
+            yield return StartCoroutine(diceSystem.DamageRoll());
+            damageRoll = damageRoll + diceSystem.GetDiceRollValue();
+            Debug.Log(damageRoll);
+            yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Z));
+
+
+        }
 
         yield return StartCoroutine(dialogBox.TypeDialog($"{subject} rolled {damageRoll} + {modifier} {modifierText} modifier."));
 
         yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Z));
+
         AudioManager.i.PlaySFX(AudioId.UISelect);
 
         int damage = CalculateTotalDamage(move, sourceUnit.Aswang, targetUnit.Aswang, damageRoll);
