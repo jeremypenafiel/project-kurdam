@@ -25,12 +25,22 @@ public class PlayerController : MonoBehaviour
     public bool IsRunning { get => isRunning; }
     public bool IsSneaking { get => isSneaking; }
 
+    public Rigidbody2D rb;
+
     private void Awake()
     {
         character = GetComponent<Character>();
         offset = new Vector3(0, Character.offsetY);
+        rb = GetComponent<Rigidbody2D>();
+
         i = this;
     }
+
+    private void FixedUpdate()
+    {
+        HandleUpdate();
+    }
+
 
     public void HandleUpdate()
     {
@@ -40,29 +50,38 @@ public class PlayerController : MonoBehaviour
             input.x = Input.GetAxisRaw("Horizontal");
             input.y = Input.GetAxisRaw("Vertical");
 
+            //Debug.Log(input.x);
+
             SetPlayerSpeed();
+            var targetPos = rb.position + (character.moveSpeed * Time.deltaTime * input);
+
+            if (Character.IsWalkable(targetPos))
+            {
+                rb.MovePosition(targetPos);
+
+            }
 
 
             // remove diagonal movement 
             //if (input.x != 0) input.y = 0;                                                                               //the movement overhaul lol
 
-            if (input != Vector2.zero)
-            {
+            /* if (input != Vector2.zero)
+             {
 
-                if (Character.IsWalkable(transform.position)==true){ 
+                 if (Character.IsWalkable(transform.position)==true){ 
 
-                    StartCoroutine(character.Move(input, OnMoveOver));
-                }
-            }
+                     StartCoroutine(character.Move(input, OnMoveOver));
+                 }
+        }*/
         }
 
-        character.HandleUpdate();
+      /*  character.HandleUpdate();
 
         if (Input.GetKeyDown(KeyCode.Z) && !character.IsMoving)
         {
 
             StartCoroutine(Interact());
-        }
+        }*/
 
     }
 
