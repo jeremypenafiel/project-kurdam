@@ -40,20 +40,8 @@ public class PlayerController : MonoBehaviour
             input.x = Input.GetAxisRaw("Horizontal");
             input.y = Input.GetAxisRaw("Vertical");
 
-            isRunning = Input.GetKey(KeyCode.X);
-            isSneaking = Input.GetKey(KeyCode.C);
+            SetPlayerSpeed();
 
-            if (isRunning)
-            {
-                character.moveSpeed = runSpeed;
-            }else if(isSneaking)
-            {
-                character.moveSpeed = sneakSpeed;
-            }
-            else
-            {
-                character.moveSpeed = walkSpeed;
-            }
 
             // remove diagonal movement 
             //if (input.x != 0) input.y = 0;                                                                               //the movement overhaul lol
@@ -70,7 +58,7 @@ public class PlayerController : MonoBehaviour
 
         character.HandleUpdate();
 
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.Z) && !character.IsMoving)
         {
 
             StartCoroutine(Interact());
@@ -91,6 +79,25 @@ public class PlayerController : MonoBehaviour
                 triggerable.OnPlayerTriggered(this);
                 break;
             }
+        }
+    }
+
+    private void SetPlayerSpeed()
+    {
+        isRunning = Input.GetKey(KeyCode.X);
+        isSneaking = Input.GetKey(KeyCode.C);
+
+        if (isRunning)
+        {
+            character.moveSpeed = runSpeed;
+        }
+        else if (isSneaking)
+        {
+            character.moveSpeed = sneakSpeed;
+        }
+        else
+        {
+            character.moveSpeed = walkSpeed;
         }
     }
 

@@ -6037,6 +6037,10 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3430448970926973307, guid: 5cbeee47138ac9549aa3fe0050d2829f, type: 3}
+      propertyPath: m_EdgeSmoothing
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3948460438065503772, guid: 5cbeee47138ac9549aa3fe0050d2829f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

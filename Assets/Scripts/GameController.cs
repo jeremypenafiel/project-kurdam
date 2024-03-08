@@ -144,9 +144,7 @@ public class GameController : MonoBehaviour
 
     public bool IsInFreeRoamState()
     {
-        if (StateMachine.CurrentState is FreeRoamState)
-            return true;
-        else
-            return false;
+
+        return StateMachine.CurrentState is FreeRoamState;
     }
 }
