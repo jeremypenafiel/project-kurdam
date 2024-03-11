@@ -58,8 +58,19 @@ public class PlayerController : MonoBehaviour
             if (Character.IsWalkable(targetPos))
             {
                 rb.MovePosition(targetPos);
+                Character.IsMoving = true;
+                Character.SetAnimation(input);
+
+                if (rb.position == targetPos)
+                {
+                    Character.IsMoving = false;
+                    Debug.Log("not moving");
+                }
+
 
             }
+
+
 
 
             // remove diagonal movement 
