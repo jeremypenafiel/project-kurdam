@@ -16,6 +16,12 @@ public class CharacterAnimator : MonoBehaviour
     public float MoveY { get; set; }
     public bool IsMoving { get; set; }
 
+    private float sneakFrameRate = 0.32f;
+    private float runFrameRate = 0.08f;
+    private float normalFrameRate = 0.16f;
+    public bool IsSneaking;
+    public bool IsRunning;
+
 
     // States
 
@@ -68,6 +74,16 @@ public class CharacterAnimator : MonoBehaviour
          
         if (IsMoving)
         {
+            float frameRate = normalFrameRate;
+            if(IsSneaking)
+            {
+                frameRate = sneakFrameRate;
+            }
+            else if (IsRunning)
+            {
+                frameRate = runFrameRate;
+            }
+            currentAnimator.FrameRate = frameRate;
             currentAnimator.HandleUpdate();
         }
         else

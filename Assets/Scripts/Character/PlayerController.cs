@@ -80,14 +80,18 @@ public class PlayerController : MonoBehaviour
         if (isRunning)
         {
             character.moveSpeed = runSpeed;
+            character.Animator.IsRunning = true;
         }
         else if (isSneaking)
         {
             character.moveSpeed = sneakSpeed;
+            character.Animator.IsSneaking = true;
         }
         else
         {
             character.moveSpeed = walkSpeed;
+            character.Animator.IsSneaking = false;
+            character.Animator.IsRunning = false;
         }
     }
 
