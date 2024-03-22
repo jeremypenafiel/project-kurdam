@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -36,64 +37,23 @@ public class PlayerController : MonoBehaviour
         i = this;
     }
 
-    private void FixedUpdate()
-    {
-        HandleUpdate();
-    }
-
 
     public void HandleUpdate()
     {
+        input.x = Input.GetAxisRaw("Horizontal");
+        input.y = Input.GetAxisRaw("Vertical");
 
-        if (!character.IsMoving)
+        Character.IsMoving = (input.x != 0 || input.y != 0);
+
+        SetPlayerSpeed();
+        var targetPos = rb.position + (character.moveSpeed * Time.deltaTime * input);
+
+        if (Character.IsWalkable(targetPos))
         {
-            input.x = Input.GetAxisRaw("Horizontal");
-            input.y = Input.GetAxisRaw("Vertical");
-
-            //Debug.Log(input.x);
-
-            SetPlayerSpeed();
-            var targetPos = rb.position + (character.moveSpeed * Time.deltaTime * input);
-
-            if (Character.IsWalkable(targetPos))
-            {
-                rb.MovePosition(targetPos);
-                Character.IsMoving = true;
-                Character.SetAnimation(input);
-
-                if (rb.position == targetPos)
-                {
-                    Character.IsMoving = false;
-                    Debug.Log("not moving");
-                }
-
-
-            }
-
-
-
-
-            // remove diagonal movement 
-            //if (input.x != 0) input.y = 0;                                                                               //the movement overhaul lol
-
-            /* if (input != Vector2.zero)
-             {
-
-                 if (Character.IsWalkable(transform.position)==true){ 
-
-                     StartCoroutine(character.Move(input, OnMoveOver));
-                 }
-        }*/
+            rb.MovePosition(targetPos);
+            Character.Animator.IsMoving = Character.IsMoving;
+            Character.SetAnimation(input);
         }
-
-      /*  character.HandleUpdate();
-
-        if (Input.GetKeyDown(KeyCode.Z) && !character.IsMoving)
-        {
-
-            StartCoroutine(Interact());
-        }*/
-
     }
 
 
