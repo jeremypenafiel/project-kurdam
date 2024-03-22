@@ -105,6 +105,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distance: 0
+  rb: {fileID: 0}
 --- !u!114 &2500359263501857979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,6 +152,48 @@ MonoBehaviour:
   - {fileID: 374471447, guid: d1b091f0d6b20e74fbec26710efed20b, type: 3}
   - {fileID: -2105330243, guid: d1b091f0d6b20e74fbec26710efed20b, type: 3}
   - {fileID: 175878515, guid: d1b091f0d6b20e74fbec26710efed20b, type: 3}
+  runDownSprites:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  runUpSprites:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  runRightSprites:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  runLeftSprites:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  sneakDownSprites:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  sneakUpSprites:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  sneakRightSprites:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  sneakLeftSprites:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  IsSneaking: 0
+  IsRunning: 0
 --- !u!114 &3243016254768207493
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,6 +210,7 @@ MonoBehaviour:
   distance: 0
   distanceThreshold: 0.5
   offsetY: 0.3
+  runSpeed: 0
 --- !u!50 &4141278649862895426
 Rigidbody2D:
   serializedVersion: 4

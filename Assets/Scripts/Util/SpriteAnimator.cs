@@ -11,7 +11,6 @@ public class SpriteAnimator
     int currentFrame;
     float timer;
 
-    public float FrameRate { get => frameRate; set => frameRate = value; }
     public List<Sprite> Frames { get => frames; }
 
     public SpriteAnimator(List<Sprite> frames, SpriteRenderer spriteRenderer, float frameRate = 0.16f)
