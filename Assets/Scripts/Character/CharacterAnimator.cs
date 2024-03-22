@@ -31,6 +31,8 @@ public class CharacterAnimator : MonoBehaviour
     public bool IsSneaking;
     public bool IsRunning;
 
+    private int direction; // stores the direction the character is facing
+
 
     // States
 
@@ -69,6 +71,7 @@ public class CharacterAnimator : MonoBehaviour
 
     private void Start()
     {
+        direction = 1;
         spriteRenderer = GetComponent<SpriteRenderer>();
 
         walkDownAnimator = new SpriteAnimator(walkDownSprites, spriteRenderer);
@@ -126,16 +129,21 @@ public class CharacterAnimator : MonoBehaviour
         if (MoveX == 1)
         {
             currentAnimator = currentAnimators[(int)Directions.Right];
-        }else if (MoveX == -1)
+            direction = (int)Directions.Right;
+        }
+        else if (MoveX == -1)
         {
             currentAnimator = currentAnimators[(int)Directions.Left];
+            direction = (int)Directions.Left;
 
         }else if (MoveY == 1)
         {
             currentAnimator = currentAnimators[(int)Directions.Up];
+            direction = (int)Directions.Up;
         }else if (MoveY == -1)
         {
             currentAnimator = currentAnimators[(int)Directions.Down];
+            direction = (int)Directions.Down;
         }
 
         if (currentAnimator != previousAnimator || IsMoving != wasPreviouslyMoving )
@@ -145,12 +153,11 @@ public class CharacterAnimator : MonoBehaviour
          
         if (IsMoving)
         {
-
             currentAnimator.HandleUpdate();
         }
         else
         {
-            spriteRenderer.sprite = currentAnimator.Frames[0];
+            spriteRenderer.sprite = walkAnimators[direction].Frames[0];
         }
 
         wasPreviouslyMoving = IsMoving;
