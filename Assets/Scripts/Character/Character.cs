@@ -14,7 +14,7 @@ public class Character : MonoBehaviour
     public float offsetY = 0.3f;
     public float runSpeed;
 
-    public bool IsMoving { get; private set; }
+    public bool IsMoving { get; set; }
 
     
     private void Awake()
@@ -57,7 +57,11 @@ public class Character : MonoBehaviour
         OnMoveOver?.Invoke();
     }
 
-
+    public void SetAnimation(Vector3 moveVector)
+    {
+        animator.MoveX = Mathf.Clamp(moveVector.x, -1f, 1f);
+        animator.MoveY = Mathf.Clamp(moveVector.y, -1f, 1f);
+    }
 
    public bool IsWalkable(Vector3 targetPos)
     {

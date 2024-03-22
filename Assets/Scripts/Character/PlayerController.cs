@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -25,57 +26,34 @@ public class PlayerController : MonoBehaviour
     public bool IsRunning { get => isRunning; }
     public bool IsSneaking { get => isSneaking; }
 
+    public Rigidbody2D rb;
+
     private void Awake()
     {
         character = GetComponent<Character>();
         offset = new Vector3(0, Character.offsetY);
+        rb = GetComponent<Rigidbody2D>();
+
         i = this;
     }
 
+
     public void HandleUpdate()
     {
+        input.x = Input.GetAxisRaw("Horizontal");
+        input.y = Input.GetAxisRaw("Vertical");
 
-        if (!character.IsMoving)
+        Character.IsMoving = (input.x != 0 || input.y != 0);
+
+        SetPlayerSpeed();
+        var targetPos = rb.position + (character.moveSpeed * Time.deltaTime * input);
+
+        if (Character.IsWalkable(targetPos))
         {
-            input.x = Input.GetAxisRaw("Horizontal");
-            input.y = Input.GetAxisRaw("Vertical");
-
-            isRunning = Input.GetKey(KeyCode.X);
-            isSneaking = Input.GetKey(KeyCode.C);
-
-            if (isRunning)
-            {
-                character.moveSpeed = runSpeed;
-            }else if(isSneaking)
-            {
-                character.moveSpeed = sneakSpeed;
-            }
-            else
-            {
-                character.moveSpeed = walkSpeed;
-            }
-
-            // remove diagonal movement 
-            //if (input.x != 0) input.y = 0;                                                                               //the movement overhaul lol
-
-            if (input != Vector2.zero)
-            {
-
-                if (Character.IsWalkable(transform.position)==true){ 
-
-                    StartCoroutine(character.Move(input, OnMoveOver));
-                }
-            }
+            rb.MovePosition(targetPos);
+            Character.Animator.IsMoving = Character.IsMoving;
+            Character.SetAnimation(input);
         }
-
-        character.HandleUpdate();
-
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-
-            StartCoroutine(Interact());
-        }
-
     }
 
 
@@ -91,6 +69,25 @@ public class PlayerController : MonoBehaviour
                 triggerable.OnPlayerTriggered(this);
                 break;
             }
+        }
+    }
+
+    private void SetPlayerSpeed()
+    {
+        isRunning = Input.GetKey(KeyCode.X);
+        isSneaking = Input.GetKey(KeyCode.C);
+
+        if (isRunning)
+        {
+            character.moveSpeed = runSpeed;
+        }
+        else if (isSneaking)
+        {
+            character.moveSpeed = sneakSpeed;
+        }
+        else
+        {
+            character.moveSpeed = walkSpeed;
         }
     }
 

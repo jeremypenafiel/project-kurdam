@@ -23,7 +23,6 @@ public class EnemyChase : MonoBehaviour
     private bool isInEncounterRange;
     private bool canMove;
 
-    private PlayerController playerController;
     
     private void Start()
     {
@@ -31,30 +30,12 @@ public class EnemyChase : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         target = GameObject.FindWithTag("Player").transform;
-        playerController = target.GetComponent<PlayerController>();
 
     }
 
     private void Update()
     {
-        if (playerController.IsSneaking)
-        {
-            currentCheckRadius = 0.5f * checkRadiusDefault;
-        }
-        else
-        {
-            currentCheckRadius = checkRadiusDefault;
-        }
-
-
-        if (playerController.IsRunning)
-        {
-            currentCheckRadius = 1.1f * checkRadiusDefault;
-        }
-        else
-        {
-            currentCheckRadius = checkRadiusDefault;
-        }
+        SetCheckRadius();
 
         anim.SetBool("isRunning", isInChaseRange);
         isInChaseRange = Physics2D.OverlapCircle(transform.position, currentCheckRadius, chase);
@@ -84,15 +65,35 @@ public class EnemyChase : MonoBehaviour
             rb.velocity = Vector2.zero;
             gameObject.name = "Encounter";
             GameController.Instance.StartBattle();
-            GameObject.Destroy(gameObject);
-
-
+            Destroy(gameObject);
         }
     }
 
-        private void MoveCharacter(Vector2 dir)
+    private void MoveCharacter(Vector2 dir)
     {
         rb.MovePosition((Vector2)transform.position + (dir * speed * Time.deltaTime));
 
+    }
+
+    private void SetCheckRadius()
+    {
+        if (PlayerController.i.IsSneaking)
+        {
+            currentCheckRadius = 0.5f * checkRadiusDefault;
+        }
+        else
+        {
+            currentCheckRadius = checkRadiusDefault;
+        }
+
+
+        if (PlayerController.i.IsRunning)
+        {
+            currentCheckRadius = 1.1f * checkRadiusDefault;
+        }
+        else
+        {
+            currentCheckRadius = checkRadiusDefault;
+        }
     }
 }
