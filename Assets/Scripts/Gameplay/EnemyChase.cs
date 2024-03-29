@@ -22,6 +22,7 @@ public class EnemyChase : MonoBehaviour
     private bool isInChaseRange;
     private bool isInEncounterRange;
     private bool canMove;
+    private GameObject player; 
 
     
     private void Start()
@@ -30,6 +31,9 @@ public class EnemyChase : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         target = GameObject.FindWithTag("Player").transform;
+        player = GameObject.Find("Player");
+
+
 
     }
 
@@ -60,13 +64,18 @@ public class EnemyChase : MonoBehaviour
         {
             MoveCharacter(movement);
         }
-        if (isInEncounterRange)
+        if (isInEncounterRange) 
         {
             rb.velocity = Vector2.zero;
             gameObject.name = "Encounter";
-            GameController.Instance.StartBattle();
+            var aswang = gameObject.GetComponent<MapArea>().GetRandomWildAswang();
+            Debug.Log(aswang.Base);
+            var list = player.GetComponent<PlayerController>();
+            list.encounterList.Add(new Aswang(aswang.Base, aswang.Level));
             Destroy(gameObject);
         }
+
+
     }
 
     private void MoveCharacter(Vector2 dir)

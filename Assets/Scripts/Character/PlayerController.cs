@@ -28,12 +28,15 @@ public class PlayerController : MonoBehaviour
 
     public Rigidbody2D rb;
 
+    public List<Aswang> encounterList;
+    GameController gc;
+
     private void Awake()
     {
         character = GetComponent<Character>();
         offset = new Vector3(0, Character.offsetY);
         rb = GetComponent<Rigidbody2D>();
-
+        gc = GameObject.Find("GameController").GetComponent<GameController>();
         i = this;
     }
 
@@ -56,6 +59,14 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void Update()
+    {
+        while ((encounterList.Count > 0) && (gc.IsInFreeRoamState()))
+        {
+            GameController.Instance.StartBattle();
+            encounterList.Remove(encounterList[0]);
+        }
+    }
 
     private void OnMoveOver()
     {
