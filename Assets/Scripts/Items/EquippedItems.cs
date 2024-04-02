@@ -16,9 +16,6 @@ public class EquippedItems : ScriptableObject
 
 
 
-
-
-
     public ItemsBase Armas { get { return armas; } }
     public ItemsBase Ulo { get {  return ulo; } }
     public ItemsBase AntingAnting { get {  return antingAnting; } }
