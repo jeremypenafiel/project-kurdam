@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EquippedItems : MonoBehaviour
+[CreateAssetMenu(fileName = "Equipment")]
+public class EquippedItems : ScriptableObject   
 {
     [SerializeField] ItemsBase armas;
     [SerializeField] ItemsBase ulo;

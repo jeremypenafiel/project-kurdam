@@ -17,7 +17,6 @@ public class BattleSystem : MonoBehaviour
 
     [SerializeField] AudioClip battleMusic;
     [SerializeField] AudioClip victoryMusic;
-    [SerializeField] GameObject playerObject;
 
     public event Action OnBattleOver;
     /*public event Action Run;*/
@@ -53,7 +52,7 @@ public class BattleSystem : MonoBehaviour
 
         this.player = player;
         this.wildAswang = wildAswang;
-        armasType = playerObject.GetComponent<EquippedItems>().Armas.ArmasType;
+        armasType = player.Base.EquippedItems.Armas.ArmasType;
         AudioManager.i.PlayMusic(battleMusic);
         StartCoroutine(SetupBattle());
     }
@@ -460,7 +459,14 @@ public class BattleSystem : MonoBehaviour
                 break;
             }
         }
-
+        if ((targetUnit.Base.Weakness.Contains(player.Base.EquippedItems.Armas)) && (move.Base.Type == player.Base.EquippedItems.Armas.ArmasType) )
+        {
+            damage = Mathf.FloorToInt(damage * 2);
+        }
+        else if (targetUnit != player)
+        {
+            damage = Mathf.FloorToInt(damage/10);
+        }
         return damage;
     }
     
