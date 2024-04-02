@@ -120,7 +120,7 @@ public class PlayerController : MonoBehaviour
         Debug.Log(interactPosition);
         Debug.Log(facingDirection);
         Debug.Log(transform.position);
-        var collider = Physics2D.OverlapCircle(interactPosition,0.1f, GameLayers.I.InteractableLayer);
+        var collider = Physics2D.OverlapCircle(interactPosition,0.5f, GameLayers.I.InteractableLayer); //  increased radius to 0.5f
         if (collider != null)
         {
            Debug.Log("yes");
