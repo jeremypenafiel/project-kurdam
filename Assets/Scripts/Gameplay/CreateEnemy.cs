@@ -36,10 +36,6 @@ public class CreateEnemy : MonoBehaviour
                 num++;
             }
         }
-        /*for (var i = 0; i < 3; i++)
-        {
-            Instantiate(enemy, new Vector3(gameObject.transform.position.x-5*i, gameObject.transform.position.y, 0), Quaternion.identity);
-        }*/
     }
 
     // Update is called once per frame

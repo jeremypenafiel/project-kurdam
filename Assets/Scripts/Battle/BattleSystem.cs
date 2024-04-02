@@ -17,6 +17,7 @@ public class BattleSystem : MonoBehaviour
 
     [SerializeField] AudioClip battleMusic;
     [SerializeField] AudioClip victoryMusic;
+    [SerializeField] GameObject playerObject;
 
     public event Action OnBattleOver;
     /*public event Action Run;*/
@@ -29,8 +30,9 @@ public class BattleSystem : MonoBehaviour
     Aswang wildAswang;
     Aswang player;
 
-    public static BattleSystem i; 
+    public static BattleSystem i;
 
+    private DamageType armasType;
     private void Awake()
     {
         i = this;
@@ -51,6 +53,7 @@ public class BattleSystem : MonoBehaviour
 
         this.player = player;
         this.wildAswang = wildAswang;
+        armasType = playerObject.GetComponent<EquippedItems>().Armas.ArmasType;
         AudioManager.i.PlayMusic(battleMusic);
         StartCoroutine(SetupBattle());
     }
@@ -293,12 +296,21 @@ public class BattleSystem : MonoBehaviour
         int modifier = GetModifier(move.Base.Type.Modifier, sourceUnit.Aswang);
         string subject = sourceUnit.GetSubject();
 
-        yield return StartCoroutine(diceSystem.DamageRoll());
-        int damageRoll = diceSystem.GetDiceRollValue();
+        int damageRoll = 0;
+        for (int roll = 0; roll < move.Base.RollNumber; roll++)
+        {
+            yield return StartCoroutine(diceSystem.DamageRoll());
+            damageRoll = damageRoll + diceSystem.GetDiceRollValue();
+            Debug.Log(damageRoll);
+            yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Z));
+
+
+        }
 
         yield return StartCoroutine(dialogBox.TypeDialog($"{subject} rolled {damageRoll} + {modifier} {modifierText} modifier."));
 
         yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Z));
+
         AudioManager.i.PlaySFX(AudioId.UISelect);
 
         int damage = CalculateTotalDamage(move, sourceUnit.Aswang, targetUnit.Aswang, damageRoll);
@@ -536,9 +548,7 @@ public class BattleSystem : MonoBehaviour
     public void ValidAttack(BattleUnit sourceUnit)
     {
         Moves move = sourceUnit.GetMove(currentMove);
-        var weapon = GameObject.Find("Player").GetComponent<EquippedItems>();
-        var weaponType = weapon.Type;
-        if (move.type == weaponType)
+        if (move.type == armasType)
         {
             PlayerAttackRoll();
         }

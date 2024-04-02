@@ -664,7 +664,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &674856142
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -680,7 +680,7 @@ MonoBehaviour:
   wildAswangs:
   - aswangBase: {fileID: 11400000, guid: b51449335080fd54bb51e44626705b14, type: 2}
     levelRange: {x: 4, y: 6}
-    chancePercentage: 50
+    chancePercentage: 100
 --- !u!50 &674856143
 Rigidbody2D:
   serializedVersion: 4
@@ -721,12 +721,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  checkRadiusDefault: 0
+  checkRadiusDefault: 5
   encounterRadius: 0
   shouldRotate: 1
   chase:
     serializedVersion: 2
     m_Bits: 2048
+  test: {fileID: 0}
   dir: {x: 0, y: 0, z: 0}
 --- !u!95 &674856145
 Animator:
@@ -810,7 +811,7 @@ Transform:
   m_GameObject: {fileID: 674856141}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 15.389999, y: 203.58, z: 0}
+  m_LocalPosition: {x: 25.5, y: 214.31, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7696,7 +7697,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1823558317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7710,9 +7711,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wildAswangs:
-  - aswangBase: {fileID: 11400000, guid: 549514c8bdd42aa4d95b63aef881cff2, type: 2}
-    levelRange: {x: 4, y: 6}
-    chancePercentage: 50
   - aswangBase: {fileID: 11400000, guid: 549514c8bdd42aa4d95b63aef881cff2, type: 2}
     levelRange: {x: 4, y: 6}
     chancePercentage: 100
@@ -7756,12 +7754,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  checkRadiusDefault: 0
+  checkRadiusDefault: 5
   encounterRadius: 0
   shouldRotate: 1
   chase:
     serializedVersion: 2
     m_Bits: 2048
+  test: {fileID: 0}
   dir: {x: 0, y: 0, z: 0}
 --- !u!95 &1823558320
 Animator:
@@ -7845,7 +7844,7 @@ Transform:
   m_GameObject: {fileID: 1823558316}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 15.16, y: 212.45, z: 0}
+  m_LocalPosition: {x: 25.54, y: 214.28, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
