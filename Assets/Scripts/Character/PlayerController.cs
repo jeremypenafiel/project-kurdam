@@ -21,7 +21,6 @@ public class PlayerController : MonoBehaviour
     private bool isSneaking =  false;
 
     private Character character;
-    private Vector3 offset;
     public static PlayerController i { get; private set; }
     public bool IsRunning { get => isRunning; }
     public bool IsSneaking { get => isSneaking; }
@@ -31,7 +30,6 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         character = GetComponent<Character>();
-        offset = new Vector3(0, Character.offsetY);
         rb = GetComponent<Rigidbody2D>();
 
         i = this;
@@ -54,10 +52,16 @@ public class PlayerController : MonoBehaviour
             Character.Animator.IsMoving = Character.IsMoving;
             Character.SetAnimation(input);
         }
+
+        if(!Character.IsMoving && Input.GetKeyDown(KeyCode.Z))
+        {
+            Debug.Log("Interacting");
+            StartCoroutine(Interact());
+        }
     }
 
 
-    private void OnMoveOver()
+    /*private void OnMoveOver()
     {
         var colliders = (Physics2D.OverlapCircleAll(transform.position - offset, 0.2f,  GameLayers.I.TriggerableLayer));
         foreach (var collider in colliders)
@@ -70,7 +74,7 @@ public class PlayerController : MonoBehaviour
                 break;
             }
         }
-    }
+    }*/
 
     private void SetPlayerSpeed()
     {
@@ -97,14 +101,18 @@ public class PlayerController : MonoBehaviour
 
  
 
-    IEnumerator Interact()
+    public IEnumerator Interact()
     {
+        Debug.Log("inside Interacting");
         var facingDirection = new Vector3(character.Animator.MoveX, character.Animator.MoveY);
-        var interactPosition = transform.position + facingDirection;
-        var collider = Physics2D.OverlapCircle(interactPosition, 0.1f, GameLayers.I.InteractableLayer);
+        var interactPosition = rb.position;
+        Debug.Log(interactPosition);
+        Debug.Log(facingDirection);
+        Debug.Log(transform.position);
+        var collider = Physics2D.OverlapCircle(interactPosition,0.1f, GameLayers.I.InteractableLayer);
         if (collider != null)
         {
-
+           Debug.Log("yes");
            yield return collider.GetComponent<Interactable>()?.Interact(transform);
         }
     }
