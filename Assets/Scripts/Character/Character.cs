@@ -67,6 +67,7 @@ public class Character : MonoBehaviour
     {
         if (Physics2D.OverlapCircle(targetPos, 0.1f, GameLayers.I.SolidObjectLayer| GameLayers.I.InteractableLayer) != null)
         {
+            Debug.Log(Physics2D.OverlapCircle(targetPos, 0.1f, GameLayers.I.SolidObjectLayer | GameLayers.I.InteractableLayer));
             return false;
         }
         return true;
