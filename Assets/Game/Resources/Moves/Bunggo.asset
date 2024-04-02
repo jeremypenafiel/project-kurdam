@@ -19,3 +19,4 @@ MonoBehaviour:
   baseDamage: 0
   diceBase: {fileID: 11400000, guid: 1011f84f6de7211468f81954ebe9fe50, type: 2}
   sound: {fileID: 8300000, guid: 136ded9189af4244f8b61fe552c24fbd, type: 3}
+  rollNumber: 0
