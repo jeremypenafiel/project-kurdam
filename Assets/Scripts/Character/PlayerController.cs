@@ -72,21 +72,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    /*private void OnMoveOver()
-    {
-        var colliders = (Physics2D.OverlapCircleAll(transform.position - offset, 0.2f,  GameLayers.I.TriggerableLayer));
-        foreach (var collider in colliders)
-        {
-            var triggerable = collider.GetComponent<IPLayerTriggerable>();
-            if (triggerable != null)
-            {
-                
-                triggerable.OnPlayerTriggered(this);
-                break;
-            }
-        }
-    }*/
-
     private void SetPlayerSpeed()
     {
         isRunning = Input.GetKey(KeyCode.X);
@@ -114,14 +99,10 @@ public class PlayerController : MonoBehaviour
 
     public IEnumerator Interact()
     {
-        Debug.Log("inside Interacting");
         var facingDirection = new Vector3(character.Animator.MoveX, character.Animator.MoveY);
         var interactPosition = rb.position;
-        Debug.Log(interactPosition);
-        Debug.Log(facingDirection);
-        Debug.Log(transform.position);
         var collider = Physics2D.OverlapCircle(interactPosition,0.5f, GameLayers.I.InteractableLayer); //  increased radius to 0.5f
-        if (collider != null)
+        if (collider is null)
         {
            Debug.Log("yes");
            yield return collider.GetComponent<Interactable>()?.Interact(transform);
