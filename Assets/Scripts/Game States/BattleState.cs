@@ -24,7 +24,6 @@ public class BattleState : State<GameController>
         var player = gc.PlayerController.GetComponent<Player>().GetPlayer();
 
 
-        /*var wildAswang = enemy.GetComponent<MapArea>().GetRandomWildAswang();*/
 
         var wildAswang = gc.PlayerController.GetComponent<PlayerController>().encounterList[0];
         battleSystem.StartBattle(player, wildAswang);
