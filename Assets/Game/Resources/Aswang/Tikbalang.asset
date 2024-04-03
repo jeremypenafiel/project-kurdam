@@ -39,3 +39,5 @@ MonoBehaviour:
   resistances:
   - {fileID: 11400000, guid: b3581a895c7329d44b86d30d94994bb5, type: 2}
   vulnerabilities: []
+  weakness: []
+  equipments: {fileID: 11400000, guid: 6d02ecde14ae94f459ff017ddcb7aac8, type: 2}

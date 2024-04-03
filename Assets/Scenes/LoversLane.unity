@@ -727,7 +727,6 @@ MonoBehaviour:
   chase:
     serializedVersion: 2
     m_Bits: 2048
-  test: {fileID: 0}
   dir: {x: 0, y: 0, z: 0}
 --- !u!95 &674856145
 Animator:
@@ -7760,7 +7759,6 @@ MonoBehaviour:
   chase:
     serializedVersion: 2
     m_Bits: 2048
-  test: {fileID: 0}
   dir: {x: 0, y: 0, z: 0}
 --- !u!95 &1823558320
 Animator:

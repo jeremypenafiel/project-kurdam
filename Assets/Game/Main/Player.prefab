@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: 3243016254768207493}
   - component: {fileID: 4141278649862895426}
   - component: {fileID: 5647001908421414937}
-  - component: {fileID: 1295106421266241906}
   m_Layer: 11
   m_Name: Player
   m_TagString: Player
@@ -106,6 +105,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   distance: 0
   rb: {fileID: 0}
+  encounterList: []
 --- !u!114 &2500359263501857979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -283,26 +283,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.1766238}
   m_EdgeRadius: 0
---- !u!114 &1295106421266241906
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1843455397611351688}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d2bc10c9fc2856469aa9c8548b9e237, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  armas: {fileID: 11400000, guid: d58db2686ee408a42a356a9dddbe7069, type: 2}
-  ulo: {fileID: 11400000, guid: d58db2686ee408a42a356a9dddbe7069, type: 2}
-  antingAnting: {fileID: 11400000, guid: d58db2686ee408a42a356a9dddbe7069, type: 2}
-  singsing: {fileID: 11400000, guid: d58db2686ee408a42a356a9dddbe7069, type: 2}
-  lawas: {fileID: 11400000, guid: d58db2686ee408a42a356a9dddbe7069, type: 2}
-  paa: {fileID: 11400000, guid: d58db2686ee408a42a356a9dddbe7069, type: 2}
-  tiil: {fileID: 11400000, guid: d58db2686ee408a42a356a9dddbe7069, type: 2}
-  kamot: {fileID: 11400000, guid: d58db2686ee408a42a356a9dddbe7069, type: 2}
 --- !u!1 &2221643620651990350
 GameObject:
   m_ObjectHideFlags: 0
