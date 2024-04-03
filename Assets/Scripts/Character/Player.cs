@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] AswangBase playertype;
+    [SerializeField] AswangData playertype;
     [SerializeField] int playerlevel;
     Aswang player;
 

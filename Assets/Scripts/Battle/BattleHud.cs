@@ -17,7 +17,7 @@ public class BattleHud : MonoBehaviour
     public void SetData(Aswang aswang)
     {   
         _aswang = aswang;
-        nameText.text = aswang.Base.Aname;
+        nameText.text = aswang.AswangData.Aname;
         armorClassText.text =  $"{aswang.ArmorClass}";
         hpBar.SetHP((float)aswang.HP / aswang.MaxHP);
         lvl.text = "Lvl " + _aswang.Level;
@@ -53,8 +53,8 @@ public class BattleHud : MonoBehaviour
 
     float GetNormalizedExp()
     {
-        int currLevelExp = _aswang.Base.GetExpForLevel(_aswang.Level);
-        int nextLevelExp = _aswang.Base.GetExpForLevel(_aswang.Level+1);
+        int currLevelExp = _aswang.AswangData.GetExpForLevel(_aswang.Level);
+        int nextLevelExp = _aswang.AswangData.GetExpForLevel(_aswang.Level+1);
 
         float normalizedExp = (float)(_aswang.Exp -currLevelExp) / (_aswang.Exp -nextLevelExp);
         return Mathf.Clamp01(normalizedExp);

@@ -5,24 +5,24 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Equipment")]
 public class EquippedItems : ScriptableObject   
 {
-    [SerializeField] ItemsBase armas;
-    [SerializeField] ItemsBase ulo;
-    [SerializeField] ItemsBase antingAnting;
-    [SerializeField] ItemsBase singsing;
-    [SerializeField] ItemsBase lawas;
-    [SerializeField] ItemsBase paa;
-    [SerializeField] ItemsBase tiil;
-    [SerializeField] ItemsBase kamot;
+    [SerializeField] ItemData armas;
+    [SerializeField] ItemData ulo;
+    [SerializeField] ItemData antingAnting;
+    [SerializeField] ItemData singsing;
+    [SerializeField] ItemData lawas;
+    [SerializeField] ItemData paa;
+    [SerializeField] ItemData tiil;
+    [SerializeField] ItemData kamot;
 
 
 
-    public ItemsBase Armas { get { return armas; } }
-    public ItemsBase Ulo { get {  return ulo; } }
-    public ItemsBase AntingAnting { get {  return antingAnting; } }
-    public ItemsBase Singsing { get { return singsing; } }  
+    public ItemData Armas { get { return armas; } }
+    public ItemData Ulo { get {  return ulo; } }
+    public ItemData AntingAnting { get {  return antingAnting; } }
+    public ItemData Singsing { get { return singsing; } }  
 
-    public ItemsBase Lawas { get {  return lawas; } }
-    public ItemsBase Kamot { get {  return kamot; } }
-    public ItemsBase Tiil { get {  return tiil; } }
-    public ItemsBase Paa { get { return paa; } }
+    public ItemData Lawas { get {  return lawas; } }
+    public ItemData Kamot { get {  return kamot; } }
+    public ItemData Tiil { get {  return tiil; } }
+    public ItemData Paa { get { return paa; } }
 }

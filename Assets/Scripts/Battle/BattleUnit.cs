@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using UnityEngine.Serialization;
 
 
 public class BattleUnit : MonoBehaviour
 {
-    [SerializeField] AswangBase _base;
+    [FormerlySerializedAs("_base")] [SerializeField] AswangData data;
     [SerializeField] int level;
 
 
@@ -38,9 +39,9 @@ public class BattleUnit : MonoBehaviour
     {
         Aswang = aswang;
         if (isPlayerUnit)
-            image.sprite = aswang.Base.Backsprite;
+            image.sprite = aswang.AswangData.Backsprite;
         else
-            image.sprite = aswang.Base.Frontsprite;
+            image.sprite = aswang.AswangData.Frontsprite;
         image.color = originalColor;
         PlayEnterAnimation();
         hud.SetData(aswang);

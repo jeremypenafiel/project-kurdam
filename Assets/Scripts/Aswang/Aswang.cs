@@ -1,16 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [System.Serializable]
 public class Aswang
 {
-    [SerializeField] AswangBase _base;
+    [FormerlySerializedAs("_base")] [SerializeField] AswangData data;
     [SerializeField] int level;
     
 
 
-    public AswangBase Base 
+    public AswangData AswangData 
     {
         get;
 
@@ -35,24 +36,24 @@ public class Aswang
         HP = MaxHP;
 
         moves = new List<Moves>();
-        foreach (var move in Base.LearnableMoves)
+        foreach (var move in AswangData.LearnableMoves)
         {
             if (move.level <= Level)
             {
                 moves.Add(new Moves(move.MovesBase));
             }
         }
-        Exp = Base.GetExpForLevel(Level);
+        Exp = AswangData.GetExpForLevel(Level);
     }
 
-    public Aswang(AswangBase abase, int alevel)
+    public Aswang(AswangData aswangData, int alevel)
     {
-        Base = abase;
+        AswangData = aswangData;
         Level = alevel;
         HP = MaxHP; 
 
         moves = new List<Moves>();
-        foreach (var move in Base.LearnableMoves)
+        foreach (var move in AswangData.LearnableMoves)
         {
             if (move.level <= Level)
             {
@@ -64,46 +65,46 @@ public class Aswang
 
     public int MaxHP
     {
-        get { return Base.MaxHP; }
+        get { return AswangData.MaxHP; }
     }
 
     public int ArmorClass
     {
-        get { return Base.ArmorClass; }
+        get { return AswangData.ArmorClass; }
     }
 
     public int Strength
     {
-        get { return Mathf.FloorToInt((Base.Strength - 10) /2  + Mathf.FloorToInt(Growthrate * Level)); }
+        get { return Mathf.FloorToInt((AswangData.Strength - 10) /2  + Mathf.FloorToInt(Growthrate * Level)); }
     }
 
        public int Dexterity
     {
-        get { return Mathf.FloorToInt((Base.Dexterity - 10) / 2) + Mathf.FloorToInt(Growthrate * Level); }
+        get { return Mathf.FloorToInt((AswangData.Dexterity - 10) / 2) + Mathf.FloorToInt(Growthrate * Level); }
     }
 
     public int Constitution
     {
-        get { return Mathf.FloorToInt((Base.Constitution - 10) / 2) + Mathf.FloorToInt(Growthrate * Level); }
+        get { return Mathf.FloorToInt((AswangData.Constitution - 10) / 2) + Mathf.FloorToInt(Growthrate * Level); }
     }
 
     public int Intelligence
     {
-        get { return Mathf.FloorToInt((Base.Intelligence - 10) / 2 + Mathf.FloorToInt(Growthrate * Level)); }
+        get { return Mathf.FloorToInt((AswangData.Intelligence - 10) / 2 + Mathf.FloorToInt(Growthrate * Level)); }
     }
     
     public int Charisma
     {
-        get { return Mathf.FloorToInt((Base.Charisma - 10) / 2 + Mathf.FloorToInt(Growthrate * Level)); }
+        get { return Mathf.FloorToInt((AswangData.Charisma - 10) / 2 + Mathf.FloorToInt(Growthrate * Level)); }
     }
 
     public float Growthrate
     {
-        get { return Base.Growthrate; }
+        get { return AswangData.Growthrate; }
     }
     public bool CheckForLevelUp()
     {
-        if (Exp> Base.GetExpForLevel(level + 1))
+        if (Exp> AswangData.GetExpForLevel(level + 1))
         {
             ++level;
             return true;

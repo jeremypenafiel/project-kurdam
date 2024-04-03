@@ -52,7 +52,7 @@ public class BattleSystem : MonoBehaviour
 
         this.player = player;
         this.wildAswang = wildAswang;
-        armasType = player.Base.EquippedItems.Armas.ArmasType;
+        armasType = player.AswangData.EquippedItems.Armas.ArmasType;
         AudioManager.i.PlayMusic(battleMusic);
         StartCoroutine(SetupBattle());
     }
@@ -67,7 +67,7 @@ public class BattleSystem : MonoBehaviour
 
 
         
-        yield return dialogBox.TypeDialog($"A wild {enemyUnit.Aswang.Base.Aname} appeared.");
+        yield return dialogBox.TypeDialog($"A wild {enemyUnit.Aswang.AswangData.Aname} appeared.");
         yield return new WaitForSeconds(1f);
         
         ActionSelection();
@@ -383,11 +383,11 @@ public class BattleSystem : MonoBehaviour
 
             AudioManager.i.PlayMusic(victoryMusic);
 
-            int expYield =KilledUnit.Aswang.Base.ExpYield;
+            int expYield =KilledUnit.Aswang.AswangData.ExpYield;
             int enemyLevel = KilledUnit.Aswang.Level;
             int expGain = Mathf.FloorToInt(expYield * enemyLevel / 7);
             playerUnit.Aswang.Exp += expGain;
-            yield return dialogBox.TypeDialog($"{playerUnit.Aswang.Base.Aname} gained {expGain} EXP. Points!");
+            yield return dialogBox.TypeDialog($"{playerUnit.Aswang.AswangData.Aname} gained {expGain} EXP. Points!");
 
             yield return playerUnit.Hud.SetExpSmooth();
             yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Z));
@@ -396,7 +396,7 @@ public class BattleSystem : MonoBehaviour
             while (playerUnit.Aswang.CheckForLevelUp())
             {
                 player.Level++;
-                yield return dialogBox.TypeDialog($"{playerUnit.Aswang.Base.Aname} leveled up to Level {player.Level}.");
+                yield return dialogBox.TypeDialog($"{playerUnit.Aswang.AswangData.Aname} leveled up to Level {player.Level}.");
                 yield return playerUnit.Hud.SetExpSmooth(true);
                 yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Z));
                 AudioManager.i.PlaySFX(AudioId.UISelect);
@@ -442,24 +442,24 @@ public class BattleSystem : MonoBehaviour
 
         damage += modifier;
 
-        for (int i = 0; i < targetUnit.Base.Resistances.Count; i++)
+        for (int i = 0; i < targetUnit.AswangData.Resistances.Count; i++)
         {
-            if (targetUnit.Base.Resistances[i] == move.Base.Type)
+            if (targetUnit.AswangData.Resistances[i] == move.Base.Type)
             {
                 damage = Mathf.FloorToInt(damage / 2);
                 break;
             }
         }
 
-        for (int i = 0; i < targetUnit.Base.Vulnerabilities.Count; i++)
+        for (int i = 0; i < targetUnit.AswangData.Vulnerabilities.Count; i++)
         {
-            if (targetUnit.Base.Vulnerabilities[i] == move.Base.Type)
+            if (targetUnit.AswangData.Vulnerabilities[i] == move.Base.Type)
             {
                 damage = Mathf.FloorToInt(damage * 2);
                 break;
             }
         }
-        if ((targetUnit.Base.Weakness.Contains(player.Base.EquippedItems.Armas)) && (move.Base.Type == player.Base.EquippedItems.Armas.ArmasType) )
+        if ((targetUnit.AswangData.Weakness.Contains(player.AswangData.EquippedItems.Armas)) && (move.Base.Type == player.AswangData.EquippedItems.Armas.ArmasType) )
         {
             damage = Mathf.FloorToInt(damage * 2);
         }

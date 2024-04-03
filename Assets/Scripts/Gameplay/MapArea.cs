@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class MapArea : MonoBehaviour
 {
@@ -25,7 +26,7 @@ public class MapArea : MonoBehaviour
         var levelRange = aswangRecord.levelRange;
         int level = levelRange.y == 0 ? levelRange.x : Random.Range(levelRange.x, levelRange.y + 1);
 
-        var wildAswang = new Aswang(aswangRecord.aswangBase, level);
+        var wildAswang = new Aswang(aswangRecord.aswangData, level);
 
 
         wildAswang.Init();
@@ -38,7 +39,7 @@ public class MapArea : MonoBehaviour
 [System.Serializable]
 public class AswangEncounterRecord
 {
-    public AswangBase aswangBase;
+    [FormerlySerializedAs("aswangBase")] public AswangData aswangData;
     public Vector2Int levelRange;
     public int chancePercentage;
 

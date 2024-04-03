@@ -69,9 +69,9 @@ public class EnemyChase : MonoBehaviour
             rb.velocity = Vector2.zero;
             gameObject.name = "Encounter";
             var aswang = gameObject.GetComponent<MapArea>().GetRandomWildAswang();
-            Debug.Log(aswang.Base);
+            Debug.Log(aswang.AswangData);
             var list = player.GetComponent<PlayerController>();
-            list.encounterList.Add(new Aswang(aswang.Base, aswang.Level));
+            list.encounterList.Add(new Aswang(aswang.AswangData, aswang.Level));
             Destroy(gameObject);
         }
 
