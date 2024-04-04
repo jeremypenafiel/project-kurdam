@@ -62,7 +62,6 @@ public class PlayerController : MonoBehaviour
     {
         // small bug here is that player continues animation even if in battle state
         Character.IsMoving = (input.x != 0 || input.y != 0);
-        Debug.Log(input);
         SetPlayerSpeed();
         var targetPos = rb.position + (character.moveSpeed * Time.deltaTime * input);
         Character.Animator.IsMoving = Character.IsMoving;
