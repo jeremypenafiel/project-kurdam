@@ -41,35 +41,48 @@ public class PlayerController : MonoBehaviour
 
     public void HandleUpdate()
     {
-        input.x = Input.GetAxisRaw("Horizontal");
-        input.y = Input.GetAxisRaw("Vertical");
-
-        Character.IsMoving = (input.x != 0 || input.y != 0);
-
-        SetPlayerSpeed();
-        var targetPos = rb.position + (character.moveSpeed * Time.deltaTime * input);
-
-        if (Character.IsWalkable(targetPos))
-        {
-            rb.MovePosition(targetPos);
-            Character.Animator.IsMoving = Character.IsMoving;
-            Character.SetAnimation(input);
-        }
-
-        if(!Character.IsMoving && Input.GetKeyDown(KeyCode.Z))
-        {
-            Debug.Log("Interacting");
-            StartCoroutine(Interact());
-        }
+       GetInput();
+       
+       while ((encounterList.Count > 0) && (gc.IsInFreeRoamState()))
+       {
+           GameController.Instance.StartBattle();
+           encounterList.Remove(encounterList[0]);
+       }
     }
 
+    public void GetInput()
+    {
+        input.x = Input.GetAxisRaw("Horizontal");
+        input.y = Input.GetAxisRaw("Vertical");
+    }
+
+    private void FixedUpdate()
+    {
+        // small bug here is that player continues animation even if in battle state
+        if(gc.StateMachine.CurrentState is FreeRoamState){
+            Character.IsMoving = (input.x != 0 || input.y != 0);
+
+            SetPlayerSpeed();
+            var targetPos = rb.position + (character.moveSpeed * Time.deltaTime * input);
+
+            if (Character.IsWalkable(targetPos))
+            {
+                rb.MovePosition(targetPos);
+                Character.Animator.IsMoving = Character.IsMoving;
+                Character.SetAnimation(input);
+            }
+
+            if (!Character.IsMoving && Input.GetKeyDown(KeyCode.Z))
+            {
+                Debug.Log("Interacting");
+                StartCoroutine(Interact());
+            }
+        }
+    }
+    
     public void Update()
     {
-        while ((encounterList.Count > 0) && (gc.IsInFreeRoamState()))
-        {
-            GameController.Instance.StartBattle();
-            encounterList.Remove(encounterList[0]);
-        }
+        
     }
 
     private void SetPlayerSpeed()
@@ -99,7 +112,6 @@ public class PlayerController : MonoBehaviour
 
     public IEnumerator Interact()
     {
-        var facingDirection = new Vector3(character.Animator.MoveX, character.Animator.MoveY);
         var interactPosition = rb.position;
         var collider = Physics2D.OverlapCircle(interactPosition,0.5f, GameLayers.I.InteractableLayer); //  increased radius to 0.5f
         if (collider is null)
