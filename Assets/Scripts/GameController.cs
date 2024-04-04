@@ -1,8 +1,4 @@
 using GDEUtils.StateMachine;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -124,19 +120,20 @@ public class GameController : MonoBehaviour
         /* StateMachine.Execute(); is called here because physics-based movement should be called in FixedUpdate
          * If in FreeRoamState, the playerController will handle the updating which includes the player movement
          * */
-        if (StateMachine.CurrentState is FreeRoamState)
+        /*if (StateMachine.CurrentState is FreeRoamState)
         {
             StateMachine.Execute();
-        }
+        }*/
 
     }
 
     private void Update()
     {
-        if (StateMachine.CurrentState is not FreeRoamState)
+        StateMachine.Execute();
+        /*if (StateMachine.CurrentState is not FreeRoamState)
         {
             StateMachine.Execute();
-        }
+        }*/
     }
 
 
