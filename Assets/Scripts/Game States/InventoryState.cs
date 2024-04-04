@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class InventoryState : State<GameController>
 {
     [SerializeField] InventorySystem inventorySystem;
@@ -23,9 +24,11 @@ public class InventoryState : State<GameController>
         inventorySystem.gameObject.SetActive(true);
         gc.WorldCamera.gameObject.SetActive(false);
         gc.VisionLimiter.SetActive(false);
+        inventorySystem.StartInventorySystem();
     }
     public override void Execute()
     {
+        InventorySystem.i.HandleUpdate();
         if(Input.GetKeyDown(KeyCode.X))
         {
             gc.StateMachine.Pop();
