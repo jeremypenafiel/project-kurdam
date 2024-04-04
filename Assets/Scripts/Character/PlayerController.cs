@@ -45,7 +45,9 @@ public class PlayerController : MonoBehaviour
        
        while ((encounterList.Count > 0) && (gc.IsInFreeRoamState()))
        {
-           GameController.Instance.StartBattle();
+           input.x = 0;
+           input.y = 0;
+           gc.StartBattle();
            encounterList.Remove(encounterList[0]);
        }
     }
@@ -59,25 +61,23 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         // small bug here is that player continues animation even if in battle state
-        if(gc.StateMachine.CurrentState is FreeRoamState){
-            Character.IsMoving = (input.x != 0 || input.y != 0);
-
-            SetPlayerSpeed();
-            var targetPos = rb.position + (character.moveSpeed * Time.deltaTime * input);
-
-            if (Character.IsWalkable(targetPos))
-            {
-                rb.MovePosition(targetPos);
-                Character.Animator.IsMoving = Character.IsMoving;
-                Character.SetAnimation(input);
-            }
-
-            if (!Character.IsMoving && Input.GetKeyDown(KeyCode.Z))
-            {
-                Debug.Log("Interacting");
-                StartCoroutine(Interact());
-            }
+        Character.IsMoving = (input.x != 0 || input.y != 0);
+        Debug.Log(input);
+        SetPlayerSpeed();
+        var targetPos = rb.position + (character.moveSpeed * Time.deltaTime * input);
+        Character.Animator.IsMoving = Character.IsMoving;
+        if (Character.IsWalkable(targetPos))
+        {
+            rb.MovePosition(targetPos);
+            Character.SetAnimation(input);
         }
+
+        if (!Character.IsMoving && Input.GetKeyDown(KeyCode.Z))
+        {
+            Debug.Log("Interacting");
+            StartCoroutine(Interact());
+        }
+        
     }
     
     public void Update()
