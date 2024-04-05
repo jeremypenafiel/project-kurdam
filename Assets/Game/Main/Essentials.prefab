@@ -7331,6 +7331,7 @@ GameObject:
   - component: {fileID: 3295171525748425011}
   - component: {fileID: 9005815679555525251}
   - component: {fileID: 1717593920412605878}
+  - component: {fileID: 2368244517829460891}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -7476,6 +7477,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b36265532d155954db06645492f25e69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2368244517829460891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6021599357922479573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 092de070627346e5a0804e0135a56cdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  battleMusic: {fileID: 8300000, guid: 1c5cd9e939b968f47b41a85c6e46403d, type: 3}
 --- !u!1 &6116732493591363067
 GameObject:
   m_ObjectHideFlags: 0
@@ -12974,6 +12988,10 @@ PrefabInstance:
     - target: {fileID: 6204243451207039366, guid: 5cbeee47138ac9549aa3fe0050d2829f, type: 3}
       propertyPath: m_Name
       value: VisionLimiter
+      objectReference: {fileID: 0}
+    - target: {fileID: 6204243451207039366, guid: 5cbeee47138ac9549aa3fe0050d2829f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6224463488928155437, guid: 5cbeee47138ac9549aa3fe0050d2829f, type: 3}
       propertyPath: m_SizeDelta.x

@@ -389,3 +389,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TransitionMaterial: {fileID: 2100000, guid: 7624d611bd330e44b80ef65275598a16, type: 2}
+  textures:
+  - {fileID: 2800000, guid: fbe6e80cd9587334fb840031de89c672, type: 3}
+  - {fileID: 2800000, guid: ea1ad820d45466d4795f65b8bcdfaac9, type: 3}

@@ -1,3 +1,4 @@
+using System.Collections;
 using GDEUtils.StateMachine;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -62,9 +63,16 @@ public class GameController : MonoBehaviour
         };
     }
 
+    public void Transition()
+    {
+       StartCoroutine(worldCamera.GetComponent<SimpleBlit>().Transition());
+    }
+
     public void StartBattle()
     {
-        StateMachine.Push(BattleState.i);
+        
+        StateMachine.Push(TransitionState.I);
+        /*StateMachine.Push(BattleState.i);*/
 
     }
     public void PauseGame(bool pause)
