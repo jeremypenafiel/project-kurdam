@@ -63,9 +63,10 @@ public class GameController : MonoBehaviour
         };
     }
 
-    public void Transition()
+    public IEnumerator Transition()
     {
-       StartCoroutine(worldCamera.GetComponent<SimpleBlit>().Transition());
+       yield return StartCoroutine(worldCamera.GetComponent<SimpleBlit>().Transition());
+       StateMachine.Pop();
     }
 
     public void StartBattle()

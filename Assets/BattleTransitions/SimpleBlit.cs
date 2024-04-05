@@ -13,6 +13,12 @@ public class SimpleBlit : MonoBehaviour
     private float time = 2.75f;
     float newPos = 0;
 
+
+    private void Awake()
+    {
+        TransitionMaterial.SetFloat("_Cutoff", 0);
+    }
+
     void OnRenderImage(RenderTexture src, RenderTexture dst)
     {
         if (TransitionMaterial != null)
@@ -22,7 +28,7 @@ public class SimpleBlit : MonoBehaviour
 
     public IEnumerator Transition()
     {
-        TransitionMaterial.SetTexture("_TransitionTex", textures[1]);
+        TransitionMaterial.SetTexture("_TransitionTex", textures[0]);
 
         var rate  = 1 / time;
         var delta = 0.0f;

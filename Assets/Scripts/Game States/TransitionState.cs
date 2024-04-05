@@ -23,7 +23,7 @@ public class TransitionState: State<GameController>
         _gc = owner;
         
         AudioManager.i.PlayMusic(battleMusic);
-        _gc.Transition();
+        StartCoroutine(_gc.Transition());
     }
     
     public override void Execute()
