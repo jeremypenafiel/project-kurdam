@@ -49,7 +49,8 @@ public class Aswang
     {
         Base = abase;
         Level = alevel;
-        HP = MaxHP; 
+        HP = MaxHP;
+        Exp = abase.GetExpForLevel(Level);
 
         moves = new List<Moves>();
         foreach (var move in Base.LearnableMoves)
@@ -103,15 +104,7 @@ public class Aswang
     }
     public bool CheckForLevelUp()
     {
-        if (Exp> Base.GetExpForLevel(level + 1))
-        {
-            ++level;
-            return true;
-        }
-        else
-        {
-            return false;   
-        }
+        return Exp > Base.GetExpForLevel(Level + 1);
     }
     public bool TakeDamage(Moves move, Aswang attacker, int damage)
     {
