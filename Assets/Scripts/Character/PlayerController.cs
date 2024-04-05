@@ -41,6 +41,7 @@ public class PlayerController : MonoBehaviour
 
     public void HandleUpdate()
     {
+        var position = rb.position;
        GetInput();
        
        while ((encounterList.Count > 0) && (gc.IsInFreeRoamState()))
@@ -50,6 +51,14 @@ public class PlayerController : MonoBehaviour
            gc.StartBattle();
            encounterList.Remove(encounterList[0]);
        }
+       
+       if (!Character.IsMoving && Input.GetKeyDown(KeyCode.Z))
+       {
+           Debug.Log("Interacting");
+           StartCoroutine(Interact(position));
+       }
+       
+       Teleport(position);
     }
 
     public void GetInput()
@@ -71,18 +80,9 @@ public class PlayerController : MonoBehaviour
             Character.SetAnimation(input);
         }
 
-        if (!Character.IsMoving && Input.GetKeyDown(KeyCode.Z))
-        {
-            Debug.Log("Interacting");
-            StartCoroutine(Interact());
-        }
-        
+       
     }
-    
-    public void Update()
-    {
-        
-    }
+
 
     private void SetPlayerSpeed()
     {
@@ -109,15 +109,22 @@ public class PlayerController : MonoBehaviour
 
  
 
-    public IEnumerator Interact()
+    public IEnumerator Interact(Vector2 position)
     {
-        var interactPosition = rb.position;
-        var collider = Physics2D.OverlapCircle(interactPosition,0.5f, GameLayers.I.InteractableLayer); //  increased radius to 0.5f
-        if (collider is null)
+        var collider = Physics2D.OverlapCircle(position,0.5f, GameLayers.I.InteractableLayer); //  increased radius to 0.5f
+        if (collider is not null)
         {
            Debug.Log("yes");
            yield return collider.GetComponent<Interactable>()?.Interact(transform);
         }
+    }
+
+    public void Teleport(Vector2 position)
+    {
+        var collision = Physics2D.OverlapCircle(position,0.5f, GameLayers.I.PortalLayer); //  increased radius to 0.5f
+        if (collision is null) return;
+        Debug.Log("yes");
+        collision.GetComponent<IPLayerTriggerable>()?.OnPlayerTriggered(this);
     }
 
     public Character Character => character;
