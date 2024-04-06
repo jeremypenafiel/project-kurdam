@@ -22,6 +22,7 @@ public class TransitionState: State<GameController>
         _gc = owner;
         
         AudioManager.i.PlayMusic(battleMusic);
+        AudioManager.i.StopPlayAmbientSound();
         StartCoroutine(_gc.Transition());
     }
 
