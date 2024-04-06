@@ -9,10 +9,7 @@ public class SimpleBlit : MonoBehaviour
 {
     public Material TransitionMaterial;
     [SerializeField] public List<Texture> textures;
-    
-    private float time = 2.75f;
-    float newPos = 0;
-
+    [SerializeField] private float transitionDuration = 2.75f;
 
     private void Awake()
     {
@@ -23,19 +20,21 @@ public class SimpleBlit : MonoBehaviour
     {
         if (TransitionMaterial != null)
             Graphics.Blit(src, dst, TransitionMaterial);
-
     }
 
-    public IEnumerator Transition()
+    public IEnumerator TransitionIn()
     {
-        TransitionMaterial.SetTexture("_TransitionTex", textures[0]);
-
-        var rate  = 1 / time;
+        // Sets Transition Texture or Pattern
+        TransitionMaterial.SetTexture("_TransitionTex", textures[2]);
+        
+        // Does transition as long as duration
         var delta = 0.0f;
-        while (delta < time) {
+        float newPos;
+        while (delta < transitionDuration) {
             delta += Time.deltaTime;
-            newPos = Mathf.Clamp01(delta / time);
+            newPos = Mathf.Clamp01(delta / transitionDuration);
             
+            // Increases Cutoff property gradually, thereby doing the transition
             TransitionMaterial.SetFloat("_Cutoff", newPos);
             
             yield return null;

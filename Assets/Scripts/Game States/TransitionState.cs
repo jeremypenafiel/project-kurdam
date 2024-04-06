@@ -11,7 +11,6 @@ public class TransitionState: State<GameController>
     [SerializeField] public AudioClip battleMusic;
     
     private GameController _gc;
-    
 
     private void Awake()
     {
@@ -24,12 +23,6 @@ public class TransitionState: State<GameController>
         
         AudioManager.i.PlayMusic(battleMusic);
         StartCoroutine(_gc.Transition());
-    }
-    
-    public override void Execute()
-    {
-        
-        /*_gc.StateMachine.Pop();*/
     }
 
     public override void Exit()

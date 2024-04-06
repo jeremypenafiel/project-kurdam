@@ -65,16 +65,17 @@ public class GameController : MonoBehaviour
 
     public IEnumerator Transition()
     {
-       yield return StartCoroutine(worldCamera.GetComponent<SimpleBlit>().Transition());
+       yield return StartCoroutine(worldCamera.GetComponent<SimpleBlit>().TransitionIn());
+       
+       // Pops transition state after transition coroutine finishes
+       // TransitionState Exit method pushes the BattleState
        StateMachine.Pop();
+       
     }
 
     public void StartBattle()
     {
-        
         StateMachine.Push(TransitionState.I);
-        /*StateMachine.Push(BattleState.i);*/
-
     }
     public void PauseGame(bool pause)
     {
