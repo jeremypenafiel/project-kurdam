@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using GDEUtils.StateMachine;
 using UnityEngine;
@@ -36,6 +37,8 @@ public class GameController : MonoBehaviour
 
     public GameObject VisionLimiter => visionLimiter;
     
+    public static event Action OnBattleTransitionOver ;
+    
 
 
     private void Awake()
@@ -63,12 +66,13 @@ public class GameController : MonoBehaviour
         };
     }
 
-    public IEnumerator Transition()
+    public IEnumerator BattleTransition()
     {
-       yield return StartCoroutine(worldCamera.GetComponent<SimpleBlit>().TransitionIn());
+       yield return StartCoroutine(worldCamera.GetComponent<SimpleBlit>().BattleTransitionIn());
        
        // Pops transition state after transition coroutine finishes
        // TransitionState Exit method pushes the BattleState
+       OnBattleTransitionOver?.Invoke();
        StateMachine.Pop();
        
     }

@@ -34,6 +34,13 @@ public class EnemyChase : MonoBehaviour
         anim = GetComponent<Animator>();
         target = GameObject.FindWithTag("Player").transform;
         player = GameObject.Find("Player");
+        GameController.OnBattleTransitionOver += () =>
+        {
+            Destroy(gameObject);
+            anim.SetFloat("x", 0);
+            anim.SetFloat("y", 0);
+            
+        };
 
 
 
@@ -80,21 +87,17 @@ public class EnemyChase : MonoBehaviour
     private void CheckIfPlayCreepyMusic(Vector3 targetPos, Vector3 unitPos)
     {
         var dist = Vector3.Distance(targetPos, unitPos);
-        if (dist < musicCheckDistance)
-        {
-            isCreepyMusicPlaying = true;
-            AudioManager.i.PlayAmbientSound(null, true);
-        }
+        if (!(dist < musicCheckDistance)) return;
+        isCreepyMusicPlaying = true;
+        AudioManager.i.PlayAmbientSound(null, true);
     }
 
     private void CheckIfNotPlayCreepyMusic(Vector3 targetPos, Vector3 unitPos)
     {
         var dist = Vector3.Distance(targetPos, unitPos);
-        if (dist >= musicCheckDistance)
-        {
-            isCreepyMusicPlaying = false;
-            AudioManager.i.StopPlayAmbientSound();
-        }
+        if (!(dist >= musicCheckDistance)) return;
+        isCreepyMusicPlaying = false;
+        AudioManager.i.StopPlayAmbientSound();
     }
 
     private void FixedUpdate()
@@ -113,7 +116,7 @@ public class EnemyChase : MonoBehaviour
             Debug.Log(aswang.Base);
             var list = player.GetComponent<PlayerController>();
             list.encounterList.Add(new Aswang(aswang.Base, aswang.Level));
-            Destroy(gameObject);
+            /*Destroy(gameObject);*/
         }
 
 

@@ -23,7 +23,7 @@ public class TransitionState: State<GameController>
         
         AudioManager.i.PlayMusic(battleMusic);
         AudioManager.i.StopPlayAmbientSound();
-        StartCoroutine(_gc.Transition());
+        StartCoroutine(_gc.BattleTransition());
     }
 
     public override void Exit()

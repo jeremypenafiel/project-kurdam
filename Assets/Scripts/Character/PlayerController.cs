@@ -40,24 +40,26 @@ public class PlayerController : MonoBehaviour
 
 
     public void HandleUpdate()
-    {
-        var position = rb.position;
+    { var position = rb.position;
        GetInput();
        
+       // Encounter logic from Jorge
        while ((encounterList.Count > 0) && (gc.IsInFreeRoamState()))
        {
-           input.x = 0;
+           input.x = 0; // set input to 0 to stop player movement
            input.y = 0;
            gc.StartBattle();
            encounterList.Remove(encounterList[0]);
        }
        
+       // This block is for interacting with interactable objects
        if (!Character.IsMoving && Input.GetKeyDown(KeyCode.Z))
        {
            Debug.Log("Interacting");
            StartCoroutine(Interact(position));
        }
        
+       // This is for teleporting to other locations
        Teleport(position);
     }
 
@@ -69,7 +71,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // small bug here is that player continues animation even if in battle state
+        // For movement
         Character.IsMoving = (input.x != 0 || input.y != 0);
         SetPlayerSpeed();
         var targetPos = rb.position + (character.moveSpeed * Time.deltaTime * input);
