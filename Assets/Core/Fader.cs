@@ -16,6 +16,7 @@ public class Fader : MonoBehaviour
 
     public void FadeIn(float time)
     {
+        Debug.Log("asdijasd");
        image.DOFade(1f, time).WaitForCompletion();
     }
     public void FadeOut(float time)

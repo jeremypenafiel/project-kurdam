@@ -12,6 +12,7 @@ public class LocationPortal : MonoBehaviour, IPLayerTriggerable
 
     PlayerController player;
     Fader fader;
+    SimpleBlit worldCamera;
     
     public void OnPlayerTriggered(PlayerController player)
     {
@@ -23,12 +24,16 @@ public class LocationPortal : MonoBehaviour, IPLayerTriggerable
     private void Start()
     {
         fader = FindObjectOfType<Fader>();
+        worldCamera = GameObject.Find("Main Camera").GetComponent<SimpleBlit>();
+        
+
     }
     void Teleport()
     {
         Debug.Log("teleported");
         GameController.Instance.PauseGame(true);
         fader.FadeIn(0.5f);
+        StartCoroutine(worldCamera.FadeIn());
         // var destPortal = FindObjectsOfType<LocationPortal>().First(x => x != this && x.destinationPortal == this.destinationPortal);
         
 

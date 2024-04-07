@@ -128,26 +128,11 @@ public class GameController : MonoBehaviour
     {
         locationPortal.SpawnPlayer(playerController);
     }
-
-    private void FixedUpdate()
-    {
-        /* StateMachine.Execute(); is called here because physics-based movement should be called in FixedUpdate
-         * If in FreeRoamState, the playerController will handle the updating which includes the player movement
-         * */
-        /*if (StateMachine.CurrentState is FreeRoamState)
-        {
-            StateMachine.Execute();
-        }*/
-
-    }
+    
 
     private void Update()
     {
         StateMachine.Execute();
-        /*if (StateMachine.CurrentState is not FreeRoamState)
-        {
-            StateMachine.Execute();
-        }*/
     }
 
 

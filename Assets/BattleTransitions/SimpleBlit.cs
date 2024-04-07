@@ -45,4 +45,20 @@ public class SimpleBlit : MonoBehaviour
 
        
     }
+
+    public IEnumerator FadeIn()
+    {
+        TransitionMaterial.SetFloat("_Cutoff", 1);
+        var delta = 0.0f;
+        float newPos;
+        while (delta < transitionDuration) {
+            delta += Time.deltaTime;
+            newPos = Mathf.Clamp01(delta / transitionDuration);
+            
+            // Increases Cutoff property gradually, thereby doing the transition
+            TransitionMaterial.SetFloat("_Fade", newPos);
+            
+            yield return null;
+        }
+    }
 }
