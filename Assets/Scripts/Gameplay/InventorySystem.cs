@@ -133,6 +133,13 @@ public class InventorySystem : MonoBehaviour
             Equip(currentNavigation, inventoryItems[currentNavigation]);
             Debug.Log("equipped");
             }
+            else if ((currentNavigation < 10) && (currentActionSelection == 0))
+            {
+
+
+                Unequip(currentNavigation);
+                Debug.Log("unequipped");
+            }
             else if (currentActionSelection == 1)
             {
                 Discard(currentNavigation);
@@ -170,15 +177,33 @@ public class InventorySystem : MonoBehaviour
             inventoryItems[slot] = inventoryItems[4];
             inventoryItems[4] = item;
             inventoryIcon[4].GetComponent<SpriteRenderer>().sprite = inventoryItems[4].Icon;
-            inventoryIcon[slot].GetComponent<SpriteRenderer>().sprite = inventoryItems[slot].Icon;
-
+            inventoryIcon[4].SetActive(true) ;
+            if (inventoryItems[slot] != null) 
+            { 
+                inventoryIcon[slot].GetComponent<SpriteRenderer>().sprite = inventoryItems[slot].Icon;
+            }
+            else
+            {
+                inventoryIcon[slot].SetActive(false);
+            }
 
         }
     }
 
-    public void Unequip()
+    public void Unequip(int slot)
     {
-
+        for (int i = 11;i < inventoryItems.Count; ++i) 
+        {
+            if (inventoryItems[i] == null)
+            {
+                inventoryItems[i] = inventoryItems[slot];
+                inventoryIcon[i].GetComponent<SpriteRenderer>().sprite = inventoryItems[i].Icon;
+                inventoryIcon[i].SetActive(true);
+                inventoryItems[slot] = null;
+                inventoryIcon[slot].SetActive(false);
+                break;
+            }
+        }
     }
 
     public void Discard(int slot)
