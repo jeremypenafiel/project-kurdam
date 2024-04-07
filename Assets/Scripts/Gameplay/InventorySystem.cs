@@ -97,7 +97,7 @@ public class InventorySystem : MonoBehaviour
             UpdatePlayerBaseInventory();
             SelectCloseInventory();
         }
-        if (Input.GetKeyDown(KeyCode.Z) && (inventoryItems[currentNavigation] != null))
+        if (Input.GetKeyUp(KeyCode.Z) && (inventoryItems[currentNavigation] != null))
         {
             ActionSelection();
         }
