@@ -24,15 +24,21 @@ public class InventoryState : State<GameController>
         inventorySystem.gameObject.SetActive(true);
         gc.WorldCamera.gameObject.SetActive(false);
         gc.VisionLimiter.SetActive(false);
-        inventorySystem.StartInventorySystem();
+        var player = gc.PlayerController.GetComponent<Player>().GetPlayer();
+        inventorySystem.StartInventorySystem(player);
+        inventorySystem.SelectCloseInventory += CloseInventory;
     }
     public override void Execute()
     {
         InventorySystem.i.HandleUpdate();
-        if(Input.GetKeyDown(KeyCode.X))
-        {
-            gc.StateMachine.Pop();
-        }
+
+    }
+
+    private void CloseInventory()
+    {
+
+        gc.StateMachine.Pop();
+
     }
 
     public override void Exit()
@@ -40,5 +46,6 @@ public class InventoryState : State<GameController>
         inventorySystem.gameObject.SetActive(false);
         gc.WorldCamera.gameObject.SetActive(true);
         gc.VisionLimiter.SetActive(true);
+        inventorySystem.SelectCloseInventory -= CloseInventory;
     }
 }

@@ -52,7 +52,7 @@ public class BattleSystem : MonoBehaviour
 
         this.player = player;
         this.wildAswang = wildAswang;
-        armasType = player.Base.EquippedItems.Armas.ArmasType;
+        armasType = player.Base.EquippedItems.ArmasIsa.ArmasType;
         AudioManager.i.PlayMusic(battleMusic);
         StartCoroutine(SetupBattle());
     }
@@ -459,7 +459,7 @@ public class BattleSystem : MonoBehaviour
                 break;
             }
         }
-        if ((targetUnit.Base.Weakness.Contains(player.Base.EquippedItems.Armas)) && (move.Base.Type == player.Base.EquippedItems.Armas.ArmasType) )
+        if ((targetUnit.Base.Weakness.Contains(player.Base.EquippedItems.ArmasIsa)) && (move.Base.Type == player.Base.EquippedItems.ArmasIsa.ArmasType) )
         {
             damage = Mathf.FloorToInt(damage * 2);
         }

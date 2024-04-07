@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af6b84d2b4f49884c976f59db3873409, type: 3}
   m_Name: Martilyo
   m_EditorClassIdentifier: 
-  iname: Martilyo
-  type: Weapon
-  weaponType: {fileID: 11400000, guid: b3581a895c7329d44b86d30d94994bb5, type: 2}
+  iname: 
+  type: 0
+  armasType: {fileID: 11400000, guid: b3581a895c7329d44b86d30d94994bb5, type: 2}
   advantage: []
   disadvantage: []
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: b2c5074c7cc7742469efbe0a6b0124a9, type: 3}
   armorClass: 0
   damageModifier: 0
   Resistances: []

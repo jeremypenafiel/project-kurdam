@@ -12,11 +12,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d2bc10c9fc2856469aa9c8548b9e237, type: 3}
   m_Name: Preset
   m_EditorClassIdentifier: 
-  armas: {fileID: 11400000, guid: d58db2686ee408a42a356a9dddbe7069, type: 2}
-  ulo: {fileID: 0}
-  antingAnting: {fileID: 0}
-  singsing: {fileID: 0}
-  lawas: {fileID: 0}
-  paa: {fileID: 0}
-  tiil: {fileID: 0}
-  kamot: {fileID: 0}
+  armasIsa: {fileID: 11400000, guid: d58db2686ee408a42a356a9dddbe7069, type: 2}
+  armasDuha: {fileID: 11400000, guid: d58db2686ee408a42a356a9dddbe7069, type: 2}
+  ulo: {fileID: 11400000, guid: d58db2686ee408a42a356a9dddbe7069, type: 2}
+  antingAntingIsa: {fileID: 11400000, guid: d58db2686ee408a42a356a9dddbe7069, type: 2}
+  antingAntingDuha: {fileID: 11400000, guid: d58db2686ee408a42a356a9dddbe7069, type: 2}
+  singSingIsa: {fileID: 11400000, guid: d58db2686ee408a42a356a9dddbe7069, type: 2}
+  singSingDuha: {fileID: 11400000, guid: d58db2686ee408a42a356a9dddbe7069, type: 2}
+  lawas: {fileID: 11400000, guid: d58db2686ee408a42a356a9dddbe7069, type: 2}
+  paaIsa: {fileID: 0}
+  paaDuha: {fileID: 11400000, guid: d58db2686ee408a42a356a9dddbe7069, type: 2}
+  tiil: {fileID: 11400000, guid: d58db2686ee408a42a356a9dddbe7069, type: 2}
+  kamot: {fileID: 11400000, guid: d58db2686ee408a42a356a9dddbe7069, type: 2}
+  gamit:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 74a4aa5cfcd0b8d45ae7d6b4b575f2a0, type: 2}
+  - {fileID: 11400000, guid: 74a4aa5cfcd0b8d45ae7d6b4b575f2a0, type: 2}
+  - {fileID: 11400000, guid: 74a4aa5cfcd0b8d45ae7d6b4b575f2a0, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
