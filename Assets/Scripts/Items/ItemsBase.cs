@@ -7,7 +7,8 @@ using UnityEngine;
 public class ItemsBase : ScriptableObject
 {
     [SerializeField] string iname;
-    [SerializeField] string type;
+    [SerializeField] ItemType type;
+
     [SerializeField] DamageType armasType;
     [SerializeField] List<Aswang> advantage;
     [SerializeField] List<Aswang> disadvantage;
@@ -21,7 +22,7 @@ public class ItemsBase : ScriptableObject
         get { return iname; }
     }
 
-    public string Type
+    public ItemType Type
     {
         get { return type; }
     }
@@ -53,5 +54,22 @@ public class ItemsBase : ScriptableObject
     public int DamageModifier
     {
         get { return damageModifier; }
+    }
+
+    public enum ItemType
+    {
+          armasIsa,
+          armasDuha,
+          ulo,
+          antingAntingIsa,
+          antingAntingDuha,
+          singSingIsa,
+          singSingDuha,
+          lawas,
+          paaIsa,
+          paaDuha,
+          tiil,
+          kamot,
+         gamit 
     }
 }
