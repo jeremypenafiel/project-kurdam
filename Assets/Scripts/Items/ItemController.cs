@@ -23,7 +23,6 @@ namespace Items
         
         public void ConnectModel()
         {
-            Debug.Log("Model connected");
             _itemsModel.OnInventoryChanged += UpdateInventoryItems;
             _itemsModel.OnEquippedItemsChanged += UpdateEquippedItems;
             
@@ -31,7 +30,6 @@ namespace Items
         
         void UpdateInventoryItems()
         {
-            Debug.Log("inventory changed");
             _itemsView.UpdateInventoryItems(_itemsModel.inventoryItems);
         }
         
@@ -42,14 +40,19 @@ namespace Items
         
         public void ConnectView()
         {
-            /*foreach (var icon in _itemsView.inventoryIcons)
+            foreach (var icon in _itemsView.inventoryIcons)
             {
                 icon.RegisterListener(OnItemIconSelected);
-            }*/
-            Debug.Log("View connected");
+            }
             _itemsView.UpdateEquippedItems(_itemsModel.equippedItems);
             _itemsView.UpdateInventoryItems(_itemsModel.inventoryItems);
             
+        }
+        
+        void OnItemIconSelected(int index)
+        {
+            var item = _itemsModel.inventoryItems[index];
+            _itemsModel.Equip(item);
         }
 
         public class Builder

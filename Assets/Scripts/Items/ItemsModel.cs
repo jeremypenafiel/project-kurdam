@@ -45,13 +45,15 @@ namespace Items
             equippedItems[item.itemData.type] = item;
             inventoryItems.Remove(item);
             OnEquippedItemsChanged?.Invoke();
+            OnInventoryChanged?.Invoke();
         }
         
         public void Unequip(Item item)
         {
             equippedItems[item.itemData.type] = null;
             inventoryItems.Add(item);
-            OnEquippedItemsChanged();
+            OnEquippedItemsChanged?.Invoke();
+            OnInventoryChanged?.Invoke();
         }
     }
     

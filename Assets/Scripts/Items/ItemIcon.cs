@@ -18,6 +18,11 @@ namespace Items
             this.index = idx;
         }
 
+        public void Selected(int idx)
+        {
+            onSelected?.Invoke(idx);
+        }
+
         public void RegisterListener(Action<int> listener)
         {
             onSelected += listener;

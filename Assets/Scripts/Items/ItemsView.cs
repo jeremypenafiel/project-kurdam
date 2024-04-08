@@ -94,6 +94,7 @@ namespace Items
                 else
                 {
                     equippedIconsDictionary[itemType].UpdateItemIcon(equippedItem.itemData.icon);
+                    equippedIconsDictionary[itemType].gameObject.SetActive(true);
                 }
             }
         }
@@ -102,24 +103,29 @@ namespace Items
         {
             for (var i = 0; i < inventoryIcons.Length; i++)
             {
-                Debug.Log("is this happenin");
                 if (i < inventoryItems.Count)
                 {
                     Debug.Log(i);
                     inventoryIcons[i].UpdateItemIcon(inventoryItems[i].itemData.icon);
                     inventoryIcons[i].gameObject.SetActive(true);
                 }
+                else
+                {
+                    inventoryIcons[i].gameObject.SetActive(false);
+                }
             }
         }
 
         void HandleNavigationSelection()
         {
+            bool isNavChanged = false;
             if (Input.GetKeyDown(KeyCode.RightArrow))
             {
                 if (currentNavigation < 34)
                 {
                     previousNavigation = currentNavigation;
                     ++currentNavigation;
+                    isNavChanged = true;
                 }
             }
             else if (Input.GetKeyDown(KeyCode.LeftArrow))
@@ -128,10 +134,26 @@ namespace Items
                 {
                     previousNavigation = currentNavigation;
                     --currentNavigation;
+                    isNavChanged = true;
                 }
             }
-            inventoryHighlight[previousNavigation].SetActive(false);
-            inventoryHighlight[currentNavigation].SetActive(true);
+            if (isNavChanged)
+            {
+                inventoryHighlight[previousNavigation].SetActive(false);
+                inventoryHighlight[currentNavigation].SetActive(true);
+            }
+
+            if (Input.GetKeyDown(KeyCode.Z))
+            {
+                foreach (var icon in inventoryIcons)
+                {
+                    if (currentNavigation == icon.index)
+                    {
+                        icon.Selected(icon.index- equippedNumberOffset);
+                    }
+                }
+            }
+            
             
         }
     }
