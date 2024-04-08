@@ -25,12 +25,12 @@ public class InventoryState : State<GameController>
         gc.WorldCamera.gameObject.SetActive(false);
         gc.VisionLimiter.SetActive(false);
         var player = gc.PlayerController.GetComponent<Player>().GetPlayer();
-        inventorySystem.StartInventorySystem(player);
+        //inventorySystem.StartInventorySystem(player);
         inventorySystem.SelectCloseInventory += CloseInventory;
     }
     public override void Execute()
     {
-        InventorySystem.i.HandleUpdate();
+        //InventorySystem.i.HandleUpdate();
 
     }
 

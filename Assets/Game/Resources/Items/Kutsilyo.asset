@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af6b84d2b4f49884c976f59db3873409, type: 3}
   m_Name: Kutsilyo
   m_EditorClassIdentifier: 
-  iname: Kutsilyo
+  itemName: kutsilyo
   type: 0
   armasType: {fileID: 11400000, guid: a0d96a551c6282a4ba58a68d976a7634, type: 2}
   advantage: []

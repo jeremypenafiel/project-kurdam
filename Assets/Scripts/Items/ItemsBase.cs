@@ -6,55 +6,17 @@ using UnityEngine;
 
 public class ItemsBase : ScriptableObject
 {
-    [SerializeField] string iname;
-    [SerializeField] ItemType type;
+    [SerializeField] public string itemName;
+    [SerializeField] public ItemType type;
 
-    [SerializeField] DamageType armasType;
-    [SerializeField] List<Aswang> advantage;
-    [SerializeField] List<Aswang> disadvantage;
-    [SerializeField] Sprite icon;
-    [SerializeField] int armorClass;
-    [SerializeField] int damageModifier;
-    [SerializeField] List<string> Resistances;
-
-    public string Iname
-    {
-        get { return iname; }
-    }
-
-    public ItemType Type
-    {
-        get { return type; }
-    }
-
-    public DamageType ArmasType
-    {
-        get { return armasType; }
-    }
-
-    public List<Aswang> Advantage
-    {
-        get { return advantage; }
-    }
-
-    public List<Aswang> Disadvantage
-    {
-        get { return disadvantage; }
-    }
-    public Sprite Icon
-    {
-        get { return icon; }
-    }
-
-    public int ArmorClass
-    {
-        get { return armorClass; }
-    }
-
-    public int DamageModifier
-    {
-        get { return damageModifier; }
-    }
+    [SerializeField] public DamageType armasType;
+    [SerializeField] public List<Aswang> advantage;
+    [SerializeField] public List<Aswang> disadvantage;
+    [SerializeField] public Sprite icon;
+    [SerializeField] public int armorClass;
+    [SerializeField] public int damageModifier;
+    [SerializeField] public List<string> Resistances;
+    
 
     public enum ItemType
     {
