@@ -42,6 +42,10 @@ namespace Items
         
         public void Equip(Item item)
         {
+            if(equippedItems[item.itemData.type] != null)
+            {
+                Unequip(equippedItems[item.itemData.type]);
+            }
             equippedItems[item.itemData.type] = item;
             inventoryItems.Remove(item);
             OnEquippedItemsChanged?.Invoke();

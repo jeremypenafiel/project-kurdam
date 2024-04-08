@@ -12,7 +12,7 @@ namespace Items
         [SerializeField] public ItemIcon[] inventoryIcons;
         [SerializeField] GameObject itemDescription;
         private int equippedNumberOffset = 11;
-        private int currentNavigation = 0;
+        private int currentNavigation;
         private int previousNavigation;
 
         [SerializeField] public Dictionary<ItemsBase.ItemType, ItemIcon> equippedIconsDictionary = new()
@@ -70,6 +70,7 @@ namespace Items
 
         private void Start()
         {
+            currentNavigation = equippedNumberOffset;
             this.inventoryHighlight[currentNavigation].SetActive(true);
         }
 
@@ -123,6 +124,7 @@ namespace Items
             {
                 if (currentNavigation < 34)
                 {
+                    AudioManager.i.PlaySFX(AudioId.UISelect);
                     previousNavigation = currentNavigation;
                     ++currentNavigation;
                     isNavChanged = true;
@@ -132,6 +134,7 @@ namespace Items
             {
                 if (currentNavigation > 0)
                 {
+                    AudioManager.i.PlaySFX(AudioId.UISelect);
                     previousNavigation = currentNavigation;
                     --currentNavigation;
                     isNavChanged = true;
@@ -149,7 +152,17 @@ namespace Items
                 {
                     if (currentNavigation == icon.index)
                     {
+                        AudioManager.i.PlaySFX(AudioId.UISelect);
                         icon.Selected(icon.index- equippedNumberOffset);
+                    }
+                }
+            }else if (Input.GetKeyDown(KeyCode.X))
+            {
+                foreach (var icon in inventoryIcons)
+                {
+                    if (currentNavigation == icon.index)
+                    {
+                        icon.Selected(icon.index - equippedNumberOffset);
                     }
                 }
             }
