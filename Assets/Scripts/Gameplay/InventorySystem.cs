@@ -10,7 +10,7 @@ public class InventorySystem : MonoBehaviour
 {
     [SerializeField] List<GameObject> inventoryHighlight;
     [SerializeField] List<GameObject> inventoryIcon;
-    [SerializeField] List<ItemsBase?> inventoryItems;
+    //[SerializeField] List<ItemsBase?> inventoryItems;
 
     [SerializeField] ItemsView view;
     [SerializeField] ItemsBase[] startingItems;

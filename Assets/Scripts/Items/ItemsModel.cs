@@ -7,21 +7,21 @@ namespace Items
     public class ItemsModel
     {
         public readonly List<Item> inventoryItems = new();
-        public readonly Dictionary<ItemsBase.ItemType,Item> equippedItems = new()
+        public readonly Dictionary<EquippableItemsBase.ItemType,EquippableItem> equippedItems = new()
         {
-            { ItemsBase.ItemType.armasIsa, null},
-            { ItemsBase.ItemType.armasDuha, null},
-            { ItemsBase.ItemType.ulo, null},
-            { ItemsBase.ItemType.antingAntingIsa, null},
-            { ItemsBase.ItemType.antingAntingDuha, null},
-            { ItemsBase.ItemType.singSingIsa, null},
-            { ItemsBase.ItemType.singSingDuha, null},
-            { ItemsBase.ItemType.lawas, null},
-            { ItemsBase.ItemType.paaIsa, null},
-            { ItemsBase.ItemType.paaDuha, null},
-            { ItemsBase.ItemType.tiil, null},
-            { ItemsBase.ItemType.kamot, null},
-            { ItemsBase.ItemType.gamit, null}
+            { EquippableItemsBase.ItemType.armasIsa, null},
+            { EquippableItemsBase.ItemType.armasDuha, null},
+            { EquippableItemsBase.ItemType.ulo, null},
+            { EquippableItemsBase.ItemType.antingAntingIsa, null},
+            { EquippableItemsBase.ItemType.antingAntingDuha, null},
+            { EquippableItemsBase.ItemType.singSingIsa, null},
+            { EquippableItemsBase.ItemType.singSingDuha, null},
+            { EquippableItemsBase.ItemType.lawas, null},
+            { EquippableItemsBase.ItemType.paaIsa, null},
+            { EquippableItemsBase.ItemType.paaDuha, null},
+            { EquippableItemsBase.ItemType.tiil, null},
+            { EquippableItemsBase.ItemType.kamot, null},
+            { EquippableItemsBase.ItemType.gamit, null}
         };
         public event Action OnInventoryChanged;
         public event Action OnEquippedItemsChanged;
@@ -29,6 +29,10 @@ namespace Items
 
         public void AddItem(Item item)
         {
+            if (item.itemData is ConsumableItemBase)
+            {
+                /*item.itemData.*/
+            }
             inventoryItems.Add(item);
             Debug.Log("Item added in model");
             OnInventoryChanged?.Invoke();
@@ -39,29 +43,34 @@ namespace Items
             inventoryItems.Remove(item);
             OnInventoryChanged?.Invoke();
         }
-        
-        public void Equip(Item item)
+
+        public void ConsumeItem()
         {
-            if(equippedItems[item.itemData.type] != null)
+            
+        }
+        
+        public void Equip(EquippableItem item)
+        {
+            if(equippedItems[item.EquipableItemData.type] != null)
             {
-                Unequip(equippedItems[item.itemData.type]);
+                Unequip(equippedItems[item.EquipableItemData.type]);
             }
-            equippedItems[item.itemData.type] = item;
+            equippedItems[item.EquipableItemData.type] = item;
             inventoryItems.Remove(item);
             OnEquippedItemsChanged?.Invoke();
             OnInventoryChanged?.Invoke();
         }
         
-        public void Unequip(Item item)
+        public void Unequip(EquippableItem item)
         {
-            equippedItems[item.itemData.type] = null;
+            equippedItems[item.EquipableItemData.type] = null;
             inventoryItems.Add(item);
             OnEquippedItemsChanged?.Invoke();
             OnInventoryChanged?.Invoke();
         }
     }
     
-    public class Item
+    public abstract class Item
     {
         public ItemsBase itemData;
 
@@ -69,6 +78,7 @@ namespace Items
         {
             this.itemData = itemData;
         }
+        
     }
         
 }

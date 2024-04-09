@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace Items
 {
@@ -42,17 +43,50 @@ namespace Items
         {
             foreach (var icon in _itemsView.inventoryIcons)
             {
-                icon.RegisterListener(OnItemIconSelected);
+                icon.RegisterSelectedListener(OnItemIconSelected);
+                icon.RegisterActionSelectedListener(OnItemActionSelected);
             }
+            _itemsView.RegisterListener(onSelectionChanged);
             _itemsView.UpdateEquippedItems(_itemsModel.equippedItems);
             _itemsView.UpdateInventoryItems(_itemsModel.inventoryItems);
             
         }
+
+        ItemsBase onSelectionChanged(int index)
+        {
+            var itemData = index >= _itemsModel.inventoryItems.Count || index < 0  ? null : _itemsModel.inventoryItems[index].itemData;
+            return itemData;
+        }
+        
+        
         
         void OnItemIconSelected(int index)
         {
             var item = _itemsModel.inventoryItems[index];
-            _itemsModel.Equip(item);
+            _itemsView.EnableDialogBox(item is EquippableItem);
+            
+        }
+
+        void OnItemActionSelected(int index, int action)
+        {
+            Debug.Log("garun");
+            var item = _itemsModel.inventoryItems[index];
+
+            if (action == 1)
+            {
+                _itemsModel.RemoveItem(item);
+                return;
+            }
+
+            if (item is EquippableItem equippableItem)
+            {
+                _itemsModel.Equip(equippableItem);
+            }
+            else
+            {
+                _itemsModel.ConsumeItem();
+            }
+            
         }
 
         public class Builder
@@ -63,7 +97,15 @@ namespace Items
             {
                 foreach (var data in itemData)
                 {
-                    _itemsModel.AddItem(new Item(data));
+                    switch (data)
+                    {
+                        case ConsumableItemBase:
+                            _itemsModel.AddItem(new ConsumableItem((ConsumableItemBase) data));
+                            break;
+                        case EquippableItemsBase:
+                            _itemsModel.AddItem(new EquippableItem((EquippableItemsBase) data));
+                            break;
+                    }
                 }
 
                 return this;

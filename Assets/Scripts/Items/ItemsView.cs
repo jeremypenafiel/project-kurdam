@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Items
 {
@@ -10,27 +11,31 @@ namespace Items
         [SerializeField] List<GameObject> inventoryHighlight;
         [SerializeField] public ItemIcon[] equippedIcons;
         [SerializeField] public ItemIcon[] inventoryIcons;
-        [SerializeField] GameObject itemDescription;
+        [SerializeField] public InventoryDialogueBox inventoryDialogueBox;
+        [SerializeField] public ItemDescriptionBox itemDescriptionBox;
         private int equippedNumberOffset = 11;
         private int currentNavigation;
         private int previousNavigation;
+        private int currentActionSelection = 0;
+        private ItemsBase currentItemData = null;
+        private event Func<int, ItemsBase> onSelectionChanged;
 
-        [SerializeField] public Dictionary<ItemsBase.ItemType, ItemIcon> equippedIconsDictionary = new()
+        [SerializeField] public Dictionary<EquippableItemsBase.ItemType, ItemIcon> equippedIconsDictionary = new()
         {
             
-            { ItemsBase.ItemType.ulo, null },
-            { ItemsBase.ItemType.antingAntingIsa, null },
-            { ItemsBase.ItemType.lawas, null },
-            { ItemsBase.ItemType.antingAntingDuha, null },
-            { ItemsBase.ItemType.armasIsa, null },
-            { ItemsBase.ItemType.singSingIsa, null },
-            { ItemsBase.ItemType.tiil, null },
-            { ItemsBase.ItemType.singSingDuha, null },
-            { ItemsBase.ItemType.gamit, null },
-            { ItemsBase.ItemType.armasDuha, null },
-            { ItemsBase.ItemType.paaIsa, null },
-            { ItemsBase.ItemType.paaDuha, null },
-            { ItemsBase.ItemType.kamot, null }
+            { EquippableItemsBase.ItemType.ulo, null },
+            { EquippableItemsBase.ItemType.antingAntingIsa, null },
+            { EquippableItemsBase.ItemType.lawas, null },
+            { EquippableItemsBase.ItemType.antingAntingDuha, null },
+            { EquippableItemsBase.ItemType.armasIsa, null },
+            { EquippableItemsBase.ItemType.singSingIsa, null },
+            { EquippableItemsBase.ItemType.tiil, null },
+            { EquippableItemsBase.ItemType.singSingDuha, null },
+            { EquippableItemsBase.ItemType.gamit, null },
+            { EquippableItemsBase.ItemType.armasDuha, null },
+            { EquippableItemsBase.ItemType.paaIsa, null },
+            { EquippableItemsBase.ItemType.paaDuha, null },
+            { EquippableItemsBase.ItemType.kamot, null }
         };
 
 
@@ -40,30 +45,30 @@ namespace Items
             {
                 inventoryIcons[i].Initialize(i + equippedNumberOffset);
             }
-            equippedIconsDictionary[ItemsBase.ItemType.ulo] = equippedIcons[0];
-            equippedIconsDictionary[ItemsBase.ItemType.antingAntingIsa] = equippedIcons[1];
-            equippedIconsDictionary[ItemsBase.ItemType.lawas] = equippedIcons[2];
-            equippedIconsDictionary[ItemsBase.ItemType.antingAntingDuha] = equippedIcons[3];
-            equippedIconsDictionary[ItemsBase.ItemType.armasIsa] = equippedIcons[4];
-            equippedIconsDictionary[ItemsBase.ItemType.singSingIsa] = equippedIcons[5];
-            equippedIconsDictionary[ItemsBase.ItemType.tiil] = equippedIcons[6];
-            equippedIconsDictionary[ItemsBase.ItemType.singSingDuha] = equippedIcons[7];
-            equippedIconsDictionary[ItemsBase.ItemType.armasDuha] = equippedIcons[8];
-            equippedIconsDictionary[ItemsBase.ItemType.paaIsa] = equippedIcons[9];
-            equippedIconsDictionary[ItemsBase.ItemType.paaDuha] = equippedIcons[10];
+            equippedIconsDictionary[EquippableItemsBase.ItemType.ulo] = equippedIcons[0];
+            equippedIconsDictionary[EquippableItemsBase.ItemType.antingAntingIsa] = equippedIcons[1];
+            equippedIconsDictionary[EquippableItemsBase.ItemType.lawas] = equippedIcons[2];
+            equippedIconsDictionary[EquippableItemsBase.ItemType.antingAntingDuha] = equippedIcons[3];
+            equippedIconsDictionary[EquippableItemsBase.ItemType.armasIsa] = equippedIcons[4];
+            equippedIconsDictionary[EquippableItemsBase.ItemType.singSingIsa] = equippedIcons[5];
+            equippedIconsDictionary[EquippableItemsBase.ItemType.tiil] = equippedIcons[6];
+            equippedIconsDictionary[EquippableItemsBase.ItemType.singSingDuha] = equippedIcons[7];
+            equippedIconsDictionary[EquippableItemsBase.ItemType.armasDuha] = equippedIcons[8];
+            equippedIconsDictionary[EquippableItemsBase.ItemType.paaIsa] = equippedIcons[9];
+            equippedIconsDictionary[EquippableItemsBase.ItemType.paaDuha] = equippedIcons[10];
             
             
-            equippedIconsDictionary[ItemsBase.ItemType.ulo].Initialize(0);
-            equippedIconsDictionary[ItemsBase.ItemType.antingAntingIsa].Initialize(1);
-            equippedIconsDictionary[ItemsBase.ItemType.lawas].Initialize(2);
-            equippedIconsDictionary[ItemsBase.ItemType.antingAntingDuha].Initialize(3);
-            equippedIconsDictionary[ItemsBase.ItemType.armasIsa].Initialize(4);
-            equippedIconsDictionary[ItemsBase.ItemType.singSingIsa].Initialize(5);
-            equippedIconsDictionary[ItemsBase.ItemType.tiil].Initialize(6);
-            equippedIconsDictionary[ItemsBase.ItemType.singSingDuha].Initialize(7);
-            equippedIconsDictionary[ItemsBase.ItemType.armasDuha].Initialize(8);
-            equippedIconsDictionary[ItemsBase.ItemType.paaIsa].Initialize(9);
-            equippedIconsDictionary[ItemsBase.ItemType.paaDuha].Initialize(10);
+            equippedIconsDictionary[EquippableItemsBase.ItemType.ulo].Initialize(0);
+            equippedIconsDictionary[EquippableItemsBase.ItemType.antingAntingIsa].Initialize(1);
+            equippedIconsDictionary[EquippableItemsBase.ItemType.lawas].Initialize(2);
+            equippedIconsDictionary[EquippableItemsBase.ItemType.antingAntingDuha].Initialize(3);
+            equippedIconsDictionary[EquippableItemsBase.ItemType.armasIsa].Initialize(4);
+            equippedIconsDictionary[EquippableItemsBase.ItemType.singSingIsa].Initialize(5);
+            equippedIconsDictionary[EquippableItemsBase.ItemType.tiil].Initialize(6);
+            equippedIconsDictionary[EquippableItemsBase.ItemType.singSingDuha].Initialize(7);
+            equippedIconsDictionary[EquippableItemsBase.ItemType.armasDuha].Initialize(8);
+            equippedIconsDictionary[EquippableItemsBase.ItemType.paaIsa].Initialize(9);
+            equippedIconsDictionary[EquippableItemsBase.ItemType.paaDuha].Initialize(10);
             
             
         }
@@ -71,19 +76,44 @@ namespace Items
         private void Start()
         {
             currentNavigation = equippedNumberOffset;
-            this.inventoryHighlight[currentNavigation].SetActive(true);
+            inventoryHighlight[currentNavigation].SetActive(true);
+            currentItemData = onSelectionChanged?.Invoke(currentNavigation-equippedNumberOffset);
+
+            SetItemDescriptionTexts();
+            
         }
+
+        public void RegisterListener(Func<int, ItemsBase> listener)
+        {
+            onSelectionChanged += listener;
+        }
+        
 
         public void SetInventoryHighlight(List<GameObject> inventoryHighlight)
         {
             this.inventoryHighlight = inventoryHighlight;
         }
+
+        public void EnableDialogBox(bool isEquip)
+        {
+            inventoryDialogueBox.SetEquipText(isEquip);
+            inventoryDialogueBox.gameObject.SetActive(true);
+        }
+        
         private void Update()
         {
-            HandleNavigationSelection();
+            bool isDialogBoxActive = inventoryDialogueBox.gameObject.activeSelf;
+            if (!isDialogBoxActive)
+            {
+                HandleNavigationSelection();
+            }
+            else
+            {
+                HandleActionSelection();
+            }
         }
 
-        public void UpdateEquippedItems(Dictionary<ItemsBase.ItemType, Item> equippedItems)
+        public void UpdateEquippedItems(Dictionary<EquippableItemsBase.ItemType, EquippableItem> equippedItems)
         {
             foreach (var itemType in equippedItems.Keys)
             {
@@ -142,6 +172,8 @@ namespace Items
             }
             if (isNavChanged)
             {
+                currentItemData = onSelectionChanged?.Invoke(currentNavigation-equippedNumberOffset);
+                SetItemDescriptionTexts();
                 inventoryHighlight[previousNavigation].SetActive(false);
                 inventoryHighlight[currentNavigation].SetActive(true);
             }
@@ -150,7 +182,7 @@ namespace Items
             {
                 foreach (var icon in inventoryIcons)
                 {
-                    if (currentNavigation == icon.index)
+                    if (currentNavigation == icon.index && icon.gameObject.activeSelf)
                     {
                         AudioManager.i.PlaySFX(AudioId.UISelect);
                         icon.Selected(icon.index- equippedNumberOffset);
@@ -158,16 +190,42 @@ namespace Items
                 }
             }else if (Input.GetKeyDown(KeyCode.X))
             {
-                foreach (var icon in inventoryIcons)
-                {
-                    if (currentNavigation == icon.index)
-                    {
-                        icon.Selected(icon.index - equippedNumberOffset);
-                    }
-                }
+                
+            }
+        }
+
+        private void SetItemDescriptionTexts()
+        {
+            if (currentItemData is null)
+            {
+                itemDescriptionBox.SetItemDescription("", "");
+            }
+            else
+            {
+                itemDescriptionBox.SetItemDescription(currentItemData.itemName, currentItemData.description);
+            }
+        }
+
+        void HandleActionSelection()
+        {
+            var currentIconIndex = currentNavigation - equippedNumberOffset;
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                currentActionSelection = 0;
+            }
+            else if (Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                currentActionSelection = 1;
             }
             
+            inventoryDialogueBox.UpdateActionSelection(currentActionSelection);
             
+            if (Input.GetKeyDown(KeyCode.Z))
+            {
+                Debug.Log("z works");
+                inventoryIcons[currentIconIndex].ActionSelected(currentIconIndex, currentActionSelection);
+                inventoryDialogueBox.gameObject.SetActive(false);
+            }
         }
     }
 }

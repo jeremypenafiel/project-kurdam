@@ -12,6 +12,7 @@ namespace Items
         public int index;
 
         public event Action<int> onSelected = delegate { };
+        public event Action<int, int> onActionSelected = delegate { };
 
         public void Initialize(int idx)
         {
@@ -22,10 +23,20 @@ namespace Items
         {
             onSelected?.Invoke(idx);
         }
+        
+        public void ActionSelected(int idx, int action)
+        {
+            onActionSelected?.Invoke(idx, action);
+        }
 
-        public void RegisterListener(Action<int> listener)
+        public void RegisterSelectedListener(Action<int> listener)
         {
             onSelected += listener;
+        }
+        
+        public void RegisterActionSelectedListener(Action<int, int> listener)
+        {
+            onActionSelected += listener;
         }
 
         public void UpdateItemIcon(Sprite icon)
