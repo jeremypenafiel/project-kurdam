@@ -18,6 +18,7 @@ namespace Items
 
         public void UpdateActionSelection(int selectedAction)
         {
+            //only alpha of color is changing idk why
             switch (selectedAction)
             {
                 case 0:

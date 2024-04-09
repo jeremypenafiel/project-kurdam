@@ -44,9 +44,10 @@ namespace Items
             OnInventoryChanged?.Invoke();
         }
 
-        public void ConsumeItem()
+        public void ConsumeItem(ConsumableItem consumableItem)
         {
-            
+            inventoryItems.Remove(consumableItem);
+            OnInventoryChanged?.Invoke();
         }
         
         public void Equip(EquippableItem item)

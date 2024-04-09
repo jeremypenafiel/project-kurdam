@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Health Potion
   icon: {fileID: 319328082, guid: b50ffe45bfd010f4aa7164844d60146f, type: 3}
-  description: 
+  description: ga heal
   currentStackNumber: 0
   itemEffects: []

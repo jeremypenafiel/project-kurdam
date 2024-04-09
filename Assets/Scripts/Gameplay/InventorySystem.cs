@@ -12,7 +12,7 @@ public class InventorySystem : MonoBehaviour
     [SerializeField] List<GameObject> inventoryIcon;
     //[SerializeField] List<ItemsBase?> inventoryItems;
 
-    [SerializeField] ItemsView view;
+    [SerializeField] public ItemsView view;
     [SerializeField] ItemsBase[] startingItems;
     private ItemController controller;
     
@@ -22,15 +22,12 @@ public class InventorySystem : MonoBehaviour
     int currentNavigation;
     int currentActionSelection;
 
-    public event Action SelectCloseInventory;
     public Aswang iplayer;
 
     private void Awake()
     {
         i = this;
         controller = new ItemController.Builder().WithItems(startingItems).Build(view);
-        
-
     }
 
     private void Start()

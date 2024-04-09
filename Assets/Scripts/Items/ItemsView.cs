@@ -19,6 +19,7 @@ namespace Items
         private int currentActionSelection = 0;
         private ItemsBase currentItemData = null;
         private event Func<int, ItemsBase> onSelectionChanged;
+        private event Action onInventoryExit;
 
         [SerializeField] public Dictionary<EquippableItemsBase.ItemType, ItemIcon> equippedIconsDictionary = new()
         {
@@ -77,17 +78,26 @@ namespace Items
         {
             currentNavigation = equippedNumberOffset;
             inventoryHighlight[currentNavigation].SetActive(true);
-            currentItemData = onSelectionChanged?.Invoke(currentNavigation-equippedNumberOffset);
+            
 
             SetItemDescriptionTexts();
             
         }
 
-        public void RegisterListener(Func<int, ItemsBase> listener)
+        public void RegisterSelectionListener(Func<int, ItemsBase> listener)
         {
             onSelectionChanged += listener;
         }
+
+        public void RegisterExitListener(Action listener)
+        {
+            onInventoryExit += listener;
+        }
         
+        public void RemoveExitListener(Action listener)
+        {
+            onInventoryExit -= listener;
+        }
 
         public void SetInventoryHighlight(List<GameObject> inventoryHighlight)
         {
@@ -128,6 +138,8 @@ namespace Items
                     equippedIconsDictionary[itemType].gameObject.SetActive(true);
                 }
             }
+            
+            SetItemDescriptionTexts();
         }
         
         public void UpdateInventoryItems(List<Item> inventoryItems)
@@ -136,7 +148,6 @@ namespace Items
             {
                 if (i < inventoryItems.Count)
                 {
-                    Debug.Log(i);
                     inventoryIcons[i].UpdateItemIcon(inventoryItems[i].itemData.icon);
                     inventoryIcons[i].gameObject.SetActive(true);
                 }
@@ -145,6 +156,8 @@ namespace Items
                     inventoryIcons[i].gameObject.SetActive(false);
                 }
             }
+            
+            SetItemDescriptionTexts();
         }
 
         void HandleNavigationSelection()
@@ -172,7 +185,6 @@ namespace Items
             }
             if (isNavChanged)
             {
-                currentItemData = onSelectionChanged?.Invoke(currentNavigation-equippedNumberOffset);
                 SetItemDescriptionTexts();
                 inventoryHighlight[previousNavigation].SetActive(false);
                 inventoryHighlight[currentNavigation].SetActive(true);
@@ -190,12 +202,13 @@ namespace Items
                 }
             }else if (Input.GetKeyDown(KeyCode.X))
             {
-                
+                onInventoryExit?.Invoke();
             }
         }
 
         private void SetItemDescriptionTexts()
         {
+            currentItemData = onSelectionChanged?.Invoke(currentNavigation-equippedNumberOffset);
             if (currentItemData is null)
             {
                 itemDescriptionBox.SetItemDescription("", "");
@@ -224,6 +237,9 @@ namespace Items
             {
                 Debug.Log("z works");
                 inventoryIcons[currentIconIndex].ActionSelected(currentIconIndex, currentActionSelection);
+                inventoryDialogueBox.gameObject.SetActive(false);
+            }else if (Input.GetKeyDown(KeyCode.X))
+            {
                 inventoryDialogueBox.gameObject.SetActive(false);
             }
         }

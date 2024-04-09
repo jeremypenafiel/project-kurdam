@@ -46,7 +46,7 @@ namespace Items
                 icon.RegisterSelectedListener(OnItemIconSelected);
                 icon.RegisterActionSelectedListener(OnItemActionSelected);
             }
-            _itemsView.RegisterListener(onSelectionChanged);
+            _itemsView.RegisterSelectionListener(onSelectionChanged);
             _itemsView.UpdateEquippedItems(_itemsModel.equippedItems);
             _itemsView.UpdateInventoryItems(_itemsModel.inventoryItems);
             
@@ -84,7 +84,7 @@ namespace Items
             }
             else
             {
-                _itemsModel.ConsumeItem();
+                _itemsModel.ConsumeItem((ConsumableItem)item);
             }
             
         }
