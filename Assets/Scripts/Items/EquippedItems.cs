@@ -8,7 +8,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Equipment")]
 public class EquippedItems : ScriptableObject   
 {
-    [SerializeField] ItemsBase armasIsa;
+    /*[SerializeField] ItemsBase armasIsa;
     [SerializeField] ItemsBase armasDuha;
 
     [SerializeField] ItemsBase ulo;
@@ -49,7 +49,7 @@ public class EquippedItems : ScriptableObject
     public List<ItemsBase> Gamit
     {
         get { return gamit; }
-    }
+    }*/
 
 
 }

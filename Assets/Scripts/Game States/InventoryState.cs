@@ -22,21 +22,20 @@ public class InventoryState : State<GameController>
     {
         gc = owner;
         inventorySystem.gameObject.SetActive(true);
+        inventorySystem.view.RegisterExitListener(CloseInventory);
         gc.WorldCamera.gameObject.SetActive(false);
         gc.VisionLimiter.SetActive(false);
         var player = gc.PlayerController.GetComponent<Player>().GetPlayer();
-        inventorySystem.StartInventorySystem(player);
-        inventorySystem.SelectCloseInventory += CloseInventory;
+        //inventorySystem.StartInventorySystem(player);
     }
     public override void Execute()
     {
-        InventorySystem.i.HandleUpdate();
+        //InventorySystem.i.HandleUpdate();
 
     }
 
     private void CloseInventory()
     {
-
         gc.StateMachine.Pop();
 
     }
@@ -44,8 +43,8 @@ public class InventoryState : State<GameController>
     public override void Exit()
     {
         inventorySystem.gameObject.SetActive(false);
+        inventorySystem.view.RemoveExitListener(CloseInventory);
         gc.WorldCamera.gameObject.SetActive(true);
         gc.VisionLimiter.SetActive(true);
-        inventorySystem.SelectCloseInventory -= CloseInventory;
     }
 }

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
+using Items;
 using UnityEngine;
 
 public enum InventorySystemState { Navigation, ActionSelection}
@@ -9,22 +10,32 @@ public class InventorySystem : MonoBehaviour
 {
     [SerializeField] List<GameObject> inventoryHighlight;
     [SerializeField] List<GameObject> inventoryIcon;
-    [SerializeField] List<ItemsBase?> inventoryItems;
+    //[SerializeField] List<ItemsBase?> inventoryItems;
+
+    [SerializeField] public ItemsView view;
+    [SerializeField] ItemsBase[] startingItems;
+    private ItemController controller;
+    
 
     InventorySystemState state;
     public static InventorySystem i;
     int currentNavigation;
     int currentActionSelection;
 
-    public event Action SelectCloseInventory;
     public Aswang iplayer;
 
     private void Awake()
     {
         i = this;
+        controller = new ItemController.Builder().WithItems(startingItems).Build(view);
     }
 
-    public void StartInventorySystem(Aswang player)
+    private void Start()
+    {
+        view.SetInventoryHighlight(inventoryHighlight);
+    }
+
+    /*public void StartInventorySystem(Aswang player)
     {
         iplayer = player;
 
@@ -54,7 +65,7 @@ public class InventorySystem : MonoBehaviour
             if (inventoryItems[i] != null) 
             {
                 inventoryIcon[i].SetActive(true);
-                inventoryIcon[i].GetComponent<SpriteRenderer>().sprite = inventoryItems[i].Icon;
+                inventoryIcon[i].GetComponent<SpriteRenderer>().sprite = inventoryItems[i].icon;
             }
         }
 
@@ -62,8 +73,9 @@ public class InventorySystem : MonoBehaviour
         currentNavigation = 11;
         state = InventorySystemState.Navigation;
         HandleUpdate();
-    }
+    }*/
 
+    /*
     public void HandleUpdate()
     {
         if (state== InventorySystemState.Navigation)
@@ -74,8 +86,9 @@ public class InventorySystem : MonoBehaviour
         {
             HandleActionSelection();
         }
-    }
+    }*/
 
+    /*
     void HandleNavigationSelection()
     {
         if (Input.GetKeyDown(KeyCode.RightArrow))
@@ -103,8 +116,9 @@ public class InventorySystem : MonoBehaviour
         }
         UpdateInventoryNavigation(currentNavigation);
 
-    }
+    }*/
 
+    /*
     void HandleActionSelection()
     {
         
@@ -152,8 +166,8 @@ public class InventorySystem : MonoBehaviour
             Navigation();
         }
         UpdateActionSelection();
-    }
-    void UpdateInventoryNavigation(int currentIndexHighlight)
+    }*/
+    /*void UpdateInventoryNavigation(int currentIndexHighlight)
     {
         for (int i = 0; i < inventoryHighlight.Count; ++i)
         {
@@ -172,15 +186,15 @@ public class InventorySystem : MonoBehaviour
 
     void Equip(int slot, ItemsBase item)
     {
-        if (item.Type == ItemsBase.ItemType.armasIsa)
+        if (item.type == ItemsBase.ItemType.armasIsa)
         {
             inventoryItems[slot] = inventoryItems[4];
             inventoryItems[4] = item;
-            inventoryIcon[4].GetComponent<SpriteRenderer>().sprite = inventoryItems[4].Icon;
+            inventoryIcon[4].GetComponent<SpriteRenderer>().sprite = inventoryItems[4].icon;
             inventoryIcon[4].SetActive(true) ;
             if (inventoryItems[slot] != null) 
             { 
-                inventoryIcon[slot].GetComponent<SpriteRenderer>().sprite = inventoryItems[slot].Icon;
+                inventoryIcon[slot].GetComponent<SpriteRenderer>().sprite = inventoryItems[slot].icon;
             }
             else
             {
@@ -197,7 +211,7 @@ public class InventorySystem : MonoBehaviour
             if (inventoryItems[i] == null)
             {
                 inventoryItems[i] = inventoryItems[slot];
-                inventoryIcon[i].GetComponent<SpriteRenderer>().sprite = inventoryItems[i].Icon;
+                inventoryIcon[i].GetComponent<SpriteRenderer>().sprite = inventoryItems[i].icon;
                 inventoryIcon[i].SetActive(true);
                 inventoryItems[slot] = null;
                 inventoryIcon[slot].SetActive(false);
@@ -249,6 +263,6 @@ public class InventorySystem : MonoBehaviour
     public void UpdateActionSelection()
     {
 
-    }
+    }*/
 
 }
