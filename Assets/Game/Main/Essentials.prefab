@@ -532,7 +532,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8df33c569d041bc99a09bf94c197949, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highlightedColor: {r: 1, g: 0, b: 0.15720081, a: 1}
+  highlightedColor: {r: 0, g: 0.3019608, b: 1, a: 1}
   promptText: {fileID: 6611571548349972964}
   equipText: {fileID: 6388288544360029731}
   discardText: {fileID: 6236619150610147632}
@@ -1711,7 +1711,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

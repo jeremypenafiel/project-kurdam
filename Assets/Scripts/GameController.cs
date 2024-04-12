@@ -75,7 +75,7 @@ public class GameController : MonoBehaviour
 
     public void StartBattle()
     {
-        StateMachine.Push(TransitionState.I);
+        StateMachine.Push(BattleState.i);
     }
     public void PauseGame(bool pause)
     {
