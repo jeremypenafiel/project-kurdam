@@ -52,8 +52,8 @@ public class BattleSystem : MonoBehaviour
 
         this.player = player;
         this.wildAswang = wildAswang;
-        //armasType = player.Base.EquippedItems.ArmasIsa.armasType;
-        AudioManager.i.PlayMusic(battleMusic);
+        armasType = player.Base.EquippedItems.Armas.ArmasType;
+        //AudioManager.i.PlayMusic(battleMusic);
         StartCoroutine(SetupBattle());
     }
 

@@ -16,7 +16,8 @@ public class BattleState : State<GameController>
     public override void Enter(GameController owner)
     {
         gc = owner;
-        battleSystem.gameObject.SetActive(true) ;
+        /*StartCoroutine(gc.Transition());*/
+        battleSystem.gameObject.SetActive(true);
         gc.WorldCamera.gameObject.SetActive(false);
         gc.VisionLimiter.SetActive(false);
 

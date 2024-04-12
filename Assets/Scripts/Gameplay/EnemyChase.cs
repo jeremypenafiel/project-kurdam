@@ -9,6 +9,7 @@ public class EnemyChase : MonoBehaviour
     public float checkRadiusDefault;
     public float encounterRadius;
     private float currentCheckRadius;
+    public float musicCheckDistance = 15f;
 
     public bool shouldRotate;
     public LayerMask chase;
@@ -22,8 +23,9 @@ public class EnemyChase : MonoBehaviour
     private bool isInChaseRange;
     private bool isInEncounterRange;
     private bool canMove;
-    private GameObject player; 
+    private GameObject player;
 
+    private bool isCreepyMusicPlaying = false;
     
     private void Start()
     {
@@ -40,19 +42,58 @@ public class EnemyChase : MonoBehaviour
     private void Update()
     {
         SetCheckRadius();
+        var targetPos = target.position;
+        var unitPos = transform.position;
 
         anim.SetBool("isRunning", isInChaseRange);
-        isInChaseRange = Physics2D.OverlapCircle(transform.position, currentCheckRadius, chase);
-        isInEncounterRange = Physics2D.OverlapCircle(transform.position, encounterRadius, chase);
+        isInChaseRange = Physics2D.OverlapCircle(unitPos, currentCheckRadius, chase);
+        isInEncounterRange = Physics2D.OverlapCircle(unitPos, encounterRadius, chase);
         canMove = GameController.Instance.IsInFreeRoamState();
-        dir = target.position - transform.position; float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        dir = targetPos - unitPos;
+        if (!isCreepyMusicPlaying)
+        {
+            CheckIfPlayCreepyMusic(targetPos, unitPos);
+        }
+        else
+        {
+            SetAmbientVolume(targetPos, unitPos);
+            CheckIfNotPlayCreepyMusic(targetPos, unitPos);
+        }
+
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         dir.Normalize();
+        
         movement = dir;
 
         if (shouldRotate)
         {
             anim.SetFloat("x", dir.x);
             anim.SetFloat("y", dir.y);
+        }
+    }
+    private void SetAmbientVolume(Vector3 targetPos, Vector3 unitPos)
+    {
+        var dist = Vector3.Distance(targetPos, unitPos);
+        var clampedDistance = Mathf.Clamp01((musicCheckDistance - dist)/ musicCheckDistance);
+        AudioManager.i.SetAmbientVolume(clampedDistance);
+    }
+    private void CheckIfPlayCreepyMusic(Vector3 targetPos, Vector3 unitPos)
+    {
+        var dist = Vector3.Distance(targetPos, unitPos);
+        if (dist < musicCheckDistance)
+        {
+            isCreepyMusicPlaying = true;
+            AudioManager.i.PlayAmbientSound(null, true);
+        }
+    }
+
+    private void CheckIfNotPlayCreepyMusic(Vector3 targetPos, Vector3 unitPos)
+    {
+        var dist = Vector3.Distance(targetPos, unitPos);
+        if (dist >= musicCheckDistance)
+        {
+            isCreepyMusicPlaying = false;
+            AudioManager.i.StopPlayAmbientSound();
         }
     }
 
