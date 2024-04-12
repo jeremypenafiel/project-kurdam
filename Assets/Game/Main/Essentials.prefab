@@ -342,6 +342,7 @@ MonoBehaviour:
   sfxPlayer: {fileID: 5154787695184884005}
   ambiencePlayer: {fileID: 5473577663592501284}
   fadeDuration: 0.75
+  creepyMusic: {fileID: 8300000, guid: 6158da2f522152c41bf8b88b32aa97de, type: 3}
 --- !u!1 &278651077079153327
 GameObject:
   m_ObjectHideFlags: 0
@@ -10547,7 +10548,7 @@ GameObject:
   - component: {fileID: 3295171525748425011}
   - component: {fileID: 9005815679555525251}
   - component: {fileID: 1717593920412605878}
-  - component: {fileID: 2368244517829460891}
+  - component: {fileID: 5867223195351410318}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -10693,6 +10694,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b36265532d155954db06645492f25e69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5867223195351410318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6021599357922479573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 092de070627346e5a0804e0135a56cdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  battleMusic: {fileID: 8300000, guid: 1c5cd9e939b968f47b41a85c6e46403d, type: 3}
 --- !u!1 &6102285335977711959
 GameObject:
   m_ObjectHideFlags: 0
