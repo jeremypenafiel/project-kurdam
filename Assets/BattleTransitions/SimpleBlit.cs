@@ -10,7 +10,7 @@ public class SimpleBlit : MonoBehaviour
     public Material TransitionMaterial;
     [SerializeField] public List<Texture> textures;
     [SerializeField] private float transitionDuration = 2.75f;
-
+    [SerializeField] private int transitionNumber;
     private void Awake()
     {
         TransitionMaterial.SetFloat("_Cutoff", 0);
@@ -25,7 +25,7 @@ public class SimpleBlit : MonoBehaviour
     public IEnumerator TransitionIn()
     {
         // Sets Transition Texture or Pattern
-        TransitionMaterial.SetTexture("_TransitionTex", textures[2]);
+        TransitionMaterial.SetTexture("_TransitionTex", textures[transitionNumber]);
         
         // Does transition as long as duration
         var delta = 0.0f;
