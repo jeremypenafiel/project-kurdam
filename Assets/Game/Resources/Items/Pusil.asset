@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89459c1f94c74576801389e9cae51c1a, type: 3}
   m_Name: Pusil
   m_EditorClassIdentifier: 
-  itemName: 
-  icon: {fileID: 0}
-  description: 
+  itemName: Pusil
+  icon: {fileID: 21300000, guid: 134184764ec9d78408031ab5346f6c1b, type: 3}
+  description: Pangtiro aswang
   type: 0
   armasType: {fileID: 0}
   advantage: []

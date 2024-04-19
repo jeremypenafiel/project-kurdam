@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89459c1f94c74576801389e9cae51c1a, type: 3}
   m_Name: Helmet
   m_EditorClassIdentifier: 
-  itemName: 
-  icon: {fileID: 0}
-  description: 
-  type: 0
+  itemName: Helmet kang delivery
+  icon: {fileID: 21300000, guid: ad88ea50c15006845900761ec6a4698a, type: 3}
+  description: Panagang sa kapre
+  type: 2
   armasType: {fileID: 0}
   advantage: []
   disadvantage: []
