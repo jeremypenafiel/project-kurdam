@@ -7414,6 +7414,9 @@ MonoBehaviour:
   portalLayer:
     serializedVersion: 2
     m_Bits: 512
+  triggersLayer:
+    serializedVersion: 2
+    m_Bits: 4096
 --- !u!114 &3883348242580643662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12974,6 +12977,10 @@ PrefabInstance:
     - target: {fileID: 6204243451207039366, guid: 5cbeee47138ac9549aa3fe0050d2829f, type: 3}
       propertyPath: m_Name
       value: VisionLimiter
+      objectReference: {fileID: 0}
+    - target: {fileID: 6204243451207039366, guid: 5cbeee47138ac9549aa3fe0050d2829f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6224463488928155437, guid: 5cbeee47138ac9549aa3fe0050d2829f, type: 3}
       propertyPath: m_SizeDelta.x

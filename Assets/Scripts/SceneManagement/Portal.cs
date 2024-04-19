@@ -19,6 +19,8 @@ public class Portal : MonoBehaviour, IPLayerTriggerable
         SwitchScene();
     }
 
+    public bool TriggerRepeatedly => false;
+
     private void Start()
     {
         fader = FindObjectOfType<Fader>();

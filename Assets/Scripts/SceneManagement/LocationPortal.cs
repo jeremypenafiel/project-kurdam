@@ -60,6 +60,8 @@ public class LocationPortal : MonoBehaviour, IPLayerTriggerable
         fader.FadeOut(0.5f);
         GameController.Instance.PauseGame(false);
     }
+
+    public bool TriggerRepeatedly => false;
     public Transform Spawnpoint => spawnPoint;
 
     public enum DestinationIdentifier { A, B, C, D, E }
