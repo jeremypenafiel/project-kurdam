@@ -30,6 +30,7 @@ public class BattleSystem : MonoBehaviour
     Aswang player;
 
     public static BattleSystem i;
+    Coroutine currentCoroutine;
 
     private DamageType armasType;
     private void Awake()
@@ -78,7 +79,7 @@ public class BattleSystem : MonoBehaviour
     void ActionSelection()
     {
         state = BattleSystemState.ActionSelection;
-        StartCoroutine(dialogBox.TypeDialog("Choose An Action"));
+        currentCoroutine = StartCoroutine(dialogBox.TypeDialog("Choose An Action"));
         dialogBox.EnableActionSelector(true);
     }
 
@@ -93,7 +94,7 @@ public class BattleSystem : MonoBehaviour
     void PlayerAttackRoll()
     {
         state = BattleSystemState.PlayerAttackRoll;
-        StartCoroutine(dialogBox.TypeDialog("Roll the dice to attack."));
+        currentCoroutine = StartCoroutine(dialogBox.TypeDialog("Roll the dice to attack."));
 
         diceSystem.SetupAttackRoll();
     }
@@ -101,14 +102,14 @@ public class BattleSystem : MonoBehaviour
     void PlayerDamageRoll(Moves move)
     {
         state = BattleSystemState.PlayerDamageRoll;
-        StartCoroutine(dialogBox.TypeDialog("Roll the dice for damage."));
+        currentCoroutine = StartCoroutine(dialogBox.TypeDialog("Roll the dice for damage."));
         diceSystem.SetupDamageRoll(move);
     }
 
     void EnemyAttackRoll()
     {
         state = BattleSystemState.EnemyAttackRoll;
-        StartCoroutine(dialogBox.TypeDialog("Enemy is attacking."));
+        currentCoroutine = StartCoroutine(dialogBox.TypeDialog("Enemy is attacking."));
 
         diceSystem.SetupAttackRoll();
     }
@@ -170,6 +171,7 @@ public class BattleSystem : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Z))
         {
+            StopCoroutine(currentCoroutine);
             AudioManager.i.PlaySFX(AudioId.UISelect);
             if (currentAction == 0)
             {
@@ -225,7 +227,7 @@ public class BattleSystem : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.X))
         {
-    
+            StopCoroutine(currentCoroutine);
             AudioManager.i.PlaySFX(AudioId.UISelect);
             dialogBox.EnableMoveSelector(false);
             dialogBox.EnableDialogText(true);
