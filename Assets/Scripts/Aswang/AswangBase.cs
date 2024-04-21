@@ -31,7 +31,7 @@ public class AswangBase : ScriptableObject
     [SerializeField] List<LearnableMove> learnableMoves;
     [SerializeField] List<DamageType> resistances;
     [SerializeField] List<DamageType> vulnerabilities;
-    [SerializeField] List<ItemsBase> weakness;
+    //[SerializeField] List<ItemsBase> weakness;
     [SerializeField] EquippedItems equipments;
     public string Aname
     {
@@ -116,10 +116,10 @@ public class AswangBase : ScriptableObject
     {
         get { return vulnerabilities; }
     }
-    public List<ItemsBase> Weakness
+    /*public List<ItemsBase> Weakness
     {
         get { return weakness; }
-    }
+    }*/
     public int GetExpForLevel(int level)
     {
         return level * level * level;

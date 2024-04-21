@@ -1,3 +1,4 @@
+using System.Collections;
 using GDEUtils.StateMachine;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -62,10 +63,19 @@ public class GameController : MonoBehaviour
         };
     }
 
+    public IEnumerator Transition()
+    {
+       yield return StartCoroutine(worldCamera.GetComponent<SimpleBlit>().TransitionIn());
+       
+       // Pops transition state after transition coroutine finishes
+       // TransitionState Exit method pushes the BattleState
+       StateMachine.Pop();
+       
+    }
+
     public void StartBattle()
     {
         StateMachine.Push(BattleState.i);
-
     }
     public void PauseGame(bool pause)
     {
@@ -139,17 +149,17 @@ public class GameController : MonoBehaviour
 
     //FOR TESTING AND DEBUGGING 
 
-    private void OnGUI()
-    {
-        var style = new GUIStyle();
-        style.fontSize = 24;
-        GUILayout.Label("STATE STACK", style);
-        foreach (var state in StateMachine.StateStack)
-        {
-            GUILayout.Label(state.GetType().ToString(), style);
-        }
-
-    }
+    // private void OnGUI()
+    // {
+    //     var style = new GUIStyle();
+    //     style.fontSize = 24;
+    //     GUILayout.Label("STATE STACK", style);
+    //     foreach (var state in StateMachine.StateStack)
+    //     {
+    //         GUILayout.Label(state.GetType().ToString(), style);
+    //     }
+    //
+    // }
 
     public void StartEncounterFn()
     {
