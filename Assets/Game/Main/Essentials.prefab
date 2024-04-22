@@ -15042,7 +15042,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.21226418, g: 0.2306838, b: 0.23584908, a: 1}
+  m_Color: {r: 0.3018868, g: 0.2331646, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -16005,7 +16005,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.050943315, g: 0.7908511, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.87378013, b: 0.5424528, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -16750,7 +16750,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogText: {fileID: 3103854902140788843}
   lettersPerSecond: 30
-  highlightedColor: {r: 0, g: 0.30376422, b: 1, a: 1}
+  highlightedColor: {r: 0.84313726, g: 0.27450982, b: 0.27450982, a: 1}
   actionSelector: {fileID: 590915731709113773}
   moveSelector: {fileID: 3984076527885294903}
   moveDetails: {fileID: 7451550736307410297}
