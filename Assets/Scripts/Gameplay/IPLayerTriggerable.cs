@@ -5,5 +5,5 @@ using UnityEngine;
 public interface IPLayerTriggerable 
 {
     void OnPlayerTriggered(PlayerController player);
-
+    bool TriggerRepeatedly { get; }
 }

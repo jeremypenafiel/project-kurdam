@@ -30,6 +30,8 @@ public class PlayerController : MonoBehaviour
     public List<Aswang> encounterList;
     GameController gc;
 
+    IPLayerTriggerable currentlyInTrigger=null;
+
     private void Awake()
     {
         character = GetComponent<Character>();
@@ -58,7 +60,8 @@ public class PlayerController : MonoBehaviour
            StartCoroutine(Interact(position));
        }
        
-       Teleport(position);
+        Teleport(position);
+        StoryTrigger(position);
     }
 
     public void GetInput()
@@ -127,6 +130,24 @@ public class PlayerController : MonoBehaviour
         collision.GetComponent<IPLayerTriggerable>()?.OnPlayerTriggered(this);
     }
 
+    public void StoryTrigger(Vector2 position)
+    {
+        IPLayerTriggerable triggerable;
+        var collision = Physics2D.OverlapCircle(position, 0.5f, GameLayers.I.TriggersLayer); //  increased radius to 0.5f
+
+        if (collision is null)
+        {
+            currentlyInTrigger = null;
+            return;
+        }
+        triggerable = collision.GetComponent<IPLayerTriggerable>();
+        if (triggerable == currentlyInTrigger && !triggerable.TriggerRepeatedly) return;
+        input.x = 0;
+        input.y = 0;
+        currentlyInTrigger = triggerable;
+        triggerable.OnPlayerTriggered(i);
+
+    }
     public Character Character => character;
 
 
