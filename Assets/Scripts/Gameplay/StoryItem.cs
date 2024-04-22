@@ -57,6 +57,7 @@ public class StoryItem : MonoBehaviour, IPLayerTriggerable
                Debug.Log("nag run pagd a");
                yield return StartCoroutine(activeQuest.CompletedQuest(playerItems));
                activeQuest = null;
+               questToStart = null;
            }
                
        }
