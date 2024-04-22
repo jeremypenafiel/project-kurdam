@@ -30,13 +30,17 @@ namespace Items
         public void AddItem(Item newItem)
         {
             // if item is consumable and there is already an item of the same type, increment amount
-            Debug.Log( $"inventory contains {newItem.itemData.name} is {inventoryItems.Contains(newItem)}");
-            if (newItem.itemData is ConsumableItemBase && inventoryItems.Find(item => (item.itemData.name == newItem.itemData.name)) != null)
+            if (newItem.itemData is ConsumableItemBase )
             {
-                var consumableItem = (ConsumableItem) newItem;
-                consumableItem.Amount++;
-                Debug.Log(consumableItem.Amount);
-                return;
+                var item = inventoryItems.Find(item => (item.itemData.name == newItem.itemData.name));
+                if (item != null)
+                {
+                    var consumableItem = (ConsumableItem) item;
+                    consumableItem.Amount++;
+                    Debug.Log(consumableItem.Amount);
+                    OnInventoryChanged?.Invoke();
+                    return;
+                }
             }
             
             // else add to inventory

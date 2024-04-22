@@ -151,17 +151,17 @@ public class GameController : MonoBehaviour
 
     //FOR TESTING AND DEBUGGING 
 
-    private void OnGUI()
-    {
-        var style = new GUIStyle();
-        style.fontSize = 24;
-        GUILayout.Label("STATE STACK", style);
-        foreach (var state in StateMachine.StateStack)
-        {
-            GUILayout.Label(state.GetType().ToString(), style);
-        }
-    
-    }
+    // private void OnGUI()
+    // {
+    //     var style = new GUIStyle();
+    //     style.fontSize = 24;
+    //     GUILayout.Label("STATE STACK", style);
+    //     foreach (var state in StateMachine.StateStack)
+    //     {
+    //         GUILayout.Label(state.GetType().ToString(), style);
+    //     }
+    //
+    // }
 
     public void StartEncounterFn()
     {
