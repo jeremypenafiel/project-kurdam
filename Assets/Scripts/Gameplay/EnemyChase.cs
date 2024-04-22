@@ -19,6 +19,7 @@ public class EnemyChase : MonoBehaviour
     private Animator anim;
     private Vector2 movement;
     public Vector3 dir;
+    private Vector2 look;
 
     private bool isInChaseRange;
     private bool isInEncounterRange;
@@ -26,14 +27,17 @@ public class EnemyChase : MonoBehaviour
     private GameObject player;
 
     private bool isCreepyMusicPlaying = false;
+
+    Character character;
     
     private void Start()
     {
         currentCheckRadius = checkRadiusDefault;
         rb = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
-        target = GameObject.FindWithTag("Player").transform;
+/*        anim = GetComponent<Animator>();
+*/        target = GameObject.FindWithTag("Player").transform;
         player = GameObject.Find("Player");
+        character = GetComponent<Character>();
 
 
 
@@ -45,7 +49,7 @@ public class EnemyChase : MonoBehaviour
         var targetPos = target.position;
         var unitPos = transform.position;
 
-        anim.SetBool("isRunning", isInChaseRange);
+/*        anim.SetBool("isRunning", isInChaseRange);*/
         isInChaseRange = Physics2D.OverlapCircle(unitPos, currentCheckRadius, chase);
         isInEncounterRange = Physics2D.OverlapCircle(unitPos, encounterRadius, chase);
         canMove = GameController.Instance.IsInFreeRoamState();
@@ -65,11 +69,11 @@ public class EnemyChase : MonoBehaviour
         
         movement = dir;
 
-        if (shouldRotate)
+/*        if (shouldRotate)
         {
             anim.SetFloat("x", dir.x);
             anim.SetFloat("y", dir.y);
-        }
+        }*/
     }
     private void SetAmbientVolume(Vector3 targetPos, Vector3 unitPos)
     {
@@ -103,7 +107,17 @@ public class EnemyChase : MonoBehaviour
 
         if (isInChaseRange && !isInEncounterRange && canMove)
         {
+            if (movement.x < 0)
+            {
+                look.x = 1; look.y = 0;
+            }
+            else if (movement.x > 0)
+            {
+                look.x = -1; look.y = 0;
+            }
+            
             MoveCharacter(movement);
+            character.SetAnimation(look);
         }
         if (isInEncounterRange) 
         {
