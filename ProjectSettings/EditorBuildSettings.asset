@@ -36,6 +36,6 @@ EditorBuildSettings:
     path: Assets/Scenes/CL4.unity
     guid: 2856000d9144a5b4f9c16dd72d94d2f7
   - enabled: 1
-    path: Assets/Scenes/Nature Trail.unity
+    path: Assets/Scenes/NatureTrail.unity
     guid: fbd0e6fde317ef048b6d7b70eff6452b
   m_configObjects: {}
