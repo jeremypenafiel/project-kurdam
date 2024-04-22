@@ -11,14 +11,13 @@ public class InventorySystem : MonoBehaviour
     [SerializeField] List<GameObject> inventoryHighlight;
     [SerializeField] List<GameObject> inventoryIcon;
     //[SerializeField] List<ItemsBase?> inventoryItems;
-
+    
     [SerializeField] public ItemsView view;
     [SerializeField] ItemsBase[] startingItems;
-    private ItemController controller;
+    public ItemController Controller;
     
 
     InventorySystemState state;
-    public static InventorySystem i;
     int currentNavigation;
     int currentActionSelection;
 
@@ -26,8 +25,7 @@ public class InventorySystem : MonoBehaviour
 
     private void Awake()
     {
-        i = this;
-        controller = new ItemController.Builder().WithItems(startingItems).Build(view);
+        Controller = new ItemController.Builder().WithItems(startingItems).Build(view);
     }
 
     private void Start()

@@ -22,6 +22,7 @@ public class InventoryState : State<GameController>
     {
         gc = owner;
         inventorySystem.gameObject.SetActive(true);
+        inventorySystem.view.ActivateCamera();
         inventorySystem.view.RegisterExitListener(CloseInventory);
         gc.WorldCamera.gameObject.SetActive(false);
         gc.VisionLimiter.SetActive(false);

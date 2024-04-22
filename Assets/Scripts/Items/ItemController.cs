@@ -6,7 +6,7 @@ namespace Items
     public class ItemController
     {
         readonly ItemsView _itemsView;
-        readonly ItemsModel _itemsModel;
+        public readonly ItemsModel _itemsModel;
 
         ItemController(ItemsView itemsView, ItemsModel itemsModel)
         {
@@ -52,9 +52,9 @@ namespace Items
             
         }
 
-        ItemsBase onSelectionChanged(int index)
+        Item onSelectionChanged(int index)
         {
-            var itemData = index >= _itemsModel.inventoryItems.Count || index < 0  ? null : _itemsModel.inventoryItems[index].itemData;
+            var itemData = index >= _itemsModel.inventoryItems.Count || index < 0  ? null : _itemsModel.inventoryItems[index];
             return itemData;
         }
         
