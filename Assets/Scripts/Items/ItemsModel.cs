@@ -27,13 +27,20 @@ namespace Items
         public event Action OnEquippedItemsChanged;
 
 
-        public void AddItem(Item item)
+        public void AddItem(Item newItem)
         {
-            if (item.itemData is ConsumableItemBase)
+            // if item is consumable and there is already an item of the same type, increment amount
+            Debug.Log( $"inventory contains {newItem.itemData.name} is {inventoryItems.Contains(newItem)}");
+            if (newItem.itemData is ConsumableItemBase && inventoryItems.Find(item => (item.itemData.name == newItem.itemData.name)) != null)
             {
-                /*item.itemData.*/
+                var consumableItem = (ConsumableItem) newItem;
+                consumableItem.Amount++;
+                Debug.Log(consumableItem.Amount);
+                return;
             }
-            inventoryItems.Add(item);
+            
+            // else add to inventory
+            inventoryItems.Add(newItem);
             Debug.Log("Item added in model");
             OnInventoryChanged?.Invoke();
         }
@@ -69,7 +76,50 @@ namespace Items
             OnEquippedItemsChanged?.Invoke();
             OnInventoryChanged?.Invoke();
         }
+        
+        public bool Contains(ItemsBase requiredItem)
+        {
+            foreach (var item in inventoryItems)
+            {
+                if(Equals(item.itemData, requiredItem))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        
+        public void RemoveItem(ItemsBase requiredItem)
+        {
+            foreach (var item in inventoryItems)
+            {
+                if(Equals(item.itemData, requiredItem))
+                {
+                    inventoryItems.Remove(item);
+                    OnInventoryChanged?.Invoke();
+                    return;
+                }
+            }
+        }
+        
+        public void AddItem(ItemsBase rewardItem)
+        {
+            if(rewardItem is EquippableItemsBase)
+            {
+                AddItem(new EquippableItem((EquippableItemsBase)rewardItem));
+                return;
+            }
+            
+            if (rewardItem is ConsumableItemBase)
+            {
+                AddItem(new ConsumableItem((ConsumableItemBase)rewardItem));
+            }
+            
+        }
+    
     }
+    
+        
     
     public abstract class Item
     {

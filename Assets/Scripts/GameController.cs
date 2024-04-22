@@ -18,6 +18,7 @@ public class GameController : MonoBehaviour
     [SerializeField] GameObject pauseScreen;
     [SerializeField] GameObject visionLimiter;
     [SerializeField] InventorySystem inventorySystem;
+
     
 
     Fader fader;
@@ -42,6 +43,7 @@ public class GameController : MonoBehaviour
     {
         Instance = this;
         fader = FindObjectOfType<Fader>();
+  
     }
     private void Start()
     {
@@ -149,17 +151,17 @@ public class GameController : MonoBehaviour
 
     //FOR TESTING AND DEBUGGING 
 
-    // private void OnGUI()
-    // {
-    //     var style = new GUIStyle();
-    //     style.fontSize = 24;
-    //     GUILayout.Label("STATE STACK", style);
-    //     foreach (var state in StateMachine.StateStack)
-    //     {
-    //         GUILayout.Label(state.GetType().ToString(), style);
-    //     }
-    //
-    // }
+    private void OnGUI()
+    {
+        var style = new GUIStyle();
+        style.fontSize = 24;
+        GUILayout.Label("STATE STACK", style);
+        foreach (var state in StateMachine.StateStack)
+        {
+            GUILayout.Label(state.GetType().ToString(), style);
+        }
+    
+    }
 
     public void StartEncounterFn()
     {

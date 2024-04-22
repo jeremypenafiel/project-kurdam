@@ -6775,7 +6775,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4810397989588974816
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16410,7 +16410,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &875345079117964492
 Transform:
   m_ObjectHideFlags: 0
@@ -16983,7 +16983,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5616277959260124245
 Transform:
   m_ObjectHideFlags: 0
@@ -17088,7 +17088,6 @@ MonoBehaviour:
   view: {fileID: 6413847917589893581}
   startingItems:
   - {fileID: 11400000, guid: d58db2686ee408a42a356a9dddbe7069, type: 2}
-  - {fileID: 11400000, guid: 74a4aa5cfcd0b8d45ae7d6b4b575f2a0, type: 2}
   - {fileID: 11400000, guid: 36e48425af44072449591a05556072cd, type: 2}
   iplayer:
     _base: {fileID: 0}
@@ -17607,6 +17606,10 @@ PrefabInstance:
       propertyPath: playertype
       value: 
       objectReference: {fileID: 11400000, guid: 72046347066b5a24eb23b39e47e72034, type: 2}
+    - target: {fileID: 2500359263501857979, guid: 3fcc7e8f83e983c4f9a1f6fbeeab54c0, type: 3}
+      propertyPath: inventorySystem
+      value: 
+      objectReference: {fileID: 398129564446915565}
     - target: {fileID: 2696640200519575285, guid: 3fcc7e8f83e983c4f9a1f6fbeeab54c0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 40.5

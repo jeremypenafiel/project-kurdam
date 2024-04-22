@@ -74,6 +74,12 @@ namespace Items
             
         }
 
+        public void ActivateCamera()
+        {
+            gameObject.GetComponent<Canvas>().worldCamera.gameObject.SetActive(true);
+            gameObject.SetActive(true);
+        }
+
         private void Start()
         {
             currentNavigation = equippedNumberOffset;

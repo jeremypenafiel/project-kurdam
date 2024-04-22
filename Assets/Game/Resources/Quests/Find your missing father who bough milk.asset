@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abc23077866dc7f4dbd6ba46788b821d, type: 3}
+  m_Name: Find your missing father who bough milk
+  m_EditorClassIdentifier: 
+  name: Find your missing father who bought milk
+  description: Find your father who is black, bald, and frequents KFC
+  startDialogue:
+    lines:
+    - Find your father!
+  inprogressDialogue:
+    lines:
+    - pangitaa sa anay
+  completedDialogue:
+    lines:
+    - nakitya mo na sa
+  requiredItem: {fileID: 11400000, guid: d58db2686ee408a42a356a9dddbe7069, type: 2}
+  rewardItem: {fileID: 11400000, guid: 74a4aa5cfcd0b8d45ae7d6b4b575f2a0, type: 2}

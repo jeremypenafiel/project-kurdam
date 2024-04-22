@@ -6,7 +6,7 @@ namespace Items
     public class ItemController
     {
         readonly ItemsView _itemsView;
-        readonly ItemsModel _itemsModel;
+        public readonly ItemsModel _itemsModel;
 
         ItemController(ItemsView itemsView, ItemsModel itemsModel)
         {

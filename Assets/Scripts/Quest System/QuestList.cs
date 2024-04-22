@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+[Serializable]
 public class QuestList : MonoBehaviour
 {
     List<Quest> quests =new List<Quest>();

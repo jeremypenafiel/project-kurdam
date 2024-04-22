@@ -723,6 +723,7 @@ MonoBehaviour:
   speed: 10
   checkRadiusDefault: 5
   encounterRadius: 0
+  musicCheckDistance: 15
   shouldRotate: 1
   chase:
     serializedVersion: 2
@@ -6599,6 +6600,8 @@ MonoBehaviour:
   dialog:
     lines:
     - Triggers Story
+  questToStart: {fileID: 11400000, guid: bbccdb8db72b83440b67720fafe3d9e1, type: 2}
+  questToComplete: {fileID: 0}
 --- !u!4 &1542884210
 Transform:
   m_ObjectHideFlags: 0
@@ -7848,6 +7851,7 @@ MonoBehaviour:
   speed: 10
   checkRadiusDefault: 5
   encounterRadius: 0
+  musicCheckDistance: 15
   shouldRotate: 1
   chase:
     serializedVersion: 2

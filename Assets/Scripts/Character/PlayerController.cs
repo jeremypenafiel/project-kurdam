@@ -25,10 +25,14 @@ public class PlayerController : MonoBehaviour
     public bool IsRunning { get => isRunning; }
     public bool IsSneaking { get => isSneaking; }
 
+    private bool isMoveOneTile = false;
+    private Vector2 moveDirection;
+
     public Rigidbody2D rb;
 
     public List<Aswang> encounterList;
     GameController gc;
+    public Player player;
 
     IPLayerTriggerable currentlyInTrigger=null;
 
@@ -38,6 +42,18 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         gc = GameObject.Find("GameController").GetComponent<GameController>();
         i = this;
+        player = gameObject.GetComponent<Player>();
+        StoryItem.OnQuestIncomplete += (Vector2 direction) =>
+        {
+            isMoveOneTile = true;
+            moveDirection = direction;
+        };
+    }
+
+    private void MoveOneTile(Vector2 direction)
+    {
+        var targetPos  = rb.position + (character.moveSpeed * Time.deltaTime * direction);;
+        rb.MovePosition(targetPos);
     }
 
 
@@ -82,6 +98,12 @@ public class PlayerController : MonoBehaviour
             rb.MovePosition(targetPos);
             Character.SetAnimation(input);
         }
+        
+        // if (isMoveOneTile)
+        // {
+        //     MoveOneTile(moveDirection);
+        //     isMoveOneTile = false;
+        // }
 
        
     }
