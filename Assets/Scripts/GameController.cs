@@ -18,6 +18,7 @@ public class GameController : MonoBehaviour
     [SerializeField] GameObject pauseScreen;
     [SerializeField] GameObject visionLimiter;
     [SerializeField] InventorySystem inventorySystem;
+
     
 
     Fader fader;
@@ -42,6 +43,7 @@ public class GameController : MonoBehaviour
     {
         Instance = this;
         fader = FindObjectOfType<Fader>();
+  
     }
     private void Start()
     {

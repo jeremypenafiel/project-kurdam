@@ -17,8 +17,8 @@ namespace Items
         private int currentNavigation;
         private int previousNavigation;
         private int currentActionSelection = 0;
-        private ItemsBase currentItemData = null;
-        private event Func<int, ItemsBase> onSelectionChanged;
+        private Item currentItem = null;
+        private event Func<int, Item> onSelectionChanged;
         private event Action onInventoryExit;
 
         [SerializeField] public Dictionary<EquippableItemsBase.ItemType, ItemIcon> equippedIconsDictionary = new()
@@ -74,6 +74,12 @@ namespace Items
             
         }
 
+        public void ActivateCamera()
+        {
+            gameObject.GetComponent<Canvas>().worldCamera.gameObject.SetActive(true);
+            gameObject.SetActive(true);
+        }
+
         private void Start()
         {
             currentNavigation = equippedNumberOffset;
@@ -84,7 +90,7 @@ namespace Items
             
         }
 
-        public void RegisterSelectionListener(Func<int, ItemsBase> listener)
+        public void RegisterSelectionListener(Func<int, Item> listener)
         {
             onSelectionChanged += listener;
         }
@@ -208,14 +214,19 @@ namespace Items
 
         private void SetItemDescriptionTexts()
         {
-            currentItemData = onSelectionChanged?.Invoke(currentNavigation-equippedNumberOffset);
-            if (currentItemData is null)
+            currentItem = onSelectionChanged?.Invoke(currentNavigation-equippedNumberOffset);
+            if (currentItem is null)
             {
-                itemDescriptionBox.SetItemDescription("", "");
+                itemDescriptionBox.SetItemDescription("", "", "");
             }
             else
             {
-                itemDescriptionBox.SetItemDescription(currentItemData.itemName, currentItemData.description);
+                if (currentItem is ConsumableItem item)
+                {
+                    itemDescriptionBox.SetItemDescription(item.itemData.itemName, item.itemData.description, $"Amount: {item.Amount.ToString()}");
+                    return;
+                }
+                itemDescriptionBox.SetItemDescription(currentItem.itemData.itemName, currentItem.itemData.description, "");
             }
         }
 

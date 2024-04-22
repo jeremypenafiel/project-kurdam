@@ -25,10 +25,16 @@ public class PlayerController : MonoBehaviour
     public bool IsRunning { get => isRunning; }
     public bool IsSneaking { get => isSneaking; }
 
+    private bool isMoveOneTile = false;
+    private Vector2 moveDirection;
+
     public Rigidbody2D rb;
 
     public List<Aswang> encounterList;
     GameController gc;
+    public Player player;
+
+    IPLayerTriggerable currentlyInTrigger=null;
 
     private void Awake()
     {
@@ -36,6 +42,18 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         gc = GameObject.Find("GameController").GetComponent<GameController>();
         i = this;
+        player = gameObject.GetComponent<Player>();
+        StoryItem.OnQuestIncomplete += (Vector2 direction) =>
+        {
+            isMoveOneTile = true;
+            moveDirection = direction;
+        };
+    }
+
+    private void MoveOneTile(Vector2 direction)
+    {
+        var targetPos  = rb.position + (character.moveSpeed * Time.deltaTime * direction);;
+        rb.MovePosition(targetPos);
     }
 
 
@@ -58,7 +76,8 @@ public class PlayerController : MonoBehaviour
            StartCoroutine(Interact(position));
        }
        
-       Teleport(position);
+        Teleport(position);
+        StoryTrigger(position);
     }
 
     public void GetInput()
@@ -69,8 +88,14 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // small bug here is that player continues animation even if in battle state
+
         Character.IsMoving = (input.x != 0 || input.y != 0);
+        if (input.x != 0 && input.y != 0)
+        {
+            input.x = input.x/2;
+            input.y = input.y/2;
+        }
+        
         SetPlayerSpeed();
         var targetPos = rb.position + (character.moveSpeed * Time.deltaTime * input);
         Character.Animator.IsMoving = Character.IsMoving;
@@ -79,6 +104,12 @@ public class PlayerController : MonoBehaviour
             rb.MovePosition(targetPos);
             Character.SetAnimation(input);
         }
+        
+        // if (isMoveOneTile)
+        // {
+        //     MoveOneTile(moveDirection);
+        //     isMoveOneTile = false;
+        // }
 
        
     }
@@ -127,6 +158,24 @@ public class PlayerController : MonoBehaviour
         collision.GetComponent<IPLayerTriggerable>()?.OnPlayerTriggered(this);
     }
 
+    public void StoryTrigger(Vector2 position)
+    {
+        IPLayerTriggerable triggerable;
+        var collision = Physics2D.OverlapCircle(position, 0.5f, GameLayers.I.TriggersLayer); //  increased radius to 0.5f
+
+        if (collision is null)
+        {
+            currentlyInTrigger = null;
+            return;
+        }
+        triggerable = collision.GetComponent<IPLayerTriggerable>();
+        if (triggerable == currentlyInTrigger && !triggerable.TriggerRepeatedly) return;
+        input.x = 0;
+        input.y = 0;
+        currentlyInTrigger = triggerable;
+        triggerable.OnPlayerTriggered(i);
+
+    }
     public Character Character => character;
 
 

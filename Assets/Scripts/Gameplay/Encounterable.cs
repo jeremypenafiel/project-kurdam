@@ -8,6 +8,10 @@ public class EncounterableArea : MonoBehaviour, IPLayerTriggerable
         {
             player.Character.Animator.IsMoving = false;
             GameController.Instance.StartBattle();
+
         }
     }
+    
+    public bool TriggerRepeatedly=> true;
+
 }
