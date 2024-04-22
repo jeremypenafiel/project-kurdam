@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 575587262106403899}
   - component: {fileID: 8335308995466958872}
-  - component: {fileID: 1719709924472183692}
   - component: {fileID: 640313007142878613}
   - component: {fileID: 7885742871532884934}
   - component: {fileID: 7602046381097046216}
@@ -89,27 +88,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &1719709924472183692
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2011968414886730903}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2afe27774dd069d4ea6b19f897e45bcb, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &640313007142878613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,8 +169,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkDownSprites: []
   walkUpSprites: []
-  walkRightSprites: []
-  walkLeftSprites: []
+  walkRightSprites:
+  - {fileID: 499181434, guid: d4be0002eb96e1549b11ec49a0c0970b, type: 3}
+  - {fileID: -404732907, guid: b1414bc05bf03ed439cd7a2c2fb8cdd2, type: 3}
+  - {fileID: 718249469, guid: 7267bc980f9d65d4b8ab5504e8c3766c, type: 3}
+  - {fileID: 718249469, guid: 200a9b8691e4d8242b046ac113c6c665, type: 3}
+  - {fileID: 1064320114, guid: 53368f5cd97dd204a98939347f583ffd, type: 3}
+  walkLeftSprites:
+  - {fileID: -743731046, guid: d4be0002eb96e1549b11ec49a0c0970b, type: 3}
+  - {fileID: -700859298, guid: b1414bc05bf03ed439cd7a2c2fb8cdd2, type: 3}
+  - {fileID: -60266239, guid: 7267bc980f9d65d4b8ab5504e8c3766c, type: 3}
+  - {fileID: -60266239, guid: 200a9b8691e4d8242b046ac113c6c665, type: 3}
+  - {fileID: -2096537373, guid: 53368f5cd97dd204a98939347f583ffd, type: 3}
   runDownSprites: []
   runUpSprites: []
   runRightSprites: []
