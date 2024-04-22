@@ -24,4 +24,4 @@ MonoBehaviour:
     lines:
     - nakitya mo na sa
   requiredItem: {fileID: 11400000, guid: d58db2686ee408a42a356a9dddbe7069, type: 2}
-  rewardItem: {fileID: 11400000, guid: 74a4aa5cfcd0b8d45ae7d6b4b575f2a0, type: 2}
+  rewardItem: {fileID: 11400000, guid: 36e48425af44072449591a05556072cd, type: 2}

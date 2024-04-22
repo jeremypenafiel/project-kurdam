@@ -6600,7 +6600,7 @@ MonoBehaviour:
   dialog:
     lines:
     - Triggers Story
-  questToStart: {fileID: 11400000, guid: bbccdb8db72b83440b67720fafe3d9e1, type: 2}
+  questToStart: {fileID: 0}
   questToComplete: {fileID: 0}
 --- !u!4 &1542884210
 Transform:
