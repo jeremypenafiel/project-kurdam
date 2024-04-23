@@ -169,8 +169,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkDownSprites: []
   walkUpSprites: []
-  walkRightSprites: []
-  walkLeftSprites: []
+  walkRightSprites:
+  - {fileID: 499181434, guid: d4be0002eb96e1549b11ec49a0c0970b, type: 3}
+  - {fileID: -404732907, guid: b1414bc05bf03ed439cd7a2c2fb8cdd2, type: 3}
+  - {fileID: 718249469, guid: 7267bc980f9d65d4b8ab5504e8c3766c, type: 3}
+  - {fileID: 718249469, guid: 200a9b8691e4d8242b046ac113c6c665, type: 3}
+  - {fileID: 1064320114, guid: 53368f5cd97dd204a98939347f583ffd, type: 3}
+  walkLeftSprites:
+  - {fileID: -743731046, guid: d4be0002eb96e1549b11ec49a0c0970b, type: 3}
+  - {fileID: -700859298, guid: b1414bc05bf03ed439cd7a2c2fb8cdd2, type: 3}
+  - {fileID: -60266239, guid: 7267bc980f9d65d4b8ab5504e8c3766c, type: 3}
+  - {fileID: -60266239, guid: 200a9b8691e4d8242b046ac113c6c665, type: 3}
+  - {fileID: -2096537373, guid: 53368f5cd97dd204a98939347f583ffd, type: 3}
   runDownSprites: []
   runUpSprites: []
   runRightSprites: []

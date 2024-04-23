@@ -28,16 +28,21 @@ public class EnemyChase : MonoBehaviour
 
     private bool isCreepyMusicPlaying = false;
 
-    Character character;
+    private Character character;
     
     private void Start()
     {
         currentCheckRadius = checkRadiusDefault;
         rb = GetComponent<Rigidbody2D>();
-/*        anim = GetComponent<Animator>();
-*/        target = GameObject.FindWithTag("Player").transform;
+        target = GameObject.FindWithTag("Player").transform;
         player = GameObject.Find("Player");
         character = GetComponent<Character>();
+        if (character != null)
+        {
+            Debug.Log($"{character} is not null");
+            Debug.Log(character.Animator);
+            
+        }
 
 
 
@@ -49,7 +54,6 @@ public class EnemyChase : MonoBehaviour
         var targetPos = target.position;
         var unitPos = transform.position;
 
-/*        anim.SetBool("isRunning", isInChaseRange);*/
         isInChaseRange = Physics2D.OverlapCircle(unitPos, currentCheckRadius, chase);
         isInEncounterRange = Physics2D.OverlapCircle(unitPos, encounterRadius, chase);
         canMove = GameController.Instance.IsInFreeRoamState();
@@ -104,21 +108,15 @@ public class EnemyChase : MonoBehaviour
     private void FixedUpdate()
     {
         
-
         if (isInChaseRange && !isInEncounterRange && canMove)
         {
-            if (movement.x < 0)
-            {
-                look.x = 1; look.y = 0;
-            }
-            else if (movement.x > 0)
-            {
-                look.x = -1; look.y = 0;
-            }
-            
+            look.x = movement.x;
+
             MoveCharacter(movement);
             character.SetAnimation(look);
+            
         }
+        
         if (isInEncounterRange) 
         {
             rb.velocity = Vector2.zero;
@@ -130,11 +128,14 @@ public class EnemyChase : MonoBehaviour
             Destroy(gameObject);
         }
 
+        
+
 
     }
 
     private void MoveCharacter(Vector2 dir)
     {
+        character.Animator.IsMoving = true;
         rb.MovePosition((Vector2)transform.position + (dir * speed * Time.deltaTime));
 
     }
