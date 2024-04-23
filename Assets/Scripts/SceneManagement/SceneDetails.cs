@@ -88,12 +88,14 @@ public class SceneDetails : MonoBehaviour
                 {
                     if(!connectedScenes.Contains(scene) && scene != this)
                     {
+                        Debug.Log("diri");
                         scene.UnloadScene();
                     }   
                 }   
 
                 if(!connectedScenes.Contains(previousScene))
                 {
+                        Debug.Log("here");
                     previousScene.UnloadScene();
                 }
             }
@@ -120,8 +122,10 @@ public class SceneDetails : MonoBehaviour
 
     public void UnloadScene()
     {
+        
         if (IsLoaded)
         {
+            Debug.Log($"Unloading {gameObject.name}");
             SceneManager.UnloadSceneAsync(gameObject.name);
             IsLoaded = false;
         }
