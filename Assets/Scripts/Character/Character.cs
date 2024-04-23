@@ -23,6 +23,7 @@ public class Character : MonoBehaviour
         SetPositionAndSnapToTile(transform.position);
     
     }
+    
 
     public IEnumerator Move(Vector3 moveVector, Action OnMoveOver = null)
     {
