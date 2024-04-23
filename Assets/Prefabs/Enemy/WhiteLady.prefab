@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6541053501317295212}
   - component: {fileID: -8123876372549820712}
   m_Layer: 0
-  m_Name: tikbalang
+  m_Name: WhiteLady
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 1170746105
   m_SortingLayer: 6
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 26983b8b0828c1843b734129965ed133, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 41c51652c80466f419dac517e3ee4ac5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  checkRadiusDefault: 4
+  checkRadiusDefault: 0
   encounterRadius: 0
   musicCheckDistance: 15
   shouldRotate: 0
@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wildAswangs:
-  - aswangBase: {fileID: 11400000, guid: 4773e14136c2bfd4caffbbf7dba62ba0, type: 2}
+  - aswangBase: {fileID: 11400000, guid: 5b4de7f613dca2b43afe52cdf4e8e9c9, type: 2}
     levelRange: {x: 4, y: 6}
     chancePercentage: 100
 --- !u!114 &6541053501317295212
@@ -166,25 +166,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkDownSprites:
-  - {fileID: 1025774647, guid: 1fa79623780d084469e204dd7b215e29, type: 3}
-  - {fileID: -295698319, guid: b2abae4d2d5443744914fe385afa9e29, type: 3}
-  - {fileID: -800512718, guid: cc3df9244c8eb654484bfe74e97ee3c1, type: 3}
-  - {fileID: -8077583, guid: 511ab01ba9cb9d64f9f504b658582e28, type: 3}
+  - {fileID: 21300000, guid: 41c51652c80466f419dac517e3ee4ac5, type: 3}
   walkUpSprites:
-  - {fileID: 1025774647, guid: 1fa79623780d084469e204dd7b215e29, type: 3}
-  - {fileID: -295698319, guid: b2abae4d2d5443744914fe385afa9e29, type: 3}
-  - {fileID: -800512718, guid: cc3df9244c8eb654484bfe74e97ee3c1, type: 3}
-  - {fileID: -8077583, guid: 511ab01ba9cb9d64f9f504b658582e28, type: 3}
+  - {fileID: 21300000, guid: 41c51652c80466f419dac517e3ee4ac5, type: 3}
   walkRightSprites:
-  - {fileID: 1025774647, guid: 1fa79623780d084469e204dd7b215e29, type: 3}
-  - {fileID: -295698319, guid: b2abae4d2d5443744914fe385afa9e29, type: 3}
-  - {fileID: -800512718, guid: cc3df9244c8eb654484bfe74e97ee3c1, type: 3}
-  - {fileID: -8077583, guid: 511ab01ba9cb9d64f9f504b658582e28, type: 3}
+  - {fileID: 1268019759, guid: acbe16fbb1f25af4d9e5b9013e2b85db, type: 3}
+  - {fileID: -903316529, guid: 238ec87fb4cc4d74db9650bf2f9ff4d3, type: 3}
+  - {fileID: -662107934, guid: ba71abf66d113d949b669eddcf37402d, type: 3}
+  - {fileID: 424950634, guid: 4c9c7634416f42740a74a06d39b21dfb, type: 3}
   walkLeftSprites:
-  - {fileID: -1323009749, guid: 1fa79623780d084469e204dd7b215e29, type: 3}
-  - {fileID: -1984002877, guid: b2abae4d2d5443744914fe385afa9e29, type: 3}
-  - {fileID: -264217732, guid: cc3df9244c8eb654484bfe74e97ee3c1, type: 3}
-  - {fileID: -1538044032, guid: 511ab01ba9cb9d64f9f504b658582e28, type: 3}
+  - {fileID: 1982687320, guid: acbe16fbb1f25af4d9e5b9013e2b85db, type: 3}
+  - {fileID: 1194007069, guid: 238ec87fb4cc4d74db9650bf2f9ff4d3, type: 3}
+  - {fileID: 232700642, guid: ba71abf66d113d949b669eddcf37402d, type: 3}
+  - {fileID: -615984353, guid: 4c9c7634416f42740a74a06d39b21dfb, type: 3}
   runDownSprites: []
   runUpSprites: []
   runRightSprites: []

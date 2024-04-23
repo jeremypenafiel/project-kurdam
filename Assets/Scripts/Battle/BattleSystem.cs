@@ -556,7 +556,7 @@ public class BattleSystem : MonoBehaviour
     public void ValidAttack(BattleUnit sourceUnit)
     {
         Moves move = sourceUnit.GetMove(currentMove);
-        if (move.type == armasType)
+        if (move.type == armasType || move.Base.Performable)
         {
             PlayerAttackRoll();
         }
