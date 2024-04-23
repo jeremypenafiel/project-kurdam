@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Items;
 using UnityEngine;
 
 
@@ -31,8 +32,10 @@ public class AswangBase : ScriptableObject
     [SerializeField] List<LearnableMove> learnableMoves;
     [SerializeField] List<DamageType> resistances;
     [SerializeField] List<DamageType> vulnerabilities;
-    //[SerializeField] List<ItemsBase> weakness;
-    [SerializeField] EquippedItems equipments;
+
+    [SerializeField] public Dictionary<EquippableItemsBase.ItemType, EquippableItem> EquippedItems;
+    [SerializeField] List<ItemsBase> weakness;
+    // [SerializeField] EquippedItems equipments;
     public string Aname
     {
         get { return aname; }
@@ -116,18 +119,22 @@ public class AswangBase : ScriptableObject
     {
         get { return vulnerabilities; }
     }
-    /*public List<ItemsBase> Weakness
+    public List<ItemsBase> Weakness
     {
         get { return weakness; }
-    }*/
+    }
     public int GetExpForLevel(int level)
     {
         return level * level * level;
     }
 
-    public EquippedItems EquippedItems
+    // public EquippedItems EquippedItems
+    // {
+    //     get { return equipments; }
+    // }
+    public void OnEquippedItemsChanged(Dictionary<EquippableItemsBase.ItemType, EquippableItem> currentlyEquippedItems)
     {
-        get { return equipments; }
+        EquippedItems = currentlyEquippedItems;
     }
 }
 

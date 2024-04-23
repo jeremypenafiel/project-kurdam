@@ -56,6 +56,12 @@ public class SceneDetails : MonoBehaviour
                 case "NewAdmin":
                     sceneNameText.text = "New Admin";
                     break;
+                case "CL4":
+                    sceneNameText.text = "CL4";
+                    break;
+                case "NatureTrail":
+                    sceneNameText.text = "Nature Trail";
+                    break;
                 default:
                     Debug.Log("Scene name not found");
                     Debug.Log(sceneNamePopUp.name);
@@ -82,12 +88,14 @@ public class SceneDetails : MonoBehaviour
                 {
                     if(!connectedScenes.Contains(scene) && scene != this)
                     {
+                        Debug.Log("diri");
                         scene.UnloadScene();
                     }   
                 }   
 
                 if(!connectedScenes.Contains(previousScene))
                 {
+                        Debug.Log("here");
                     previousScene.UnloadScene();
                 }
             }
@@ -114,8 +122,10 @@ public class SceneDetails : MonoBehaviour
 
     public void UnloadScene()
     {
+        
         if (IsLoaded)
         {
+            Debug.Log($"Unloading {gameObject.name}");
             SceneManager.UnloadSceneAsync(gameObject.name);
             IsLoaded = false;
         }

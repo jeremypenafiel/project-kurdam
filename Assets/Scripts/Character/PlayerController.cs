@@ -90,14 +90,10 @@ public class PlayerController : MonoBehaviour
     {
 
         Character.IsMoving = (input.x != 0 || input.y != 0);
-        if (input.x != 0 && input.y != 0)
-        {
-            input.x = input.x/2;
-            input.y = input.y/2;
-        }
         
         SetPlayerSpeed();
-        var targetPos = rb.position + (character.moveSpeed * Time.deltaTime * input);
+        
+        var targetPos = rb.position + (character.moveSpeed * Time.deltaTime * Vector2.ClampMagnitude(input, 1)); // Vector2.ClampMagnitude is used to prevent diagonal movement from being faster than horizontal or vertical movement
         Character.Animator.IsMoving = Character.IsMoving;
         if (Character.IsWalkable(targetPos))
         {
