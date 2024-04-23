@@ -748,7 +748,7 @@ GameObject:
   - component: {fileID: 810387196}
   - component: {fileID: 810387195}
   - component: {fileID: 810387194}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TrailToCL4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -802,7 +802,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.21512222, y: 0}
+  m_Offset: {x: 0.04736328, y: -1.5098214}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -813,7 +813,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.4302444, y: 1}
+  m_Size: {x: 1.7657623, y: 10.72996}
   m_EdgeRadius: 0
 --- !u!4 &810387196
 Transform:
@@ -824,7 +824,7 @@ Transform:
   m_GameObject: {fileID: 810387193}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -99.65854, y: -0.84811205, z: 0.4062118}
+  m_LocalPosition: {x: -109.16, y: -4.87, z: 0.4062118}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -840,7 +840,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 953927035}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -856,7 +856,7 @@ Transform:
   m_GameObject: {fileID: 953927034}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.10369873, y: 0.1976524, z: -0.023199707}
+  m_LocalPosition: {x: 5.78, y: 1.19, z: -0.023199707}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

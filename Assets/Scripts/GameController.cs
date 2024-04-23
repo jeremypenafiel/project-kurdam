@@ -120,6 +120,13 @@ public class GameController : MonoBehaviour
     {
         PreviousScene = CurrentScene;
         CurrentScene = currentScene;
+        
+        Debug.Log(CurrentScene.gameObject.name);
+        if (PreviousScene != null)
+        {
+        Debug.Log(PreviousScene.gameObject.name);
+            
+        }
     }
     
     public void MovetoSpawn()
