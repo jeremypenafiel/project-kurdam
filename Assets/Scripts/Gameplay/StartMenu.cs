@@ -15,7 +15,7 @@ public class StartMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            yield return SceneManager.LoadSceneAsync(1);
+            yield return SceneManager.LoadSceneAsync(2);
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))
