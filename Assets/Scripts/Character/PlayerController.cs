@@ -73,7 +73,7 @@ public class PlayerController : MonoBehaviour
        if (!Character.IsMoving && Input.GetKeyDown(KeyCode.Z))
        {
            Debug.Log("Interacting");
-           StartCoroutine(Interact(position));
+           StartCoroutine(Interact(position, this));
        }
        
         Teleport(position);
@@ -136,13 +136,13 @@ public class PlayerController : MonoBehaviour
 
  
 
-    public IEnumerator Interact(Vector2 position)
+    public IEnumerator Interact(Vector2 position, PlayerController player)
     {
         var collider = Physics2D.OverlapCircle(position,0.5f, GameLayers.I.InteractableLayer); //  increased radius to 0.5f
         if (collider is not null)
         {
            Debug.Log("yes");
-           yield return collider.GetComponent<Interactable>()?.Interact(transform);
+           yield return collider.GetComponent<Interactable>()?.Interact(transform, player);
         }
     }
 

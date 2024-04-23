@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abc23077866dc7f4dbd6ba46788b821d, type: 3}
+  m_Name: Read the Book
+  m_EditorClassIdentifier: 
+  name: Read the Book
+  description: Read Book
+  startDialogue:
+    lines:
+    - Press Z to show next dialog, choose a selection, or interact with an object
+    - The key X is used to go back to previous selections
+    - The key I is to open the inventory
+    - The key Escape is to open the pause menu
+    - Arrow keys are for movement.
+    - While moving, you can press X to run or C to sneak
+    - Read the book in the room to find out what to do
+  inprogressDialogue:
+    lines: []
+  completedDialogue:
+    lines: []
+  requiredItem: {fileID: 0}
+  rewardItem: {fileID: 0}

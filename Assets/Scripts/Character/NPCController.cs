@@ -19,7 +19,7 @@ public class NPCController : MonoBehaviour, Interactable
     {
         character = GetComponent<Character>();
     }
-    public IEnumerator Interact(Transform initiator)
+    public IEnumerator Interact(Transform initiator, PlayerController player)
     {
         if (state == NPCState.Idle)
         {

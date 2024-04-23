@@ -101,8 +101,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6c4623faa5755842a80f2e557b52727, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  checkRadiusDefault: 20
+  speed: 4
+  checkRadiusDefault: 30
   encounterRadius: 0
   musicCheckDistance: 15
   shouldRotate: 0

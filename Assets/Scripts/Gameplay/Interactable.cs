@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface Interactable
 {
-    IEnumerator Interact(Transform initiator);
+    IEnumerator Interact(Transform initiator, PlayerController player);
 }

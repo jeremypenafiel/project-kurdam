@@ -61,7 +61,7 @@ public class Quest
             return inventory.Contains(Base.RequiredItem);
         }
 
-        return true;
+        return false;
     }
     
     
