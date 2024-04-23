@@ -10,10 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 575587262106403899}
   - component: {fileID: 8335308995466958872}
-  - component: {fileID: 1719709924472183692}
   - component: {fileID: 640313007142878613}
   - component: {fileID: 7885742871532884934}
   - component: {fileID: 7602046381097046216}
+  - component: {fileID: -1204933014286791481}
+  - component: {fileID: 9135152767669634659}
   m_Layer: 0
   m_Name: Manangal
   m_TagString: Enemy
@@ -88,27 +89,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &1719709924472183692
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2011968414886730903}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2afe27774dd069d4ea6b19f897e45bcb, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &640313007142878613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,6 +104,7 @@ MonoBehaviour:
   speed: 10
   checkRadiusDefault: 5
   encounterRadius: 0
+  musicCheckDistance: 15
   shouldRotate: 1
   chase:
     serializedVersion: 2
@@ -172,3 +153,46 @@ MonoBehaviour:
   - aswangBase: {fileID: 11400000, guid: b51449335080fd54bb51e44626705b14, type: 2}
     levelRange: {x: 4, y: 6}
     chancePercentage: 100
+--- !u!114 &-1204933014286791481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2011968414886730903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8baea72bc66a434f8b4043559509dd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 0
+  distance: 0
+  distanceThreshold: 0.5
+  offsetY: 0.3
+  runSpeed: 0
+--- !u!114 &9135152767669634659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2011968414886730903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f51b39f3d1b6864b8743a43c623a2f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkDownSprites: []
+  walkUpSprites: []
+  walkRightSprites: []
+  walkLeftSprites: []
+  runDownSprites: []
+  runUpSprites: []
+  runRightSprites: []
+  runLeftSprites: []
+  sneakDownSprites: []
+  sneakUpSprites: []
+  sneakRightSprites: []
+  sneakLeftSprites: []
+  IsSneaking: 0
+  IsRunning: 0
