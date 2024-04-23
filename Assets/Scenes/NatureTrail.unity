@@ -270,7 +270,7 @@ GameObject:
   - component: {fileID: 657242075}
   - component: {fileID: 657242074}
   - component: {fileID: 657242073}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: nature's trail trees bg -export
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -327,7 +327,8 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -0.52363586, y: -11.361194}
+  - {x: -0.36219406, y: -11.328906}
+  - {x: 0.77843493, y: -11.54085}
   - {x: 1.9497283, y: -11.814995}
   - {x: 3.6785555, y: -11.299669}
   - {x: 6.208595, y: -12.386894}
@@ -356,8 +357,8 @@ EdgeCollider2D:
   - {x: 10.651431, y: -7.928045}
   - {x: 5.8784523, y: -8.095288}
   - {x: 2.5755763, y: -8.328623}
-  - {x: -0.01938343, y: -9.010029}
-  - {x: -0.67139196, y: -11.17568}
+  - {x: 1.336731, y: -10.527586}
+  - {x: -0.28392982, y: -11.240257}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -476,10 +477,15 @@ EdgeCollider2D:
   - {x: 33.537685, y: -7.1731105}
   - {x: 28.303616, y: -11.494198}
   - {x: 23.02586, y: -18.518436}
+  - {x: 21.879154, y: -20.361221}
   - {x: 15.430811, y: -22.218649}
   - {x: 7.1024055, y: -22.67578}
   - {x: 3.202742, y: -21.006779}
   - {x: -1.8650525, y: -24.04149}
+  - {x: -5.9714394, y: -27.304579}
+  - {x: -8.015032, y: -25.970686}
+  - {x: -9.661409, y: -24.86994}
+  - {x: -9.845317, y: -24.891335}
   - {x: -6.6398215, y: -21.785204}
   - {x: -2.3958006, y: -17.937822}
   - {x: -5.432041, y: -13.787039}
@@ -614,8 +620,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -2016377297
-  m_SortingLayer: 2
+  m_SortingLayerID: 1170746105
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 00ab86aee84cec0438e25a859d5db657, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

@@ -101,11 +101,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6c4623faa5755842a80f2e557b52727, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 4
   checkRadiusDefault: 5
   encounterRadius: 0
   musicCheckDistance: 15
-  shouldRotate: 1
+  shouldRotate: 0
   chase:
     serializedVersion: 2
     m_Bits: 2048
@@ -184,8 +184,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkDownSprites: []
   walkUpSprites: []
-  walkRightSprites: []
-  walkLeftSprites: []
+  walkRightSprites:
+  - {fileID: 752069553, guid: ee2eae55df60daf4fac090b0a658b592, type: 3}
+  - {fileID: 2079887830, guid: c79235e41bbcdea409b66c2ac9376ddf, type: 3}
+  - {fileID: 1256875977, guid: 2759ac0d2dacb844a8d1a5fc89136bea, type: 3}
+  - {fileID: 1908438694, guid: 81e693661b8a47a4e89027f1063fc750, type: 3}
+  walkLeftSprites:
+  - {fileID: -548810946, guid: ee2eae55df60daf4fac090b0a658b592, type: 3}
+  - {fileID: 1199731519, guid: c79235e41bbcdea409b66c2ac9376ddf, type: 3}
+  - {fileID: -1964188111, guid: 2759ac0d2dacb844a8d1a5fc89136bea, type: 3}
+  - {fileID: -1106636529, guid: 81e693661b8a47a4e89027f1063fc750, type: 3}
   runDownSprites: []
   runUpSprites: []
   runRightSprites: []
