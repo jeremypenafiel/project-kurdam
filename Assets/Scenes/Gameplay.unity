@@ -618,7 +618,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   connectedScenes:
   - {fileID: 564595199}
-  sceneMusic: {fileID: 8300000, guid: c2af170cae0fc0f43853a6a05fc2c34a, type: 3}
+  sceneMusic: {fileID: 8300000, guid: 98a3184be63966f41be7ece9ce0242b5, type: 3}
   sceneNamePopUp: {fileID: 1626062231}
 --- !u!61 &2082083164
 BoxCollider2D:

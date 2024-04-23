@@ -28,6 +28,9 @@ public class PauseGameState : State<GameController>
         if (Input.GetKeyDown(KeyCode.Return))
         {
             gc.StateMachine.Pop();
+        }else if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
         }
     }
 
