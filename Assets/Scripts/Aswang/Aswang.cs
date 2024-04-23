@@ -126,4 +126,8 @@ public class Aswang
     }
 
 
+    public void OnEquippedItemsChanged()
+    {
+        throw new System.NotImplementedException();
+    }
 }
