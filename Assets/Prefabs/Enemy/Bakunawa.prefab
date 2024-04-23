@@ -165,8 +165,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f51b39f3d1b6864b8743a43c623a2f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkDownSprites: []
-  walkUpSprites: []
+  walkDownSprites:
+  - {fileID: 21300000, guid: 9ea45cc9da23264459fbdfbc33c59060, type: 3}
+  walkUpSprites:
+  - {fileID: 21300000, guid: 9ea45cc9da23264459fbdfbc33c59060, type: 3}
   walkRightSprites:
   - {fileID: 499181434, guid: d4be0002eb96e1549b11ec49a0c0970b, type: 3}
   - {fileID: -404732907, guid: b1414bc05bf03ed439cd7a2c2fb8cdd2, type: 3}
