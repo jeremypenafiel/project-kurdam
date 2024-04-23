@@ -15,6 +15,7 @@ public class MovesBase : ScriptableObject
     [SerializeField] DiceBase diceBase;
     [SerializeField] AudioClip sound;
     [SerializeField] int rollNumber =1;
+    [SerializeField] bool performable;
 
     public string MoveName
     {
@@ -44,6 +45,10 @@ public class MovesBase : ScriptableObject
     public int RollNumber
     {
         get { return rollNumber; }
+    }
+    public bool Performable
+    {
+        get { return performable; }
     }
     public AudioClip Sound => sound;
 

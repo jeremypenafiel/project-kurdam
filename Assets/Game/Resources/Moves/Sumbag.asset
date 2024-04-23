@@ -19,3 +19,5 @@ MonoBehaviour:
   baseDamage: 10
   diceBase: {fileID: 11400000, guid: 1011f84f6de7211468f81954ebe9fe50, type: 2}
   sound: {fileID: 8300000, guid: 3b0959657f5e55645b8977bdc397f64e, type: 3}
+  rollNumber: 1
+  performable: 1

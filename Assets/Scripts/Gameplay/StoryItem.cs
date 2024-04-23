@@ -9,6 +9,7 @@ public class StoryItem : MonoBehaviour, IPLayerTriggerable
     [SerializeField] Dialog dialog;
     [SerializeField] QuestBase questToStart;
     [SerializeField] QuestBase questToComplete; // interaction with this item will complete questToComplete
+    [SerializeField] GameObject objectToActivateOnComplete;
     private ItemsModel playerItems;
     private bool isActive = false;
     public static event Action<Vector2> OnQuestIncomplete;
@@ -58,6 +59,8 @@ public class StoryItem : MonoBehaviour, IPLayerTriggerable
                yield return StartCoroutine(activeQuest.CompletedQuest(playerItems));
                activeQuest = null;
                questToStart = null;
+               objectToActivateOnComplete.gameObject.SetActive(true);
+               gameObject.SetActive(false);
            }
                
        }
