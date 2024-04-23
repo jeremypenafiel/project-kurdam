@@ -124,6 +124,5 @@ public class Aswang
         return moves[r];
 
     }
-
-
+    
 }

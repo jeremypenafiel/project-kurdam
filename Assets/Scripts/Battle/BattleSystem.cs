@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Xml.Linq;
+using Items;
 using UnityEngine;
 
 
@@ -53,7 +54,7 @@ public class BattleSystem : MonoBehaviour
 
         this.player = player;
         this.wildAswang = wildAswang;
-        //armasType = player.Base.EquippedItems.Armas.ArmasType;
+        armasType = this.player.Base.EquippedItems[EquippableItemsBase.ItemType.armasIsa].EquipableItemData.armasType;
         AudioManager.i.PlayMusic(battleMusic);
         StartCoroutine(SetupBattle());
     }
@@ -461,14 +462,15 @@ public class BattleSystem : MonoBehaviour
                 break;
             }
         }
-        /*if ((targetUnit.Base.Weakness.Contains(player.Base.EquippedItems.ArmasIsa)) && (move.Base.Type == player.Base.EquippedItems.ArmasIsa.armasType) )
+        if ((targetUnit.Base.Weakness.Contains(player.Base.EquippedItems[EquippableItemsBase.ItemType.armasIsa].EquipableItemData)) 
+            && (move.Base.Type == player.Base.EquippedItems[EquippableItemsBase.ItemType.armasIsa].EquipableItemData.armasType))
         {
             damage = Mathf.FloorToInt(damage * 2);
-        }*/
-        /*else if (targetUnit != player)
+        }
+        else if (targetUnit != player)
         {
             damage = Mathf.FloorToInt(damage/10);
-        }*/
+        }
         return damage;
     }
     
