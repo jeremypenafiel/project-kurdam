@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4
-  checkRadiusDefault: 70
+  checkRadiusDefault: 30
   encounterRadius: 0
   musicCheckDistance: 15
   shouldRotate: 0

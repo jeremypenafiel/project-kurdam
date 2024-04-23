@@ -12,6 +12,7 @@ public class StoryItem : MonoBehaviour, IPLayerTriggerable
     [SerializeField] GameObject objectToActivateOnComplete;
     private ItemsModel playerItems;
     private bool isActive = false;
+    [SerializeField] bool triggerOnce;
     public static event Action<Vector2> OnQuestIncomplete;
 
     Quest activeQuest;
@@ -59,11 +60,15 @@ public class StoryItem : MonoBehaviour, IPLayerTriggerable
                yield return StartCoroutine(activeQuest.CompletedQuest(playerItems));
                activeQuest = null;
                questToStart = null;
-               objectToActivateOnComplete.gameObject.SetActive(true);
                gameObject.SetActive(false);
            }
                
        }
+
+       if (triggerOnce)
+        {
+            gameObject.SetActive(false);
+        }
    }
 
     public bool TriggerRepeatedly=> false;

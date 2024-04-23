@@ -11,6 +11,7 @@ public class Book : MonoBehaviour, Interactable
     [SerializeField] Sprite open;
 
     [SerializeField] QuestBase questToComplete; // interaction with this item will complete questToComplete
+    [SerializeField] GameObject objectToActivateOnComplete;
     private ItemsModel playerItems;
 
 
@@ -30,6 +31,7 @@ public class Book : MonoBehaviour, Interactable
         {
             var quest = new Quest(questToComplete);
             yield return (StartCoroutine(quest.CompletedQuest(playerItems)));
+            objectToActivateOnComplete.gameObject.SetActive(true);
             questToComplete = null;
         }
 
