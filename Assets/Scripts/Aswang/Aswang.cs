@@ -124,10 +124,5 @@ public class Aswang
         return moves[r];
 
     }
-
-
-    public void OnEquippedItemsChanged()
-    {
-        throw new System.NotImplementedException();
-    }
+    
 }

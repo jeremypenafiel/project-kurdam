@@ -33,8 +33,8 @@ public class AswangBase : ScriptableObject
     [SerializeField] List<DamageType> resistances;
     [SerializeField] List<DamageType> vulnerabilities;
 
-    [SerializeField] Dictionary<EquippableItemsBase.ItemType, EquippableItem> EquippableItems;
-    //[SerializeField] List<ItemsBase> weakness;
+    [SerializeField] public Dictionary<EquippableItemsBase.ItemType, EquippableItem> EquippedItems;
+    [SerializeField] List<ItemsBase> weakness;
     // [SerializeField] EquippedItems equipments;
     public string Aname
     {
@@ -119,10 +119,10 @@ public class AswangBase : ScriptableObject
     {
         get { return vulnerabilities; }
     }
-    /*public List<ItemsBase> Weakness
+    public List<ItemsBase> Weakness
     {
         get { return weakness; }
-    }*/
+    }
     public int GetExpForLevel(int level)
     {
         return level * level * level;
@@ -132,6 +132,10 @@ public class AswangBase : ScriptableObject
     // {
     //     get { return equipments; }
     // }
+    public void OnEquippedItemsChanged(Dictionary<EquippableItemsBase.ItemType, EquippableItem> currentlyEquippedItems)
+    {
+        EquippedItems = currentlyEquippedItems;
+    }
 }
 
 
