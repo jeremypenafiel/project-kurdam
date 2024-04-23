@@ -17435,6 +17435,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TestUI
       objectReference: {fileID: 0}
+    - target: {fileID: 4670593651916885889, guid: 54a6e84e2e403454a8e654b08a31ceb3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4959734585394229365, guid: 54a6e84e2e403454a8e654b08a31ceb3, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.88202876
