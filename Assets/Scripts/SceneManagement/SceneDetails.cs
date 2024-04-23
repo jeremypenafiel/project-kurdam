@@ -56,6 +56,12 @@ public class SceneDetails : MonoBehaviour
                 case "NewAdmin":
                     sceneNameText.text = "New Admin";
                     break;
+                case "CL4":
+                    sceneNameText.text = "CL4";
+                    break;
+                case "NatureTrail":
+                    sceneNameText.text = "Nature Trail";
+                    break;
                 default:
                     Debug.Log("Scene name not found");
                     Debug.Log(sceneNamePopUp.name);
