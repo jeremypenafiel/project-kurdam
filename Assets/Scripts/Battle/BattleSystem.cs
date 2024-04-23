@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Xml.Linq;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 public enum BattleSystemState { Start, ActionSelection, EnemyAttackRoll, EnemyDamageRoll, Busy, MoveSelection, PlayerAttackRoll, PlayerDamageRoll, PerformMove }
 
@@ -410,10 +410,15 @@ public class BattleSystem : MonoBehaviour
         {
             yield return dialogBox.TypeDialog($"You fainted.");
             yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Z));
-           
             player.HP = player.MaxHP;
-            PlayerFaint();
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                yield return SceneManager.LoadSceneAsync(1);
+            }
+
             
+/*            PlayerFaint();
+*/            
         }
         OnBattleOver();
     }

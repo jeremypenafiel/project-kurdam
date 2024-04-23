@@ -63,6 +63,6 @@ public class BattleState : State<GameController>
 
     private void Respawn()
     {
-        gc.MovetoSpawn();
+        /*gc.MovetoSpawn();*/
     }
 }

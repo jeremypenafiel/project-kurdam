@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 640313007142878613}
   - component: {fileID: 7885742871532884934}
   - component: {fileID: 7602046381097046216}
-  - component: {fileID: 4137302587010538743}
   - component: {fileID: -8235340904909375734}
+  - component: {fileID: 4137302587010538743}
   m_Layer: 0
   m_Name: Bakunawa
   m_TagString: Enemy
@@ -153,6 +153,23 @@ MonoBehaviour:
   - aswangBase: {fileID: 11400000, guid: 549514c8bdd42aa4d95b63aef881cff2, type: 2}
     levelRange: {x: 4, y: 6}
     chancePercentage: 100
+--- !u!114 &-8235340904909375734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2011968414886730903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8baea72bc66a434f8b4043559509dd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 0
+  distance: 0
+  distanceThreshold: 0.5
+  offsetY: 0.3
+  runSpeed: 0
 --- !u!114 &4137302587010538743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,20 +208,3 @@ MonoBehaviour:
   sneakLeftSprites: []
   IsSneaking: 0
   IsRunning: 0
---- !u!114 &-8235340904909375734
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2011968414886730903}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8baea72bc66a434f8b4043559509dd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 0
-  distance: 0
-  distanceThreshold: 0.5
-  offsetY: 0.3
-  runSpeed: 0
