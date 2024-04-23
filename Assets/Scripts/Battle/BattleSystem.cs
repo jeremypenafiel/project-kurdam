@@ -60,6 +60,7 @@ public class BattleSystem : MonoBehaviour
         {
             armasType = this.player.Base.EquippedItems[EquippableItemsBase.ItemType.armasIsa].EquipableItemData.armasType;
         }
+        AudioManager.i.StopPlayAmbientSound();
         AudioManager.i.PlayMusic(battleMusic);
         StartCoroutine(SetupBattle());
     }

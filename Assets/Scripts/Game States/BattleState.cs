@@ -49,8 +49,8 @@ public class BattleState : State<GameController>
     {
         battleSystem.gameObject.SetActive(false);
         gc.WorldCamera.gameObject.SetActive(true);
-        // gc.VisionLimiter.SetActive(true);
-
+        gc.VisionLimiter.SetActive(true);
+        
         // Unsubscribes to OnBattleOver and PlayerFaint events
         battleSystem.OnBattleOver -= EndBattle;
         battleSystem.PlayerFaint -= Respawn;
@@ -64,7 +64,12 @@ public class BattleState : State<GameController>
 
     private void Respawn()
     {
+        AudioManager.i.PlayMusic(null);
         SceneManager.LoadSceneAsync(0);
+        var objects = GameObject.Find("Essentials(Clone)");
+        Destroy(objects);
+        
+        
         /*gc.MovetoSpawn();*/
     }
 }
