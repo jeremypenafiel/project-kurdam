@@ -75,8 +75,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1170746105
-  m_SortingLayer: 6
+  m_SortingLayerID: -1630174301
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 41c51652c80466f419dac517e3ee4ac5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  checkRadiusDefault: 0
+  checkRadiusDefault: 20
   encounterRadius: 0
   musicCheckDistance: 15
   shouldRotate: 0
@@ -183,9 +183,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkDownSprites:
-  - {fileID: 21300000, guid: 41c51652c80466f419dac517e3ee4ac5, type: 3}
+  - {fileID: 1982687320, guid: acbe16fbb1f25af4d9e5b9013e2b85db, type: 3}
+  - {fileID: 1194007069, guid: 238ec87fb4cc4d74db9650bf2f9ff4d3, type: 3}
+  - {fileID: 232700642, guid: ba71abf66d113d949b669eddcf37402d, type: 3}
+  - {fileID: -615984353, guid: 4c9c7634416f42740a74a06d39b21dfb, type: 3}
   walkUpSprites:
-  - {fileID: 21300000, guid: 41c51652c80466f419dac517e3ee4ac5, type: 3}
+  - {fileID: 1268019759, guid: acbe16fbb1f25af4d9e5b9013e2b85db, type: 3}
+  - {fileID: -903316529, guid: 238ec87fb4cc4d74db9650bf2f9ff4d3, type: 3}
+  - {fileID: -662107934, guid: ba71abf66d113d949b669eddcf37402d, type: 3}
+  - {fileID: 424950634, guid: 4c9c7634416f42740a74a06d39b21dfb, type: 3}
   walkRightSprites:
   - {fileID: 1268019759, guid: acbe16fbb1f25af4d9e5b9013e2b85db, type: 3}
   - {fileID: -903316529, guid: 238ec87fb4cc4d74db9650bf2f9ff4d3, type: 3}

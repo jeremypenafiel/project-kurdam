@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 1170746105
   m_SortingLayer: 6
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 257ca668a4ecd91438af7ce49f607800, type: 3}
+  m_Sprite: {fileID: -548810946, guid: ee2eae55df60daf4fac090b0a658b592, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -183,9 +183,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkDownSprites:
-  - {fileID: 21300000, guid: 257ca668a4ecd91438af7ce49f607800, type: 3}
+  - {fileID: -548810946, guid: ee2eae55df60daf4fac090b0a658b592, type: 3}
+  - {fileID: 1199731519, guid: c79235e41bbcdea409b66c2ac9376ddf, type: 3}
+  - {fileID: -1964188111, guid: 2759ac0d2dacb844a8d1a5fc89136bea, type: 3}
+  - {fileID: -1106636529, guid: 81e693661b8a47a4e89027f1063fc750, type: 3}
   walkUpSprites:
-  - {fileID: 21300000, guid: 257ca668a4ecd91438af7ce49f607800, type: 3}
+  - {fileID: 752069553, guid: ee2eae55df60daf4fac090b0a658b592, type: 3}
+  - {fileID: 2079887830, guid: c79235e41bbcdea409b66c2ac9376ddf, type: 3}
+  - {fileID: 1256875977, guid: 2759ac0d2dacb844a8d1a5fc89136bea, type: 3}
+  - {fileID: 1908438694, guid: 81e693661b8a47a4e89027f1063fc750, type: 3}
   walkRightSprites:
   - {fileID: 752069553, guid: ee2eae55df60daf4fac090b0a658b592, type: 3}
   - {fileID: 2079887830, guid: c79235e41bbcdea409b66c2ac9376ddf, type: 3}

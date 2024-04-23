@@ -17,6 +17,7 @@ public class BattleSystem : MonoBehaviour
 
     [SerializeField] AudioClip battleMusic;
     [SerializeField] AudioClip victoryMusic;
+    [SerializeField] GameObject deathScreen;
 
     public event Action OnBattleOver;
     /*public event Action Run;*/
@@ -411,14 +412,17 @@ public class BattleSystem : MonoBehaviour
             yield return dialogBox.TypeDialog($"You fainted.");
             yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Z));
             player.HP = player.MaxHP;
-            if (Input.GetKeyDown(KeyCode.Return))
+            deathScreen.SetActive(true);
+
+            if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Z))
             {
+                deathScreen.SetActive(false);
+                PlayerFaint();
                 yield return SceneManager.LoadSceneAsync(1);
             }
 
-            
-/*            PlayerFaint();
-*/            
+
+
         }
         OnBattleOver();
     }
