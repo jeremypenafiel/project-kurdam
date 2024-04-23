@@ -2,6 +2,7 @@ using GDEUtils.StateMachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BattleState : State<GameController>
 {
@@ -48,7 +49,7 @@ public class BattleState : State<GameController>
     {
         battleSystem.gameObject.SetActive(false);
         gc.WorldCamera.gameObject.SetActive(true);
-        gc.VisionLimiter.SetActive(true);
+        // gc.VisionLimiter.SetActive(true);
 
         // Unsubscribes to OnBattleOver and PlayerFaint events
         battleSystem.OnBattleOver -= EndBattle;
@@ -63,6 +64,7 @@ public class BattleState : State<GameController>
 
     private void Respawn()
     {
+        SceneManager.LoadSceneAsync(0);
         /*gc.MovetoSpawn();*/
     }
 }

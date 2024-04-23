@@ -55,7 +55,11 @@ public class BattleSystem : MonoBehaviour
 
         this.player = player;
         this.wildAswang = wildAswang;
-        armasType = this.player.Base.EquippedItems[EquippableItemsBase.ItemType.armasIsa].EquipableItemData.armasType;
+        Debug.Log(this.player.Base.EquippedItems[EquippableItemsBase.ItemType.armasIsa]);
+        if (this.player.Base.EquippedItems[EquippableItemsBase.ItemType.armasIsa] != null)
+        {
+            armasType = this.player.Base.EquippedItems[EquippableItemsBase.ItemType.armasIsa].EquipableItemData.armasType;
+        }
         AudioManager.i.PlayMusic(battleMusic);
         StartCoroutine(SetupBattle());
     }
@@ -414,16 +418,12 @@ public class BattleSystem : MonoBehaviour
             yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Z));
             player.HP = player.MaxHP;
             deathScreen.SetActive(true);
-
-            if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Z))
-            {
-                deathScreen.SetActive(false);
-                PlayerFaint();
-                yield return SceneManager.LoadSceneAsync(1);
-            }
-
-
-
+            yield return new WaitForEndOfFrame();
+            yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Z));
+            
+            deathScreen.SetActive(false);
+            PlayerFaint?.Invoke();
+                //yield return SceneManager.LoadSceneAsync(1);
         }
         OnBattleOver();
     }
@@ -471,15 +471,15 @@ public class BattleSystem : MonoBehaviour
                 break;
             }
         }
-        if ((targetUnit.Base.Weakness.Contains(player.Base.EquippedItems[EquippableItemsBase.ItemType.armasIsa].EquipableItemData)) 
+        if (player.Base.EquippedItems[EquippableItemsBase.ItemType.armasIsa] != null && (targetUnit.Base.Weakness.Contains(player.Base.EquippedItems[EquippableItemsBase.ItemType.armasIsa].EquipableItemData)) 
             && (move.Base.Type == player.Base.EquippedItems[EquippableItemsBase.ItemType.armasIsa].EquipableItemData.armasType))
         {
             damage = Mathf.FloorToInt(damage * 2);
         }
-        else if (targetUnit != player)
-        {
-            damage = Mathf.FloorToInt(damage/10);
-        }
+        // else if (targetUnit != player)
+        // {
+        //     damage = Mathf.FloorToInt(damage/10);
+        // }
         return damage;
     }
     

@@ -33,7 +33,22 @@ public class AswangBase : ScriptableObject
     [SerializeField] List<DamageType> resistances;
     [SerializeField] List<DamageType> vulnerabilities;
 
-    [SerializeField] public Dictionary<EquippableItemsBase.ItemType, EquippableItem> EquippedItems;
+    [SerializeField] public Dictionary<EquippableItemsBase.ItemType, EquippableItem> EquippedItems = new ()
+    {
+        { EquippableItemsBase.ItemType.armasIsa, null},
+        { EquippableItemsBase.ItemType.armasDuha, null},
+        { EquippableItemsBase.ItemType.ulo, null},
+        { EquippableItemsBase.ItemType.antingAntingIsa, null},
+        { EquippableItemsBase.ItemType.antingAntingDuha, null},
+        { EquippableItemsBase.ItemType.singSingIsa, null},
+        { EquippableItemsBase.ItemType.singSingDuha, null},
+        { EquippableItemsBase.ItemType.lawas, null},
+        { EquippableItemsBase.ItemType.paaIsa, null},
+        { EquippableItemsBase.ItemType.paaDuha, null},
+        { EquippableItemsBase.ItemType.tiil, null},
+        { EquippableItemsBase.ItemType.kamot, null},
+        { EquippableItemsBase.ItemType.gamit, null}
+    };
     [SerializeField] List<ItemsBase> weakness;
     // [SerializeField] EquippedItems equipments;
     public string Aname
@@ -135,6 +150,7 @@ public class AswangBase : ScriptableObject
     public void OnEquippedItemsChanged(Dictionary<EquippableItemsBase.ItemType, EquippableItem> currentlyEquippedItems)
     {
         EquippedItems = currentlyEquippedItems;
+        Debug.Log("items equipped");
     }
 }
 
