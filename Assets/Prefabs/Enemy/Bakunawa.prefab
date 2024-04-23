@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 640313007142878613}
   - component: {fileID: 7885742871532884934}
   - component: {fileID: 7602046381097046216}
-  - component: {fileID: 4137302587010538743}
   - component: {fileID: -8235340904909375734}
+  - component: {fileID: 4137302587010538743}
   m_Layer: 0
   m_Name: Bakunawa
   m_TagString: Enemy
@@ -153,6 +153,23 @@ MonoBehaviour:
   - aswangBase: {fileID: 11400000, guid: 549514c8bdd42aa4d95b63aef881cff2, type: 2}
     levelRange: {x: 4, y: 6}
     chancePercentage: 100
+--- !u!114 &-8235340904909375734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2011968414886730903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8baea72bc66a434f8b4043559509dd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 0
+  distance: 0
+  distanceThreshold: 0.5
+  offsetY: 0.3
+  runSpeed: 0
 --- !u!114 &4137302587010538743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,9 +183,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkDownSprites:
-  - {fileID: 21300000, guid: 9ea45cc9da23264459fbdfbc33c59060, type: 3}
+  - {fileID: 499181434, guid: d4be0002eb96e1549b11ec49a0c0970b, type: 3}
+  - {fileID: -404732907, guid: b1414bc05bf03ed439cd7a2c2fb8cdd2, type: 3}
+  - {fileID: 718249469, guid: 7267bc980f9d65d4b8ab5504e8c3766c, type: 3}
+  - {fileID: 718249469, guid: 200a9b8691e4d8242b046ac113c6c665, type: 3}
+  - {fileID: 1064320114, guid: 53368f5cd97dd204a98939347f583ffd, type: 3}
   walkUpSprites:
-  - {fileID: 21300000, guid: 9ea45cc9da23264459fbdfbc33c59060, type: 3}
+  - {fileID: -743731046, guid: d4be0002eb96e1549b11ec49a0c0970b, type: 3}
+  - {fileID: -700859298, guid: b1414bc05bf03ed439cd7a2c2fb8cdd2, type: 3}
+  - {fileID: -60266239, guid: 7267bc980f9d65d4b8ab5504e8c3766c, type: 3}
+  - {fileID: -60266239, guid: 200a9b8691e4d8242b046ac113c6c665, type: 3}
+  - {fileID: -2096537373, guid: 53368f5cd97dd204a98939347f583ffd, type: 3}
   walkRightSprites:
   - {fileID: 499181434, guid: d4be0002eb96e1549b11ec49a0c0970b, type: 3}
   - {fileID: -404732907, guid: b1414bc05bf03ed439cd7a2c2fb8cdd2, type: 3}
@@ -191,20 +216,3 @@ MonoBehaviour:
   sneakLeftSprites: []
   IsSneaking: 0
   IsRunning: 0
---- !u!114 &-8235340904909375734
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2011968414886730903}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8baea72bc66a434f8b4043559509dd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 0
-  distance: 0
-  distanceThreshold: 0.5
-  offsetY: 0.3
-  runSpeed: 0

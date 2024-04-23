@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Xml.Linq;
 using Items;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 public enum BattleSystemState { Start, ActionSelection, EnemyAttackRoll, EnemyDamageRoll, Busy, MoveSelection, PlayerAttackRoll, PlayerDamageRoll, PerformMove }
 
@@ -18,6 +18,7 @@ public class BattleSystem : MonoBehaviour
 
     [SerializeField] AudioClip battleMusic;
     [SerializeField] AudioClip victoryMusic;
+    [SerializeField] GameObject deathScreen;
 
     public event Action OnBattleOver;
     /*public event Action Run;*/
@@ -411,10 +412,18 @@ public class BattleSystem : MonoBehaviour
         {
             yield return dialogBox.TypeDialog($"You fainted.");
             yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Z));
-           
             player.HP = player.MaxHP;
-            PlayerFaint();
-            
+            deathScreen.SetActive(true);
+
+            if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Z))
+            {
+                deathScreen.SetActive(false);
+                PlayerFaint();
+                yield return SceneManager.LoadSceneAsync(1);
+            }
+
+
+
         }
         OnBattleOver();
     }
