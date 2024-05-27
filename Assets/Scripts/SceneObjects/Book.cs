@@ -10,8 +10,12 @@ public class Book : MonoBehaviour, Interactable
     [SerializeField] Sprite closed;
     [SerializeField] Sprite open;
 
+    [SerializeField] ItemsBase itemAcquired;
     [SerializeField] QuestBase questToComplete; // interaction with this item will complete questToComplete
+    [SerializeField] QuestBase questToStart; 
     [SerializeField] GameObject objectToActivateOnComplete;
+    [SerializeField] GameObject objectToActivateOnStart;
+    
     private ItemsModel playerItems;
 
 
@@ -31,8 +35,24 @@ public class Book : MonoBehaviour, Interactable
         {
             var quest = new Quest(questToComplete);
             yield return (StartCoroutine(quest.CompletedQuest(playerItems)));
-            objectToActivateOnComplete.gameObject.SetActive(true);
+            if (objectToActivateOnComplete != null)
+            { objectToActivateOnComplete.gameObject.SetActive(true); }
             questToComplete = null;
+        }
+
+        if (questToStart != null)
+        {
+            var quest = new Quest(questToComplete);
+            yield return (StartCoroutine(quest.StartQuest()));
+            if (objectToActivateOnStart != null)
+            { objectToActivateOnStart.gameObject.SetActive(true); }
+            questToComplete = null;
+        }
+
+        if (itemAcquired!= null)
+        {
+            playerItems.AddItem(itemAcquired);
+            gameObject.SetActive(false);
         }
 
     }

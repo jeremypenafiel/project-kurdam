@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Condom
   m_EditorClassIdentifier: 
   itemName: Condom
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 8ee72286b081b1942892d19aa0b7771f, type: 3}
   description: prevents pregnancy
   type: 0
   armasType: {fileID: 0}
