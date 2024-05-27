@@ -4055,7 +4055,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialog:
     lines:
-    - You acquired Condom
+    - You acquired Rusarito
   line: 
   closed: {fileID: 21300000, guid: f8e45d8f28b0ddb45bbb2833b40a77c3, type: 3}
   open: {fileID: 21300000, guid: f8e45d8f28b0ddb45bbb2833b40a77c3, type: 3}
@@ -10479,13 +10479,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialog:
     lines:
-    - You acquired Condom
+    - You acquired Pusil
   line: 
   closed: {fileID: 21300000, guid: 134184764ec9d78408031ab5346f6c1b, type: 3}
   open: {fileID: 21300000, guid: 134184764ec9d78408031ab5346f6c1b, type: 3}
   itemAcquired: {fileID: 11400000, guid: f6501c5cb7d3f62439e26bf39a094a2b, type: 2}
-  questToComplete: {fileID: 11400000, guid: cc26e19ba2bf38e4c822fc50c9d19c04, type: 2}
-  questToStart: {fileID: 11400000, guid: 7eb232b34f2322d4e8e3d2d101e28d28, type: 2}
+  questToComplete: {fileID: 0}
+  questToStart: {fileID: 0}
   objectToActivateOnComplete: {fileID: 0}
   objectToActivateOnStart: {fileID: 0}
 --- !u!212 &1668858173
