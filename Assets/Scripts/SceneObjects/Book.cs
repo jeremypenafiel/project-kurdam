@@ -15,7 +15,9 @@ public class Book : MonoBehaviour, Interactable
     [SerializeField] QuestBase questToStart; 
     [SerializeField] GameObject objectToActivateOnComplete;
     [SerializeField] GameObject objectToActivateOnStart;
-    
+    [SerializeField] GameObject objectToDeactivateOnComplete;
+
+
     private ItemsModel playerItems;
 
 
@@ -37,7 +39,9 @@ public class Book : MonoBehaviour, Interactable
             yield return (StartCoroutine(quest.CompletedQuest(playerItems)));
             if (objectToActivateOnComplete != null)
             { objectToActivateOnComplete.gameObject.SetActive(true); }
-            questToComplete = null;
+            if (objectToDeactivateOnComplete != null)
+            { objectToDeactivateOnComplete.gameObject.SetActive(false); }
+            //questToComplete = null;
         }
 
         if (questToStart != null)
@@ -46,7 +50,7 @@ public class Book : MonoBehaviour, Interactable
             yield return (StartCoroutine(quest.StartQuest()));
             if (objectToActivateOnStart != null)
             { objectToActivateOnStart.gameObject.SetActive(true); }
-            questToComplete = null;
+            //questToStart = null;
         }
 
         if (itemAcquired!= null)

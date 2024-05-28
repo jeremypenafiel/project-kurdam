@@ -15,7 +15,11 @@ MonoBehaviour:
   name: 
   description: 
   startDialogue:
-    lines: []
+    lines:
+    - You've succeed in escaping the room
+    - I can see hope that you will succeed in escaping from here
+    - First gather these items to help you break through
+    - condom, rusarito, pusil, selpon
   inprogressDialogue:
     lines: []
   completedDialogue:

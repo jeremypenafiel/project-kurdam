@@ -140,7 +140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &201449753
 Transform:
   m_ObjectHideFlags: 0
@@ -971,6 +971,7 @@ MonoBehaviour:
   questToStart: {fileID: 0}
   objectToActivateOnComplete: {fileID: 1405169794}
   objectToActivateOnStart: {fileID: 0}
+  objectToDeactivateOnComplete: {fileID: 0}
 --- !u!212 &1552856231
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -22,8 +22,8 @@ public class Quest
     public IEnumerator StartQuest()
     {
         Status = QuestStatus.Started;
-
-        yield return DialogManager.Instance.ShowDialog(Base.StartDialogue);
+        
+        yield return DialogManager.Instance.ShowDialog(Base.StartDialogue); 
 
         var questlist = QuestList.GetQuestList();
         questlist.AddQuest(this);

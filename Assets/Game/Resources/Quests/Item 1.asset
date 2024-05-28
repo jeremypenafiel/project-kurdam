@@ -15,10 +15,12 @@ MonoBehaviour:
   name: 
   description: 
   startDialogue:
-    lines: []
+    lines:
+    - wew
   inprogressDialogue:
     lines: []
   completedDialogue:
-    lines: []
+    lines:
+    - You have  succesfully found one of the items
   requiredItem: {fileID: 0}
   rewardItem: {fileID: 0}

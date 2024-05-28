@@ -871,8 +871,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialog:
-    lines:
-    - Find 4 items
+    lines: []
   questToStart: {fileID: 11400000, guid: e59e6d48131159c4693a17a83295a376, type: 2}
   questToComplete: {fileID: 0}
   objectToActivateOnComplete: {fileID: 0}
