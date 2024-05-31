@@ -13,12 +13,12 @@ public class Player : MonoBehaviour
     private void Start()
     {
         player = new Aswang(playertype,playerlevel);
-        inventorySystem.Controller._itemsModel.OnEquippedItemsChanged += OnEquippedItemsChanged;
+        // inventorySystem.Controller._itemsModel.OnEquippedItemsChanged += OnEquippedItemsChanged;
     }
 
     private void OnEquippedItemsChanged()
     {
-        player.Base.OnEquippedItemsChanged(inventorySystem.Controller._itemsModel.equippedItems);
+        //player.Base.OnEquippedItemsChanged(inventorySystem.Controller._itemsModel.equippedItems);
     }
 
     public Aswang GetPlayer()

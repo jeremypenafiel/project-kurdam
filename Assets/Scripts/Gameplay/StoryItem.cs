@@ -10,7 +10,7 @@ public class StoryItem : MonoBehaviour, IPLayerTriggerable
     [SerializeField] QuestBase questToStart;
     [SerializeField] QuestBase questToComplete; // interaction with this item will complete questToComplete
     [SerializeField] GameObject objectToActivateOnComplete;
-    private ItemsModel playerItems;
+    private InventoryModel _playerInventory;
     private bool isActive = false;
     [SerializeField] bool triggerOnce;
     public static event Action<Vector2> OnQuestIncomplete;
@@ -20,7 +20,7 @@ public class StoryItem : MonoBehaviour, IPLayerTriggerable
    {
        Debug.Log("nag run ang triggered");
         playerController.Character.Animator.IsMoving = false;
-        playerItems = playerController.player.inventorySystem.Controller._itemsModel;
+        //playerItems = playerController.player.inventorySystem.Controller._itemsModel;
 
         StartCoroutine(QuestCheck());
    }
@@ -31,7 +31,7 @@ public class StoryItem : MonoBehaviour, IPLayerTriggerable
        if (questToComplete != null)
        {
            var quest = new Quest(questToComplete);
-           StartCoroutine(quest.CompletedQuest(playerItems));
+           StartCoroutine(quest.CompletedQuest(_playerInventory));
            questToComplete = null;
        }
         
@@ -47,17 +47,17 @@ public class StoryItem : MonoBehaviour, IPLayerTriggerable
            }
            
            //else if cannot be completed, this runs
-           else if (!activeQuest.CanBeCompleted(playerItems))
+           else if (!activeQuest.CanBeCompleted(_playerInventory))
            {
                Debug.Log("nag run ni");
                yield return DialogManager.Instance.ShowDialog(activeQuest.Base.InprogressDialogue);
                yield break;
            }
            // if completed, this runs. this will also run on first encounter sa story item if may ara na siya item 
-           if (activeQuest.CanBeCompleted(playerItems))
+           if (activeQuest.CanBeCompleted(_playerInventory))
            {
                Debug.Log("nag run pagd a");
-               yield return StartCoroutine(activeQuest.CompletedQuest(playerItems));
+               yield return StartCoroutine(activeQuest.CompletedQuest(_playerInventory));
                activeQuest = null;
                questToStart = null;
                gameObject.SetActive(false);

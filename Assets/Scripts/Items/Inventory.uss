@@ -1,0 +1,60 @@
+.container{
+    
+    flex-grow: 1;
+    
+}
+
+.inventory{
+    width: 70%;
+    height: 70%;
+    background-image: url("/Assets/Art/Inventory/21.png");
+}
+
+.inventoryFrame{
+    background-image: url("/Assets/Art/Inventory/20.png");
+}
+
+.inventoryHeader {
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    background-image: url("/Assets/Art/Inventory/17.png");
+}
+
+Label {
+    font-size: 20px;
+    color: white;
+}
+
+.slotsContainer{
+    
+    flex-grow: 1;
+    padding: 30px;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.highlight{
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    margin: 4px;
+    background-image: url("/Assets/Art/Inventory/highlight.png");
+}
+
+.slot {
+    align-content: center;
+    justify-content: center;
+    margin: 4px;
+    width: 95px;
+    height: 95px;
+    background-image: url("/Assets/Art/Inventory/23.png");
+}
+
+.active {
+    opacity: 0.5;
+}

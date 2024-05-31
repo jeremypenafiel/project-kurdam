@@ -55,11 +55,11 @@ public class BattleSystem : MonoBehaviour
 
         this.player = player;
         this.wildAswang = wildAswang;
-        Debug.Log(this.player.Base.EquippedItems[EquippableItemsBase.ItemType.armasIsa]);
-        if (this.player.Base.EquippedItems[EquippableItemsBase.ItemType.armasIsa] != null)
-        {
-            armasType = this.player.Base.EquippedItems[EquippableItemsBase.ItemType.armasIsa].EquipableItemData.armasType;
-        }
+        // Debug.Log(this.player.Base.EquippedItems[EquippableItemsBase.ItemType.armasIsa]);
+        // if (this.player.Base.EquippedItems[EquippableItemsBase.ItemType.armasIsa] != null)
+        // {
+        //     armasType = this.player.Base.EquippedItems[EquippableItemsBase.ItemType.armasIsa].EquipableItemData.armasType;
+        // }
         AudioManager.i.StopPlayAmbientSound();
         AudioManager.i.PlayMusic(battleMusic);
         StartCoroutine(SetupBattle());
@@ -472,11 +472,11 @@ public class BattleSystem : MonoBehaviour
                 break;
             }
         }
-        if (player.Base.EquippedItems[EquippableItemsBase.ItemType.armasIsa] != null && (targetUnit.Base.Weakness.Contains(player.Base.EquippedItems[EquippableItemsBase.ItemType.armasIsa].EquipableItemData)) 
-            && (move.Base.Type == player.Base.EquippedItems[EquippableItemsBase.ItemType.armasIsa].EquipableItemData.armasType))
-        {
-            damage = Mathf.FloorToInt(damage * 2);
-        }
+        // if (player.Base.EquippedItems[EquippableItemsBase.ItemType.armasIsa] != null && (targetUnit.Base.Weakness.Contains(player.Base.EquippedItems[EquippableItemsBase.ItemType.armasIsa].EquipableItemData)) 
+        //     && (move.Base.Type == player.Base.EquippedItems[EquippableItemsBase.ItemType.armasIsa].EquipableItemData.armasType))
+        // {
+        //     damage = Mathf.FloorToInt(damage * 2);
+        // }
         // else if (targetUnit != player)
         // {
         //     damage = Mathf.FloorToInt(damage/10);

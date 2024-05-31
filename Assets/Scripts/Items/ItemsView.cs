@@ -129,42 +129,42 @@ namespace Items
             }
         }
 
-        public void UpdateEquippedItems(Dictionary<EquippableItemsBase.ItemType, EquippableItem> equippedItems)
-        {
-            foreach (var itemType in equippedItems.Keys)
-            {
-                var equippedItem = equippedItems[itemType];
-                if (equippedItem == null)
-                {
-                    equippedIconsDictionary[itemType]?.gameObject.SetActive(false);
-                }
-                else
-                {
-                    equippedIconsDictionary[itemType].UpdateItemIcon(equippedItem.itemData.icon);
-                    equippedIconsDictionary[itemType].gameObject.SetActive(true);
-                }
-            }
-            
-            SetItemDescriptionTexts();
-        }
+        // public void UpdateEquippedItems(Dictionary<EquippableItemsBase.ItemType, EquippableItem> equippedItems)
+        // {
+        //     foreach (var itemType in equippedItems.Keys)
+        //     {
+        //         var equippedItem = equippedItems[itemType];
+        //         if (equippedItem == null)
+        //         {
+        //             equippedIconsDictionary[itemType]?.gameObject.SetActive(false);
+        //         }
+        //         else
+        //         {
+        //             equippedIconsDictionary[itemType].UpdateItemIcon(equippedItem.itemData.icon);
+        //             equippedIconsDictionary[itemType].gameObject.SetActive(true);
+        //         }
+        //     }
+        //     
+        //     SetItemDescriptionTexts();
+        // }
         
-        public void UpdateInventoryItems(List<Item> inventoryItems)
-        {
-            for (var i = 0; i < inventoryIcons.Length; i++)
-            {
-                if (i < inventoryItems.Count)
-                {
-                    inventoryIcons[i].UpdateItemIcon(inventoryItems[i].itemData.icon);
-                    inventoryIcons[i].gameObject.SetActive(true);
-                }
-                else
-                {
-                    inventoryIcons[i].gameObject.SetActive(false);
-                }
-            }
-            
-            SetItemDescriptionTexts();
-        }
+        // public void UpdateInventoryItems(List<Item> inventoryItems)
+        // {
+        //     for (var i = 0; i < inventoryIcons.Length; i++)
+        //     {
+        //         if (i < inventoryItems.Count)
+        //         {
+        //             inventoryIcons[i].UpdateItemIcon(inventoryItems[i].itemData.icon);
+        //             inventoryIcons[i].gameObject.SetActive(true);
+        //         }
+        //         else
+        //         {
+        //             inventoryIcons[i].gameObject.SetActive(false);
+        //         }
+        //     }
+        //     
+        //     SetItemDescriptionTexts();
+        // }
 
         void HandleNavigationSelection()
         {
@@ -214,20 +214,20 @@ namespace Items
 
         private void SetItemDescriptionTexts()
         {
-            currentItem = onSelectionChanged?.Invoke(currentNavigation-equippedNumberOffset);
-            if (currentItem is null)
-            {
-                itemDescriptionBox.SetItemDescription("", "", "");
-            }
-            else
-            {
-                if (currentItem is ConsumableItem item)
-                {
-                    itemDescriptionBox.SetItemDescription(item.itemData.itemName, item.itemData.description, $"Amount: {item.Amount.ToString()}");
-                    return;
-                }
-                itemDescriptionBox.SetItemDescription(currentItem.itemData.itemName, currentItem.itemData.description, "");
-            }
+            // currentItem = onSelectionChanged?.Invoke(currentNavigation-equippedNumberOffset);
+            // if (currentItem is null)
+            // {
+            //     itemDescriptionBox.SetItemDescription("", "", "");
+            // }
+            // else
+            // {
+            //     if (currentItem is ConsumableItem item)
+            //     {
+            //         itemDescriptionBox.SetItemDescription(item.itemData.itemName, item.itemData.description, $"Amount: {item.Amount.ToString()}");
+            //         return;
+            //     }
+            //     itemDescriptionBox.SetItemDescription(currentItem.itemData.itemName, currentItem.itemData.description, "");
+            // }
         }
 
         void HandleActionSelection()
