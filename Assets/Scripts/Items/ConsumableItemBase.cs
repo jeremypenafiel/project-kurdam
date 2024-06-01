@@ -9,7 +9,7 @@ namespace Items
     {
         public readonly bool IsStackable = true;
         public int currentStackNumber = 0;
-        public List<ConsumableItemEffect> itemEffects;
+        public List<IConsumableItemEffect> itemEffects;
   
     }
 }

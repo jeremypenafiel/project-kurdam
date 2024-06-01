@@ -2,8 +2,8 @@
 
 namespace Items
 {
-    public abstract class ConsumableItemEffect: ScriptableObject
+    public interface IConsumableItemEffect
     {
-        public abstract void ExecuteEffect(ConsumableItemBase itemData, Player player);
+        public void ExecuteEffect(ConsumableItemBase itemData, Player player);
     }
 }

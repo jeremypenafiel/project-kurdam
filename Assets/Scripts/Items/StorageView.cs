@@ -1,12 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Items;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 public abstract class StorageView : MonoBehaviour
 {
-    public Slot[] Slots;
+    public Slot[] InventorySlots;
+    public Slot[] EquipmentSlots;
 
     [SerializeField] protected UIDocument document;
     [SerializeField] protected StyleSheet styleSheet;
@@ -16,12 +18,9 @@ public abstract class StorageView : MonoBehaviour
     protected VisualElement root;
     protected VisualElement container;
 
-    private IEnumerator Start()
-    {
-        yield return StartCoroutine(InitializeView());
-    }
+  
 
-    public abstract IEnumerator InitializeView(int size = 20);
+    public abstract IEnumerator InitializeView(ViewModel viewModel);
     
 
 }

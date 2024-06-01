@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Properties;
 using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
@@ -8,6 +9,30 @@ using UnityEngine.PlayerLoop;
 
 namespace Items
 {
+    public class BindableProperty<T>
+    {
+        readonly Func<T> getter;
+
+        BindableProperty(Func<T> getter)
+        {
+            this.getter = getter;
+        }
+
+        [CreateProperty] public T Value => getter();
+
+        public static BindableProperty<T> Bind(Func<T> getter) => new BindableProperty<T>(getter);
+    }
+    public class ViewModel
+    {
+        public readonly int Capacity;
+        public readonly BindableProperty<Item> item;
+        
+        public ViewModel(InventoryModel model, int capacity)
+        {
+            Capacity = capacity;
+            item = BindableProperty<Item>.Bind(() => model.currentItem);
+        }
+    }
     public class InventoryController
     {
         readonly InventoryView view;
@@ -29,29 +54,97 @@ namespace Items
 
         IEnumerator Initialize()
         {
-            yield return view.InitializeView(capacity);
-
+            view.OnInventoryItemSelectionChanged += HandleOnInventoryItemSelectionChanged;
+            view.OnEquipmentItemSelectionChanged += HandleOnEquipmentItemSelectionChanged;
+            view.OnInventoryActionSelected += HandleOnInventoryActionSelected;
+            view.OnEquipmentActionSelected += HandleOnEquipmentActionSelected;
             model.OnModelChanged += HandleModelChanged;
+            model.OnEquipmentChanged += HandleModelChanged;
+            
+            yield return view.InitializeView(new ViewModel(model, capacity));
+            
 
             RefreshView();
 
         }
 
-        void HandleModelChanged(IList<Item> items) => RefreshView();
+        private void HandleOnEquipmentActionSelected(int action, int itemIndex)
+        {
+            if (action == 0)
+            {
+                
+            }
+            else
+            {
+                var item = model.GetFromEquipment(itemIndex);
+                model.RemoveFromEquipment(item);
+            }
+        }
+
+        private void HandleOnEquipmentItemSelectionChanged(int index)
+        {
+            Debug.Log(index);
+            var item = model.GetFromEquipment(index);
+            model.currentItem = item;
+            view.SetItemDescriptionBox(item);
+        }
+
+        private void HandleOnInventoryActionSelected(int action, int itemIndex) // action = 0 is use/equip, action = 1 is discard
+        {
+            if (action == 0)
+            {
+                
+            }
+            else
+            {
+                var item = model.GetFromInventory(itemIndex);
+                model.RemoveFromInventory(item);
+            }
+        }
+
+        void HandleOnInventoryItemSelectionChanged(int index)
+        {
+            Debug.Log("nagrun");
+            var item = model.GetFromInventory(index);
+            model.currentItem = item;
+            view.SetItemDescriptionBox(item);
+        }
+
+        void HandleModelChanged(IList<Item> items)
+        {
+            m
+            view.SetItemDescriptionBox(model.currentItem);
+            RefreshView();
+            
+        }
+            
 
 
         void RefreshView()
         {
             for (int i = 0; i < capacity; i++)
             {
-                var item = model.Get(i);
+                var item = model.GetFromInventory(i);
                 if (item == null)
                 {
-                    view.Slots[i].Set(SerializableGuid.Empty, null);
+                    view.InventorySlots[i].Set(SerializableGuid.Empty, null);
                 }
                 else
                 {
-                    view.Slots[i].Set(item.Id, item.details.icon, item.quantity);
+                    view.InventorySlots[i].Set(item.Id, item.details.icon, item.quantity);
+                }
+            }
+            
+            for(int i = 0; i < 6; i++)
+            {
+                var item = model.GetFromEquipment(i);
+                if (item == null)
+                {
+                    view.EquipmentSlots[i].Set(SerializableGuid.Empty, null);
+                }
+                else
+                {
+                    view.EquipmentSlots[i].Set(item.Id, item.details.icon, item.quantity);
                 }
             }
         }
@@ -62,6 +155,7 @@ namespace Items
         {
             private InventoryView view;
             IEnumerable<ItemsBase> itemDetails;
+            IEnumerable<ItemsBase> equipmentDetails;
             int capacity = 20;
 
             public Builder(InventoryView view)
@@ -75,6 +169,12 @@ namespace Items
                 return this;
             }
             
+            public Builder WithStartingEquipment(IEnumerable <ItemsBase> equipmentDetails)
+            {
+                this.equipmentDetails = equipmentDetails;
+                return this;
+            }
+            
             public Builder WithCapacity(int capacity)
             {
                 this.capacity = capacity;
@@ -83,9 +183,21 @@ namespace Items
 
             public InventoryController Build()
             {
-                InventoryModel model = itemDetails != null
-                    ? new InventoryModel(itemDetails, capacity)
-                    : new InventoryModel(Array.Empty<ItemsBase>(), capacity);
+                InventoryModel model;
+                if (itemDetails == null && equipmentDetails == null)
+                {
+                    model = new InventoryModel(Array.Empty<ItemsBase>(), Array.Empty<ItemsBase>(), capacity);
+                }else if (itemDetails != null && equipmentDetails != null)
+                {
+                    model = new InventoryModel(itemDetails, equipmentDetails, capacity);
+                }else if (itemDetails != null)
+                {
+                    model = new InventoryModel(itemDetails, Array.Empty<ItemsBase>(), capacity);
+                }
+                else
+                {
+                    model = new InventoryModel(Array.Empty<ItemsBase>(), equipmentDetails, capacity);
+                }
 
                 return new InventoryController(view, model, capacity);
             }
