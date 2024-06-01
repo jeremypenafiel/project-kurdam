@@ -69,17 +69,6 @@ public class Book : MonoBehaviour, Interactable, ISavable
 
   
 
-    public void RestoreState(object state)
-    {
-       var saveData = state as InteractQuestSaveData;
-        if (saveData != null)
-        {
-            activeQuest = (saveData.activeQuest!=null) ? new Quest(saveData.activeQuest) : null;
-            questToStart = (saveData.questToStart != null) ? new Quest(saveData.questToStart).Base : null;
-            questToComplete = (saveData.questToComplete != null) ? new Quest(saveData.questToComplete).Base : null;
-
-        }
-    }
 
     public object CaptureState()
     {
@@ -95,6 +84,18 @@ public class Book : MonoBehaviour, Interactable, ISavable
             saveData.questToComplete = (new Quest(questToComplete).GetSaveData());
         }
         return saveData;
+    }
+
+    public void RestoreState(object state)
+    {
+        var saveData = state as InteractQuestSaveData;
+        if (saveData != null)
+        {
+            activeQuest = (saveData.activeQuest != null) ? new Quest(saveData.activeQuest) : null;
+            questToStart = (saveData.questToStart != null) ? new Quest(saveData.questToStart).Base : null;
+            questToComplete = (saveData.questToComplete != null) ? new Quest(saveData.questToComplete).Base : null;
+
+        }
     }
 }
 [System.Serializable]

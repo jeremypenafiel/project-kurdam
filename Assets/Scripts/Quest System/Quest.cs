@@ -5,9 +5,9 @@ using System.Linq;
 using UnityEngine;
 
 
-public enum QuestStatus { None, Started, Completed}
 
-[System.Serializable]
+
+
 public class Quest
 {
     public QuestBase Base {get;private set;}
@@ -100,4 +100,4 @@ public class QuestSaveData
     public string name;
     public QuestStatus status;
 }
-
+public enum QuestStatus { None, Started, Completed }
