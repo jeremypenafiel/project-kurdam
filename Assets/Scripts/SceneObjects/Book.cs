@@ -21,7 +21,7 @@ public class Book : MonoBehaviour, Interactable, ISavable
     Quest activeQuest;
 
 
-    private ItemsModel playerItems;
+
 
 
     private void Start()
@@ -47,7 +47,7 @@ public class Book : MonoBehaviour, Interactable, ISavable
             yield return (StartCoroutine(quest.CompletedQuest(_playerInventory)));
             objectToActivateOnComplete.gameObject.SetActive(true);
             questToComplete = null;
-            yield return (StartCoroutine(quest.CompletedQuest(playerItems)));
+            yield return (StartCoroutine(quest.CompletedQuest(_playerInventory)));
 
             //questToComplete = null;
         }
@@ -66,7 +66,7 @@ public class Book : MonoBehaviour, Interactable, ISavable
 
         if (itemAcquired!= null)
         {
-            playerItems.AddItem(itemAcquired);
+            _playerInventory.AddItem(itemAcquired);
             gameObject.SetActive(false);
         }
 

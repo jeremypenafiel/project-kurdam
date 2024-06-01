@@ -151,7 +151,7 @@ namespace Items
         //             return;
         //         }
         //     }
-            
+
         //     // else add to inventory
         //     inventoryItems.Add(newItem);
         //     Debug.Log("Item added in model");
@@ -169,7 +169,7 @@ namespace Items
         //     inventoryItems.Remove(consumableItem);
         //     OnInventoryChanged?.Invoke();
         // }
-        
+
         // public void Equip(EquippableItem item)
         // {
         //     if(equippedItems[item.EquipableItemData.type] != null)
@@ -181,7 +181,7 @@ namespace Items
         //     OnEquippedItemsChanged?.Invoke();
         //     OnInventoryChanged?.Invoke();
         // }
-        
+
         // public void Unequip(EquippableItem item)
         // {
         //     equippedItems[item.EquipableItemData.type] = null;
@@ -189,19 +189,19 @@ namespace Items
         //     OnEquippedItemsChanged?.Invoke();
         //     OnInventoryChanged?.Invoke();
         // }
+
+       public bool Contains(ItemsBase requiredItem)
+         {
+            for(int i = 0; i < Items.Count; i++)
+            {
+                if (Equals(Items[i].details, requiredItem))
+                {
+                    return true;
+                }
+            }
+             return false;
+         }
         
-        // public bool Contains(ItemsBase requiredItem)
-        // {
-        //     foreach (var item in inventoryItems)
-        //     {
-        //         if(Equals(item.itemData, requiredItem))
-        //         {
-        //             return true;
-        //         }
-        //     }
-        //     return false;
-        // }
-        //
         // public void RemoveItem(ItemsBase requiredItem)
         // {
         //     foreach (var item in inventoryItems)
@@ -214,7 +214,7 @@ namespace Items
         //         }
         //     }
         // }
-        
+
         public void AddItem(ItemsBase rewardItem)
         {
             if(rewardItem is EquippableItemsBase)
