@@ -473,9 +473,8 @@ MonoBehaviour:
   questToComplete: {fileID: 0}
   questToStart: {fileID: 0}
   questInProgress: {fileID: 0}
-  objectToActivateOnComplete: {fileID: 0}
-  objectToActivateOnStart: {fileID: 0}
-  objectToDeactivateOnComplete: {fileID: 0}
+  objectToActivateOnInteract: {fileID: 0}
+  objectToDeactivateOnInteract: {fileID: 0}
 --- !u!1 &559071632
 GameObject:
   m_ObjectHideFlags: 0
@@ -6109,9 +6108,8 @@ MonoBehaviour:
   questToComplete: {fileID: 0}
   questToStart: {fileID: 0}
   questInProgress: {fileID: 0}
-  objectToActivateOnComplete: {fileID: 0}
-  objectToActivateOnStart: {fileID: 0}
-  objectToDeactivateOnComplete: {fileID: 0}
+  objectToActivateOnInteract: {fileID: 0}
+  objectToDeactivateOnInteract: {fileID: 0}
 --- !u!61 &1420028332
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6353,6 +6351,7 @@ GameObject:
   - component: {fileID: 1526894795}
   - component: {fileID: 1526894794}
   - component: {fileID: 1526894793}
+  - component: {fileID: 1526894797}
   m_Layer: 10
   m_Name: Selpon
   m_TagString: Untagged
@@ -6427,9 +6426,8 @@ MonoBehaviour:
   questToComplete: {fileID: 0}
   questToStart: {fileID: 0}
   questInProgress: {fileID: 11400000, guid: e59e6d48131159c4693a17a83295a376, type: 2}
-  objectToActivateOnComplete: {fileID: 2011968415259067875}
-  objectToActivateOnStart: {fileID: 2011968415259067875}
-  objectToDeactivateOnComplete: {fileID: 0}
+  objectToActivateOnInteract: {fileID: 0}
+  objectToDeactivateOnInteract: {fileID: 0}
 --- !u!212 &1526894795
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6497,6 +6495,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1526894797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1526894791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4881f89f8b930e34489bbb86116ccd4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uniqueId: ada79e17-fcdd-4bae-93db-01a6bd84d127
 --- !u!1 &1538388484
 GameObject:
   m_ObjectHideFlags: 0

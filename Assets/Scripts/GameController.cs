@@ -43,7 +43,9 @@ public class GameController : MonoBehaviour
     {
         Instance = this;
         fader = FindObjectOfType<Fader>();
-  
+        QuestDB.Init();
+
+
     }
     private void Start()
     {

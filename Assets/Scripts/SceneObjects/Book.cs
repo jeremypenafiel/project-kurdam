@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Book : MonoBehaviour, Interactable
+public class Book : MonoBehaviour, Interactable, ISavable
 {
     [SerializeField] Dialog dialog;
     [SerializeField] string line;
@@ -16,6 +16,7 @@ public class Book : MonoBehaviour, Interactable
     [SerializeField] QuestBase questInProgress;
     [SerializeField] GameObject objectToActivateOnInteract;
     [SerializeField] GameObject objectToDeactivateOnInteract;
+    Quest activeQuest;
 
 
     private ItemsModel playerItems;
@@ -65,5 +66,42 @@ public class Book : MonoBehaviour, Interactable
         }
 
     }
+
+  
+
+    public void RestoreState(object state)
+    {
+       var saveData = state as InteractQuestSaveData;
+        if (saveData != null)
+        {
+            activeQuest = (saveData.activeQuest!=null) ? new Quest(saveData.activeQuest) : null;
+            questToStart = (saveData.questToStart != null) ? new Quest(saveData.questToStart).Base : null;
+            questToComplete = (saveData.questToComplete != null) ? new Quest(saveData.questToComplete).Base : null;
+
+        }
+    }
+
+    public object CaptureState()
+    {
+        var saveData = new InteractQuestSaveData();
+        saveData.activeQuest = activeQuest?.GetSaveData();
+
+        if (questToStart != null)
+        {
+            saveData.questToStart = (new Quest(questToStart).GetSaveData());
+        }
+        if (questToComplete != null)
+        {
+            saveData.questToComplete = (new Quest(questToComplete).GetSaveData());
+        }
+        return saveData;
+    }
+}
+[System.Serializable]
+public class InteractQuestSaveData
+{
+    public QuestSaveData activeQuest;
+    public QuestSaveData questToStart;
+    public QuestSaveData questToComplete;
 
 }
