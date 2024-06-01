@@ -16,7 +16,7 @@ public class GameController : MonoBehaviour
     [SerializeField] Camera worldCamera;
     [SerializeField] LocationPortal locationPortal;
     [SerializeField] GameObject pauseScreen;
-    [SerializeField] GameObject visionLimiter;
+/*    [SerializeField] GameObject visionLimiter;*/
     [SerializeField] InventorySystem inventorySystem;
 
     
@@ -35,7 +35,7 @@ public class GameController : MonoBehaviour
 
     public GameObject PauseScreen => pauseScreen;
 
-    public GameObject VisionLimiter => visionLimiter;
+/*    public GameObject VisionLimiter => visionLimiter;*/
     
 
 

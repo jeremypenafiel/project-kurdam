@@ -51,6 +51,9 @@ TagManager:
   - name: fences
     uniqueID: 2331796277
     locked: 0
+  - name: fg no lighting
+    uniqueID: 3721881997
+    locked: 0
   - name: buildings
     uniqueID: 1925268741
     locked: 0
