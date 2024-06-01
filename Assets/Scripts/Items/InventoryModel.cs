@@ -55,7 +55,7 @@ namespace Items
             Debug.Log(equipmentDetails);
             foreach (var itemDetail in itemDetails)
             {
-                Items.TryAdd(itemDetail.Create(1));
+                Items.TryAdd(itemDetail.Create(2));
             }
             
             foreach (var itemDetail in equipmentDetails)
