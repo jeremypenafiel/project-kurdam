@@ -68,7 +68,6 @@ namespace Items
             
             yield return view.InitializeView(new ViewModel(model, capacity));
             
-
             RefreshView();
 
         }

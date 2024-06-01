@@ -101,3 +101,9 @@ Label {
 .activeText{
     color: blue;
 }
+
+.slotIcon{
+    justify-content: center;
+    align-content: center;
+    opacity: 0.5;
+}

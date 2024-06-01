@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Items;
 using JetBrains.Annotations;
 using TMPro;
@@ -37,8 +38,11 @@ public class InventoryView : StorageView
     bool isCurrentItemEquipment = false;
     
     VisualElement dialogBox;
-    private VisualElement useText;
-    private VisualElement discardText;
+    private Label useText;
+    private Label discardText;
+
+    private Label description;
+    private Label itemName;
     
     public override IEnumerator InitializeView(ViewModel viewModel)
     {
@@ -93,7 +97,40 @@ public class InventoryView : StorageView
         //
         // ghostIcon = container.CreateChild("ghostIcon");
         // ghostIcon.BringToFront();
-        InventorySlots[currentActiveInventorySlot].AddClass(selectedSlotSelector);
+
+        
+        var inventorySlotList = root.Q("Inventory").Q("ItemSlots").Q("VisualElement").Query<Slot>(className:"slot").ToList();
+        Debug.Log(inventorySlotList.Count);
+        
+        for (var i = 0; i < viewModel.Capacity; i++)
+        {
+            var slot = inventorySlotList[i];
+            InventorySlots[i] = slot;
+        }
+        var equipmentSlotList = root.Q("Inventory").Q("ItemSlots").Q("Wearables").Query<Slot>(className:"slot").ToList();
+        Debug.Log(equipmentSlotList.Count);
+        for (var i = 0; i < 6; i++)
+        {
+            var slot = equipmentSlotList[i];
+            EquipmentSlots[i] = slot;
+        }
+        
+        
+        dialogBox = root.Q("DescRow").Q(className: "dialogBox");
+        dialogBox.visible = false;
+        
+        description = root.Q("DescRow").Q(className:"descriptionBox").Q<Label>(className:"description");
+        itemName = root.Q("DescRow").Q(className:"descriptionBox").Q<Label>(className:"itemName");
+        
+        useText = dialogBox.Q<Label>(className: "useText");
+        discardText = dialogBox.Q<Label>(className: "discardText");
+        
+        Debug.Assert(dialogBox != null, "dialogBox == null");
+        Debug.Assert(description != null, "description == null");
+        Debug.Assert(itemName != null, "itemName == null");
+        Debug.Assert(useText != null, "useText == null");
+        Debug.Assert(discardText!= null, "discardText == null");
+        // InventorySlots[currentActiveInventorySlot].AddClass(selectedSlotSelector);
         OnInventoryItemSelectionChanged?.Invoke(currentActiveInventorySlot);
         
 
@@ -130,8 +167,6 @@ public class InventoryView : StorageView
             if(InventorySlots[currentActiveInventorySlot].ItemId == SerializableGuid.Empty) return;
             if (CheckIfMissionItem!.Invoke(currentActiveInventorySlot)) return;
 
-            var dialogBox = root.Q(className:"container").Q(className:"dialogBox");
-            var useText = dialogBox.Q<TextElement>(className: "useText");
             if (CheckIfEquipmentItem!.Invoke(currentActiveInventorySlot))
             {
                 useText.text = "Equip";
@@ -145,7 +180,6 @@ public class InventoryView : StorageView
             
             //AudioManager.PlaySFX(AudioId.UISelect);
             dialogBox.visible = true;
-            useText = dialogBox.Q<TextElement>(className: "useText");
             useText.style.color = Color.blue;
 
         }else if (Input.GetKeyDown(KeyCode.E))
@@ -158,24 +192,6 @@ public class InventoryView : StorageView
 
     private void Update()
     {
-        foreach (var child in root.Children())
-        {
-            Debug.Log(root.name);
-            Debug.Log(child.name);
-        }
-        // Debug.Log(root.Children());
-        var descRow = root.Q("DescRow");
-        if (descRow == null)
-        {
-            Debug.Log("DescRow not found");
-            return;
-        }
-        var dialogBox = descRow.Q("DialogBox");
-        if (dialogBox == null)
-        {
-            Debug.Log("DialogBox not found");
-            return;
-        }
         if (!dialogBox.visible)
         {
             if(isInventoryMode) HandleInventoryNavigationSelection();
@@ -217,10 +233,8 @@ public class InventoryView : StorageView
             
             
             //AudioManager.PlaySFX(AudioId.UISelect);
-            var dialogBox = root.Q(className:"container").Q(className:"dialogBox");
             dialogBox.visible = true;
             
-            var useText = dialogBox.Q<TextElement>(className: "useText");
             useText.style.color = Color.blue;
             useText.text = "Unequip";
 
@@ -234,8 +248,7 @@ public class InventoryView : StorageView
     private void HandleActionSelection()
     { 
         
-        var useText = root.Q(className:"container").Q(className:"dialogBox").Q<TextElement>(className: "useText");
-        var discardText = root.Q(className:"container").Q(className:"dialogBox").Q<TextElement>(className: "discardText");
+        
         
         if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow))
         {
@@ -244,7 +257,7 @@ public class InventoryView : StorageView
         }else if (Input.GetKeyDown(KeyCode.X))
         {
             //AudioManager.PlaySFX(AudioId.UISelect);
-            root.Q(className:"container").Q(className:"dialogBox").visible = false;
+            dialogBox.visible = false;
         }
 
         if (selectedAction == 0)
@@ -268,15 +281,13 @@ public class InventoryView : StorageView
             {
                 OnEquipmentActionSelected?.Invoke(selectedAction, currentActiveEquipmentSlot);
             }
-            root.Q(className:"container").Q(className:"dialogBox").visible = false;
+            dialogBox.visible = false;
         }
     }
 
 
     public void SetItemDescriptionBox([CanBeNull] Item item)
     {
-        var description = root.Q(className:"container").Q(className:"descriptionBox").Q<TextElement>(className:"descriptionText");
-        var itemName = root.Q(className:"container").Q(className:"descriptionBox").Q<TextElement>(className:"itemName");
         if (item == null)
         {
             description.text = "";
