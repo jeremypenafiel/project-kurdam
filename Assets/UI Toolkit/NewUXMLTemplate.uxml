@@ -1,0 +1,47 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/Scripts/Items/Inventory.uss?fileID=7433441132597879392&amp;guid=5516781c047b7ab4a9b2e891ab42345b&amp;type=3#Inventory" />
+    <ui:VisualElement name="Inventory" class="inventory-root" style="flex-direction: row; height: 490px; width: 988px; justify-content: center; align-self: center; align-items: stretch; left: 0; top: 0;">
+        <ui:VisualElement name="ItemSlots" class="main-inventory-container" style="flex-direction: row; align-items: stretch; justify-content: space-between; width: 1254px; align-self: center; opacity: 1; overflow: visible; position: relative; left: 0; top: -26px; height: 448px;">
+            <ui:VisualElement name="VisualElement" class="inventory-grid container slotsContainer inventory" style="height: 450px; width: 709px; left: 0;">
+                <ui:Label tabindex="-1" text="Inventory" parse-escape-sequences="true" display-tooltip-when-elided="true" style="-unity-text-align: middle-center; white-space: normal; text-overflow: clip; width: 745px; height: 43px;" />
+                <Slot class="slot" />
+                <Slot class="slot" />
+                <Slot class="slot" />
+                <Slot class="slot" />
+                <Slot class="slot" />
+                <Slot class="slot" />
+                <Slot class="slot" />
+                <Slot class="slot" />
+                <Slot class="slot" />
+                <Slot class="slot" />
+                <Slot class="slot" />
+                <Slot class="slot" />
+                <Slot class="slot" />
+                <Slot class="slot" />
+                <Slot class="slot" />
+                <Slot class="slot" />
+                <Slot class="slot" />
+                <Slot class="slot" />
+            </ui:VisualElement>
+            <ui:VisualElement name="Wearables" class="armor-container slotsContainer equipment" style="align-self: auto; justify-content: center; align-items: center; height: 450px; width: 276px;">
+                <ui:Label tabindex="-1" text="Equipment" parse-escape-sequences="true" display-tooltip-when-elided="true" style="width: 378px; -unity-text-align: middle-center; height: 45px;" />
+                <Slot class="slot" />
+                <Slot class="slot" />
+                <Slot class="slot" />
+                <Slot class="slot" />
+                <Slot class="slot" />
+                <Slot class="slot" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement name="DescRow" style="flex-grow: 1; flex-direction: row; top: -65px;">
+        <ui:VisualElement name="DescBox" class="descriptionBox dialogBoxContainer" style="flex-grow: 1; width: 710px; align-items: center; justify-content: flex-start; flex-direction: row; align-self: flex-start; height: 124px; bottom: -16px; flex-wrap: wrap; min-height: 110px; max-height: 146px;">
+            <ui:Label tabindex="-1" text="Label" parse-escape-sequences="true" display-tooltip-when-elided="true" class="itemName" style="width: 202px; white-space: normal; height: 101px; -unity-text-align: middle-left;" />
+            <ui:Label tabindex="-1" text="Label" parse-escape-sequences="true" display-tooltip-when-elided="true" class="description" style="-unity-text-outline-color: rgba(255, 255, 255, 0); color: rgb(0, 0, 0); -unity-text-align: middle-left; height: 105px; width: 330px; white-space: normal; font-size: 35px; text-overflow: ellipsis;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="DescBox" class="dialogBoxContainer dialogBox" style="flex-grow: 1; width: 272px; align-items: center; justify-content: center; flex-direction: column; align-self: flex-start; height: 124px; bottom: -16px; flex-wrap: wrap; min-height: 110px; max-height: 146px;">
+            <ui:Label tabindex="-1" text="Label" parse-escape-sequences="true" display-tooltip-when-elided="true" class="useText" style="-unity-text-outline-color: rgba(255, 255, 255, 0); color: rgb(0, 0, 0); -unity-text-align: lower-center; height: 57px; width: 193px; white-space: normal; font-size: 35px;" />
+            <ui:Label tabindex="-1" text="Discard" parse-escape-sequences="true" display-tooltip-when-elided="true" class="discardText" style="font-size: 35px; width: 196px; -unity-text-align: middle-center; white-space: normal;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

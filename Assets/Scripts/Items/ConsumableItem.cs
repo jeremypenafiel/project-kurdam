@@ -1,22 +1,23 @@
-﻿namespace Items
-{
-    public class ConsumableItem : Item
-    {
-        public ConsumableItemBase ConsumableItemData;
-        public int Amount { get; set; }
-        public ConsumableItem(ConsumableItemBase itemData) : base(itemData)
-        {
-            ConsumableItemData = itemData;
-            this.itemData = itemData;
-            Amount = 1;
-        }
+﻿
+using Items;
+using UnityEngine;
 
-        public void Consume(Player player)
+
+public class ConsumableItem : Item
+{
+    public ConsumableItem(ItemsBase details, int quantity) : base(details, quantity)
+    {
+        Id = SerializableGuid.NewGuid();
+        this.details = details;
+        this.quantity = quantity;
+    }
+    
+    public void Use(Aswang player)
+    {
+        ConsumableItemBase consumableItemDetails = (ConsumableItemBase) details;
+        foreach (var effect in consumableItemDetails.effects)
         {
-            foreach (var effect in ConsumableItemData.itemEffects)
-            {
-                effect.ExecuteEffect(ConsumableItemData, player);
-            }
+            effect.ExecuteEffect(player);
         }
     }
 }

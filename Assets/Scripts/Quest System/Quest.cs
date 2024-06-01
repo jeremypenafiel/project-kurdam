@@ -30,35 +30,35 @@ public class Quest
 
     }
 
-    public IEnumerator CompletedQuest(ItemsModel itemsModel)
+    public IEnumerator CompletedQuest(InventoryModel inventoryModel)
     {
         Status = QuestStatus.Completed;
 
         yield return DialogManager.Instance.ShowDialog(Base.CompletedDialogue);
         
         // if quest has required item, remove it from inventory
-        if (Base.RequiredItem != null && itemsModel.Contains(Base.RequiredItem))
-        {
-            itemsModel.RemoveItem(Base.RequiredItem);
-        }
+        // if (Base.RequiredItem != null && itemsModel.Contains(Base.RequiredItem))
+        // {
+        //     itemsModel.RemoveItem(Base.RequiredItem);
+        // }
         
         // if quest has reward item, add it to inventory
         if (Base.RewardItem != null)
         {
-            itemsModel.AddItem(Base.RewardItem);
+            inventoryModel.AddItem(Base.RewardItem);
         }
         // var questlist = QuestList.GetQuestList();
         // questlist.AddQuest(this);
 
     }
 
-    public bool CanBeCompleted(ItemsModel inventory)
+    public bool CanBeCompleted(InventoryModel inventory)
     {
         // if quest does have required item
         if (Base.RequiredItem != null)
         {
             //check  if required item is inventory
-            return inventory.Contains(Base.RequiredItem);
+            // return inventory.Contains(Base.RequiredItem);
         }
 
         return false;

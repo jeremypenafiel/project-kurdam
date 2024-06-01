@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 368665e7d62543d68968f96e12ef1bc4, type: 3}
+  m_Name: Apple
+  m_EditorClassIdentifier: 
+  itemName: Apple
+  icon: {fileID: 21300000, guid: bf73c975520271b46af105b714b38b89, type: 3}
+  description: Heals for 10HP
+  maxStack: 0
+  isConsumable: 1
+  isMissionItem: 0
+  isEquipment: 0
+  Id:
+    Part1: 213978887
+    Part2: 1305425353
+    Part3: 1481690282
+    Part4: 427344279
+  effects:
+  - {fileID: 11400000, guid: d4f8f39caaaf02f4fa79d8eee7051c80, type: 2}

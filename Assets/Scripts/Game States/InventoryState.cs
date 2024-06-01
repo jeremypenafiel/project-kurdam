@@ -2,11 +2,12 @@ using GDEUtils.StateMachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 
 public class InventoryState : State<GameController>
 {
-    [SerializeField] InventorySystem inventorySystem;
+    [FormerlySerializedAs("inventorySystem")] [SerializeField] Inventory inventory;
     public static InventoryState i { get; private set; }
     GameController gc;
 
@@ -21,12 +22,14 @@ public class InventoryState : State<GameController>
     public override void Enter(GameController owner)
     {
         gc = owner;
-        inventorySystem.gameObject.SetActive(true);
-        inventorySystem.view.ActivateCamera();
-        inventorySystem.view.RegisterExitListener(CloseInventory);
-        gc.WorldCamera.gameObject.SetActive(false);
-/*        gc.VisionLimiter.SetActive(false);*/
-        var player = gc.PlayerController.GetComponent<Player>().GetPlayer();
+        inventory.ActivateView(true);
+        // inventory.view.ActivateCamera();
+        inventory.OnExitPressed += CloseInventory;
+            
+        // inventory.view.RegisterExitListener(CloseInventory);
+        // gc.WorldCamera.gameObject.SetActive(false);
+        // gc.VisionLimiter.SetActive(false);
+        // var player = gc.PlayerController.GetComponent<Player>().GetPlayer();
         //inventorySystem.StartInventorySystem(player);
     }
     public override void Execute()
@@ -43,9 +46,9 @@ public class InventoryState : State<GameController>
 
     public override void Exit()
     {
-        inventorySystem.gameObject.SetActive(false);
-        inventorySystem.view.RemoveExitListener(CloseInventory);
-        gc.WorldCamera.gameObject.SetActive(true);
-/*        gc.VisionLimiter.SetActive(true);*/
+        inventory.ActivateView(false);
+        inventory.OnExitPressed -= CloseInventory;
+        // gc.WorldCamera.gameObject.SetActive(true);
+        // gc.VisionLimiter.SetActive(true);
     }
 }

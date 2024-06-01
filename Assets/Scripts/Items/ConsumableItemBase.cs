@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Items;
 using UnityEngine;
 
-namespace Items
+[CreateAssetMenu(fileName = "New Consumable Item", menuName = "Items/Consumable Item")]
+public class ConsumableItemBase : ItemsBase
 {
-    [CreateAssetMenu(fileName = "Item", menuName = "Items/ConsumableItem")]
-    public class ConsumableItemBase : ItemsBase
+    public ConsumableItemEffect[] effects;
+
+    public override Item Create(int quantity)
     {
-        public readonly bool IsStackable = true;
-        public int currentStackNumber = 0;
-        public List<ConsumableItemEffect> itemEffects;
-  
+        return new ConsumableItem(this, quantity);
     }
 }

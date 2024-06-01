@@ -12,7 +12,7 @@ public class Book : MonoBehaviour, Interactable
 
     [SerializeField] QuestBase questToComplete; // interaction with this item will complete questToComplete
     [SerializeField] GameObject objectToActivateOnComplete;
-    private ItemsModel playerItems;
+    private InventoryModel _playerInventory;
 
 
     private void Start()
@@ -25,12 +25,12 @@ public class Book : MonoBehaviour, Interactable
         Debug.Log("Interacting with book");
         yield return DialogManager.Instance.ShowDialog(dialog);
         GetComponent<SpriteRenderer>().sprite = closed;
-        playerItems = playerController.player.inventorySystem.Controller._itemsModel;
+        // playerItems = playerController.player.inventorySystem.Controller._itemsModel;
 
         if (questToComplete != null)
         {
             var quest = new Quest(questToComplete);
-            yield return (StartCoroutine(quest.CompletedQuest(playerItems)));
+            yield return (StartCoroutine(quest.CompletedQuest(_playerInventory)));
             objectToActivateOnComplete.gameObject.SetActive(true);
             questToComplete = null;
         }

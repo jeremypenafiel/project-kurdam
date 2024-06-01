@@ -14,7 +14,7 @@ public class InventorySystem : MonoBehaviour
     
     [SerializeField] public ItemsView view;
     [SerializeField] ItemsBase[] startingItems;
-    public ItemController Controller;
+    public InventoryController Controller;
     
 
     InventorySystemState state;
@@ -25,7 +25,7 @@ public class InventorySystem : MonoBehaviour
 
     private void Awake()
     {
-        Controller = new ItemController.Builder().WithItems(startingItems).Build(view);
+        // Controller = new ItemController.Builder().WithItems(startingItems).Build(view);
     }
 
     private void Start()

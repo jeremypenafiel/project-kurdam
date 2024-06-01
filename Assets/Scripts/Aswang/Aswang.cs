@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Items;
 using UnityEngine;
 
 [System.Serializable]
@@ -97,6 +98,17 @@ public class Aswang
     {
         get { return Mathf.FloorToInt((Base.Charisma - 10) / 2 + Mathf.FloorToInt(Growthrate * Level)); }
     }
+
+    public Dictionary<EquippableItemsBase.ItemType, EquippableItem> EquippedItems =
+        new Dictionary<EquippableItemsBase.ItemType, EquippableItem>
+        {
+            { EquippableItemsBase.ItemType.armasIsa, null },
+            { EquippableItemsBase.ItemType.armasDuha, null },
+            { EquippableItemsBase.ItemType.antingAnting, null },
+            { EquippableItemsBase.ItemType.paa, null },
+            { EquippableItemsBase.ItemType.tiil, null },
+            { EquippableItemsBase.ItemType.lawas, null }
+        };
 
     public float Growthrate
     {

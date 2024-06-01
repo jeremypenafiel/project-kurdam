@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Items
 {
-    [CreateAssetMenu(fileName = "Item", menuName = "Items/EquippableItem")]
+    [CreateAssetMenu(fileName = "New Equippable Item", menuName = "Items/EquippableItem")]
     public class EquippableItemsBase: ItemsBase
     {
         [SerializeField] public ItemType type;
@@ -19,17 +19,15 @@ namespace Items
         {
             armasIsa,
             armasDuha,
-            ulo,
-            antingAntingIsa,
-            antingAntingDuha,
-            singSingIsa,
-            singSingDuha,
+            antingAnting,
             lawas,
-            paaIsa,
-            paaDuha,
+            paa,
             tiil,
-            kamot,
-            gamit 
+        }
+
+        public override Item Create(int quantity)
+        {
+            return new EquippableItem(this, quantity);
         }
     }
 }
