@@ -60,8 +60,11 @@ namespace Items
             view.OnInventoryActionSelected += HandleOnInventoryActionSelected;
             view.OnEquipmentActionSelected += HandleOnEquipmentActionSelected;
             view.CheckIfMissionItem += HandleCheckIfMissionItem;
+            view.CheckIfEquipmentItem += HandleCheckIfEquipmentItem;
+            
             model.OnModelChanged += HandleModelChanged;
-            model.OnEquipmentChanged += HandleModelChanged;
+            
+            model.OnEquipmentChanged += HandleEquipmentChanged;
             
             yield return view.InitializeView(new ViewModel(model, capacity));
             
@@ -70,18 +73,32 @@ namespace Items
 
         }
 
+        private void HandleEquipmentChanged(ObservableDictionary<EquippableItemsBase.ItemType, EquippableItem> obj)
+        {
+            model.currentItem = null;
+            view.SetItemDescriptionBox(model.currentItem);
+            RefreshView();
+        }
+
+        private bool HandleCheckIfEquipmentItem(int itemIndex)
+        {
+            var item = model.GetFromInventory(itemIndex);
+            return item.details.isEquipment;
+        }
+
         private bool HandleCheckIfMissionItem(int itemIndex)
         {
             var item = model.GetFromInventory(itemIndex);
             return item.details.isMissionItem;
         }
+        
 
         private void HandleOnEquipmentActionSelected(int action, int itemIndex)
         {
             var item = model.GetFromEquipment(itemIndex);
             if (action == 0)
             {
-                
+                model.Unequip(item);
             }
             else
             {
@@ -99,16 +116,17 @@ namespace Items
 
         private void HandleOnInventoryActionSelected(int action, int itemIndex) // action = 0 is use/equip, action = 1 is discard
         {
+            var item = model.GetFromInventory(itemIndex);
             
             if (action == 0)
             {
-                var item = model.GetFromInventory(itemIndex);
-                item.Use(player);
+                if(item is ConsumableItem) ((ConsumableItem)item).Use(player);
+                else model.Equip((EquippableItem)item);
+                
                 model.RemoveFromInventory(item);
             }
             else
             {
-                var item = model.GetFromInventory(itemIndex);
                 model.RemoveFromInventory(item);
             }
         }
@@ -126,8 +144,9 @@ namespace Items
             model.currentItem = null;
             view.SetItemDescriptionBox(model.currentItem);
             RefreshView();
-            
         }
+        
+        
             
 
 
@@ -168,7 +187,7 @@ namespace Items
         {
             private InventoryView view;
             IEnumerable<ItemsBase> itemDetails;
-            IEnumerable<ItemsBase> equipmentDetails;
+            IEnumerable<EquippableItemsBase> equipmentDetails;
             int capacity = 20;
 
             public Builder(InventoryView view)
@@ -182,7 +201,7 @@ namespace Items
                 return this;
             }
             
-            public Builder WithStartingEquipment(IEnumerable <ItemsBase> equipmentDetails)
+            public Builder WithStartingEquipment(IEnumerable <EquippableItemsBase> equipmentDetails)
             {
                 this.equipmentDetails = equipmentDetails;
                 return this;
@@ -199,13 +218,13 @@ namespace Items
                 InventoryModel model;
                 if (itemDetails == null && equipmentDetails == null)
                 {
-                    model = new InventoryModel(Array.Empty<ItemsBase>(), Array.Empty<ItemsBase>(), capacity);
+                    model = new InventoryModel(Array.Empty<ItemsBase>(), Array.Empty<EquippableItemsBase>(), capacity);
                 }else if (itemDetails != null && equipmentDetails != null)
                 {
                     model = new InventoryModel(itemDetails, equipmentDetails, capacity);
                 }else if (itemDetails != null)
                 {
-                    model = new InventoryModel(itemDetails, Array.Empty<ItemsBase>(), capacity);
+                    model = new InventoryModel(itemDetails, Array.Empty<EquippableItemsBase>(), capacity);
                 }
                 else
                 {

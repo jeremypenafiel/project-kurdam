@@ -27,13 +27,14 @@ public class InventoryView : StorageView
     public event Action<int, int> OnEquipmentActionSelected;
 
     public event Func<int, bool> CheckIfMissionItem;
-    
+    public event Func<int, bool> CheckIfEquipmentItem;
     // Used for Navigation
     int currentActiveInventorySlot = 0;
     int currentActiveEquipmentSlot = 0;
     int selectedAction = 0;
     
     bool isInventoryMode = true;
+    bool isCurrentItemEquipment = false;
     
     public override IEnumerator InitializeView(ViewModel viewModel)
     {
@@ -124,11 +125,23 @@ public class InventoryView : StorageView
         {
             if(InventorySlots[currentActiveInventorySlot].ItemId == SerializableGuid.Empty) return;
             if (CheckIfMissionItem!.Invoke(currentActiveInventorySlot)) return;
+
+            var dialogBox = root.Q(className:"container").Q(className:"dialogBox");
+            var useText = dialogBox.Q<TextElement>(className: "useText");
+            if (CheckIfEquipmentItem!.Invoke(currentActiveInventorySlot))
+            {
+                useText.text = "Equip";
+                isCurrentItemEquipment = true;
+            }
+            else
+            {
+                useText.text = "Use";
+                isCurrentItemEquipment = false;
+            }
             
             //AudioManager.PlaySFX(AudioId.UISelect);
-            var dialogBox = root.Q(className:"container").Q(className:"dialogBox");
             dialogBox.visible = true;
-            var useText = dialogBox.Q<TextElement>(className: "useText");
+            useText = dialogBox.Q<TextElement>(className: "useText");
             useText.style.color = Color.blue;
 
         }else if (Input.GetKeyDown(KeyCode.E))
@@ -185,8 +198,10 @@ public class InventoryView : StorageView
             //AudioManager.PlaySFX(AudioId.UISelect);
             var dialogBox = root.Q(className:"container").Q(className:"dialogBox");
             dialogBox.visible = true;
+            
             var useText = dialogBox.Q<TextElement>(className: "useText");
             useText.style.color = Color.blue;
+            useText.text = "Unequip";
 
         }else if (Input.GetKeyDown(KeyCode.E))
         {

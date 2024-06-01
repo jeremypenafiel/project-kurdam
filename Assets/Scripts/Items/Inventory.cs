@@ -8,7 +8,7 @@ public class Inventory : MonoBehaviour
     [SerializeField] private InventoryView view;
     [SerializeField]  int capacity = 20;
     [SerializeField] private List<ItemsBase> startingItems = new List<ItemsBase>();
-    [SerializeField] private List<ItemsBase> startingEquippedItems = new List<ItemsBase>();
+    [SerializeField] private List<EquippableItemsBase> startingEquippedItems = new List<EquippableItemsBase>();
 
     InventoryController controller;
 

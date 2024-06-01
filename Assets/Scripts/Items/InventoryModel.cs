@@ -1,24 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Items
 {
     public class InventoryModel
     {
+        public Dictionary<EquippableItemsBase.ItemType, EquippableItem> equippedItemsDictionary = new(){
+            { EquippableItemsBase.ItemType.armasIsa, null},
+            { EquippableItemsBase.ItemType.armasDuha, null},
+            { EquippableItemsBase.ItemType.antingAnting, null},
+            { EquippableItemsBase.ItemType.ulo, null},
+            { EquippableItemsBase.ItemType.paa, null},
+            { EquippableItemsBase.ItemType.tiil, null},
+            { EquippableItemsBase.ItemType.lawas, null}
+        };
+        
+        
         private Aswang player;
 
         public ObservableArray<Item> Items { get; set; }
-        public ObservableArray<Item> EquippedItems { get; set; }
+        // public ObservableArray<EquippableItem> EquippedItems { get; set; }
+        public ObservableDictionary<EquippableItemsBase.ItemType, EquippableItem> EquippedItems { get; set; }
 
         public Item currentItem { get; set; }
-        
-        public event Action<Item[]> OnEquipmentChanged
-        {
-            add => EquippedItems.AnyValueChanged += value;
-            remove => EquippedItems.AnyValueChanged -= value;
-            
-        }
 
         public event Action<Item[]> OnModelChanged
         {
@@ -26,11 +33,27 @@ namespace Items
             remove => Items.AnyValueChanged -= value;
             
         }
+        
+        public event Action<ObservableDictionary<EquippableItemsBase.ItemType, EquippableItem>> OnEquipmentChanged
+        {
+            add => EquippedItems.OnDictionaryChanged += value;
+            remove => EquippedItems.OnDictionaryChanged -= value;
+        }
 
-        public InventoryModel(IEnumerable<ItemsBase> itemDetails, IEnumerable<ItemsBase> equipmentDetails, int capacity)
+        public InventoryModel(IEnumerable<ItemsBase> itemDetails, IEnumerable<EquippableItemsBase> equipmentDetails, int capacity)
         {
             Items = new ObservableArray<Item>(capacity);
-            EquippedItems = new ObservableArray<Item>(6);
+            EquippedItems = new ObservableDictionary<EquippableItemsBase.ItemType, EquippableItem>
+            {
+                { EquippableItemsBase.ItemType.armasIsa, null},
+                { EquippableItemsBase.ItemType.armasDuha, null},
+                { EquippableItemsBase.ItemType.antingAnting, null},
+                { EquippableItemsBase.ItemType.ulo, null},
+                { EquippableItemsBase.ItemType.paa, null},
+                { EquippableItemsBase.ItemType.tiil, null},
+                { EquippableItemsBase.ItemType.lawas, null}
+            };
+            
             Debug.Log(equipmentDetails);
             foreach (var itemDetail in itemDetails)
             {
@@ -39,19 +62,43 @@ namespace Items
             
             foreach (var itemDetail in equipmentDetails)
             {
-                EquippedItems.TryAdd(itemDetail.Create(1));
+                var type = itemDetail.type;
+                EquippedItems.Add(type, (EquippableItem)itemDetail.Create(1));
             }
             
             
         }
 
         public Item GetFromInventory(int index) => Items[index];
-        public Item GetFromEquipment(int index) => EquippedItems[index];
+        public EquippableItem GetFromEquipment(int index)
+        {
+            var array = EquippedItems.Values.ToArray();
+            Debug.Log(array[index]);
+            return array[index];
+        }
+
         public void Clear() => Items.Clear();
-        public bool Add(Item item) => Items.TryAdd(item);
+        public bool AddToInventory(Item item) => Items.TryAdd(item);
         
+        public void Equip(EquippableItem item)
+        {
+            var type = ((EquippableItemsBase)item.details).type;
+            if(EquippedItems[type] != null)
+            {
+                Unequip(EquippedItems[type]);
+            }
+            EquippedItems[type] = item;
+        }
+        
+        public void Unequip(EquippableItem item)
+        {
+            var type = ((EquippableItemsBase)item.details).type;
+            EquippedItems[type] = null;
+            Items.TryAdd(item);
+        }
+
         public bool RemoveFromInventory(Item item) => Items.TryRemove(item);
-        public bool RemoveFromEquipment(Item item) => EquippedItems.TryRemove(item);
+        public bool RemoveFromEquipment(EquippableItem item) => EquippedItems.Remove(((EquippableItemsBase)item.details).type);
 
         public void Swap(int source, int target) => Items.Swap(source, target);
 
@@ -181,9 +228,8 @@ namespace Items
             
         }
     }
-    
-        
-    
+
+
     // public abstract class Item
     // {
     //     public ItemsBase itemData;

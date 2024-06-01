@@ -1,12 +1,12 @@
-﻿namespace Items
-{
-    // public class EquippableItem: Item
-    // {
-    //     public EquippableItemsBase EquipableItemData;
-    //     public EquippableItem(EquippableItemsBase itemData) : base(itemData)
-    //     {
-    //         EquipableItemData = itemData;
-    //         this.itemData = itemData;
-    //     }
-    // }
-}
+﻿
+    using Items;
+
+    public class EquippableItem: Item
+    {
+        public EquippableItem(ItemsBase details, int quantity) : base(details, quantity)
+        {
+            Id = SerializableGuid.NewGuid();
+            this.details = details;
+            this.quantity = quantity;
+        }
+    }

@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af6b84d2b4f49884c976f59db3873409, type: 3}
-  m_Name: New Item
+  m_Script: {fileID: 11500000, guid: 368665e7d62543d68968f96e12ef1bc4, type: 3}
+  m_Name: Apple
   m_EditorClassIdentifier: 
   itemName: 
   icon: {fileID: 0}
@@ -19,7 +19,8 @@ MonoBehaviour:
   isConsumable: 0
   isMissionItem: 0
   Id:
-    Part1: 411425287
-    Part2: 1157498334
-    Part3: 2251015599
-    Part4: 2650633905
+    Part1: 213978887
+    Part2: 1305425353
+    Part3: 1481690282
+    Part4: 427344279
+  effects: []
