@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1fa79623780d084469e204dd7b215e29
+guid: ee1c9f6c669a5fb4c8ddae199fd7f03c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -37,9 +37,9 @@ TextureImporter:
     filterMode: 0
     aniso: 1
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
-    wrapW: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -110,34 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tikbalang_animation-export1_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 64
-        height: 80
-      alignment: 9
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0e8ca049c5bf8334d978b38daee306ac
-      internalID: 1025774647
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: tikbalang_animation-export1_1
+      name: whitelady_animation1_0
       rect:
         serializedVersion: 2
         x: 64
         y: 0
         width: 64
-        height: 80
+        height: 48
       alignment: 9
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,8 +124,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5bc0b8fb3c9a96d4892c6d0f1071ce39
-      internalID: -1323009749
+      spriteID: 970d68f4c79076b4e84206bb75f20b33
+      internalID: 1982687320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whitelady_animation1_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 48
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d2cc9a83d3554a4583d4038f87d6c47
+      internalID: 1268019759
       vertices: []
       indices: 
       edges: []
@@ -162,8 +162,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      tikbalang_animation-export1_0: 1025774647
-      tikbalang_animation-export1_1: -1323009749
+      whitelady_animation1_0: 1982687320
+      whitelady_animation1_1: 1268019759
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -43,6 +43,7 @@ public class PlayerController : MonoBehaviour, ISavable
         gc = GameObject.Find("GameController").GetComponent<GameController>();
         i = this;
         player = gameObject.GetComponent<Player>();
+
         StoryItem.OnQuestIncomplete += (Vector2 direction) =>
         {
             isMoveOneTile = true;

@@ -10,6 +10,7 @@ public class GameLayers : MonoBehaviour
     [SerializeField] LayerMask encounterableLayer;
     [SerializeField] LayerMask portalLayer;
     [SerializeField] LayerMask triggersLayer;
+    
 
 
     public static GameLayers I { get; set;}

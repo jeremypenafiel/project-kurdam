@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7602046381097046216}
   - component: {fileID: -8123876372549820712}
   - component: {fileID: 6541053501317295212}
+  - component: {fileID: 2418726605144427736}
   m_Layer: 0
   m_Name: Kapre
   m_TagString: Enemy
@@ -31,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 2011968414886730903}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 36.16, y: 122.95, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 0.98, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -212,3 +213,73 @@ MonoBehaviour:
   sneakLeftSprites: []
   IsSneaking: 0
   IsRunning: 0
+--- !u!60 &2418726605144427736
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2011968414886730903}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.92, y: 0.96}
+    newSize: {x: 2, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 1
+  m_Points:
+    m_Paths:
+    - - {x: 0.21, y: 0.29}
+      - {x: 0.07, y: 0.39999998}
+      - {x: 0, y: 0.47}
+      - {x: -0.049999997, y: 0.48}
+      - {x: -0.089999996, y: 0.48}
+      - {x: -0.14, y: 0.45999998}
+      - {x: -0.21, y: 0.37}
+      - {x: -0.22, y: 0.16}
+      - {x: -0.26, y: -0.07}
+      - {x: -0.26999998, y: -0.14999999}
+      - {x: -0.22, y: -0.26999998}
+      - {x: -0.31, y: -0.32999998}
+      - {x: -0.31, y: -0.38}
+      - {x: -0.26, y: -0.42}
+      - {x: -0.14, y: -0.42}
+      - {x: -0.03, y: -0.35999998}
+      - {x: -0.01, y: -0.29}
+      - {x: -0.049999997, y: -0.28}
+      - {x: -0.01, y: -0.28}
+      - {x: 0.099999994, y: -0.37}
+      - {x: 0.13, y: -0.44}
+      - {x: 0.31, y: -0.44}
+      - {x: 0.32, y: -0.42}
+      - {x: 0.32, y: -0.32999998}
+      - {x: 0.28, y: -0.25}
+  m_UseDelaunayMesh: 0

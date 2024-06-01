@@ -37,10 +37,17 @@ public class EnemyChase : MonoBehaviour
         target = GameObject.FindWithTag("Player").transform;
         player = GameObject.Find("Player");
         character = GetComponent<Character>();
-        if (character != null)
+      
+        character.Animator.IsMoving = false;
+        var aswangCollider = gameObject.GetComponent<Collider2D>();
+        var solidObjects = GameObject.FindGameObjectsWithTag("Ignore");
+        foreach (var solidObject in solidObjects)
         {
-            Debug.Log($"{character} is not null");
-            Debug.Log(character.Animator);
+            var components = solidObject.GetComponentsInChildren<Collider2D>();
+            foreach(var component in components) 
+            { 
+                Physics2D.IgnoreCollision(aswangCollider, component); 
+            }
             
         }
 
@@ -117,7 +124,7 @@ public class EnemyChase : MonoBehaviour
             
         }
         
-        if (isInEncounterRange) 
+        if (Physics2D.OverlapCircle(rb.position,0.5f,GameLayers.I.PlayerLayer)) 
         {
             rb.velocity = Vector2.zero;
             gameObject.name = "Encounter";
@@ -128,6 +135,10 @@ public class EnemyChase : MonoBehaviour
             Destroy(gameObject);
         }
 
+        if (!isInChaseRange)
+        {
+            character.Animator.IsMoving = false;
+        }
         
 
 
