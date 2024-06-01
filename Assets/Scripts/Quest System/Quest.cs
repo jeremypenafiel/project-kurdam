@@ -60,8 +60,18 @@ public class Quest
             //check  if required item is inventory
             return inventory.Contains(Base.RequiredItem);
         }
-
-        return false;
+        if (Base.RequiredItems != null)
+        {
+            ;
+            foreach (var item in Base.RequiredItems)
+            {
+                var check = inventory.Contains(item);
+                if (!check) { return check; }
+                return check;
+            }
+            
+        }
+        return true;
     }
     
     

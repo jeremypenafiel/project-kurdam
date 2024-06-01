@@ -21,8 +21,15 @@ MonoBehaviour:
     - First gather these items to help you break through
     - condom, rusarito, pusil, selpon
   inprogressDialogue:
-    lines: []
+    lines:
+    - Find the other items
   completedDialogue:
-    lines: []
+    lines:
+    - You succeeded in gathering all the items
+  requiredItems:
+  - {fileID: 11400000, guid: 2198fc7caf8a95f468f6b526dd1ca331, type: 2}
+  - {fileID: 11400000, guid: 61728025739bf6e4f8b81ab971df9fab, type: 2}
+  - {fileID: 11400000, guid: 28e2eb298de50aa4f8624f6458e0b85e, type: 2}
+  - {fileID: 11400000, guid: f6501c5cb7d3f62439e26bf39a094a2b, type: 2}
   requiredItem: {fileID: 0}
   rewardItem: {fileID: 0}

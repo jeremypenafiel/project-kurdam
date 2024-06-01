@@ -875,7 +875,7 @@ MonoBehaviour:
   questToStart: {fileID: 11400000, guid: e59e6d48131159c4693a17a83295a376, type: 2}
   questToComplete: {fileID: 0}
   objectToActivateOnComplete: {fileID: 0}
-  triggerOnce: 1
+  triggerOnce: 0
 --- !u!4 &575817400
 Transform:
   m_ObjectHideFlags: 0
