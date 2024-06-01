@@ -12,15 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 368665e7d62543d68968f96e12ef1bc4, type: 3}
   m_Name: Apple
   m_EditorClassIdentifier: 
-  itemName: 
-  icon: {fileID: 0}
-  description: 
+  itemName: Apple
+  icon: {fileID: 21300000, guid: bf73c975520271b46af105b714b38b89, type: 3}
+  description: Heals for 10HP
   maxStack: 0
-  isConsumable: 0
+  isConsumable: 1
   isMissionItem: 0
+  isEquipment: 0
   Id:
     Part1: 213978887
     Part2: 1305425353
     Part3: 1481690282
     Part4: 427344279
-  effects: []
+  effects:
+  - {fileID: 11400000, guid: d4f8f39caaaf02f4fa79d8eee7051c80, type: 2}

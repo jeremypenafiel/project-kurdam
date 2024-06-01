@@ -15,6 +15,15 @@ MonoBehaviour:
   itemName: Helmet kang delivery
   icon: {fileID: 21300000, guid: ad88ea50c15006845900761ec6a4698a, type: 3}
   description: Panagang sa kapre
+  maxStack: 0
+  isConsumable: 0
+  isMissionItem: 0
+  isEquipment: 1
+  Id:
+    Part1: 3261173506
+    Part2: 1145641973
+    Part3: 1377153420
+    Part4: 2825988246
   type: 2
   armasType: {fileID: 0}
   advantage: []

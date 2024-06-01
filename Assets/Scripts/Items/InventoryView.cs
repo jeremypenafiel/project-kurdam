@@ -36,16 +36,20 @@ public class InventoryView : StorageView
     bool isInventoryMode = true;
     bool isCurrentItemEquipment = false;
     
+    VisualElement dialogBox;
+    private VisualElement useText;
+    private VisualElement discardText;
+    
     public override IEnumerator InitializeView(ViewModel viewModel)
     {
         InventorySlots = new Slot[viewModel.Capacity];
         EquipmentSlots = new Slot[6];
         root = document.rootVisualElement;
-        root.Clear();
+        //root.Clear();
         
         root.styleSheets.Add(styleSheet);
         
-        container =  root.CreateChild("container");
+        //container =  root.CreateChild("container");
         
         // var inventory = container.CreateChild("inventory");
         // var equipment = container.CreateChild("equipment");
@@ -154,7 +158,24 @@ public class InventoryView : StorageView
 
     private void Update()
     {
-        var dialogBox = root.Q(className:"container").Q(className:"dialogBox");
+        foreach (var child in root.Children())
+        {
+            Debug.Log(root.name);
+            Debug.Log(child.name);
+        }
+        // Debug.Log(root.Children());
+        var descRow = root.Q("DescRow");
+        if (descRow == null)
+        {
+            Debug.Log("DescRow not found");
+            return;
+        }
+        var dialogBox = descRow.Q("DialogBox");
+        if (dialogBox == null)
+        {
+            Debug.Log("DialogBox not found");
+            return;
+        }
         if (!dialogBox.visible)
         {
             if(isInventoryMode) HandleInventoryNavigationSelection();
