@@ -25,6 +25,8 @@ public class InventoryView : StorageView
     public event Action<int> OnEquipmentItemSelectionChanged;
     public event Action<int, int> OnInventoryActionSelected;
     public event Action<int, int> OnEquipmentActionSelected;
+
+    public event Func<int, bool> CheckIfMissionItem;
     
     // Used for Navigation
     int currentActiveInventorySlot = 0;
@@ -121,6 +123,7 @@ public class InventoryView : StorageView
         }else if (Input.GetKeyDown(KeyCode.Z))
         {
             if(InventorySlots[currentActiveInventorySlot].ItemId == SerializableGuid.Empty) return;
+            if (CheckIfMissionItem!.Invoke(currentActiveInventorySlot)) return;
             
             //AudioManager.PlaySFX(AudioId.UISelect);
             var dialogBox = root.Q(className:"container").Q(className:"dialogBox");

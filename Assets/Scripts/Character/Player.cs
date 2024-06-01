@@ -12,7 +12,6 @@ public class Player : MonoBehaviour
     [SerializeField] int playerlevel;
     Aswang player;
     [SerializeField] public Inventory inventory;
-    [SerializeField] public TextMeshProUGUI text;
 
     private void Start()
     {
@@ -31,13 +30,5 @@ public class Player : MonoBehaviour
         return player;
     }
 
-    private void Update()
-    {
-        SetplayerHealthTExt();
-    }
-
-    public void SetplayerHealthTExt()
-    {
-        text.text = player.HP.ToString();
-    }
+   
 }

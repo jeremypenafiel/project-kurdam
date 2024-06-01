@@ -5,7 +5,7 @@ using Items;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Item", menuName = "Inventory/Item")]
-public class ItemsBase: ScriptableObject
+public abstract class ItemsBase: ScriptableObject
 {
     [SerializeField] public string itemName;
     [SerializeField] public Sprite icon;

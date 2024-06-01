@@ -59,6 +59,7 @@ namespace Items
             view.OnEquipmentItemSelectionChanged += HandleOnEquipmentItemSelectionChanged;
             view.OnInventoryActionSelected += HandleOnInventoryActionSelected;
             view.OnEquipmentActionSelected += HandleOnEquipmentActionSelected;
+            view.CheckIfMissionItem += HandleCheckIfMissionItem;
             model.OnModelChanged += HandleModelChanged;
             model.OnEquipmentChanged += HandleModelChanged;
             
@@ -69,15 +70,21 @@ namespace Items
 
         }
 
+        private bool HandleCheckIfMissionItem(int itemIndex)
+        {
+            var item = model.GetFromInventory(itemIndex);
+            return item.details.isMissionItem;
+        }
+
         private void HandleOnEquipmentActionSelected(int action, int itemIndex)
         {
+            var item = model.GetFromEquipment(itemIndex);
             if (action == 0)
             {
                 
             }
             else
             {
-                var item = model.GetFromEquipment(itemIndex);
                 model.RemoveFromEquipment(item);
             }
         }
