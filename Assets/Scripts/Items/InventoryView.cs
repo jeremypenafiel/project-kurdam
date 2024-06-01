@@ -46,7 +46,9 @@ public class InventoryView : StorageView
 
     private Label description;
     private Label itemName;
+
     
+
     public override IEnumerator InitializeView(ViewModel viewModel)
     {
         InventorySlots = new Slot[viewModel.Capacity];

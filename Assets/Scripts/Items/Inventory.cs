@@ -33,6 +33,7 @@ public class Inventory : MonoBehaviour
     public void ConnectPlayerToController(Aswang player)
     {
         controller.player = player;
+        controller.UpdatePlayerEquipment();
     }
 
     public void ActivateView(bool isActive)

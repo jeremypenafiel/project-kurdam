@@ -44,8 +44,6 @@ public class EnemyChase : MonoBehaviour
             
         }
 
-
-
     }
 
     private void Update()

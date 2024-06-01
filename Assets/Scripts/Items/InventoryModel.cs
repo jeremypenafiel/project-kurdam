@@ -31,12 +31,8 @@ namespace Items
             add => Items.AnyValueChanged += value;
             remove => Items.AnyValueChanged -= value;
         }
-        
-        public event Action<ObservableDictionary<EquippableItemsBase.ItemType, EquippableItem>> OnEquipmentChanged
-        {
-            add => EquippedItems.OnDictionaryChanged += value;
-            remove => EquippedItems.OnDictionaryChanged -= value;
-        }
+
+        public event Action<ObservableDictionary<EquippableItemsBase.ItemType, EquippableItem>> OnEquipmentChanged;
 
         public InventoryModel(IEnumerable<ItemsBase> itemDetails, IEnumerable<EquippableItemsBase> equipmentDetails, int capacity)
         {
@@ -52,6 +48,7 @@ namespace Items
             };
             
             Debug.Log(equipmentDetails);
+            
             foreach (var itemDetail in itemDetails)
             {
                 Items.TryAdd(itemDetail.Create(1));
@@ -60,10 +57,16 @@ namespace Items
             foreach (var itemDetail in equipmentDetails)
             {
                 var type = itemDetail.type;
-                EquippedItems.Add(type, (EquippableItem)itemDetail.Create(1));
+                Equip(itemDetail.Create(1) as EquippableItem);
+                // EquippedItems.Add(type, (EquippableItem)itemDetail.Create(1));
             }
             
-            
+        }
+
+        public void Init()
+        {
+            Debug.Log("nag run ang init");
+            OnEquipmentChanged?.Invoke(EquippedItems);
         }
 
         public Item GetFromInventory(int index) => Items[index];
@@ -85,6 +88,7 @@ namespace Items
                 Unequip(EquippedItems[type]);
             }
             EquippedItems[type] = item;
+            OnEquipmentChanged?.Invoke(EquippedItems);
         }
         
         public void Unequip(EquippableItem item)
@@ -92,6 +96,7 @@ namespace Items
             var type = ((EquippableItemsBase)item.details).type;
             EquippedItems[type] = null;
             Items.TryAdd(item);
+            OnEquipmentChanged?.Invoke(EquippedItems);
         }
 
         public bool RemoveFromInventory(Item item) => Items.TryRemove(item);

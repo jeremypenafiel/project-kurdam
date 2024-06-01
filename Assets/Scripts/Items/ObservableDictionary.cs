@@ -24,7 +24,7 @@ public class ObservableDictionary<TKey, TValue> : Dictionary<TKey, TValue>
 
     // Add other dictionary modification methods as needed
 
-    private void NotifyDictionaryChanged()
+    public void NotifyDictionaryChanged()
     {
         OnDictionaryChanged?.Invoke(this);
     }

@@ -6,6 +6,7 @@ using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
+using UnityEngine.Rendering.Universal;
 
 namespace Items
 {
@@ -49,6 +50,7 @@ namespace Items
             this.view = view;
             this.model = model;
             this.capacity = capacity;
+            // UpdatePlayerEquipment(model.EquippedItems);
 
             //view.StartCoroutine(Initialize());
         }
@@ -63,20 +65,31 @@ namespace Items
             view.CheckIfEquipmentItem += HandleCheckIfEquipmentItem;
             
             model.OnModelChanged += HandleModelChanged;
-            
             model.OnEquipmentChanged += HandleEquipmentChanged;
-            
             yield return view.InitializeView(new ViewModel(model, capacity));
+            
             
             RefreshView();
 
         }
 
-        private void HandleEquipmentChanged(ObservableDictionary<EquippableItemsBase.ItemType, EquippableItem> obj)
+        private void HandleEquipmentChanged(ObservableDictionary<EquippableItemsBase.ItemType, EquippableItem> equippedItems)
         {
             model.currentItem = null;
             view.SetItemDescriptionBox(model.currentItem);
+            Debug.Log("NAGA RUN");
+            UpdatePlayerEquipment();
             RefreshView();
+        }
+
+        public void UpdatePlayerEquipment()
+        {
+            var equippedItems = model.EquippedItems;
+            Debug.Log("update equipment ran");
+            foreach (var itemType in equippedItems.Keys)
+            {
+                player.EquippedItems[itemType] = equippedItems[itemType];
+            }
         }
 
         private bool HandleCheckIfEquipmentItem(int itemIndex)
