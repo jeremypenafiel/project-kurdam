@@ -1,0 +1,71 @@
+<engine:UXML xmlns:engine="UnityEngine.UIElements">
+    <VisualElement class="inventory-root">
+        <!-- Armor Slots -->
+        <VisualElement class="armor-container">
+            <Label class="armor-slot" name="HelmetSlot" text="Helmet"/>
+            <Label class="armor-slot" name="ChestplateSlot" text="Chest"/>
+            <Label class="armor-slot" name="LeggingsSlot" text="Legs"/>
+            <Label class="armor-slot" name="BootsSlot" text="Boots"/>
+        </VisualElement>
+
+        <!-- Crafting Grid -->
+        <VisualElement class="crafting-container">
+            <VisualElement class="crafting-grid">
+                <Label class="crafting-slot" name="CraftingSlot1" text=""/>
+                <Label class="crafting-slot" name="CraftingSlot2" text=""/>
+                <Label class="crafting-slot" name="CraftingSlot3" text=""/>
+                <Label class="crafting-slot" name="CraftingSlot4" text=""/>
+            </VisualElement>
+            <Label class="crafting-result-slot" name="CraftingResultSlot" text="Result"/>
+        </VisualElement>
+
+        <!-- Main Inventory Grid -->
+        <VisualElement class="main-inventory-container">
+            <VisualElement class="inventory-grid">
+                <!-- 3x9 Grid for Main Inventory -->
+                <Label class="inventory-slot" name="InventorySlot1" text=""/>
+                <Label class="inventory-slot" name="InventorySlot2" text=""/>
+                <Label class="inventory-slot" name="InventorySlot3" text=""/>
+                <Label class="inventory-slot" name="InventorySlot4" text=""/>
+                <Label class="inventory-slot" name="InventorySlot5" text=""/>
+                <Label class="inventory-slot" name="InventorySlot6" text=""/>
+                <Label class="inventory-slot" name="InventorySlot7" text=""/>
+                <Label class="inventory-slot" name="InventorySlot8" text=""/>
+                <Label class="inventory-slot" name="InventorySlot9" text=""/>
+                <Label class="inventory-slot" name="InventorySlot10" text=""/>
+                <Label class="inventory-slot" name="InventorySlot11" text=""/>
+                <Label class="inventory-slot" name="InventorySlot12" text=""/>
+                <Label class="inventory-slot" name="InventorySlot13" text=""/>
+                <Label class="inventory-slot" name="InventorySlot14" text=""/>
+                <Label class="inventory-slot" name="InventorySlot15" text=""/>
+                <Label class="inventory-slot" name="InventorySlot16" text=""/>
+                <Label class="inventory-slot" name="InventorySlot17" text=""/>
+                <Label class="inventory-slot" name="InventorySlot18" text=""/>
+                <Label class="inventory-slot" name="InventorySlot19" text=""/>
+                <Label class="inventory-slot" name="InventorySlot20" text=""/>
+                <Label class="inventory-slot" name="InventorySlot21" text=""/>
+                <Label class="inventory-slot" name="InventorySlot22" text=""/>
+                <Label class="inventory-slot" name="InventorySlot23" text=""/>
+                <Label class="inventory-slot" name="InventorySlot24" text=""/>
+                <Label class="inventory-slot" name="InventorySlot25" text=""/>
+                <Label class="inventory-slot" name="InventorySlot26" text=""/>
+                <Label class="inventory-slot" name="InventorySlot27" text=""/>
+            </VisualElement>
+        </VisualElement>
+
+        <!-- Hotbar -->
+        <VisualElement class="hotbar-container">
+            <VisualElement class="hotbar-grid">
+                <Label class="hotbar-slot" name="HotbarSlot1" text=""/>
+                <Label class="hotbar-slot" name="HotbarSlot2" text=""/>
+                <Label class="hotbar-slot" name="HotbarSlot3" text=""/>
+                <Label class="hotbar-slot" name="HotbarSlot4" text=""/>
+                <Label class="hotbar-slot" name="HotbarSlot5" text=""/>
+                <Label class="hotbar-slot" name="HotbarSlot6" text=""/>
+                <Label class="hotbar-slot" name="HotbarSlot7" text=""/>
+                <Label class="hotbar-slot" name="HotbarSlot8" text=""/>
+                <Label class="hotbar-slot" name="HotbarSlot9" text=""/>
+            </VisualElement>
+        </VisualElement>
+    </VisualElement>
+</engine:UXML>

@@ -1,0 +1,22 @@
+.inventory-container {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(44, 62, 80);
+    padding: 10px;
+}
+
+.inventory-slot {
+    width: 60px;
+    height: 60px;
+    background-color: rgb(52, 73, 94);
+    border-radius: 5px;
+    border-width: 2px;
+    border-color: rgb(236, 240, 241);
+}
+
+.header {
+    color: rgb(255, 255, 255);
+    -unity-font-style: bold;
+    font-size: 51px;
+}

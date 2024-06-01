@@ -1,0 +1,40 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/Scripts/Items/Inventory.uss?fileID=7433441132597879392&amp;guid=5516781c047b7ab4a9b2e891ab42345b&amp;type=3#Inventory" />
+    <ui:VisualElement name="Inventory" class="inventory-root" style="flex-direction: row; height: 490px; width: 988px; justify-content: center; align-self: center; align-items: stretch; left: 0; top: 7px;">
+        <ui:VisualElement name="ItemSlots" class="main-inventory-container" style="flex-direction: row; align-items: stretch; justify-content: space-between; width: 1254px; align-self: center; opacity: 1; overflow: visible; position: relative; left: 0; top: -1px; height: 448px;">
+            <ui:VisualElement name="VisualElement" class="inventory-grid container slotsContainer inventory" style="height: 450px; width: 709px; left: 0;">
+                <ui:Label tabindex="-1" text="Inventory" parse-escape-sequences="true" display-tooltip-when-elided="true" style="-unity-text-align: middle-center; white-space: normal; text-overflow: clip; width: 745px; height: 43px;" />
+                <ui:VisualElement name="InventorySlot1" class="inventory-slot slot" />
+                <ui:VisualElement name="InventorySlot2" class="inventory-slot slot" />
+                <ui:VisualElement name="InventorySlot3" class="inventory-slot slot" />
+                <ui:VisualElement name="InventorySlot4" class="inventory-slot slot" />
+                <ui:VisualElement name="InventorySlot5" class="inventory-slot slot" />
+                <ui:VisualElement name="InventorySlot6" class="inventory-slot slot" />
+                <ui:VisualElement name="InventorySlot7" class="inventory-slot slot" />
+                <ui:VisualElement name="InventorySlot8" class="inventory-slot slot" />
+                <ui:VisualElement name="InventorySlot9" class="inventory-slot slot" />
+                <ui:VisualElement name="InventorySlot10" class="inventory-slot slot" />
+                <ui:VisualElement name="InventorySlot11" class="inventory-slot slot" />
+                <ui:VisualElement name="InventorySlot12" class="inventory-slot slot" />
+                <ui:VisualElement name="InventorySlot13" class="inventory-slot slot" />
+                <ui:VisualElement name="InventorySlot14" class="inventory-slot slot" />
+                <ui:VisualElement name="InventorySlot15" class="inventory-slot slot" />
+                <ui:VisualElement name="InventorySlot16" class="inventory-slot slot" style="flex-direction: column-reverse;" />
+                <ui:VisualElement name="InventorySlot17" class="inventory-slot slot" />
+                <ui:VisualElement name="InventorySlot18" class="inventory-slot slot" />
+            </ui:VisualElement>
+            <ui:VisualElement name="Wearables" class="armor-container slotsContainer equipment" style="align-self: auto; justify-content: center; align-items: center; height: 450px; width: 276px;">
+                <ui:Label tabindex="-1" text="Equipment" parse-escape-sequences="true" display-tooltip-when-elided="true" style="width: 378px; -unity-text-align: middle-center; height: 45px;" />
+                <ui:VisualElement name="ChestplateSlot" class="armor-slot slot" />
+                <ui:VisualElement name="AmuletSlot" class="armor-slot slot" />
+                <ui:VisualElement name="LeftHandSlot" class="armor-slot slot" />
+                <ui:VisualElement name="RightHandSlot" class="armor-slot slot" />
+                <ui:VisualElement name="LeggingsSlot" class="armor-slot slot" />
+                <ui:VisualElement name="BootsSlot" class="armor-slot slot" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement name="DescBox" class="descriptionBox dialogBoxContainer" style="flex-grow: 1; width: 710px; align-items: flex-start; justify-content: space-around; flex-direction: column; align-self: flex-start; height: 124px; bottom: -16px; flex-wrap: wrap; min-height: 110px; max-height: 146px;">
+        <ui:Label tabindex="-1" text="Label" parse-escape-sequences="true" display-tooltip-when-elided="true" style="-unity-text-outline-color: rgba(255, 255, 255, 0); color: rgb(0, 0, 0); -unity-text-align: middle-left; height: 57px; width: 777px; white-space: normal; font-size: 40px;" />
+    </ui:VisualElement>
+</ui:UXML>
