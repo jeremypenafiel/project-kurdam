@@ -5,9 +5,9 @@ using System.Linq;
 using UnityEngine;
 
 
-public enum QuestStatus { None, Started, Completed}
 
-[System.Serializable]
+
+
 public class Quest
 {
     public QuestBase Base {get;private set;}
@@ -19,11 +19,28 @@ public class Quest
         Base = _base;
     }
 
+
+    public Quest(QuestSaveData saveData)
+    {
+        Base = QuestDB.GetObjectByName(saveData.name);
+        Status = saveData.status;
+    }
+
+    public QuestSaveData GetSaveData()
+    {
+        var saveData = new QuestSaveData()
+        {
+            name = Base.Name,
+            status = Status     
+        };
+        return saveData;
+    }
+
     public IEnumerator StartQuest()
     {
         Status = QuestStatus.Started;
-
-        yield return DialogManager.Instance.ShowDialog(Base.StartDialogue);
+        
+        yield return DialogManager.Instance.ShowDialog(Base.StartDialogue); 
 
         var questlist = QuestList.GetQuestList();
         questlist.AddQuest(this);
@@ -60,10 +77,27 @@ public class Quest
             //check  if required item is inventory
             // return inventory.Contains(Base.RequiredItem);
         }
-
-        return false;
+        if (Base.RequiredItems != null)
+        {
+            ;
+            foreach (var item in Base.RequiredItems)
+            {
+                var check = inventory.Contains(item);
+                if (!check) { return check; }
+                return check;
+            }
+            
+        }
+        return true;
     }
     
     
 }
 
+[System.Serializable]
+public class QuestSaveData
+{
+    public string name;
+    public QuestStatus status;
+}
+public enum QuestStatus { None, Started, Completed }
