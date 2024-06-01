@@ -50,10 +50,10 @@ namespace Items
             this.model = model;
             this.capacity = capacity;
 
-            view.StartCoroutine(Initialize());
+            //view.StartCoroutine(Initialize());
         }
 
-        IEnumerator Initialize()
+        public IEnumerator Initialize()
         {
             view.OnInventoryItemSelectionChanged += HandleOnInventoryItemSelectionChanged;
             view.OnEquipmentItemSelectionChanged += HandleOnEquipmentItemSelectionChanged;

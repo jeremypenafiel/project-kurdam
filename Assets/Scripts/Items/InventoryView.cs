@@ -29,6 +29,9 @@ public class InventoryView : StorageView
 
     public event Func<int, bool> CheckIfMissionItem;
     public event Func<int, bool> CheckIfEquipmentItem;
+    
+    public event Action OnExitPressed;
+    
     // Used for Navigation
     int currentActiveInventorySlot = 0;
     int currentActiveEquipmentSlot = 0;
@@ -102,14 +105,14 @@ public class InventoryView : StorageView
         var inventorySlotList = root.Q("Inventory").Q("ItemSlots").Q("VisualElement").Query<Slot>(className:"slot").ToList();
         Debug.Log(inventorySlotList.Count);
         
-        for (var i = 0; i < viewModel.Capacity; i++)
+        for (var i = 0; i < viewModel.Capacity && i <inventorySlotList.Capacity; i++)
         {
             var slot = inventorySlotList[i];
             InventorySlots[i] = slot;
         }
         var equipmentSlotList = root.Q("Inventory").Q("ItemSlots").Q("Wearables").Query<Slot>(className:"slot").ToList();
         Debug.Log(equipmentSlotList.Count);
-        for (var i = 0; i < 6; i++)
+        for (var i = 0; i < 6 && i < equipmentSlotList.Count; i++)
         {
             var slot = equipmentSlotList[i];
             EquipmentSlots[i] = slot;
@@ -187,6 +190,9 @@ public class InventoryView : StorageView
             isInventoryMode = !isInventoryMode;
             EquipmentSlots[currentActiveEquipmentSlot].AddClass(selectedSlotSelector);
             OnEquipmentItemSelectionChanged?.Invoke(currentActiveEquipmentSlot);
+        }else if (Input.GetKeyDown(KeyCode.X))
+        {
+            OnExitPressed?.Invoke();
         }
     }
 
@@ -242,6 +248,9 @@ public class InventoryView : StorageView
         {
             isInventoryMode = !isInventoryMode;
             OnInventoryItemSelectionChanged?.Invoke(currentActiveInventorySlot);
+        }else if (Input.GetKeyDown(KeyCode.X))
+        {
+            OnExitPressed?.Invoke();
         }
     }
 

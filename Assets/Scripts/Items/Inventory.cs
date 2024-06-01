@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Items;
 using UnityEngine;
+using System;
 
 public class Inventory : MonoBehaviour
 {
@@ -11,6 +12,12 @@ public class Inventory : MonoBehaviour
     [SerializeField] private List<EquippableItemsBase> startingEquippedItems = new List<EquippableItemsBase>();
 
     InventoryController controller;
+    
+    public event Action OnExitPressed
+    {
+        add => view.OnExitPressed += value;
+        remove => view.OnExitPressed -= value;
+    }
 
 
     void Awake()
@@ -26,5 +33,11 @@ public class Inventory : MonoBehaviour
     public void ConnectPlayerToController(Aswang player)
     {
         controller.player = player;
+    }
+
+    public void ActivateView(bool isActive)
+    {
+        view.gameObject.SetActive(isActive);
+        if(isActive) view.StartCoroutine(controller.Initialize());
     }
 }

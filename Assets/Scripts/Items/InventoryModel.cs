@@ -30,7 +30,6 @@ namespace Items
         {
             add => Items.AnyValueChanged += value;
             remove => Items.AnyValueChanged -= value;
-            
         }
         
         public event Action<ObservableDictionary<EquippableItemsBase.ItemType, EquippableItem>> OnEquipmentChanged
