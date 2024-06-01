@@ -25,7 +25,7 @@ public class InventoryState : State<GameController>
         inventorySystem.view.ActivateCamera();
         inventorySystem.view.RegisterExitListener(CloseInventory);
         gc.WorldCamera.gameObject.SetActive(false);
-        gc.VisionLimiter.SetActive(false);
+/*        gc.VisionLimiter.SetActive(false);*/
         var player = gc.PlayerController.GetComponent<Player>().GetPlayer();
         //inventorySystem.StartInventorySystem(player);
     }
@@ -46,6 +46,6 @@ public class InventoryState : State<GameController>
         inventorySystem.gameObject.SetActive(false);
         inventorySystem.view.RemoveExitListener(CloseInventory);
         gc.WorldCamera.gameObject.SetActive(true);
-        gc.VisionLimiter.SetActive(true);
+/*        gc.VisionLimiter.SetActive(true);*/
     }
 }
