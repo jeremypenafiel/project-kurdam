@@ -112,7 +112,7 @@ namespace Items
 
         void HandleModelChanged(IList<Item> items)
         {
-            m
+            
             view.SetItemDescriptionBox(model.currentItem);
             RefreshView();
             

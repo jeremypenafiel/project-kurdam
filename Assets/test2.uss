@@ -1,0 +1,81 @@
+.inventory-root {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    background-color: #333333;
+    border: 2px solid #888888;
+    border-radius: 10px;
+    width: 400px;
+}
+
+.armor-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.armor-slot {
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+    background-color: #444444;
+    border: 2px solid #888888;
+}
+
+.crafting-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.crafting-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 40px);
+    gap: 5px;
+    margin-right: 10px;
+}
+
+.crafting-slot, .crafting-result-slot {
+    width: 40px;
+    height: 40px;
+    background-color: #444444;
+    border: 2px solid #888888;
+}
+
+.main-inventory-container {
+    margin-bottom: 10px;
+}
+
+.inventory-grid {
+    display: grid;
+    grid-template-columns: repeat(9, 40px);
+    gap: 5px;
+}
+
+.inventory-slot {
+    width: 40px;
+    height: 40px;
+    background-color: #444444;
+    border: 2px solid #888888;
+}
+
+.hotbar-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hotbar-grid {
+    display: grid;
+    grid-template-columns: repeat(9, 40px);
+    gap: 5px;
+}
+
+.hotbar-slot {
+    width: 40px;
+    height: 40px;
+    background-color: #444444;
+    border: 2px solid #888888;
+}

@@ -248,7 +248,7 @@ public class InventoryView : StorageView
                 OnEquipmentActionSelected?.Invoke(selectedAction, currentActiveEquipmentSlot);
             }
             root.Q(className:"container").Q(className:"dialogBox").visible = false;
-            SetItemDescriptionBox();
+
         }
     }
 
