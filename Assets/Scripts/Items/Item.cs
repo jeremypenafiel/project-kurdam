@@ -15,4 +15,13 @@ public class Item
       this.details = details;
       this.quantity = quantity;
    }
+
+   public void Use(Aswang player)
+   {
+      foreach (var effect in details.effects)
+      {
+         effect.ExecuteEffect(player);
+      }
+
+   }
 }

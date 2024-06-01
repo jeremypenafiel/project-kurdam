@@ -20,5 +20,11 @@ public class Inventory : MonoBehaviour
             .WithStartingEquipment(startingEquippedItems)
             .WithCapacity(capacity)
             .Build();
+
+    }
+
+    public void ConnectPlayerToController(Aswang player)
+    {
+        controller.player = player;
     }
 }

@@ -1,9 +1,11 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Items
 {
-    public interface IConsumableItemEffect
+    public abstract class ConsumableItemEffect : ScriptableObject
     {
-        public void ExecuteEffect(ConsumableItemBase itemData, Player player);
+        public abstract void ExecuteEffect(Aswang player);
     }
+    
 }

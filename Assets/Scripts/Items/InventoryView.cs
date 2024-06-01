@@ -55,25 +55,6 @@ public class InventoryView : StorageView
         
         descriptionBox.Add(itemName);
         descriptionBox.Add(description);
-        // description.text = "Description";
-        // itemName.text = "Item Name";
-        //
-
-        // descriptionBox.dataSource = viewModel.item;
-        
-        // itemName.SetBinding(nameof(TextElement.text), new DataBinding
-        // {
-        //     dataSourcePath = new PropertyPath(nameof(BindableProperty<Item>.Value.details.name)),
-        //     bindingMode = BindingMode.ToTarget
-        // });
-        // description.SetBinding(nameof(TextElement.text), new DataBinding
-        // {
-        //     dataSourcePath = new PropertyPath(nameof(BindableProperty<Item>.Value.details.description)),
-        //     bindingMode = BindingMode.ToTarget
-        // });
-        
-        
-        
         
         // dialogbox stuff
         var dialogBoxContainer = dialogBox.CreateChild("dialogBoxContainer");
@@ -81,15 +62,10 @@ public class InventoryView : StorageView
         dialogBoxContainer.Add(new Label("Discard").AddClass("discardText"));
         dialogBox.visible = false;
         
-        
+        // inventory stuff
         inventory.CreateChild("inventoryFrame");
         inventory.CreateChild("inventoryHeader").Add(new Label(panelName));
-        
-        equipment.CreateChild("inventoryFrame");
-        equipment.CreateChild("inventoryHeader").Add(new Label("Equipment"));
-
         var slotsContainerInventory = inventory.CreateChild("slotsContainer");
-        var slotsContainerEquipment = equipment.CreateChild("slotsContainer");
         
         for (var i = 0; i < viewModel.Capacity; i++)
         {
@@ -97,6 +73,11 @@ public class InventoryView : StorageView
             // var highlight = slot.CreateChild("highlight");
             InventorySlots[i] = slot;
         }
+        
+        // equipment stuff
+        equipment.CreateChild("inventoryFrame");
+        equipment.CreateChild("inventoryHeader").Add(new Label("Equipment"));
+        var slotsContainerEquipment = equipment.CreateChild("slotsContainer");
         for (var i = 0; i < 6; i++)
         {
             var slot = slotsContainerEquipment.CreateChild<Slot>("slot");
@@ -195,7 +176,8 @@ public class InventoryView : StorageView
             OnEquipmentItemSelectionChanged?.Invoke(currentActiveEquipmentSlot);
         }else if (Input.GetKeyDown(KeyCode.Z))
         {
-            if(EquipmentSlots[currentActiveInventorySlot].ItemId == SerializableGuid.Empty) return;
+            if(EquipmentSlots[currentActiveEquipmentSlot].ItemId == SerializableGuid.Empty) return;
+            
             
             //AudioManager.PlaySFX(AudioId.UISelect);
             var dialogBox = root.Q(className:"container").Q(className:"dialogBox");
@@ -248,7 +230,6 @@ public class InventoryView : StorageView
                 OnEquipmentActionSelected?.Invoke(selectedAction, currentActiveEquipmentSlot);
             }
             root.Q(className:"container").Q(className:"dialogBox").visible = false;
-            SetItemDescriptionBox();
         }
     }
 
@@ -266,6 +247,5 @@ public class InventoryView : StorageView
         
         description.text = item.details.description;
         itemName.text = item.details.name;
-       
     }
 }

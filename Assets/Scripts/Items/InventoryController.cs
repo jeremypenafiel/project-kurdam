@@ -38,6 +38,7 @@ namespace Items
         readonly InventoryView view;
         readonly InventoryModel model;
         readonly int capacity;
+        public Aswang player { get; set; }
 
         InventoryController(InventoryView view, InventoryModel model, int capacity)
         {
@@ -91,9 +92,12 @@ namespace Items
 
         private void HandleOnInventoryActionSelected(int action, int itemIndex) // action = 0 is use/equip, action = 1 is discard
         {
+            
             if (action == 0)
             {
-                
+                var item = model.GetFromInventory(itemIndex);
+                item.Use(player);
+                model.RemoveFromInventory(item);
             }
             else
             {
@@ -112,7 +116,7 @@ namespace Items
 
         void HandleModelChanged(IList<Item> items)
         {
-            m
+            model.currentItem = null;
             view.SetItemDescriptionBox(model.currentItem);
             RefreshView();
             
@@ -148,6 +152,8 @@ namespace Items
                 }
             }
         }
+        
+       
 
         #region Builder
 
@@ -201,9 +207,7 @@ namespace Items
 
                 return new InventoryController(view, model, capacity);
             }
-
-
-
+            
         }
 
         #endregion Builder
@@ -323,5 +327,6 @@ namespace Items
         //     // }
         //
         // }
+        
     }
 }

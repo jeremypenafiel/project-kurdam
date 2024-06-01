@@ -6,6 +6,7 @@ namespace Items
 {
     public class InventoryModel
     {
+        private Aswang player;
 
         public ObservableArray<Item> Items { get; set; }
         public ObservableArray<Item> EquippedItems { get; set; }
@@ -173,13 +174,12 @@ namespace Items
                 return;
             }
             
-            if (rewardItem is ConsumableItemBase)
-            {
-                //AddItem(new ConsumableItem((ConsumableItemBase)rewardItem));
-            }
+            // if (rewardItem is ConsumableItemBase)
+            // {
+            //     //AddItem(new ConsumableItem((ConsumableItemBase)rewardItem));
+            // }
             
         }
-    
     }
     
         
