@@ -19,7 +19,6 @@ namespace Items
         {
             armasIsa,
             armasDuha,
-            ulo,
             antingAnting,
             lawas,
             paa,

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -10,6 +11,8 @@ using UnityEngine.UIElements;
         public Sprite BaseSprite;
 
         // public event Action<Vector2, Slot> OnStartDrag = delegate { };
+        
+        public new class UxmlFactory : UxmlFactory<Slot, UxmlTraits> { }
 
         public Slot() {
             Icon = this.CreateChild<Image>("slotIcon");

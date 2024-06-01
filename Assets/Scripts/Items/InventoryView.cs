@@ -47,48 +47,48 @@ public class InventoryView : StorageView
         
         container =  root.CreateChild("container");
         
-        var inventory = container.CreateChild("inventory");
-        var equipment = container.CreateChild("equipment");
-        var descriptionBox = container.CreateChild("descriptionBox");
-        var dialogBox = container.CreateChild("dialogBox");
-
-        // description stuff
-        var description = new TextElement().AddClass("descriptionText");
-        var itemName = new TextElement().AddClass("itemName");
-        
-        descriptionBox.Add(itemName);
-        descriptionBox.Add(description);
-        
-        // dialogbox stuff
-        var dialogBoxContainer = dialogBox.CreateChild("dialogBoxContainer");
-        dialogBoxContainer.Add(new Label("Use").AddClass("useText"));
-        dialogBoxContainer.Add(new Label("Discard").AddClass("discardText"));
-        dialogBox.visible = false;
-        
-        // inventory stuff
-        inventory.CreateChild("inventoryFrame");
-        inventory.CreateChild("inventoryHeader").Add(new Label(panelName));
-        var slotsContainerInventory = inventory.CreateChild("slotsContainer");
-        
-        for (var i = 0; i < viewModel.Capacity; i++)
-        {
-            var slot = slotsContainerInventory.CreateChild<Slot>("slot");
-            // var highlight = slot.CreateChild("highlight");
-            InventorySlots[i] = slot;
-        }
-        
-        // equipment stuff
-        equipment.CreateChild("inventoryFrame");
-        equipment.CreateChild("inventoryHeader").Add(new Label("Equipment"));
-        var slotsContainerEquipment = equipment.CreateChild("slotsContainer");
-        for (var i = 0; i < 6; i++)
-        {
-            var slot = slotsContainerEquipment.CreateChild<Slot>("slot");
-            EquipmentSlots[i] = slot;
-        }
-
-        ghostIcon = container.CreateChild("ghostIcon");
-        ghostIcon.BringToFront();
+        // var inventory = container.CreateChild("inventory");
+        // var equipment = container.CreateChild("equipment");
+        // var descriptionBox = container.CreateChild("descriptionBox");
+        // var dialogBox = container.CreateChild("dialogBox");
+        //
+        // // description stuff
+        // var description = new TextElement().AddClass("descriptionText");
+        // var itemName = new TextElement().AddClass("itemName");
+        //
+        // descriptionBox.Add(itemName);
+        // descriptionBox.Add(description);
+        //
+        // // dialogbox stuff
+        // var dialogBoxContainer = dialogBox.CreateChild("dialogBoxContainer");
+        // dialogBoxContainer.Add(new Label("Use").AddClass("useText"));
+        // dialogBoxContainer.Add(new Label("Discard").AddClass("discardText"));
+        // dialogBox.visible = false;
+        //
+        // // inventory stuff
+        // inventory.CreateChild("inventoryFrame");
+        // inventory.CreateChild("inventoryHeader").Add(new Label(panelName));
+        // var slotsContainerInventory = inventory.CreateChild("slotsContainer");
+        //
+        // for (var i = 0; i < viewModel.Capacity; i++)
+        // {
+        //     var slot = slotsContainerInventory.CreateChild<Slot>("slot");
+        //     // var highlight = slot.CreateChild("highlight");
+        //     InventorySlots[i] = slot;
+        // }
+        //
+        // // equipment stuff
+        // equipment.CreateChild("inventoryFrame");
+        // equipment.CreateChild("inventoryHeader").Add(new Label("Equipment"));
+        // var slotsContainerEquipment = equipment.CreateChild("slotsContainer");
+        // for (var i = 0; i < 6; i++)
+        // {
+        //     var slot = slotsContainerEquipment.CreateChild<Slot>("slot");
+        //     EquipmentSlots[i] = slot;
+        // }
+        //
+        // ghostIcon = container.CreateChild("ghostIcon");
+        // ghostIcon.BringToFront();
         InventorySlots[currentActiveInventorySlot].AddClass(selectedSlotSelector);
         OnInventoryItemSelectionChanged?.Invoke(currentActiveInventorySlot);
         

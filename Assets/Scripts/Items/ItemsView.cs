@@ -24,7 +24,6 @@ namespace Items
         [SerializeField] public Dictionary<EquippableItemsBase.ItemType, ItemIcon> equippedIconsDictionary = new()
         {
             
-            { EquippableItemsBase.ItemType.ulo, null },
             { EquippableItemsBase.ItemType.lawas, null },
             { EquippableItemsBase.ItemType.armasIsa, null },
             { EquippableItemsBase.ItemType.tiil, null },

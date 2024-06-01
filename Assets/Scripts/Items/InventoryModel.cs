@@ -12,7 +12,6 @@ namespace Items
             { EquippableItemsBase.ItemType.armasIsa, null},
             { EquippableItemsBase.ItemType.armasDuha, null},
             { EquippableItemsBase.ItemType.antingAnting, null},
-            { EquippableItemsBase.ItemType.ulo, null},
             { EquippableItemsBase.ItemType.paa, null},
             { EquippableItemsBase.ItemType.tiil, null},
             { EquippableItemsBase.ItemType.lawas, null}
@@ -48,7 +47,6 @@ namespace Items
                 { EquippableItemsBase.ItemType.armasIsa, null},
                 { EquippableItemsBase.ItemType.armasDuha, null},
                 { EquippableItemsBase.ItemType.antingAnting, null},
-                { EquippableItemsBase.ItemType.ulo, null},
                 { EquippableItemsBase.ItemType.paa, null},
                 { EquippableItemsBase.ItemType.tiil, null},
                 { EquippableItemsBase.ItemType.lawas, null}
