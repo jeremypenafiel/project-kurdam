@@ -43,7 +43,9 @@ public class GameController : MonoBehaviour
     {
         Instance = this;
         fader = FindObjectOfType<Fader>();
-  
+        QuestDB.Init();
+
+
     }
     private void Start()
     {
@@ -149,6 +151,14 @@ public class GameController : MonoBehaviour
     private void Update()
     {
         StateMachine.Execute();
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            SavingSystem.i.Save("test");
+        }
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            SavingSystem.i.Load("test");
+        }
         /*if (StateMachine.CurrentState is not FreeRoamState)
         {
             StateMachine.Execute();
