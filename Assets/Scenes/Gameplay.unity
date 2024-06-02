@@ -546,7 +546,7 @@ MonoBehaviour:
   connectedScenes:
   - {fileID: 2082083166}
   - {fileID: 1203718002}
-  sceneMusic: {fileID: 8300000, guid: 19f44f04177cc8c4da2e6cc41b03a91a, type: 3}
+  sceneMusic: {fileID: 8300000, guid: 34f058f9fda62a34dabd16bea5ec1272, type: 3}
   savableEntities: []
 --- !u!1 &935524440
 GameObject:
@@ -775,7 +775,7 @@ MonoBehaviour:
   connectedScenes:
   - {fileID: 904846907}
   - {fileID: 738521736}
-  sceneMusic: {fileID: 8300000, guid: 1e0679ea7dd0ae244836873b2b9d0b1f, type: 3}
+  sceneMusic: {fileID: 8300000, guid: 724b34f2caf8cbd4ab15962e597f708e, type: 3}
   savableEntities: []
 --- !u!1 &1626062231
 GameObject:
