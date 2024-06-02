@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using Items;
 using UnityEngine;
+using System.Linq;
+
+
 
 [System.Serializable]
 public class Aswang
@@ -29,6 +32,7 @@ public class Aswang
 
 
     public List<Moves> moves {  get; set; }
+    public List<Moves> movesLearned { get; set; }
 
 
     public void Init()
@@ -36,10 +40,14 @@ public class Aswang
         HP = MaxHP;
 
         moves = new List<Moves>();
+        movesLearned = new List<Moves>(); 
+
         foreach (var move in Base.LearnableMoves)
         {
+            
             if (move.level <= Level)
             {
+                movesLearned.Add(new Moves(move.MovesBase));
                 moves.Add(new Moves(move.MovesBase));
             }
         }
@@ -54,10 +62,13 @@ public class Aswang
         Exp = abase.GetExpForLevel(Level);
 
         moves = new List<Moves>();
+        movesLearned = new List<Moves>();
         foreach (var move in Base.LearnableMoves)
         {
             if (move.level <= Level)
             {
+                movesLearned.Add(new Moves(move.MovesBase));
+
                 moves.Add(new Moves(move.MovesBase));
             }
         }
@@ -136,5 +147,29 @@ public class Aswang
         return moves[r];
 
     }
+
+    public AswangSaveData GetSaveData()
+    {
+        var saveData = new AswangSaveData()
+        {
+            name = Base.Aname,
+            level = Level,
+            exp = Exp,
+            moves = moves.Select(m => m.GetSaveData()).ToList()
+
+        };
+        return saveData;
+    }
     
+}
+
+[System.Serializable]
+public class AswangSaveData
+{
+    public string name;
+    public int level;
+    public int hp;
+    public int exp;
+    public List<MoveSaveData> moves;
+
 }
