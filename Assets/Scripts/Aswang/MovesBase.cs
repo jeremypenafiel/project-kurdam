@@ -52,4 +52,6 @@ public class MovesBase : ScriptableObject
     }
     public AudioClip Sound => sound;
 
+
+    
 }

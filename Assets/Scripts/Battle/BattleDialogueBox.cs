@@ -70,7 +70,7 @@ public class BattleDialogueBox : MonoBehaviour
         }
     }
 
-    public void UpdateMoveSelection(int selectedMove)
+    public void UpdateMoveSelection(int selectedMove, List<Moves> moves)
     {
         for (int i = 0; i < moveTexts.Count; i++)
         {
@@ -83,8 +83,8 @@ public class BattleDialogueBox : MonoBehaviour
                 moveTexts[i].color = Color.black;
             }
 
-            attackText.text = "";
-            typeText.text = "";
+            attackText.text = $"{moves[selectedMove].Base.RollNumber+moves[selectedMove].Base.DiceBase.ToString()}";
+            typeText.text = $"{moves[selectedMove].Base.Type.GetModifierText().ToUpper()}";
         }
     }
 

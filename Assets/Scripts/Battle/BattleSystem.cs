@@ -224,7 +224,7 @@ public class BattleSystem : MonoBehaviour
                 currentMove -= 2;
             }
         }
-        dialogBox.UpdateMoveSelection(currentMove);
+        dialogBox.UpdateMoveSelection(currentMove, playerUnit.Aswang.moves);
 
         if (Input.GetKeyDown(KeyCode.Z))
         {
