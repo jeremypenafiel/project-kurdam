@@ -1043,7 +1043,7 @@ GameObject:
   m_Component:
   - component: {fileID: 746695633}
   - component: {fileID: 746695634}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: arrow indicator_4 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1961,7 +1961,7 @@ GameObject:
   - component: {fileID: 1077725818}
   - component: {fileID: 1077725816}
   - component: {fileID: 1077725817}
-  m_Layer: 9
+  m_Layer: 12
   m_Name: LLToHSU
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1997,7 +1997,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 1.7407422, y: -1.31}
@@ -6809,7 +6809,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1239623080}
-  m_Layer: 9
+  m_Layer: 12
   m_Name: SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10482,7 +10482,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2004664274}
   - component: {fileID: 2004664275}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: arrow indicator_4 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

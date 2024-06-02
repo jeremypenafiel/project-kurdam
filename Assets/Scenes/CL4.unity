@@ -141,7 +141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &201449753
 Transform:
   m_ObjectHideFlags: 0
@@ -302,7 +302,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 508810671}
-  m_Layer: 9
+  m_Layer: 12
   m_Name: spawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -335,7 +335,7 @@ GameObject:
   - component: {fileID: 617619041}
   - component: {fileID: 617619043}
   - component: {fileID: 617619042}
-  m_Layer: 9
+  m_Layer: 12
   m_Name: CL4ToCAS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1097,8 +1097,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.10685003, y: 0.076600075, z: 0}
-    m_Extent: {x: 2.3285499, y: 2.0246, z: 0}
+    m_Center: {x: 0.10224998, y: 0.07945001, z: 0}
+    m_Extent: {x: 2.32275, y: 2.0215502, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0

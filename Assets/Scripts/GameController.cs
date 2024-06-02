@@ -24,7 +24,7 @@ public class GameController : MonoBehaviour
 
     
 
-    Fader fader;
+    [SerializeField] public Fader fader;
     public SceneDetails CurrentScene { get; private set; }
     public SceneDetails PreviousScene { get; private set; }
 
@@ -46,7 +46,6 @@ public class GameController : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        fader = FindObjectOfType<Fader>();
         QuestDB.Init();
         MovesDB.Init();
         AswangDB.Init();

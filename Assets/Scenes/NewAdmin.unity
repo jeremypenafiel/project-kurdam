@@ -1597,7 +1597,7 @@ GameObject:
   m_Component:
   - component: {fileID: 584667761}
   - component: {fileID: 584667762}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: arrow indicator_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12053,7 +12053,7 @@ GameObject:
   m_Component:
   - component: {fileID: 838433544}
   - component: {fileID: 838433545}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: arrow indicator_4 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14665,7 +14665,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 958474268}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15395,7 +15395,7 @@ GameObject:
   - component: {fileID: 1524279295}
   - component: {fileID: 1524279293}
   - component: {fileID: 1524279296}
-  m_Layer: 9
+  m_Layer: 12
   m_Name: NewAdToCas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15431,7 +15431,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -29888,7 +29888,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1834067577}
   - component: {fileID: 1834067578}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: arrow indicator_4 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30054,7 +30054,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1907020162}
   - component: {fileID: 1907020163}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: arrow indicator_4 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30415,7 +30415,7 @@ GameObject:
   - component: {fileID: 2153290244151096383}
   - component: {fileID: 3503882297549913662}
   - component: {fileID: 3503882297549913663}
-  m_Layer: 9
+  m_Layer: 12
   m_Name: NewAdToHSU
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30451,7 +30451,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -30506,7 +30506,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3782427118389578044}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
