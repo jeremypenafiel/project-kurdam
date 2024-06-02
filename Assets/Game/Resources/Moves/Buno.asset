@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c8391865b00ffb478bfb1ea52e710a7, type: 3}
   m_Name: Buno
   m_EditorClassIdentifier: 
-  moveName: Buno
+  name: Buno
   description: 
   level: 0
   type: {fileID: 11400000, guid: a0d96a551c6282a4ba58a68d976a7634, type: 2}
@@ -20,3 +20,4 @@ MonoBehaviour:
   diceBase: {fileID: 11400000, guid: 1011f84f6de7211468f81954ebe9fe50, type: 2}
   sound: {fileID: 8300000, guid: 1875ff4bfe959574c938fa7d22d8022f, type: 3}
   rollNumber: 2
+  performable: 0
