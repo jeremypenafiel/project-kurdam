@@ -121,11 +121,12 @@ public class InventoryView : StorageView
             if(InventorySlots[currentActiveInventorySlot].ItemId == SerializableGuid.Empty) return;
             if (CheckIfMissionItem!.Invoke(currentActiveInventorySlot)) return;
 
-            //AudioManager.PlaySFX(AudioId.UISelect);
+            AudioManager.i.PlaySFX(AudioId.UISelect);
             isDialogBoxActive = true;
 
         }else if (Input.GetKeyDown(KeyCode.E))
         {
+            AudioManager.i.PlaySFX(AudioId.UISelect);
             isInventoryMode = !isInventoryMode;
             InventorySlots[currentActiveInventorySlot].RemoveFromClassList(selectedSlotSelector);
             currentActiveInventorySlot = 0;
@@ -133,6 +134,7 @@ public class InventoryView : StorageView
             OnEquipmentItemSelectionChanged?.Invoke(currentActiveEquipmentSlot);
         }else if (Input.GetKeyDown(KeyCode.X))
         {
+            AudioManager.i.PlaySFX(AudioId.UISelect);
             OnExitPressed?.Invoke();
         }
     }
@@ -179,13 +181,14 @@ public class InventoryView : StorageView
             if(EquipmentSlots[currentActiveEquipmentSlot].ItemId == SerializableGuid.Empty) return;
             
             
-            //AudioManager.PlaySFX(AudioId.UISelect);
+            AudioManager.i.PlaySFX(AudioId.UISelect);
             isDialogBoxActive= true;
             
             useText.style.color = Color.blue;
 
         }else if (Input.GetKeyDown(KeyCode.E))
         {
+            AudioManager.i.PlaySFX(AudioId.UISelect);
             EquipmentSlots[currentActiveEquipmentSlot].RemoveFromClassList(selectedSlotSelector);
             currentActiveEquipmentSlot = 0;
             isInventoryMode = !isInventoryMode;
@@ -193,6 +196,7 @@ public class InventoryView : StorageView
             OnInventoryItemSelectionChanged?.Invoke(currentActiveInventorySlot);
         }else if (Input.GetKeyDown(KeyCode.X))
         {
+            AudioManager.i.PlaySFX(AudioId.UISelect);
             OnExitPressed?.Invoke();
         }
     }
@@ -208,7 +212,7 @@ public class InventoryView : StorageView
             selectedAction = ~selectedAction;
         }else if (Input.GetKeyDown(KeyCode.X))
         {
-            //AudioManager.PlaySFX(AudioId.UISelect);
+            AudioManager.i.PlaySFX(AudioId.UISelect);
             useText.style.color = Color.black;
             discardText.style.color = Color.black;
             isDialogBoxActive = false;
@@ -237,6 +241,7 @@ public class InventoryView : StorageView
                 OnEquipmentActionSelected?.Invoke(selectedAction, currentActiveEquipmentSlot);
             }
             isDialogBoxActive = false;
+            AudioManager.i.PlaySFX(AudioId.UISelect);
         }
     }
 
