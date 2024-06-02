@@ -17,7 +17,13 @@ public class StoryItem : MonoBehaviour, IPLayerTriggerable
     public static event Action<Vector2> OnQuestIncomplete;
 
     Quest activeQuest;
-   public void OnPlayerTriggered(PlayerController playerController)
+
+    private void Awake()
+    {
+        _playerInventory = GameObject.Find("Player").GetComponent<Inventory>();
+    }
+
+    public void OnPlayerTriggered(PlayerController playerController)
    {
        Debug.Log("nag run ang triggered");
         playerController.Character.Animator.IsMoving = false;
