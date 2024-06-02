@@ -307,15 +307,15 @@ public class BattleSystem : MonoBehaviour
         string subject = sourceUnit.GetSubject();
 
         int damageRoll = 0;
-        for (int roll = 0; roll < move.Base.RollNumber; roll++)
-        {
-            yield return StartCoroutine(diceSystem.DamageRoll());
-            damageRoll = damageRoll + diceSystem.GetDiceRollValue();
-            Debug.Log(damageRoll);
-            yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Z));
-
-
-        }
+        // for (int roll = 0; roll < move.Base.RollNumber; roll++)
+        // {
+        //     yield return StartCoroutine(diceSystem.DamageRoll());
+        //     damageRoll = damageRoll + diceSystem.GetDiceRollValue();
+        //     Debug.Log(damageRoll);
+        //     yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Z));
+        // }
+        yield return StartCoroutine(diceSystem.DamageRoll());
+        damageRoll = diceSystem.GetDiceRollValue();
 
         yield return StartCoroutine(dialogBox.TypeDialog($"{subject} rolled {damageRoll} + {modifier} {modifierText} modifier."));
 
@@ -334,6 +334,19 @@ public class BattleSystem : MonoBehaviour
 
         targetUnit.PlayHitAnimation();
         AudioManager.i.PlaySFX(AudioId.Hit);
+
+        var resistant = CheckIfResistant(targetUnit, move);
+        var vulnerable = CheckIfVulnerable(targetUnit, move);
+
+        if (resistant)
+        {
+            yield return StartCoroutine(dialogBox.TypeDialog($"It was not that effective."));
+            yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Z));
+        }else if (vulnerable)
+        {
+            yield return StartCoroutine(dialogBox.TypeDialog($"It was super effective!"));
+            yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Z));
+        }
 
 
         bool isDead = targetUnit.Aswang.TakeDamage(move, sourceUnit.Aswang, damage);
@@ -359,7 +372,7 @@ public class BattleSystem : MonoBehaviour
     IEnumerator RunBattle()
     {
         int randomNumber= UnityEngine.Random.Range(0, 100);
-        if (randomNumber < 0)
+        if (randomNumber < 50)
         {
             yield return StartCoroutine(dialogBox.TypeDialog("You couldn't escape!"));
             AudioManager.i.PlaySFX(AudioId.UISelect);
@@ -370,7 +383,7 @@ public class BattleSystem : MonoBehaviour
         {
             yield return StartCoroutine(dialogBox.TypeDialog("You fled from the aswang."));
             AudioManager.i.PlaySFX(AudioId.UISelect);
-            OnBattleOver();
+            OnBattleOver();     
         }
 
     }
@@ -458,6 +471,24 @@ public class BattleSystem : MonoBehaviour
 
     }
 
+    private bool CheckIfResistant(BattleUnit targetUnit, Moves move)
+    {
+        if(targetUnit.Aswang.Base.Resistances.Contains(move.Base.Type))
+        {
+            return true;
+        }
+        return false;
+    }
+    
+    private bool CheckIfVulnerable(BattleUnit targetUnit, Moves move)
+    {
+        if(targetUnit.Aswang.Base.Vulnerabilities.Contains(move.Base.Type))
+        {
+            return true;
+        }
+        return false;
+    }
+
     private int CalculateTotalDamage(Moves move, Aswang sourceUnit, Aswang targetUnit, int damage)
     {
         Modifier playerStat = move.Base.Type.Modifier;
@@ -481,7 +512,8 @@ public class BattleSystem : MonoBehaviour
         {
             if (targetUnit.Base.Resistances[i] == move.Base.Type)
             {
-                damage = Mathf.FloorToInt(damage / 2);
+                Debug.Log(move.Base.Type);
+                damage = Mathf.FloorToInt((float)damage / 2);
                 break;
             }
         }
@@ -501,7 +533,7 @@ public class BattleSystem : MonoBehaviour
         }
         else if (targetUnit != player)
         {
-            damage = Mathf.FloorToInt(damage/2);
+            damage = Mathf.FloorToInt((float)damage/2);
         }
         return damage;
     }

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Sumbag
   m_EditorClassIdentifier: 
   name: Sumbag
-  description: 
+  description: Way na duha duha Sumabaga
   level: 0
   type: {fileID: 11400000, guid: b3581a895c7329d44b86d30d94994bb5, type: 2}
   baseDamage: 10

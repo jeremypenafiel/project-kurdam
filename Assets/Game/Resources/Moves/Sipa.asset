@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Sipa
   m_EditorClassIdentifier: 
   name: Sipa
-  description: 
+  description: Tindake bala
   level: 0
   type: {fileID: 11400000, guid: b3581a895c7329d44b86d30d94994bb5, type: 2}
   baseDamage: 15
