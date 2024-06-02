@@ -19,6 +19,7 @@ public class Book : MonoBehaviour, Interactable, ISavable
     [SerializeField] GameObject objectToActivateOnInteract;
     [SerializeField] GameObject objectToDeactivateOnInteract;
     [SerializeField] bool degradeLightSource;
+    [SerializeField] float lightDegradeAmount;
     Quest activeQuest;
 
 
@@ -34,7 +35,7 @@ public class Book : MonoBehaviour, Interactable, ISavable
     {
         if (degradeLightSource)
         {
-            playerController.gc.GlobalLight.intensity -= 0.10f;
+            playerController.gc.GlobalLight.intensity -= lightDegradeAmount;
         }
         GetComponent<SpriteRenderer>().sprite = open;
         

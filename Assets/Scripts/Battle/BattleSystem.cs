@@ -359,7 +359,7 @@ public class BattleSystem : MonoBehaviour
     IEnumerator RunBattle()
     {
         int randomNumber= UnityEngine.Random.Range(0, 100);
-        if (randomNumber < 80)
+        if (randomNumber < 0)
         {
             yield return StartCoroutine(dialogBox.TypeDialog("You couldn't escape!"));
             AudioManager.i.PlaySFX(AudioId.UISelect);

@@ -134,13 +134,14 @@ GameObject:
   - component: {fileID: 201449753}
   - component: {fileID: 201449755}
   - component: {fileID: 201449754}
+  - component: {fileID: 201449756}
   m_Layer: 12
   m_Name: StoryItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &201449753
 Transform:
   m_ObjectHideFlags: 0
@@ -226,6 +227,19 @@ MonoBehaviour:
   objectToActivateOnComplete: {fileID: 1737109819}
   _playerInventory: {fileID: 0}
   triggerOnce: 1
+--- !u!114 &201449756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 201449752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4881f89f8b930e34489bbb86116ccd4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uniqueId: 6ac201ff-2071-4ad7-9d0b-cbe463f8c682
 --- !u!1 &382737059
 GameObject:
   m_ObjectHideFlags: 0
@@ -986,7 +1000,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1372572789
-  m_SortingLayer: 8
+  m_SortingLayer: 9
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 3223954d5cd24304da4d34a50c8c364a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1083,8 +1097,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.10409999, y: 0.07880002, z: 0}
-    m_Extent: {x: 2.3216, y: 2.0324001, z: 0}
+    m_Center: {x: 0.10685003, y: 0.076600075, z: 0}
+    m_Extent: {x: 2.3285499, y: 2.0246, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -1161,6 +1175,7 @@ MonoBehaviour:
   objectToActivateOnInteract: {fileID: 0}
   objectToDeactivateOnInteract: {fileID: 0}
   degradeLightSource: 0
+  lightDegradeAmount: 0
 --- !u!212 &1552856231
 SpriteRenderer:
   m_ObjectHideFlags: 0

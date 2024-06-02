@@ -176,6 +176,7 @@ MonoBehaviour:
   objectToActivateOnInteract: {fileID: 0}
   objectToDeactivateOnInteract: {fileID: 0}
   degradeLightSource: 0
+  lightDegradeAmount: 0
 --- !u!212 &8614010
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -571,6 +572,7 @@ MonoBehaviour:
   objectToActivateOnInteract: {fileID: 0}
   objectToDeactivateOnInteract: {fileID: 0}
   degradeLightSource: 0
+  lightDegradeAmount: 0
 --- !u!4 &53622647
 Transform:
   m_ObjectHideFlags: 0
@@ -9024,6 +9026,7 @@ MonoBehaviour:
   objectToActivateOnInteract: {fileID: 0}
   objectToDeactivateOnInteract: {fileID: 0}
   degradeLightSource: 0
+  lightDegradeAmount: 0
 --- !u!61 &1032275327
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10231,6 +10234,7 @@ MonoBehaviour:
   objectToActivateOnInteract: {fileID: 0}
   objectToDeactivateOnInteract: {fileID: 0}
   degradeLightSource: 0
+  lightDegradeAmount: 0
 --- !u!4 &1556802090
 Transform:
   m_ObjectHideFlags: 0
@@ -10294,7 +10298,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 589336443}
   destinationPortal: 0
-  sceneToLoad: NNToHSU
+  sceneToLoad: NatureTrailToHSU
 --- !u!61 &1641425958
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10430,6 +10434,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1461606525928303229, guid: a8b42c59c369a4448b8b419dd784b6e9, type: 3}
+      propertyPath: lightDegradeAmount
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1461606525928303229, guid: a8b42c59c369a4448b8b419dd784b6e9, type: 3}
       propertyPath: dialog.lines.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -10498,12 +10506,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 5ea2b739b79ec0346ab57698ab3aa5da, type: 3}
     - target: {fileID: 5634753529970178882, guid: a8b42c59c369a4448b8b419dd784b6e9, type: 3}
-      propertyPath: m_IsTrigger
+      propertyPath: m_Size.x
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5634753529970178882, guid: a8b42c59c369a4448b8b419dd784b6e9, type: 3}
+      propertyPath: m_Size.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5634753529970178882, guid: a8b42c59c369a4448b8b419dd784b6e9, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5634753529970178882, guid: a8b42c59c369a4448b8b419dd784b6e9, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 0.32
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
@@ -11476,6 +11492,7 @@ MonoBehaviour:
   objectToActivateOnInteract: {fileID: 0}
   objectToDeactivateOnInteract: {fileID: 0}
   degradeLightSource: 0
+  lightDegradeAmount: 0
 --- !u!4 &2117742416
 Transform:
   m_ObjectHideFlags: 0
@@ -11511,6 +11528,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 4822810083081699239, guid: acf5ff96c8374ae4b877abfe4e001d1c, type: 3}
+      propertyPath: itemAcquired
+      value: 
+      objectReference: {fileID: 11400000, guid: f809864447bd3ab43bd2ec25a50c8ec7, type: 2}
     - target: {fileID: 5799382999689348517, guid: acf5ff96c8374ae4b877abfe4e001d1c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 257.61
@@ -11741,6 +11762,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 4822810083081699239, guid: acf5ff96c8374ae4b877abfe4e001d1c, type: 3}
+      propertyPath: itemAcquired
+      value: 
+      objectReference: {fileID: 11400000, guid: f809864447bd3ab43bd2ec25a50c8ec7, type: 2}
     - target: {fileID: 5799382999689348517, guid: acf5ff96c8374ae4b877abfe4e001d1c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 273.88
@@ -11814,6 +11839,7 @@ MonoBehaviour:
   objectToActivateOnInteract: {fileID: 0}
   objectToDeactivateOnInteract: {fileID: 1836377305}
   degradeLightSource: 1
+  lightDegradeAmount: 0
 --- !u!4 &7166111926262969809
 Transform:
   m_ObjectHideFlags: 0
@@ -11903,6 +11929,7 @@ GameObject:
   - component: {fileID: 6107238050603842759}
   - component: {fileID: 434415643586262976}
   - component: {fileID: 1061518799144283640}
+  - component: {fileID: 7789316523301604320}
   m_Layer: 10
   m_Name: Rusarito
   m_TagString: Untagged
@@ -11910,6 +11937,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &7789316523301604320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7789316523301604319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4881f89f8b930e34489bbb86116ccd4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uniqueId: 7c2e990a-8bd3-4cd6-bc79-7af54fd703d0
 --- !u!61 &8833406517561254632
 BoxCollider2D:
   m_ObjectHideFlags: 0
