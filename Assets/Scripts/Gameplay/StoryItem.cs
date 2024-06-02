@@ -20,7 +20,8 @@ public class StoryItem : MonoBehaviour, IPLayerTriggerable
 
     private void Awake()
     {
-        _playerInventory = GameObject.Find("Player").GetComponent<Inventory>();
+        _playerInventory = GameController.Instance.playerInventory;
+
     }
 
     public void OnPlayerTriggered(PlayerController playerController)

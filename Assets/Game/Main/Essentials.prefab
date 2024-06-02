@@ -10862,7 +10862,7 @@ MonoBehaviour:
   worldCamera: {fileID: 6963550489127820022}
   locationPortal: {fileID: 3337274973323735774}
   pauseScreen: {fileID: 7625454304753246855}
-  inventorySystem: {fileID: 398129564446915565}
+  playerInventory: {fileID: 1267253510859759681}
 --- !u!114 &8904270053142815537
 MonoBehaviour:
   m_ObjectHideFlags: 0

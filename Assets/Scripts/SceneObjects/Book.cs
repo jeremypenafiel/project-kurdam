@@ -27,7 +27,7 @@ public class Book : MonoBehaviour, Interactable, ISavable
     private void Start()
     {
         GetComponent<SpriteRenderer>().sprite = closed;
-        _playerInventory = GameObject.Find("Player").GetComponent<Inventory>();
+        _playerInventory = GameController.Instance.playerInventory;
     }
     public IEnumerator Interact(Transform initiator, PlayerController playerController)
     {
