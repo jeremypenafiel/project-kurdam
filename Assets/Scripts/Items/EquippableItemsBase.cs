@@ -18,7 +18,7 @@ namespace Items
         public enum ItemType
         {
             armasIsa,
-            armasDuha,
+            suga,
             antingAnting,
             lawas,
             paa,

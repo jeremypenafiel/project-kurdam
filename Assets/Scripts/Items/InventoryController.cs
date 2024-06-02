@@ -40,6 +40,7 @@ namespace Items
         readonly InventoryModel model;
         readonly int capacity;
         public Aswang player { get; set; }
+        public event Action OnSugaEquipped;
 
         InventoryController(InventoryView view, InventoryModel model, int capacity)
         {
@@ -79,6 +80,7 @@ namespace Items
             view.SetItemDescriptionBox(model.currentItem);
             Debug.Log("NAGA RUN");
             UpdatePlayerEquipment();
+            OnSugaEquipped?.Invoke();
             RefreshView();
         }
 

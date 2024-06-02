@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 89459c1f94c74576801389e9cae51c1a, type: 3}
-  m_Name: Rusarito
+  m_Name: suga
   m_EditorClassIdentifier: 
-  itemName: Rusarito
-  icon: {fileID: 21300000, guid: f8e45d8f28b0ddb45bbb2833b40a77c3, type: 3}
-  description: Ipangadi lang
+  itemName: suga
+  icon: {fileID: 21300000, guid: 80dc500d87a12ba41a8567ddc914fc2b, type: 3}
+  description: 
   maxStack: 0
   isConsumable: 0
   isMissionItem: 0
   isEquipment: 1
   Id:
-    Part1: 2684331851
-    Part2: 1325140241
-    Part3: 3606333596
-    Part4: 2542787786
-  type: 2
+    Part1: 2569206926
+    Part2: 1082513629
+    Part3: 1876044690
+    Part4: 4049757464
+  type: 1
   armasType: {fileID: 0}
   advantage: []
   disadvantage: []
