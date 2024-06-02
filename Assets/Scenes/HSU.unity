@@ -1039,7 +1039,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 88
-      m_TileSpriteIndex: 4
+      m_TileSpriteIndex: 1
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -1049,7 +1049,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 88
-      m_TileSpriteIndex: 4
+      m_TileSpriteIndex: 1
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -1099,7 +1099,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 87
-      m_TileSpriteIndex: 1
+      m_TileSpriteIndex: 2
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -1549,7 +1549,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 34
-      m_TileSpriteIndex: 2
+      m_TileSpriteIndex: 3
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -1559,7 +1559,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 86
-      m_TileSpriteIndex: 3
+      m_TileSpriteIndex: 4
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -2148,14 +2148,14 @@ Tilemap:
   m_TileSpriteArray:
   - m_RefCount: 5
     m_Data: {fileID: 604707567, guid: 94fab75dbbcf08344900dbd0db025bdc, type: 3}
+  - m_RefCount: 2
+    m_Data: {fileID: 676206205, guid: 6d73dea8d48cbe94b8d2703e560f79a6, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 773607439, guid: 33a6004cb1fd6524aa0644452ea0e3bc, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 395604224, guid: 94fab75dbbcf08344900dbd0db025bdc, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 1926093686, guid: 94fab75dbbcf08344900dbd0db025bdc, type: 3}
-  - m_RefCount: 2
-    m_Data: {fileID: 676206205, guid: 6d73dea8d48cbe94b8d2703e560f79a6, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 94
     m_Data:
@@ -2542,8 +2542,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1170746105
-  m_SortingLayer: 7
+  m_SortingLayerID: 1925268741
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 3ab125632209a9c4f859712c04569513, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2712,13 +2712,15 @@ PolygonCollider2D:
       - {x: -12.085007, y: 3.1825771}
       - {x: -12.657077, y: 3.316472}
       - {x: -12.64357, y: 3.6371012}
-      - {x: -12.939842, y: 16.218122}
-      - {x: -2.7068682, y: 16.241192}
-      - {x: -2.6814356, y: 17.23969}
-      - {x: 6.7238336, y: 17.254381}
-      - {x: 6.9041657, y: 20.709156}
-      - {x: 10.451046, y: 20.77713}
-      - {x: 8.99357, y: 16.312538}
+      - {x: -12.857933, y: 16.832458}
+      - {x: -2.624959, y: 16.85553}
+      - {x: -2.6494837, y: 17.623259}
+      - {x: 7.139361, y: 17.605986}
+      - {x: 7.139853, y: 20.026882}
+      - {x: 10.054714, y: 20.02518}
+      - {x: 10.053253, y: 18.109444}
+      - {x: 9.2048645, y: 18.07811}
+      - {x: 9.111734, y: 16.286278}
       - {x: 8.108496, y: 16.263578}
       - {x: 8.09346, y: 14.871811}
       - {x: 9.906563, y: 14.484938}

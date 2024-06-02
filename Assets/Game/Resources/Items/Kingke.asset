@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Kingke
   m_EditorClassIdentifier: 
   itemName: Kingke
-  icon: {fileID: 1719872376, guid: ecef27d85e7dc4349812136c756b0745, type: 3}
+  icon: {fileID: 21300000, guid: f8e708acf5df65b4688b11c6eee858bb, type: 3}
   description: 
   maxStack: 0
   isConsumable: 0
@@ -31,5 +31,8 @@ MonoBehaviour:
   armorClass: 0
   damageModifier: 0
   Resistances: []
-  lightIntensity: 0.75
-  lightTemperature: 16762237
+  lightIntensity: 1
+  lightTemperature: {r: 0.9098039, g: 0.7137255, b: 0.23137255, a: 1}
+  innerRadius: 1.5
+  outerRadius: 20
+  falloffStrength: 1

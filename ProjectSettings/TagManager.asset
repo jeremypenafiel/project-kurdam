@@ -63,6 +63,9 @@ TagManager:
   - name: buildings above
     uniqueID: 1170746105
     locked: 0
+  - name: building above with lighting
+    uniqueID: 3362277961
+    locked: 0
   - name: trees
     uniqueID: 1372572789
     locked: 0
