@@ -1,13 +1,8 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using Items;
 using JetBrains.Annotations;
-using TMPro;
 using UnityEngine;
-using Unity.Properties;
-using UnityEngine.UI;
 using UnityEngine.UIElements;
 
 
@@ -55,55 +50,8 @@ public class InventoryView : StorageView
         InventorySlots = new Slot[viewModel.Capacity];
         EquipmentSlots = new Slot[6];
         root = document.rootVisualElement;
-        //root.Clear();
         
         root.styleSheets.Add(styleSheet);
-        
-        //container =  root.CreateChild("container");
-        
-        // var inventory = container.CreateChild("inventory");
-        // var equipment = container.CreateChild("equipment");
-        // var descriptionBox = container.CreateChild("descriptionBox");
-        // var dialogBox = container.CreateChild("dialogBox");
-        //
-        // // description stuff
-        // var description = new TextElement().AddClass("descriptionText");
-        // var itemName = new TextElement().AddClass("itemName");
-        //
-        // descriptionBox.Add(itemName);
-        // descriptionBox.Add(description);
-        //
-        // // dialogbox stuff
-        // var dialogBoxContainer = dialogBox.CreateChild("dialogBoxContainer");
-        // dialogBoxContainer.Add(new Label("Use").AddClass("useText"));
-        // dialogBoxContainer.Add(new Label("Discard").AddClass("discardText"));
-        // dialogBox.visible = false;
-        //
-        // // inventory stuff
-        // inventory.CreateChild("inventoryFrame");
-        // inventory.CreateChild("inventoryHeader").Add(new Label(panelName));
-        // var slotsContainerInventory = inventory.CreateChild("slotsContainer");
-        //
-        // for (var i = 0; i < viewModel.Capacity; i++)
-        // {
-        //     var slot = slotsContainerInventory.CreateChild<Slot>("slot");
-        //     // var highlight = slot.CreateChild("highlight");
-        //     InventorySlots[i] = slot;
-        // }
-        //
-        // // equipment stuff
-        // equipment.CreateChild("inventoryFrame");
-        // equipment.CreateChild("inventoryHeader").Add(new Label("Equipment"));
-        // var slotsContainerEquipment = equipment.CreateChild("slotsContainer");
-        // for (var i = 0; i < 6; i++)
-        // {
-        //     var slot = slotsContainerEquipment.CreateChild<Slot>("slot");
-        //     EquipmentSlots[i] = slot;
-        // }
-        //
-        // ghostIcon = container.CreateChild("ghostIcon");
-        // ghostIcon.BringToFront();
-
         
         var inventorySlotList = root.Q("Inventory").Q("ItemSlots").Q("VisualElement").Query<Slot>(className:"slot").ToList();
         Debug.Log(inventorySlotList.Count);
@@ -148,14 +96,14 @@ public class InventoryView : StorageView
     {
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            //AudioManager.PlaySFX(AudioId.UISelect);
+            AudioManager.i.PlaySFX(AudioId.UISelect);
             InventorySlots[currentActiveInventorySlot].RemoveFromClassList(selectedSlotSelector);
             currentActiveInventorySlot = (currentActiveInventorySlot + 1) % InventorySlots.Length ;
             InventorySlots[currentActiveInventorySlot].AddClass(selectedSlotSelector);
             OnInventoryItemSelectionChanged?.Invoke(currentActiveInventorySlot);
         }else if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            //AudioManager.PlaySFX(AudioId.UISelect);
+            AudioManager.i.PlaySFX(AudioId.UISelect);
             if (currentActiveInventorySlot == 0)
             {
                 InventorySlots[currentActiveInventorySlot].RemoveFromClassList(selectedSlotSelector);
@@ -173,11 +121,12 @@ public class InventoryView : StorageView
             if(InventorySlots[currentActiveInventorySlot].ItemId == SerializableGuid.Empty) return;
             if (CheckIfMissionItem!.Invoke(currentActiveInventorySlot)) return;
 
-            //AudioManager.PlaySFX(AudioId.UISelect);
+            AudioManager.i.PlaySFX(AudioId.UISelect);
             isDialogBoxActive = true;
 
         }else if (Input.GetKeyDown(KeyCode.E))
         {
+            AudioManager.i.PlaySFX(AudioId.UISelect);
             isInventoryMode = !isInventoryMode;
             InventorySlots[currentActiveInventorySlot].RemoveFromClassList(selectedSlotSelector);
             currentActiveInventorySlot = 0;
@@ -185,6 +134,7 @@ public class InventoryView : StorageView
             OnEquipmentItemSelectionChanged?.Invoke(currentActiveEquipmentSlot);
         }else if (Input.GetKeyDown(KeyCode.X))
         {
+            AudioManager.i.PlaySFX(AudioId.UISelect);
             OnExitPressed?.Invoke();
         }
     }
@@ -206,14 +156,14 @@ public class InventoryView : StorageView
     {
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            //AudioManager.PlaySFX(AudioId.UISelect);
+            AudioManager.i.PlaySFX(AudioId.UISelect);
             EquipmentSlots[currentActiveEquipmentSlot].RemoveFromClassList(selectedSlotSelector);
             currentActiveEquipmentSlot = (currentActiveEquipmentSlot + 1) % EquipmentSlots.Length ;
             EquipmentSlots[currentActiveEquipmentSlot].AddClass(selectedSlotSelector);
             OnEquipmentItemSelectionChanged?.Invoke(currentActiveEquipmentSlot);
         }else if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            //AudioManager.PlaySFX(AudioId.UISelect);
+            AudioManager.i.PlaySFX(AudioId.UISelect);
             if (currentActiveEquipmentSlot == 0)
             {
                 EquipmentSlots[currentActiveEquipmentSlot].RemoveFromClassList(selectedSlotSelector);
@@ -231,13 +181,14 @@ public class InventoryView : StorageView
             if(EquipmentSlots[currentActiveEquipmentSlot].ItemId == SerializableGuid.Empty) return;
             
             
-            //AudioManager.PlaySFX(AudioId.UISelect);
+            AudioManager.i.PlaySFX(AudioId.UISelect);
             isDialogBoxActive= true;
             
             useText.style.color = Color.blue;
 
         }else if (Input.GetKeyDown(KeyCode.E))
         {
+            AudioManager.i.PlaySFX(AudioId.UISelect);
             EquipmentSlots[currentActiveEquipmentSlot].RemoveFromClassList(selectedSlotSelector);
             currentActiveEquipmentSlot = 0;
             isInventoryMode = !isInventoryMode;
@@ -245,6 +196,7 @@ public class InventoryView : StorageView
             OnInventoryItemSelectionChanged?.Invoke(currentActiveInventorySlot);
         }else if (Input.GetKeyDown(KeyCode.X))
         {
+            AudioManager.i.PlaySFX(AudioId.UISelect);
             OnExitPressed?.Invoke();
         }
     }
@@ -256,11 +208,11 @@ public class InventoryView : StorageView
         
         if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow))
         {
-            //AudioManager.PlaySFX(AudioId.UISelect);
+            AudioManager.i.PlaySFX(AudioId.UISelect);
             selectedAction = ~selectedAction;
         }else if (Input.GetKeyDown(KeyCode.X))
         {
-            //AudioManager.PlaySFX(AudioId.UISelect);
+            AudioManager.i.PlaySFX(AudioId.UISelect);
             useText.style.color = Color.black;
             discardText.style.color = Color.black;
             isDialogBoxActive = false;
@@ -289,6 +241,7 @@ public class InventoryView : StorageView
                 OnEquipmentActionSelected?.Invoke(selectedAction, currentActiveEquipmentSlot);
             }
             isDialogBoxActive = false;
+            AudioManager.i.PlaySFX(AudioId.UISelect);
         }
     }
 
