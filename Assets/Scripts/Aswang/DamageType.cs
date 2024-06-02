@@ -14,6 +14,11 @@ public class DamageType: ScriptableObject
     {
         return modifier.ToString();
     }
+
+    public override string ToString()
+    {
+        return $"{base.ToString().Remove(base.ToString().Length-13)}";
+    }
 }   
 
 

@@ -83,7 +83,7 @@ public class PlayerController : MonoBehaviour, ISavable
 
     private void FixedUpdate()
     {
-
+        if(GameController.Instance.StateMachine.CurrentState is not FreeRoamState) return;
         Character.IsMoving = (input.x != 0 || input.y != 0);
         
         SetPlayerSpeed();

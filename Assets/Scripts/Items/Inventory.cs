@@ -62,6 +62,11 @@ public class Inventory : MonoBehaviour
         controller.AddItem(item);
     }
 
+    public void HandleUpdate()
+    {
+        view.HandleUpdate();
+    }
+
     public bool IsInventoryFull()
     {
         return controller.IsInventoryFull();

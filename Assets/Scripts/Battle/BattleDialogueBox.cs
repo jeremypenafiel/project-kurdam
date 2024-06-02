@@ -84,7 +84,7 @@ public class BattleDialogueBox : MonoBehaviour
             }
 
             attackText.text = $"{moves[selectedMove].Base.RollNumber+moves[selectedMove].Base.DiceBase.ToString()}";
-            typeText.text = $"{moves[selectedMove].Base.Type.GetModifierText().ToUpper()}";
+            typeText.text = $"{moves[selectedMove].Base.Type.ToString().ToUpper()}";
         }
     }
 
