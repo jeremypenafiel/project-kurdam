@@ -32,6 +32,10 @@ public class FreeRoamState : State<GameController>
         {
             AudioManager.i.PlaySFX(AudioId.UISelect);
             gc.StateMachine.Push(InventoryState.i);
+        }else if (Input.GetKeyDown(KeyCode.M))
+        {
+            AudioManager.i.PlaySFX(AudioId.UISelect);
+            gc.StateMachine.Push(MovesChangeState.i);
         }
     }
 

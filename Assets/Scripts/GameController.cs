@@ -48,7 +48,8 @@ public class GameController : MonoBehaviour
         Instance = this;
         fader = FindObjectOfType<Fader>();
         QuestDB.Init();
-
+        MovesDB.Init();
+        AswangDB.Init();
 
     }
     private void Start()
