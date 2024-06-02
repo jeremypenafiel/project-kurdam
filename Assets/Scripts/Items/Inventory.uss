@@ -77,7 +77,7 @@ Label {
 .descriptionBox {
     height: 30%;
     width: 70%;
-    background-image: url('project://database/Assets/Art/Battle/dialog%20box.png?fileID=21300000&guid=d6c1b5a2a58754442a1f5aece6c2e7c6&type=3#dialog box');
+    background-image: url('project://database/Assets/Art/Battle/hud-box.png');
 }
 
 .dialogBox {
