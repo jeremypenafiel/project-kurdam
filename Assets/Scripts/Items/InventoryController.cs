@@ -60,7 +60,7 @@ namespace Items
 
         public IEnumerator Initialize()
         {
-            yield return view.InitializeView(capacity);
+            
             view.OnInventoryItemSelectionChanged += HandleOnInventoryItemSelectionChanged;
             view.OnEquipmentItemSelectionChanged += HandleOnEquipmentItemSelectionChanged;
             view.OnInventoryActionSelected += HandleOnInventoryActionSelected;
@@ -70,6 +70,7 @@ namespace Items
             
             model.OnModelChanged += HandleModelChanged;
             model.OnEquipmentChanged += HandleEquipmentChanged;
+            yield return view.InitializeView(capacity);
             RefreshView();
 
         }
