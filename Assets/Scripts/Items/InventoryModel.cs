@@ -51,14 +51,22 @@ namespace Items
             
             foreach (var itemDetail in itemDetails)
             {
-                Items.TryAdd(itemDetail.Create(1));
+                if (itemDetail.isEquipment)
+                {
+                    Items.TryAdd(((EquippableItemsBase)itemDetail).Create(1));
+                }else if (itemDetail.isConsumable)
+                {
+                    Items.TryAdd(((ConsumableItemBase)itemDetail).Create(1));
+                }
+                else
+                {
+                    Items.TryAdd(itemDetail.Create(1));
+                }
             }
             
             foreach (var itemDetail in equipmentDetails)
             {
-                var type = itemDetail.type;
-                Equip(itemDetail.Create(1) as EquippableItem);
-                // EquippedItems.Add(type, (EquippableItem)itemDetail.Create(1));
+                Equip((EquippableItem)(itemDetail).Create(1));
             }
             
         }

@@ -43,11 +43,15 @@ public class InventoryView : StorageView
     private Label description;
     private Label itemName;
 
-    
-
-    public override IEnumerator InitializeView(ViewModel viewModel)
+    public void Activate(bool isActive)
     {
-        InventorySlots = new Slot[viewModel.Capacity];
+        root.visible = isActive;
+    }
+
+    public override IEnumerator InitializeView(int capacity)
+    {
+        
+        InventorySlots = new Slot[capacity];
         EquipmentSlots = new Slot[6];
         root = document.rootVisualElement;
         
@@ -56,7 +60,7 @@ public class InventoryView : StorageView
         var inventorySlotList = root.Q("Inventory").Q("ItemSlots").Q("VisualElement").Query<Slot>(className:"slot").ToList();
         Debug.Log(inventorySlotList.Count);
         
-        for (var i = 0; i < viewModel.Capacity && i <inventorySlotList.Capacity; i++)
+        for (var i = 0; i < capacity && i <inventorySlotList.Capacity; i++)
         {
             var slot = inventorySlotList[i];
             InventorySlots[i] = slot;
@@ -84,10 +88,14 @@ public class InventoryView : StorageView
         Debug.Assert(useText != null, "useText == null");
         Debug.Assert(discardText!= null, "discardText == null");
         // InventorySlots[currentActiveInventorySlot].AddClass(selectedSlotSelector);
+        currentActiveEquipmentSlot = 0;
+        currentActiveInventorySlot = 0;
         InventorySlots[currentActiveInventorySlot].AddClass(selectedSlotSelector);
         OnInventoryItemSelectionChanged?.Invoke(currentActiveInventorySlot);
         
 
+        Debug.Log("INITIALIZING INVENTORY VIEW");
+        Activate(false);
         yield return null;
     }
 

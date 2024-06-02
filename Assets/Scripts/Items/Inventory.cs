@@ -13,6 +13,7 @@ public class Inventory : MonoBehaviour
 
     InventoryController controller;
     
+
     public event Action OnExitPressed
     {
         add => view.OnExitPressed += value;
@@ -43,8 +44,7 @@ public class Inventory : MonoBehaviour
 
     public void ActivateView(bool isActive)
     {
-        view.gameObject.SetActive(isActive);
-        if(isActive) view.StartCoroutine(controller.Initialize());
+        view.Activate(isActive);
     }
     
     public bool ContainsItem(ItemsBase item)
