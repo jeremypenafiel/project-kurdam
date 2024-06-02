@@ -7577,7 +7577,8 @@ EdgeCollider2D:
   - {x: -22.130022, y: -93.8657}
   - {x: -22.344212, y: 18.601578}
   - {x: 1.1086922, y: 18.60994}
-  - {x: 1.1983585, y: 27.257996}
+  - {x: 1.1595764, y: 25.431923}
+  - {x: 0.20205116, y: 25.426117}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -7668,7 +7669,11 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0.45
   m_Points:
-  - {x: 1.2261581, y: 27.555923}
+  - {x: 0.16558075, y: 25.43615}
+  - {x: 0.16296387, y: 25.76857}
+  - {x: 0.15499878, y: 27.071976}
+  - {x: -0.5286865, y: 27.030342}
+  - {x: -0.560791, y: 27.494629}
   - {x: -32.43006, y: 27.530731}
   - {x: -32.223637, y: -45.446793}
   - {x: -32.328102, y: -41.581055}
@@ -7865,7 +7870,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

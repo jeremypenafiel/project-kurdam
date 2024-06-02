@@ -2634,7 +2634,7 @@ MonoBehaviour:
   enemyUnit: {fileID: 5883293086108714579}
   dialogBox: {fileID: 3388336685824379264}
   diceSystem: {fileID: 2163020704840747999}
-  battleMusic: {fileID: 8300000, guid: 1c5cd9e939b968f47b41a85c6e46403d, type: 3}
+  battleMusic: {fileID: 8300000, guid: 322285676135bed4d825fd090043a479, type: 3}
   victoryMusic: {fileID: 8300000, guid: e9faf0a48effe424ba7a94daa33a69fe, type: 3}
   deathScreen: {fileID: 4152848623684942947}
 --- !u!1 &1474907868814413088
@@ -10983,7 +10983,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 092de070627346e5a0804e0135a56cdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  battleMusic: {fileID: 8300000, guid: 1c5cd9e939b968f47b41a85c6e46403d, type: 3}
+  battleMusic: {fileID: 8300000, guid: 322285676135bed4d825fd090043a479, type: 3}
 --- !u!1 &6102285335977711959
 GameObject:
   m_ObjectHideFlags: 0
