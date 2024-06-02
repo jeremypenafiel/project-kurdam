@@ -71,7 +71,7 @@ public class PlayerController : MonoBehaviour, ISavable
            StartCoroutine(Interact(position, this));
        }
        
-        Teleport(position);
+        //Teleport(position);
         StoryTrigger(position);
     }
 

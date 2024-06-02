@@ -7,20 +7,24 @@ using UnityEngine.UI;
 public class Fader : MonoBehaviour
 {
     Image image;
-
+    public Tweener tweener;
 
     private void Awake()
     {
         image = GetComponent<Image>();
     }
 
-    public void FadeIn(float time)
+    public IEnumerator FadeIn(float time)
     {
-       image.DOFade(1f, time).WaitForCompletion();
+        Debug.Log("FADER CALLED");
+        tweener = image.DOFade(1f, time);
+        yield return tweener.WaitForCompletion();
     }
-    public void FadeOut(float time)
+    public IEnumerator FadeOut(float time)
     {
-       image.DOFade(0f, time).WaitForCompletion();
+        Debug.Log("nagrun FADE OUT");
+        tweener = image.DOFade(0f, time);
+        yield return tweener.WaitForCompletion();
     }
 
 
