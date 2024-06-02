@@ -40,15 +40,19 @@ public class Aswang
         HP = MaxHP;
 
         moves = new List<Moves>();
-        movesLearned = new List<Moves>(); 
-
+        movesLearned = new List<Moves>();
+        int i = 0;
         foreach (var move in Base.LearnableMoves)
         {
             
             if (move.level <= Level)
             {
                 movesLearned.Add(new Moves(move.MovesBase));
-                moves.Add(new Moves(move.MovesBase));
+                if(i<4){
+                    moves.Add(new Moves(move.MovesBase));
+                    i++;
+                }
+                
             }
         }
         Exp = Base.GetExpForLevel(Level);
@@ -60,16 +64,21 @@ public class Aswang
         Level = alevel;
         HP = MaxHP;
         Exp = abase.GetExpForLevel(Level);
-
+        
         moves = new List<Moves>();
         movesLearned = new List<Moves>();
+        int i = 0;
+
         foreach (var move in Base.LearnableMoves)
         {
             if (move.level <= Level)
             {
                 movesLearned.Add(new Moves(move.MovesBase));
 
-                moves.Add(new Moves(move.MovesBase));
+                if(i<4){
+                    moves.Add(new Moves(move.MovesBase));
+                    i++;
+                }
             }
         }
 
