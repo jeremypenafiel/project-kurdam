@@ -358,9 +358,21 @@ public class BattleSystem : MonoBehaviour
     }
     IEnumerator RunBattle()
     {
-        yield return StartCoroutine(dialogBox.TypeDialog("You fled from the aswang."));
-        AudioManager.i.PlaySFX(AudioId.UISelect);
-        OnBattleOver();
+        int randomNumber= UnityEngine.Random.Range(0, 100);
+        if (randomNumber < 80)
+        {
+            yield return StartCoroutine(dialogBox.TypeDialog("You couldn't escape!"));
+            AudioManager.i.PlaySFX(AudioId.UISelect);
+            yield return new WaitForSeconds(1f);
+            EnemyAttackRoll();
+        }
+        else
+        {
+            yield return StartCoroutine(dialogBox.TypeDialog("You fled from the aswang."));
+            AudioManager.i.PlaySFX(AudioId.UISelect);
+            OnBattleOver();
+        }
+
     }
 
     // Helper Methods
@@ -489,7 +501,7 @@ public class BattleSystem : MonoBehaviour
         }
         else if (targetUnit != player)
         {
-            damage = Mathf.FloorToInt(damage/10);
+            damage = Mathf.FloorToInt(damage/2);
         }
         return damage;
     }
