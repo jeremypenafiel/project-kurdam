@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour, ISavable
     public Rigidbody2D rb;
 
     public List<Aswang> encounterList;
-    GameController gc;
+    public GameController gc;
     public Player player;
 
     IPLayerTriggerable currentlyInTrigger=null;

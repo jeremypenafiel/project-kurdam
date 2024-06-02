@@ -512,6 +512,7 @@ MonoBehaviour:
   questInProgress: {fileID: 0}
   objectToActivateOnInteract: {fileID: 0}
   objectToDeactivateOnInteract: {fileID: 0}
+  degradeLightSource: 0
 --- !u!1 &559071632
 GameObject:
   m_ObjectHideFlags: 0
@@ -825,9 +826,29 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 691f108ac92e82247b903e51db0a73c0, type: 2}
     - target: {fileID: 1461606525928303229, guid: a8b42c59c369a4448b8b419dd784b6e9, type: 3}
+      propertyPath: degradeLightSource
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1461606525928303229, guid: a8b42c59c369a4448b8b419dd784b6e9, type: 3}
+      propertyPath: dialog.lines.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1461606525928303229, guid: a8b42c59c369a4448b8b419dd784b6e9, type: 3}
+      propertyPath: dialog.lines.Array.data[0]
+      value: You are hunted by the bakunawa
+      objectReference: {fileID: 0}
+    - target: {fileID: 1461606525928303229, guid: a8b42c59c369a4448b8b419dd784b6e9, type: 3}
       propertyPath: objectToActivateOnInteract
       value: 
       objectReference: {fileID: 591671759}
+    - target: {fileID: 2592607831899038571, guid: a8b42c59c369a4448b8b419dd784b6e9, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2592607831899038571, guid: a8b42c59c369a4448b8b419dd784b6e9, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2592607831899038571, guid: a8b42c59c369a4448b8b419dd784b6e9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 354.3
@@ -1702,6 +1723,10 @@ PrefabInstance:
     - target: {fileID: 575587262106403899, guid: 682ac736f933f7647b340e743b7e1b16, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 640313007142878613, guid: 682ac736f933f7647b340e743b7e1b16, type: 3}
+      propertyPath: speed
+      value: 4.2
       objectReference: {fileID: 0}
     - target: {fileID: 640313007142878613, guid: 682ac736f933f7647b340e743b7e1b16, type: 3}
       propertyPath: encounterRadius
@@ -7073,6 +7098,7 @@ MonoBehaviour:
   questInProgress: {fileID: 0}
   objectToActivateOnInteract: {fileID: 0}
   objectToDeactivateOnInteract: {fileID: 0}
+  degradeLightSource: 0
 --- !u!61 &1420028332
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7259,6 +7285,10 @@ PrefabInstance:
     - target: {fileID: 575587262106403899, guid: 682ac736f933f7647b340e743b7e1b16, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 640313007142878613, guid: 682ac736f933f7647b340e743b7e1b16, type: 3}
+      propertyPath: speed
+      value: 4.2
       objectReference: {fileID: 0}
     - target: {fileID: 640313007142878613, guid: 682ac736f933f7647b340e743b7e1b16, type: 3}
       propertyPath: encounterRadius
@@ -8879,6 +8909,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 640313007142878613, guid: 682ac736f933f7647b340e743b7e1b16, type: 3}
+      propertyPath: speed
+      value: 4.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 640313007142878613, guid: 682ac736f933f7647b340e743b7e1b16, type: 3}
       propertyPath: encounterRadius
       value: 2
       objectReference: {fileID: 0}
@@ -10371,6 +10405,10 @@ PrefabInstance:
     - target: {fileID: 575587262106403899, guid: 682ac736f933f7647b340e743b7e1b16, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 640313007142878613, guid: 682ac736f933f7647b340e743b7e1b16, type: 3}
+      propertyPath: speed
+      value: 4.2
       objectReference: {fileID: 0}
     - target: {fileID: 640313007142878613, guid: 682ac736f933f7647b340e743b7e1b16, type: 3}
       propertyPath: encounterRadius

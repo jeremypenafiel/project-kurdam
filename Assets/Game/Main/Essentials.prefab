@@ -10863,6 +10863,7 @@ MonoBehaviour:
   locationPortal: {fileID: 3337274973323735774}
   pauseScreen: {fileID: 7625454304753246855}
   inventoryView: {fileID: 7201305070596403863}
+  globalLight: {fileID: 1048490251923281965}
 --- !u!114 &8904270053142815537
 MonoBehaviour:
   m_ObjectHideFlags: 0

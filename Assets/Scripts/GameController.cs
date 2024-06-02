@@ -2,6 +2,7 @@ using System.Collections;
 using GDEUtils.StateMachine;
 using Items;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
 
 public enum GameState { FreeRoam, Battle, Dialog, Paused }
@@ -19,6 +20,7 @@ public class GameController : MonoBehaviour
     [SerializeField] GameObject pauseScreen;
 /*    [SerializeField] GameObject visionLimiter;*/
     [SerializeField] InventoryView inventoryView;
+    [SerializeField] Light2D globalLight;
 
     
 
@@ -35,6 +37,7 @@ public class GameController : MonoBehaviour
     public Fader Fader => fader;
 
     public GameObject PauseScreen => pauseScreen;
+    public Light2D GlobalLight =>globalLight;
 
 /*    public GameObject VisionLimiter => visionLimiter;*/
     
