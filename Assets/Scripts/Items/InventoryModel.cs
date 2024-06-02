@@ -10,7 +10,7 @@ namespace Items
     {
         public Dictionary<EquippableItemsBase.ItemType, EquippableItem> equippedItemsDictionary = new(){
             { EquippableItemsBase.ItemType.armasIsa, null},
-            { EquippableItemsBase.ItemType.armasDuha, null},
+            { EquippableItemsBase.ItemType.suga, null},
             { EquippableItemsBase.ItemType.antingAnting, null},
             { EquippableItemsBase.ItemType.paa, null},
             { EquippableItemsBase.ItemType.tiil, null},
@@ -40,7 +40,7 @@ namespace Items
             EquippedItems = new ObservableDictionary<EquippableItemsBase.ItemType, EquippableItem>
             {
                 { EquippableItemsBase.ItemType.armasIsa, null},
-                { EquippableItemsBase.ItemType.armasDuha, null},
+                { EquippableItemsBase.ItemType.suga, null},
                 { EquippableItemsBase.ItemType.antingAnting, null},
                 { EquippableItemsBase.ItemType.paa, null},
                 { EquippableItemsBase.ItemType.tiil, null},
@@ -93,7 +93,7 @@ namespace Items
         
         public void Unequip(EquippableItem item)
         {
-            var type = ((EquippableItemsBase)item.details).type;
+            var type = item.Details.type;
             EquippedItems[type] = null;
             Items.TryAdd(item);
             OnEquipmentChanged?.Invoke(EquippedItems);
