@@ -131,6 +131,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 801347438938034932, guid: 1a746e40473efbd4090ba274d5e8a85e, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1023894214731462228, guid: 1a746e40473efbd4090ba274d5e8a85e, type: 3}
       propertyPath: m_Name
       value: Essentials
@@ -419,7 +423,7 @@ MonoBehaviour:
   connectedScenes:
   - {fileID: 1203718002}
   - {fileID: 2023182521}
-  sceneMusic: {fileID: 8300000, guid: c2af170cae0fc0f43853a6a05fc2c34a, type: 3}
+  sceneMusic: {fileID: 8300000, guid: 724b34f2caf8cbd4ab15962e597f708e, type: 3}
   savableEntities: []
 --- !u!1 &904846903
 GameObject:
@@ -514,7 +518,7 @@ MonoBehaviour:
   connectedScenes:
   - {fileID: 2082083166}
   - {fileID: 1203718002}
-  sceneMusic: {fileID: 8300000, guid: c2af170cae0fc0f43853a6a05fc2c34a, type: 3}
+  sceneMusic: {fileID: 8300000, guid: 19f44f04177cc8c4da2e6cc41b03a91a, type: 3}
   savableEntities: []
 --- !u!1 &935524440
 GameObject:
@@ -743,7 +747,7 @@ MonoBehaviour:
   connectedScenes:
   - {fileID: 904846907}
   - {fileID: 738521736}
-  sceneMusic: {fileID: 8300000, guid: c2af170cae0fc0f43853a6a05fc2c34a, type: 3}
+  sceneMusic: {fileID: 8300000, guid: 1e0679ea7dd0ae244836873b2b9d0b1f, type: 3}
   savableEntities: []
 --- !u!1 &1626062231
 GameObject:
@@ -1015,7 +1019,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   connectedScenes:
   - {fileID: 738521736}
-  sceneMusic: {fileID: 8300000, guid: c2af170cae0fc0f43853a6a05fc2c34a, type: 3}
+  sceneMusic: {fileID: 8300000, guid: 724b34f2caf8cbd4ab15962e597f708e, type: 3}
   savableEntities: []
 --- !u!1 &2082083162
 GameObject:
@@ -1109,7 +1113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   connectedScenes:
   - {fileID: 904846907}
-  sceneMusic: {fileID: 8300000, guid: 98a3184be63966f41be7ece9ce0242b5, type: 3}
+  sceneMusic: {fileID: 8300000, guid: 19f44f04177cc8c4da2e6cc41b03a91a, type: 3}
   savableEntities: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
