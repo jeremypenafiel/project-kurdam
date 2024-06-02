@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3ac65bad1661b194d829523b3ddcba55
+guid: 1793feb07bb826c47ad596e9ef8d7f1a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,12 +110,96 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: items_0
+      name: demonyo_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69742571001772e4398cffaf6dd27c90
+      internalID: 1535532999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: demonyo_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 96
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 762c7085f2b687e40a8db2848024d797
+      internalID: 404988124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: demonyo_2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 96
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39d1af2db4a2f1347a522980a527cf98
+      internalID: 1232372981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: demonyo_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 96
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55798c510a76d9541857ac058ad71b7e
+      internalID: 1353317668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: demonyo_4
       rect:
         serializedVersion: 2
         x: 0
         y: 64
-        width: 32
+        width: 16
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -124,19 +208,40 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 89df1689cf7dde4488a8bc392d2c5cdd
-      internalID: 1913760286
+      spriteID: 2f8f773e41cd8a24ab036b6ce215228e
+      internalID: -458946206
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: items_1
+      name: demonyo_5
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 64
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ea6942754edca646aade7d3a8c0e831
+      internalID: -596188602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: demonyo_6
       rect:
         serializedVersion: 2
         x: 32
         y: 64
-        width: 32
+        width: 16
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -145,19 +250,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 33d08a6c617c2e045b19d278c6e76355
-      internalID: -2014230092
+      spriteID: 59fb04e49b7980c4dbcc598cba09768d
+      internalID: -400019558
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: items_2
+      name: demonyo_7
       rect:
         serializedVersion: 2
-        x: 64
+        x: 48
         y: 64
-        width: 32
+        width: 16
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -166,40 +271,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c8e8f076bb375e842ba71a87e77754df
-      internalID: 1209885259
+      spriteID: c3b64f4d1beed364ca5af32c60bef958
+      internalID: -1526521417
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: items_3
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 64
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 55fcddbdef57e06479c2d48de25aec6a
-      internalID: -799969334
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: items_4
+      name: demonyo_8
       rect:
         serializedVersion: 2
         x: 0
         y: 32
-        width: 32
+        width: 16
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -208,19 +292,40 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5cdec11c1b068834bb0ec4febe34f39b
-      internalID: -1677097692
+      spriteID: 0515b7f105114964a84a3a0e8e76a14e
+      internalID: -933413974
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: items_5
+      name: demonyo_9
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 32
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fa6e410894781341850828a83606dee
+      internalID: 1174700113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: demonyo_10
       rect:
         serializedVersion: 2
         x: 32
         y: 32
-        width: 32
+        width: 16
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -229,19 +334,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4830a816bd00b1b4eab3e6a315724ccb
-      internalID: 961582584
+      spriteID: c47be0a6703ea5c4ca624f8bed0d18a8
+      internalID: -1782150199
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: items_6
+      name: demonyo_11
       rect:
         serializedVersion: 2
-        x: 64
+        x: 48
         y: 32
-        width: 32
+        width: 16
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -250,40 +355,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c751794943c6b7a4598a58be384dcd24
-      internalID: 1723190570
+      spriteID: 60950c193bc60a0418b82fa4f2b843fe
+      internalID: -542062377
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: items_7
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3ae28a0bfde9ba0499471a2c16e275c7
-      internalID: -967195444
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: items_8
+      name: demonyo_12
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
+        width: 16
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -292,19 +376,40 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6d986b394c4661e48978b9ead8445a8c
-      internalID: 1140800719
+      spriteID: be194730ad48e5d45aefc6e14f238b8d
+      internalID: 760389872
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: items_9
+      name: demonyo_13
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a1c9f2f57a6f554fb391f46cb2be3b0
+      internalID: 2049546332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: demonyo_14
       rect:
         serializedVersion: 2
         x: 32
         y: 0
-        width: 32
+        width: 16
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -313,19 +418,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d201de23b1570b9429096de938f706f6
-      internalID: -1625851813
+      spriteID: 712d926087115b8468946a98924a03ce
+      internalID: 136224852
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: items_10
+      name: demonyo_15
       rect:
         serializedVersion: 2
-        x: 64
+        x: 48
         y: 0
-        width: 32
+        width: 16
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -334,29 +439,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5d4232daa238d63408bf51a9625b1e97
-      internalID: 694487189
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: items_11
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 051a4cbfa63c6dc45898608ee85d35b1
-      internalID: -310907835
+      spriteID: 2779ee983896bf94386f4d56fe75d9e2
+      internalID: 430675153
       vertices: []
       indices: 
       edges: []
@@ -372,18 +456,22 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      items_0: 1913760286
-      items_1: -2014230092
-      items_10: 694487189
-      items_11: -310907835
-      items_2: 1209885259
-      items_3: -799969334
-      items_4: -1677097692
-      items_5: 961582584
-      items_6: 1723190570
-      items_7: -967195444
-      items_8: 1140800719
-      items_9: -1625851813
+      demonyo_0: 1535532999
+      demonyo_1: 404988124
+      demonyo_10: -1782150199
+      demonyo_11: -542062377
+      demonyo_12: 760389872
+      demonyo_13: 2049546332
+      demonyo_14: 136224852
+      demonyo_15: 430675153
+      demonyo_2: 1232372981
+      demonyo_3: 1353317668
+      demonyo_4: -458946206
+      demonyo_5: -596188602
+      demonyo_6: -400019558
+      demonyo_7: -1526521417
+      demonyo_8: -933413974
+      demonyo_9: 1174700113
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
