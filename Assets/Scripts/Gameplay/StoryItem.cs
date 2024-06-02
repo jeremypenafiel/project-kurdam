@@ -10,13 +10,20 @@ public class StoryItem : MonoBehaviour, IPLayerTriggerable
     [SerializeField] QuestBase questToStart;
     [SerializeField] QuestBase questToComplete; // interaction with this item will complete questToComplete
     [SerializeField] GameObject objectToActivateOnComplete;
-    private InventoryModel _playerInventory;
+    //private InventoryModel _playerInventory;
+    [SerializeField] Inventory _playerInventory;
     private bool isActive = false;
     [SerializeField] bool triggerOnce;
     public static event Action<Vector2> OnQuestIncomplete;
 
     Quest activeQuest;
-   public void OnPlayerTriggered(PlayerController playerController)
+
+    private void Awake()
+    {
+        _playerInventory = GameObject.Find("Player").GetComponent<Inventory>();
+    }
+
+    public void OnPlayerTriggered(PlayerController playerController)
    {
        Debug.Log("nag run ang triggered");
         playerController.Character.Animator.IsMoving = false;

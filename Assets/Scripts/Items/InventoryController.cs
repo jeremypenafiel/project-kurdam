@@ -189,6 +189,35 @@ namespace Items
                     view.EquipmentSlots[i].Set(item.Id, item.details.icon, item.quantity);
                 }
             }
+            
+            
+        }
+        public bool ContainsItem(ItemsBase item)
+        {
+            return model.Contains(item);
+        }
+
+        public void AddItem(ItemsBase item)
+        {
+            Item newItem;
+            if (item.isConsumable)
+            {
+                newItem = ((ConsumableItemBase)item).Create(1);
+            }else if (item.isEquipment)
+            {
+                newItem = ((EquippableItemsBase)item).Create(1);
+            }
+            else
+            {
+                newItem = item.Create(1);
+            }
+
+            model.AddToInventory(newItem);
+        }
+
+        public bool IsInventoryFull()
+        {
+            return model.Items.Count >= capacity;
         }
         
        
@@ -365,6 +394,7 @@ namespace Items
         //     // }
         //
         // }
+
         
     }
 }
