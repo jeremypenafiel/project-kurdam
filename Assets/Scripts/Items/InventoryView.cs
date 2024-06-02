@@ -46,6 +46,7 @@ public class InventoryView : StorageView
     public void Activate(bool isActive)
     {
         root.visible = isActive;
+        Debug.Log("active");
     }
 
     public override IEnumerator InitializeView(int capacity)
@@ -147,11 +148,11 @@ public class InventoryView : StorageView
         }
     }
 
-    private void HandleUpdate()
+    public void HandleUpdate()
     {
         if (!isDialogBoxActive)
         {
-            if(isInventoryMode) HandleInventoryNavigationSelection();
+            if (isInventoryMode) HandleInventoryNavigationSelection();
             else HandleEquipmentNavigationSelection();
         }
         else

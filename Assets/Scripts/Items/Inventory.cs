@@ -59,7 +59,7 @@ public class Inventory : MonoBehaviour
 
     public void HandleUpdate()
     {
-        
+        view.HandleUpdate();
     }
 
     public bool IsInventoryFull()

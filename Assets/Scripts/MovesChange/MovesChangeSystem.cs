@@ -124,14 +124,14 @@ public class MovesChangeSystem : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Z))
         {
-
+            StopCoroutine(currentCoroutine);
             AudioManager.i.PlaySFX(AudioId.UISelect);
             dialogBox.UpdateChangeSelection();
             ChangeMvoe(currentMove, currentAction);
         }
         else if (Input.GetKeyDown(KeyCode.X))
         {
-
+            StopCoroutine(currentCoroutine);
             AudioManager.i.PlaySFX(AudioId.UISelect);
             dialogBox.UpdateChangeSelection();
             MoveSelection();
@@ -172,7 +172,7 @@ public class MovesChangeSystem : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Z))
         {
-
+            StopCoroutine(currentCoroutine);
             AudioManager.i.PlaySFX(AudioId.UISelect);
             ChangeSelection();
 
@@ -180,7 +180,7 @@ public class MovesChangeSystem : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.X))
         {
-            
+            StopCoroutine(currentCoroutine);
             AudioManager.i.PlaySFX(AudioId.UISelect);
 
             Exit?.Invoke();
