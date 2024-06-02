@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 5784290248336679102}
   - component: {fileID: 2080894648050178308}
   - component: {fileID: 3988705020554163344}
-  - component: {fileID: 6709619439471524618}
   - component: {fileID: 2425746358325321188}
   m_Layer: 10
   m_Name: Duwende Book
@@ -59,6 +58,14 @@ MonoBehaviour:
   line: 
   closed: {fileID: -1290479914, guid: 2f97225da3aedd44d9a7e042384a78f7, type: 3}
   open: {fileID: -1222629420, guid: 2f97225da3aedd44d9a7e042384a78f7, type: 3}
+  itemAcquired: {fileID: 0}
+  questToComplete: {fileID: 0}
+  objectToActivateOnComplete: {fileID: 0}
+  _playerInventory: {fileID: 0}
+  questToStart: {fileID: 0}
+  questInProgress: {fileID: 0}
+  objectToActivateOnInteract: {fileID: 0}
+  objectToDeactivateOnInteract: {fileID: 0}
 --- !u!212 &3988705020554163344
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -111,33 +118,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &6709619439471524618
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4537229241171744278}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!61 &2425746358325321188
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -167,14 +147,14 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 2}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 2, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

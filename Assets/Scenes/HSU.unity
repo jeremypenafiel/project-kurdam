@@ -170,6 +170,7 @@ MonoBehaviour:
   itemAcquired: {fileID: 0}
   questToComplete: {fileID: 0}
   objectToActivateOnComplete: {fileID: 0}
+  _playerInventory: {fileID: 0}
   questToStart: {fileID: 0}
   questInProgress: {fileID: 0}
   objectToActivateOnInteract: {fileID: 0}
@@ -563,6 +564,7 @@ MonoBehaviour:
   itemAcquired: {fileID: 0}
   questToComplete: {fileID: 0}
   objectToActivateOnComplete: {fileID: 0}
+  _playerInventory: {fileID: 0}
   questToStart: {fileID: 0}
   questInProgress: {fileID: 0}
   objectToActivateOnInteract: {fileID: 0}
@@ -8934,6 +8936,7 @@ MonoBehaviour:
   itemAcquired: {fileID: 0}
   questToComplete: {fileID: 0}
   objectToActivateOnComplete: {fileID: 0}
+  _playerInventory: {fileID: 0}
   questToStart: {fileID: 0}
   questInProgress: {fileID: 0}
   objectToActivateOnInteract: {fileID: 0}
@@ -9612,6 +9615,10 @@ PrefabInstance:
       value: tikbalang
       objectReference: {fileID: 0}
     - target: {fileID: 2011968414886730903, guid: d277a3cea9b3bf543a7e3b815cab376d, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2011968414886730903, guid: d277a3cea9b3bf543a7e3b815cab376d, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -10134,6 +10141,7 @@ MonoBehaviour:
   itemAcquired: {fileID: 0}
   questToComplete: {fileID: 0}
   objectToActivateOnComplete: {fileID: 0}
+  _playerInventory: {fileID: 0}
   questToStart: {fileID: 0}
   questInProgress: {fileID: 0}
   objectToActivateOnInteract: {fileID: 0}
@@ -10282,11 +10290,24 @@ PrefabInstance:
       propertyPath: m_Name
       value: BuhokTikbalang
       objectReference: {fileID: 0}
+    - target: {fileID: 3211306063733054821, guid: a8b42c59c369a4448b8b419dd784b6e9, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5084200571908399482, guid: a8b42c59c369a4448b8b419dd784b6e9, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 5ea2b739b79ec0346ab57698ab3aa5da, type: 3}
-    m_RemovedComponents: []
+    - target: {fileID: 5634753529970178882, guid: a8b42c59c369a4448b8b419dd784b6e9, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5634753529970178882, guid: a8b42c59c369a4448b8b419dd784b6e9, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.32
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 0}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -11166,6 +11187,7 @@ MonoBehaviour:
   itemAcquired: {fileID: 0}
   questToComplete: {fileID: 0}
   objectToActivateOnComplete: {fileID: 0}
+  _playerInventory: {fileID: 0}
   questToStart: {fileID: 0}
   questInProgress: {fileID: 0}
   objectToActivateOnInteract: {fileID: 0}
@@ -11193,9 +11215,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2140520369152888697, guid: acf5ff96c8374ae4b877abfe4e001d1c, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2254107232470452058, guid: acf5ff96c8374ae4b877abfe4e001d1c, type: 3}
       propertyPath: m_Name
       value: Potion (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2254107232470452058, guid: acf5ff96c8374ae4b877abfe4e001d1c, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5799382999689348517, guid: acf5ff96c8374ae4b877abfe4e001d1c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11237,7 +11267,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -11390,33 +11421,6 @@ Transform:
   - {fileID: 1899460849}
   m_Father: {fileID: 1040631976}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &4998883773016123655
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7789316523301604319}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!1 &5197753009758472607
 GameObject:
   m_ObjectHideFlags: 0
@@ -11441,9 +11445,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2140520369152888697, guid: acf5ff96c8374ae4b877abfe4e001d1c, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2254107232470452058, guid: acf5ff96c8374ae4b877abfe4e001d1c, type: 3}
       propertyPath: m_Name
       value: Potion
+      objectReference: {fileID: 0}
+    - target: {fileID: 2254107232470452058, guid: acf5ff96c8374ae4b877abfe4e001d1c, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5799382999689348517, guid: acf5ff96c8374ae4b877abfe4e001d1c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11485,7 +11497,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -11510,6 +11523,7 @@ MonoBehaviour:
   itemAcquired: {fileID: 11400000, guid: 51a12e9855630534185e01be5593bd82, type: 2}
   questToComplete: {fileID: 0}
   objectToActivateOnComplete: {fileID: 0}
+  _playerInventory: {fileID: 0}
   questToStart: {fileID: 0}
   questInProgress: {fileID: 11400000, guid: e59e6d48131159c4693a17a83295a376, type: 2}
   objectToActivateOnInteract: {fileID: 0}
@@ -11603,8 +11617,7 @@ GameObject:
   - component: {fileID: 6107238050603842759}
   - component: {fileID: 434415643586262976}
   - component: {fileID: 1061518799144283640}
-  - component: {fileID: 4998883773016123655}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Rusarito
   m_TagString: Untagged
   m_Icon: {fileID: 0}

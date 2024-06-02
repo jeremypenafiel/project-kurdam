@@ -224,6 +224,7 @@ MonoBehaviour:
   questToStart: {fileID: 11400000, guid: 04c5a52de30f69846ae8921da9ab7209, type: 2}
   questToComplete: {fileID: 0}
   objectToActivateOnComplete: {fileID: 1737109819}
+  _playerInventory: {fileID: 0}
   triggerOnce: 1
 --- !u!1 &382737059
 GameObject:
@@ -1150,8 +1151,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.097, y: 0.083600044, z: 0}
-    m_Extent: {x: 2.3234, y: 2.0232, z: 0}
+    m_Center: {x: 0.10469997, y: 0.07760006, z: 0}
+    m_Extent: {x: 2.3245, y: 2.0322, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -1222,6 +1223,7 @@ MonoBehaviour:
   itemAcquired: {fileID: 0}
   questToComplete: {fileID: 11400000, guid: 04c5a52de30f69846ae8921da9ab7209, type: 2}
   objectToActivateOnComplete: {fileID: 1405169794}
+  _playerInventory: {fileID: 0}
   questToStart: {fileID: 0}
   questInProgress: {fileID: 0}
   objectToActivateOnInteract: {fileID: 0}

@@ -507,6 +507,7 @@ MonoBehaviour:
   itemAcquired: {fileID: 0}
   questToComplete: {fileID: 0}
   objectToActivateOnComplete: {fileID: 0}
+  _playerInventory: {fileID: 0}
   questToStart: {fileID: 0}
   questInProgress: {fileID: 0}
   objectToActivateOnInteract: {fileID: 0}
@@ -871,6 +872,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gitara
       objectReference: {fileID: 0}
+    - target: {fileID: 3211306063733054821, guid: a8b42c59c369a4448b8b419dd784b6e9, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5084200571908399482, guid: a8b42c59c369a4448b8b419dd784b6e9, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -880,10 +885,15 @@ PrefabInstance:
       value: 0.32
       objectReference: {fileID: 0}
     - target: {fileID: 5634753529970178882, guid: a8b42c59c369a4448b8b419dd784b6e9, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5634753529970178882, guid: a8b42c59c369a4448b8b419dd784b6e9, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
       value: 0.32
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 420652859826372541, guid: a8b42c59c369a4448b8b419dd784b6e9, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -7058,6 +7068,7 @@ MonoBehaviour:
   itemAcquired: {fileID: 0}
   questToComplete: {fileID: 0}
   objectToActivateOnComplete: {fileID: 0}
+  _playerInventory: {fileID: 0}
   questToStart: {fileID: 0}
   questInProgress: {fileID: 0}
   objectToActivateOnInteract: {fileID: 0}

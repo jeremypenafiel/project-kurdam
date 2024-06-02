@@ -57,7 +57,7 @@ namespace Items
             foreach (var itemDetail in equipmentDetails)
             {
                 var type = itemDetail.type;
-                //Equip(itemDetail.Create(1) as EquippableItem);
+                Equip(itemDetail.Create(1) as EquippableItem);
                 // EquippedItems.Add(type, (EquippableItem)itemDetail.Create(1));
             }
             
