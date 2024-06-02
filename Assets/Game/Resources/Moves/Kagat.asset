@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c8391865b00ffb478bfb1ea52e710a7, type: 3}
   m_Name: Kagat
   m_EditorClassIdentifier: 
-  moveName: Kagat
+  name: Kagat
   description: 
   level: 0
   type: {fileID: 11400000, guid: a0d96a551c6282a4ba58a68d976a7634, type: 2}

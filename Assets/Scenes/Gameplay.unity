@@ -243,6 +243,10 @@ PrefabInstance:
       propertyPath: suga
       value: 
       objectReference: {fileID: 939660499}
+    - target: {fileID: 6463567495204533961, guid: 1a746e40473efbd4090ba274d5e8a85e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c8391865b00ffb478bfb1ea52e710a7, type: 3}
   m_Name: Pangamuyo
   m_EditorClassIdentifier: 
-  moveName: Pangamuyo
+  name: Pangamuyo
   description: 
   level: 0
   type: {fileID: 0}
