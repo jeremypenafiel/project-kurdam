@@ -34,7 +34,7 @@ public class InventoryState : State<GameController>
     }
     public override void Execute()
     {
-        //InventorySystem.i.HandleUpdate();
+        inventory.HandleUpdate();
 
     }
 

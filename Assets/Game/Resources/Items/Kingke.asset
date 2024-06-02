@@ -31,7 +31,7 @@ MonoBehaviour:
   armorClass: 0
   damageModifier: 0
   Resistances: []
-  lightIntensity: 1
+  lightIntensity: 0.75
   lightTemperature: {r: 0.9098039, g: 0.7137255, b: 0.23137255, a: 1}
   innerRadius: 1.5
   outerRadius: 20

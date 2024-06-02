@@ -14,8 +14,8 @@ public class LightFlicker : MonoBehaviour
     Aswang player;
     [SerializeField] private int framesPerRandomize;
 
-    private float minValue;
-    private float maxValue;
+    [SerializeField] private float minValue;
+    [SerializeField] private float maxValue;
 
     // Start is called before the first frame update
     void Start()
@@ -36,11 +36,12 @@ public class LightFlicker : MonoBehaviour
     public void setMaxValue(float value)
     {
         maxValue = value;
+        minValue = maxValue - 0.1f;
     }
 
     void RandomizeIntensity()
     {
-        minValue = maxValue - 0.1f;
+        
         // Create an instance of the Random class
         System.Random random = new System.Random();
 

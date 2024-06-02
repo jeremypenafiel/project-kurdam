@@ -147,7 +147,7 @@ public class InventoryView : StorageView
         }
     }
 
-    private void Update()
+    public void HandleUpdate()
     {
         if (!isDialogBoxActive)
         {
@@ -208,6 +208,8 @@ public class InventoryView : StorageView
             OnExitPressed?.Invoke();
         }
     }
+
+
 
     private void HandleActionSelection()
     { 
