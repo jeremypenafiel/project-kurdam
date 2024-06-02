@@ -271,6 +271,6 @@ public class InventoryView : StorageView
         useText.text = item.details.isConsumable ? "Use" : isInventoryMode ? "Equip" : "Unequip";
         discardText.text = "Discard";
         description.text = item.details.description;
-        itemName.text = item.details.name;
+        itemName.text = item.details.itemName;
     }
 }
