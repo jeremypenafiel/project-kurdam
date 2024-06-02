@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Sigarilyo
   icon: {fileID: 21300000, guid: 80dc500d87a12ba41a8567ddc914fc2b, type: 3}
-  description: 
+  description: Smoking is bad
   maxStack: 0
   isConsumable: 0
   isMissionItem: 1
@@ -31,3 +31,8 @@ MonoBehaviour:
   armorClass: 0
   damageModifier: 0
   Resistances: []
+  lightIntensity: 0
+  lightTemperature: {r: 0, g: 0, b: 0, a: 0}
+  innerRadius: 0
+  outerRadius: 0
+  falloffStrength: 0

@@ -10,22 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 89459c1f94c74576801389e9cae51c1a, type: 3}
-  m_Name: Pusil
+  m_Name: Luya
   m_EditorClassIdentifier: 
-  itemName: Pusil
-  icon: {fileID: 21300000, guid: 134184764ec9d78408031ab5346f6c1b, type: 3}
-  description: Aswangs look good in red don't they? Piercing damage
+  itemName: Luya
+  icon: {fileID: 0}
+  description: Safe travels
   maxStack: 0
   isConsumable: 0
   isMissionItem: 0
   isEquipment: 1
   Id:
-    Part1: 1909035952
-    Part2: 1336979175
-    Part3: 2586277543
-    Part4: 2584446874
-  type: 0
-  armasType: {fileID: 11400000, guid: a0d96a551c6282a4ba58a68d976a7634, type: 2}
+    Part1: 3686543657
+    Part2: 1198342507
+    Part3: 1731633822
+    Part4: 1330981617
+  type: 2
+  armasType: {fileID: 0}
   advantage: []
   disadvantage: []
   armorClass: 0

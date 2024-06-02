@@ -10,22 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 89459c1f94c74576801389e9cae51c1a, type: 3}
-  m_Name: Pusil
+  m_Name: Sapatos
   m_EditorClassIdentifier: 
-  itemName: Pusil
-  icon: {fileID: 21300000, guid: 134184764ec9d78408031ab5346f6c1b, type: 3}
-  description: Aswangs look good in red don't they? Piercing damage
+  itemName: Sapatos
+  icon: {fileID: 21300000, guid: bdd7fcd43ddd8a645aa135927b62881d, type: 3}
+  description: Why are they wearing slippers
   maxStack: 0
   isConsumable: 0
   isMissionItem: 0
   isEquipment: 1
   Id:
-    Part1: 1909035952
-    Part2: 1336979175
-    Part3: 2586277543
-    Part4: 2584446874
-  type: 0
-  armasType: {fileID: 11400000, guid: a0d96a551c6282a4ba58a68d976a7634, type: 2}
+    Part1: 376936618
+    Part2: 1282839764
+    Part3: 1343154331
+    Part4: 3129898919
+  type: 5
+  armasType: {fileID: 0}
   advantage: []
   disadvantage: []
   armorClass: 0

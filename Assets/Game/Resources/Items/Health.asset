@@ -14,6 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Health Potion
   icon: {fileID: 319328082, guid: b50ffe45bfd010f4aa7164844d60146f, type: 3}
-  description: ga heal
-  currentStackNumber: 0
-  itemEffects: []
+  description: Heals for 10HP
+  maxStack: 0
+  isConsumable: 1
+  isMissionItem: 0
+  isEquipment: 0
+  Id:
+    Part1: 333894506
+    Part2: 1140826593
+    Part3: 2609930675
+    Part4: 1715208252
+  effects:
+  - {fileID: 11400000, guid: d4f8f39caaaf02f4fa79d8eee7051c80, type: 2}

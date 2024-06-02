@@ -10,24 +10,29 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 89459c1f94c74576801389e9cae51c1a, type: 3}
-  m_Name: ID
+  m_Name: Tsinelas
   m_EditorClassIdentifier: 
-  itemName: ID
-  icon: {fileID: 21300000, guid: d76fb15ca8bd4584caf558aa2530f81d, type: 3}
-  description: Sulod ko gard
+  itemName: Tsinelas
+  icon: {fileID: 21300000, guid: 67937e4a8804dbc4fbcc97724ac92171, type: 3}
+  description: My roommate's last pair of dragon
   maxStack: 0
   isConsumable: 0
   isMissionItem: 0
-  isEquipment: 0
+  isEquipment: 1
   Id:
-    Part1: 2684331851
-    Part2: 1325140241
-    Part3: 3606333596
-    Part4: 2542787786
-  type: 2
+    Part1: 1173677704
+    Part2: 1234734003
+    Part3: 518188735
+    Part4: 3677146255
+  type: 5
   armasType: {fileID: 0}
   advantage: []
   disadvantage: []
   armorClass: 0
   damageModifier: 0
   Resistances: []
+  lightIntensity: 0
+  lightTemperature: {r: 0, g: 0, b: 0, a: 0}
+  innerRadius: 0
+  outerRadius: 0
+  falloffStrength: 0

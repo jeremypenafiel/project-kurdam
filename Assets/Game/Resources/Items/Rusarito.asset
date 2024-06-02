@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89459c1f94c74576801389e9cae51c1a, type: 3}
   m_Name: Rusarito
   m_EditorClassIdentifier: 
-  itemName: Rusarito ni gabriel jesus
+  itemName: Rusarito
   icon: {fileID: 21300000, guid: f8e45d8f28b0ddb45bbb2833b40a77c3, type: 3}
-  description: Ipangadi lng amay namon nga yara ka sa mga lanmgit
+  description: Amen, aman.
   maxStack: 0
   isConsumable: 0
   isMissionItem: 0
