@@ -14,7 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Asin
   icon: {fileID: 21300000, guid: 8ee72286b081b1942892d19aa0b7771f, type: 3}
-  description: pampaarat
+  description: Sprinkle it to the lower torso of a manananggal to kill one
+  maxStack: 0
+  isConsumable: 0
+  isMissionItem: 0
+  isEquipment: 1
+  Id:
+    Part1: 2234344017
+    Part2: 1182187107
+    Part3: 1612999603
+    Part4: 2519938870
   type: 0
   armasType: {fileID: 0}
   advantage: []
@@ -22,3 +31,8 @@ MonoBehaviour:
   armorClass: 0
   damageModifier: 0
   Resistances: []
+  lightIntensity: 0
+  lightTemperature: {r: 0, g: 0, b: 0, a: 0}
+  innerRadius: 0
+  outerRadius: 0
+  falloffStrength: 0

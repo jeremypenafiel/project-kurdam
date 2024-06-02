@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Potion
   icon: {fileID: 21300000, guid: f275f34439de6d24dadbb80374f4d36c, type: 3}
-  description: Regenerate 15 heath
+  description: Regenerate 10 HP
   maxStack: 0
   isConsumable: 1
   isMissionItem: 0

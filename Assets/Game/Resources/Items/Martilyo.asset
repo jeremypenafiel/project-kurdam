@@ -14,11 +14,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: hammer
   icon: {fileID: 21300000, guid: b2c5074c7cc7742469efbe0a6b0124a9, type: 3}
-  description: ga hammer
+  description: Who needs some fixing? Decent bludgeoning damage
+  maxStack: 0
+  isConsumable: 0
+  isMissionItem: 0
+  isEquipment: 1
+  Id:
+    Part1: 1503157274
+    Part2: 1106161543
+    Part3: 623845794
+    Part4: 900670201
   type: 0
-  armasType: {fileID: 0}
+  armasType: {fileID: 11400000, guid: b3581a895c7329d44b86d30d94994bb5, type: 2}
   advantage: []
   disadvantage: []
   armorClass: 0
   damageModifier: 0
   Resistances: []
+  lightIntensity: 0
+  lightTemperature: {r: 0, g: 0, b: 0, a: 0}
+  innerRadius: 0
+  outerRadius: 0
+  falloffStrength: 0
