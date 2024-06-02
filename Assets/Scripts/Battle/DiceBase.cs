@@ -13,6 +13,11 @@ public class DiceBase : ScriptableObject
     public List<Sprite> DiceSides { get { return diceSides; } }
 
     public int Sides { get { return sides; } }
-
+    
+    
+    public override string ToString()
+    {
+        return $"d{sides}";
+    }
 
 }
