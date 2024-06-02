@@ -8034,7 +8034,7 @@ MonoBehaviour:
   m_Intensity: 0.55
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 000000008d28addd2f86d0873563fc8a8d69d7dd0545c172a383d59ef92ac84575cccf51451baa42
+  m_ApplyToSortingLayers: 000000008d28addd2f86d0873563fc8a0545c172a383d59ef92ac84575cccf51451baa42
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -12883,6 +12883,7 @@ MonoBehaviour:
   pauseScreen: {fileID: 7625454304753246855}
   inventoryView: {fileID: 7201305070596403863}
   globalLight: {fileID: 1048490251923281965}
+  fader: {fileID: 0}
 --- !u!114 &8904270053142815537
 MonoBehaviour:
   m_ObjectHideFlags: 0
