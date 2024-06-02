@@ -401,8 +401,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1372572789
-  m_SortingLayer: 8
-  m_SortingOrder: 0
+  m_SortingLayer: 9
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 4f83ec8374615b54380c0e924c95f347, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -631,11 +631,11 @@ Transform:
   m_GameObject: {fileID: 423193007}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 61.7, y: -9.99, z: 0}
+  m_LocalPosition: {x: -21.7, y: -9.989998, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1309223705}
+  m_Father: {fileID: 1179318542}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &606516226
 GameObject:
@@ -709,7 +709,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1372572789
-  m_SortingLayer: 8
+  m_SortingLayer: 9
   m_SortingOrder: -6
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0.3, y: 1.1, z: 0}
@@ -1848,6 +1848,7 @@ MonoBehaviour:
   questToStart: {fileID: 11400000, guid: e59e6d48131159c4693a17a83295a376, type: 2}
   questToComplete: {fileID: 0}
   objectToActivateOnComplete: {fileID: 0}
+  _playerInventory: {fileID: 0}
   triggerOnce: 0
 --- !u!61 &730884519
 BoxCollider2D:
@@ -2153,7 +2154,7 @@ MonoBehaviour:
   m_Intensity: 1.3
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 000000008d28addd3563fc8a0545c172a383d59ef92ac845451baa428d69d7dd
+  m_ApplyToSortingLayers: 000000008d28addd3563fc8a0545c172a383d59ef92ac845451baa428d69d7dd494a68c875cccf51
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -2253,8 +2254,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1170746105
-  m_SortingLayer: 7
+  m_SortingLayerID: 1925268741
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: d3d149eaa27188a43a227e8d4477e342, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2361,6 +2362,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1060463770}
   - component: {fileID: 1060463771}
+  - component: {fileID: 1060463772}
   m_Layer: 0
   m_Name: Light 2D (3)
   m_TagString: Untagged
@@ -2403,7 +2405,7 @@ MonoBehaviour:
   m_Intensity: 1.3
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 000000008d28addd2f86d0873563fc8a0545c172a383d59ef92ac84575cccf51451baa428d69d7dd
+  m_ApplyToSortingLayers: 000000008d28addd2f86d0873563fc8a0545c172a383d59ef92ac84575cccf51451baa428d69d7dd494a68c8
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -2433,6 +2435,22 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!114 &1060463772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1060463769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 065147ec2e23f194e8f9e55023bbd166, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  light: {fileID: 1060463771}
+  framesPerRandomize: 30
+  minValue: 0
+  maxValue: 1
 --- !u!1 &1115770717
 GameObject:
   m_ObjectHideFlags: 0
@@ -2597,7 +2615,12 @@ PolygonCollider2D:
     - - {x: -0.9224777, y: 10.484327}
       - {x: -0.86236477, y: -30.91718}
       - {x: 13.1177435, y: -31.265738}
-      - {x: 12.799324, y: -18.65626}
+      - {x: 12.354609, y: -19.358208}
+      - {x: 13.6801605, y: -19.400352}
+      - {x: 13.683596, y: -17.88288}
+      - {x: 11.981375, y: -17.847252}
+      - {x: 10.414757, y: -17.67168}
+      - {x: 4.9943256, y: -13.461948}
       - {x: 4.2861037, y: -11.178806}
       - {x: 3.9678497, y: 3.0817866}
       - {x: 7.1291656, y: 3.0811148}
@@ -2814,6 +2837,7 @@ Transform:
   - {fileID: 823893051}
   - {fileID: 2035215152}
   - {fileID: 221165942}
+  - {fileID: 423193009}
   m_Father: {fileID: 1309223705}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1193842459
@@ -2868,7 +2892,7 @@ MonoBehaviour:
   m_Intensity: 1.3
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 000000008d28addd2f86d0873563fc8aa383d59e451baa420545c17275cccf518d69d7dd
+  m_ApplyToSortingLayers: 000000008d28addd2f86d0873563fc8aa383d59e451baa420545c17275cccf518d69d7dd494a68c8
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -2992,6 +3016,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1236339523}
   - component: {fileID: 1236339524}
+  - component: {fileID: 1236339525}
   m_Layer: 0
   m_Name: Light 2D (1)
   m_TagString: Untagged
@@ -3034,7 +3059,7 @@ MonoBehaviour:
   m_Intensity: 1.3
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 000000008d28addd2f86d0873563fc8a0545c172a383d59ef92ac84575cccf51451baa428d69d7dd
+  m_ApplyToSortingLayers: 000000008d28addd2f86d0873563fc8a0545c172a383d59ef92ac84575cccf51451baa428d69d7dd494a68c8
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -3064,6 +3089,22 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!114 &1236339525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1236339522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 065147ec2e23f194e8f9e55023bbd166, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  light: {fileID: 1236339524}
+  framesPerRandomize: 200
+  minValue: 0
+  maxValue: 0.75
 --- !u!1001 &1300423393
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3159,7 +3200,6 @@ Transform:
   - {fileID: 4320185381199854394}
   - {fileID: 743078742}
   - {fileID: 1300423394}
-  - {fileID: 423193009}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1329724039
@@ -3630,7 +3670,7 @@ MonoBehaviour:
   m_Intensity: 1.3
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 000000008d28addd3563fc8a0545c172a383d59ef92ac845451baa428d69d7dd
+  m_ApplyToSortingLayers: 000000008d28addd3563fc8a0545c172a383d59ef92ac845451baa428d69d7dd494a68c875cccf51
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0

@@ -70,6 +70,7 @@ namespace Items
             
             model.OnModelChanged += HandleModelChanged;
             model.OnEquipmentChanged += HandleEquipmentChanged;
+            yield return view.InitializeView(capacity);
             RefreshView();
 
         }

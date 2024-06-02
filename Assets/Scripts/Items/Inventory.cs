@@ -36,6 +36,11 @@ public class Inventory : MonoBehaviour
 
     }
 
+    public void HandleUpdate()
+    {
+        view.HandleUpdate();
+    }
+
     public void ConnectPlayerToController(Aswang player)
     {
         controller.player = player;
@@ -57,10 +62,7 @@ public class Inventory : MonoBehaviour
         controller.AddItem(item);
     }
 
-    public void HandleUpdate()
-    {
-        view.HandleUpdate();
-    }
+
 
     public bool IsInventoryFull()
     {

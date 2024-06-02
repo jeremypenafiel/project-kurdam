@@ -39,6 +39,15 @@ public class Player : MonoBehaviour
         {
             Debug.Log("Suga equipped!");
             suga.gameObject.SetActive(true);
+            /*            suga.intensity = player.EquippedItems[(EquippableItemsBase.ItemType.suga)].Details.lightIntensity;*/
+            var lightFlicker = suga.GetComponent<LightFlicker>();
+            lightFlicker.setMaxValue(player.EquippedItems[EquippableItemsBase.ItemType.suga].Details.lightIntensity);
+            suga.color = player.EquippedItems[(EquippableItemsBase.ItemType.suga)].Details.lightTemperature;
+            suga.pointLightOuterRadius = player.EquippedItems[(EquippableItemsBase.ItemType.suga)].Details.outerRadius;
+            suga.pointLightInnerRadius = player.EquippedItems[(EquippableItemsBase.ItemType.suga)].Details.innerRadius;
+            suga.falloffIntensity = player.EquippedItems[(EquippableItemsBase.ItemType.suga)].Details.falloffStrength;
+
+
             // Do something when suga is equipped
         }
         else

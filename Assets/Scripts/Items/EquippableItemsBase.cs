@@ -13,7 +13,11 @@ namespace Items
         [SerializeField] public int armorClass;
         [SerializeField] public int damageModifier;
         [SerializeField] public List<string> Resistances;
-    
+        [SerializeField] public float lightIntensity;
+        [SerializeField] public Color lightTemperature;
+        [SerializeField] public float innerRadius;
+        [SerializeField] public float outerRadius;
+        [SerializeField] public float falloffStrength;
 
         public enum ItemType
         {
@@ -24,6 +28,8 @@ namespace Items
             paa,
             tiil,
         }
+
+
 
         public override Item Create(int quantity)
         {
