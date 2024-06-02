@@ -147,7 +147,7 @@ public class InventoryView : StorageView
         }
     }
 
-    private void Update()
+    private void HandleUpdate()
     {
         if (!isDialogBoxActive)
         {
