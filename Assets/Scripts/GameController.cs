@@ -1,5 +1,6 @@
 using System.Collections;
 using GDEUtils.StateMachine;
+using Items;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -17,7 +18,7 @@ public class GameController : MonoBehaviour
     [SerializeField] LocationPortal locationPortal;
     [SerializeField] GameObject pauseScreen;
 /*    [SerializeField] GameObject visionLimiter;*/
-    [SerializeField] InventorySystem inventorySystem;
+    [SerializeField] InventoryView inventoryView;
 
     
 

@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89459c1f94c74576801389e9cae51c1a, type: 3}
+  m_Name: Sigarilyo
+  m_EditorClassIdentifier: 
+  itemName: Sigarilyo
+  icon: {fileID: 21300000, guid: 80dc500d87a12ba41a8567ddc914fc2b, type: 3}
+  description: 
+  maxStack: 0
+  isConsumable: 0
+  isMissionItem: 1
+  isEquipment: 0
+  Id:
+    Part1: 2569206926
+    Part2: 1082513629
+    Part3: 1876044690
+    Part4: 4049757464
+  type: 0
+  armasType: {fileID: 0}
+  advantage: []
+  disadvantage: []
+  armorClass: 0
+  damageModifier: 0
+  Resistances: []

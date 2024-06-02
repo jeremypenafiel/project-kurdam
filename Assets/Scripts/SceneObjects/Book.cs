@@ -31,7 +31,7 @@ public class Book : MonoBehaviour, Interactable, ISavable
     public IEnumerator Interact(Transform initiator, PlayerController playerController)
     {
         GetComponent<SpriteRenderer>().sprite = open;
-        Debug.Log("Interacting with book");
+        
         yield return DialogManager.Instance.ShowDialog(dialog);
         GetComponent<SpriteRenderer>().sprite = closed;
         // playerItems = playerController.player.inventorySystem.Controller._itemsModel;
