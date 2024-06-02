@@ -44,7 +44,7 @@ public class MovesChangeSystem : MonoBehaviour
         player = Player;
         MoveSelection();
         dialogBox.SetMoveNames(player.moves);
-        dialogBox.SetMoveChangeNames(player.moves);
+        dialogBox.SetMoveChangeNames(player.movesLearned);
     }
 
 
@@ -53,16 +53,17 @@ public class MovesChangeSystem : MonoBehaviour
     void ChangeSelection()
     {
         state = MovesChangeSystemState.ChangeSelection;
-        currentCoroutine = StartCoroutine(dialogBox.TypeDialog("Choose An Action"));
-        dialogBox.EnableActionSelector(true);
+        currentCoroutine = StartCoroutine(dialogBox.TypeDialog("Choose move to replace"));
+
+       
     }
 
     void MoveSelection()
     {
         state = MovesChangeSystemState.MoveSelection;
-        dialogBox.EnableActionSelector(false);
-        dialogBox.EnableDialogText(false);
-        dialogBox.EnableMoveSelector(true);
+        currentCoroutine = StartCoroutine(dialogBox.TypeDialog("Choose the move to be replaced"));
+
+
     }
 
 
@@ -92,44 +93,46 @@ public class MovesChangeSystem : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            if (currentMove < player.moves.Count - 1)
+            if (currentAction < player.movesLearned.Count - 1)
             {
-                ++currentMove;
+                ++currentAction;
             }
         }
         else if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            if (currentMove > 0)
+            if (currentAction > 0)
             {
-                --currentMove;
+                --currentAction;
             }
         }
         else if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            if (currentMove < player.moves.Count - 2)
+            if (currentAction < player.movesLearned.Count - 2)
             {
-                currentMove += 2;
+                currentAction += 2;
             }
         }
         else if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            if (currentMove > 1)
+            if (currentAction > 1)
             {
-                currentMove -= 2;
+                currentAction -= 2;
             }
         }
-        dialogBox.UpdateChangeSelection(currentAction);
+        dialogBox.UpdateChangeSelection(currentAction, player.movesLearned[currentAction]);
+        Debug.Log(currentAction.ToString());
 
         if (Input.GetKeyDown(KeyCode.Z))
         {
 
             AudioManager.i.PlaySFX(AudioId.UISelect);
-
+            ChangeMvoe(currentMove, currentAction);
         }
         else if (Input.GetKeyDown(KeyCode.X))
         {
 
             AudioManager.i.PlaySFX(AudioId.UISelect);
+            dialogBox.UpdateChangeSelection();
             MoveSelection();
         }
     }
@@ -164,7 +167,7 @@ public class MovesChangeSystem : MonoBehaviour
                 currentMove -= 2;
             }
         }
-        dialogBox.UpdateMoveSelection(currentMove);
+        dialogBox.UpdateMoveSelection(currentMove, player.moves[currentMove]);
 
         if (Input.GetKeyDown(KeyCode.Z))
         {
@@ -183,4 +186,10 @@ public class MovesChangeSystem : MonoBehaviour
         }
     }
    
+    public void ChangeMvoe(int oldMove, int newMove) 
+    {
+        player.moves[oldMove] = player.movesLearned[newMove];
+        dialogBox.SetMoveNames(player.moves);
+        MoveSelection();
+    }
 }

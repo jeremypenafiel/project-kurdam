@@ -407,6 +407,14 @@ public class BattleSystem : MonoBehaviour
             while (playerUnit.Aswang.CheckForLevelUp())
             {
                 player.Level++;
+                player.movesLearned.Clear();
+                foreach (var move in player.Base.LearnableMoves)
+                {
+                    if (move.level <= player.Level)
+                    {
+                        player.movesLearned.Add(new Moves(move.MovesBase));
+                    }
+                }
                 yield return dialogBox.TypeDialog($"{playerUnit.Aswang.Base.Aname} leveled up to Level {player.Level}.");
                 yield return playerUnit.Hud.SetExpSmooth(true);
                 yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Z));

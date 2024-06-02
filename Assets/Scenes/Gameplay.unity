@@ -2392,8 +2392,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogText: {fileID: 1575998498}
-  lettersPerSecond: 0
-  highlightedColor: {r: 0.8773585, g: 0, b: 0, a: 0}
+  lettersPerSecond: 3
+  highlightedColor: {r: 0.4811321, g: 0.0047536897, b: 0, a: 0}
   actionSelector: {fileID: 1317385211}
   moveSelector: {fileID: 1532122530}
   moveDetails: {fileID: 56074399}

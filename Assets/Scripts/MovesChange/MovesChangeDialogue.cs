@@ -54,36 +54,47 @@ public class MovesChangeDialogue : MonoBehaviour
         moveDetails.SetActive(enabled);
     }
 
-    public void UpdateChangeSelection(int selectedAction)
+    public void UpdateChangeSelection(int selectedAction, Moves move)
     {
-        for (int i = 0; i < actionTexts.Count; i++)
+        for (int i = 0; i < moveChangeTexts.Count; i++)
         {
             if (i == selectedAction)
             {
-                actionTexts[i].color = highlightedColor;
+                moveChangeTexts[i].color = Color.blue;
             }
             else
             {
-                actionTexts[i].color = Color.black;
+               moveChangeTexts[i].color = Color.black;
             }
+            attackText.text = $"{move.Base.RollNumber}{move.Base.DiceBase.name}";
+            typeText.text = $"{move.Base.Type.GetModifierText().ToUpper()}";
+        }
+    }
+    public void UpdateChangeSelection()
+    {
+        for (int i = 0; i < moveChangeTexts.Count; i++)
+        {
+
+           moveChangeTexts[i].color = Color.black;
+            
         }
     }
 
-    public void UpdateMoveSelection(int selectedMove)
+    public void UpdateMoveSelection(int selectedMove, Moves move)
     {
         for (int i = 0; i < moveTexts.Count; i++)
         {
             if (i == selectedMove)
             {
-                moveTexts[i].color = highlightedColor;
+                moveTexts[i].color = Color.red;
             }
             else
             {
                 moveTexts[i].color = Color.black;
             }
 
-            attackText.text = "";
-            typeText.text = "";
+            attackText.text = $"{move.Base.RollNumber}{move.Base.DiceBase.name}";
+            typeText.text = $"{move.Base.Type.GetModifierText().ToUpper()}";
         }
     }
 
