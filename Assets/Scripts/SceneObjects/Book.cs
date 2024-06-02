@@ -18,6 +18,7 @@ public class Book : MonoBehaviour, Interactable, ISavable
     [SerializeField] QuestBase questInProgress;
     [SerializeField] GameObject objectToActivateOnInteract;
     [SerializeField] GameObject objectToDeactivateOnInteract;
+    [SerializeField] bool degradeLightSource;
     Quest activeQuest;
 
 
@@ -31,8 +32,12 @@ public class Book : MonoBehaviour, Interactable, ISavable
     }
     public IEnumerator Interact(Transform initiator, PlayerController playerController)
     {
+        if (degradeLightSource)
+        {
+            playerController.gc.GlobalLight.intensity -= 0.10f;
+        }
         GetComponent<SpriteRenderer>().sprite = open;
-        Debug.Log("Interacting with book");
+        
         yield return DialogManager.Instance.ShowDialog(dialog);
         GetComponent<SpriteRenderer>().sprite = closed;
         // playerItems = playerController.player.inventorySystem.Controller._itemsModel;

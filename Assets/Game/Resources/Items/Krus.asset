@@ -10,22 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 89459c1f94c74576801389e9cae51c1a, type: 3}
-  m_Name: Kutsilyo
+  m_Name: Krus
   m_EditorClassIdentifier: 
-  itemName: kutsilyo
-  icon: {fileID: 21300000, guid: 2cd7bf87087e52146971b9b9b4b3a4f6, type: 3}
-  description: ga cut
+  itemName: 
+  icon: {fileID: 0}
+  description: 
   maxStack: 0
   isConsumable: 0
   isMissionItem: 0
-  isEquipment: 1
+  isEquipment: 0
   Id:
-    Part1: 2137796204
-    Part2: 1331602128
-    Part3: 4266685830
-    Part4: 3369101682
+    Part1: 4253254442
+    Part2: 1212522295
+    Part3: 1669404316
+    Part4: 1005969508
   type: 0
-  armasType: {fileID: 11400000, guid: a0d96a551c6282a4ba58a68d976a7634, type: 2}
+  armasType: {fileID: 0}
   advantage: []
   disadvantage: []
   armorClass: 0
