@@ -53,11 +53,14 @@ namespace Items
             this.capacity = capacity;
             // UpdatePlayerEquipment(model.EquippedItems);
 
-            //view.StartCoroutine(Initialize());
+            view.StartCoroutine(Initialize());
         }
+
+       
 
         public IEnumerator Initialize()
         {
+            yield return view.InitializeView(capacity);
             view.OnInventoryItemSelectionChanged += HandleOnInventoryItemSelectionChanged;
             view.OnEquipmentItemSelectionChanged += HandleOnEquipmentItemSelectionChanged;
             view.OnInventoryActionSelected += HandleOnInventoryActionSelected;
@@ -67,9 +70,6 @@ namespace Items
             
             model.OnModelChanged += HandleModelChanged;
             model.OnEquipmentChanged += HandleEquipmentChanged;
-            yield return view.InitializeView(new ViewModel(model, capacity));
-            
-            
             RefreshView();
 
         }
@@ -124,18 +124,24 @@ namespace Items
         {
             Debug.Log(index);
             var item = model.GetFromEquipment(index);
-            model.currentItem = item;
-            view.SetItemDescriptionBox(item);
+            model.currentItem = model.EquippedItems[item];
+            view.SetItemDescriptionBox(model.EquippedItems[item]);
         }
 
         private void HandleOnInventoryActionSelected(int action, int itemIndex) // action = 0 is use/equip, action = 1 is discard
         {
+            Debug.Log($"index is {itemIndex}");
             var item = model.GetFromInventory(itemIndex);
+            Debug.Log($"name is {item.details.itemName}");
             
             if (action == 0)
             {
-                if(item is ConsumableItem) ((ConsumableItem)item).Use(player);
-                else model.Equip((EquippableItem)item);
+                if (item.details.isConsumable)
+                {
+                    ((ConsumableItem)item).Use(player);
+                    
+                }
+                else model.Equip((EquippableItem) item);
                 
                 model.RemoveFromInventory(item);
             }
@@ -181,7 +187,8 @@ namespace Items
             
             for(int i = 0; i < 6; i++)
             {
-                var item = model.GetFromEquipment(i);
+                var itemType = model.GetFromEquipment(i);
+                var item = model.EquippedItems[itemType];
                 if (item == null)
                 {
                     view.EquipmentSlots[i].Set(SerializableGuid.Empty, null);

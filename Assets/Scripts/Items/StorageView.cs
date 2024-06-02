@@ -20,7 +20,7 @@ public abstract class StorageView : MonoBehaviour
 
   
 
-    public abstract IEnumerator InitializeView(ViewModel viewModel);
+    public abstract IEnumerator InitializeView(int capacity);
     
 
 }
