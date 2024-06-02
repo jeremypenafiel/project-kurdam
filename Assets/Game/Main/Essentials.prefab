@@ -18090,6 +18090,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   view: {fileID: 7201305070596403863}
   capacity: 18
-  startingItems: []
+  startingItems:
+  - {fileID: 11400000, guid: f6501c5cb7d3f62439e26bf39a094a2b, type: 2}
   startingEquippedItems:
   - {fileID: 11400000, guid: d58db2686ee408a42a356a9dddbe7069, type: 2}
