@@ -5,6 +5,7 @@ using UnityEngine.UIElements;
 
     public class Slot : VisualElement {
         public Image Icon;
+        public Image Highlight;
         public Label StackLabel;
         public int Index => parent.IndexOf(this);
         public SerializableGuid ItemId { get; private set; } = SerializableGuid.Empty;
@@ -15,6 +16,7 @@ using UnityEngine.UIElements;
         public new class UxmlFactory : UxmlFactory<Slot, UxmlTraits> { }
 
         public Slot() {
+            Highlight = this.CreateChild<Image>("highlight");
             Icon = this.CreateChild<Image>("slotIcon");
             StackLabel = this.CreateChild("slotFrame").CreateChild<Label>("stackCount");
             // RegisterCallback<PointerDownEvent>(OnPointerDown);

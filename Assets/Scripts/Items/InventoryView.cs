@@ -39,6 +39,7 @@ public class InventoryView : StorageView
     
     bool isInventoryMode = true;
     bool isCurrentItemEquipment = false;
+    bool isDialogBoxActive = false;
     
     VisualElement dialogBox;
     private Label useText;
@@ -122,7 +123,6 @@ public class InventoryView : StorageView
         
         
         dialogBox = root.Q("DescRow").Q(className: "dialogBox");
-        dialogBox.visible = false;
         
         description = root.Q("DescRow").Q(className:"descriptionBox").Q<Label>(className:"description");
         itemName = root.Q("DescRow").Q(className:"descriptionBox").Q<Label>(className:"itemName");
@@ -136,6 +136,7 @@ public class InventoryView : StorageView
         Debug.Assert(useText != null, "useText == null");
         Debug.Assert(discardText!= null, "discardText == null");
         // InventorySlots[currentActiveInventorySlot].AddClass(selectedSlotSelector);
+        InventorySlots[currentActiveInventorySlot].AddClass(selectedSlotSelector);
         OnInventoryItemSelectionChanged?.Invoke(currentActiveInventorySlot);
         
 
@@ -172,24 +173,14 @@ public class InventoryView : StorageView
             if(InventorySlots[currentActiveInventorySlot].ItemId == SerializableGuid.Empty) return;
             if (CheckIfMissionItem!.Invoke(currentActiveInventorySlot)) return;
 
-            if (CheckIfEquipmentItem!.Invoke(currentActiveInventorySlot))
-            {
-                useText.text = "Equip";
-                isCurrentItemEquipment = true;
-            }
-            else
-            {
-                useText.text = "Use";
-                isCurrentItemEquipment = false;
-            }
-            
             //AudioManager.PlaySFX(AudioId.UISelect);
-            dialogBox.visible = true;
-            useText.style.color = Color.blue;
+            isDialogBoxActive = true;
 
         }else if (Input.GetKeyDown(KeyCode.E))
         {
             isInventoryMode = !isInventoryMode;
+            InventorySlots[currentActiveInventorySlot].RemoveFromClassList(selectedSlotSelector);
+            currentActiveInventorySlot = 0;
             EquipmentSlots[currentActiveEquipmentSlot].AddClass(selectedSlotSelector);
             OnEquipmentItemSelectionChanged?.Invoke(currentActiveEquipmentSlot);
         }else if (Input.GetKeyDown(KeyCode.X))
@@ -200,7 +191,7 @@ public class InventoryView : StorageView
 
     private void Update()
     {
-        if (!dialogBox.visible)
+        if (!isDialogBoxActive)
         {
             if(isInventoryMode) HandleInventoryNavigationSelection();
             else HandleEquipmentNavigationSelection();
@@ -241,14 +232,16 @@ public class InventoryView : StorageView
             
             
             //AudioManager.PlaySFX(AudioId.UISelect);
-            dialogBox.visible = true;
+            isDialogBoxActive= true;
             
             useText.style.color = Color.blue;
-            useText.text = "Unequip";
 
         }else if (Input.GetKeyDown(KeyCode.E))
         {
+            EquipmentSlots[currentActiveEquipmentSlot].RemoveFromClassList(selectedSlotSelector);
+            currentActiveEquipmentSlot = 0;
             isInventoryMode = !isInventoryMode;
+            InventorySlots[currentActiveInventorySlot].AddClass(selectedSlotSelector);
             OnInventoryItemSelectionChanged?.Invoke(currentActiveInventorySlot);
         }else if (Input.GetKeyDown(KeyCode.X))
         {
@@ -268,7 +261,10 @@ public class InventoryView : StorageView
         }else if (Input.GetKeyDown(KeyCode.X))
         {
             //AudioManager.PlaySFX(AudioId.UISelect);
-            dialogBox.visible = false;
+            useText.style.color = Color.black;
+            discardText.style.color = Color.black;
+            isDialogBoxActive = false;
+            return;
         }
 
         if (selectedAction == 0)
@@ -292,7 +288,7 @@ public class InventoryView : StorageView
             {
                 OnEquipmentActionSelected?.Invoke(selectedAction, currentActiveEquipmentSlot);
             }
-            dialogBox.visible = false;
+            isDialogBoxActive = false;
         }
     }
 
@@ -303,9 +299,11 @@ public class InventoryView : StorageView
         {
             description.text = "";
             itemName.text = "";
-            return;
+            useText.text = "Use";
+            return; 
         }
-        
+        useText.text = item.details.isConsumable ? "Use" : isInventoryMode ? "Equip" : "Unequip";
+        discardText.text = "Discard";
         description.text = item.details.description;
         itemName.text = item.details.name;
     }
