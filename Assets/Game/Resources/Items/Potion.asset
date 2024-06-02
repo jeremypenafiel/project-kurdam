@@ -15,5 +15,14 @@ MonoBehaviour:
   itemName: Potion
   icon: {fileID: 21300000, guid: f275f34439de6d24dadbb80374f4d36c, type: 3}
   description: Regenerate 15 heath
-  currentStackNumber: 0
-  itemEffects: []
+  maxStack: 0
+  isConsumable: 1
+  isMissionItem: 0
+  isEquipment: 0
+  Id:
+    Part1: 803355490
+    Part2: 1237464549
+    Part3: 2719169418
+    Part4: 1547990668
+  effects:
+  - {fileID: 11400000, guid: d4f8f39caaaf02f4fa79d8eee7051c80, type: 2}
