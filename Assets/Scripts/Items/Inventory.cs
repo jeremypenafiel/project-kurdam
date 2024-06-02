@@ -41,4 +41,19 @@ public class Inventory : MonoBehaviour
         view.gameObject.SetActive(isActive);
         if(isActive) view.StartCoroutine(controller.Initialize());
     }
+    
+    public bool ContainsItem(ItemsBase item)
+    {
+        return controller.ContainsItem(item);
+    }
+    
+    public void AddItem(ItemsBase item)
+    {
+        controller.AddItem(item);
+    }
+
+    public bool IsInventoryFull()
+    {
+        return controller.IsInventoryFull();
+    }
 }

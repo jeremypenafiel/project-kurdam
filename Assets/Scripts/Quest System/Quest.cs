@@ -47,7 +47,7 @@ public class Quest
 
     }
 
-    public IEnumerator CompletedQuest(InventoryModel inventoryModel)
+    public IEnumerator CompletedQuest(Inventory inventory)
     {
         Status = QuestStatus.Completed;
 
@@ -62,14 +62,14 @@ public class Quest
         // if quest has reward item, add it to inventory
         if (Base.RewardItem != null)
         {
-            inventoryModel.AddItem(Base.RewardItem);
+            inventory.AddItem(Base.RewardItem);
         }
         // var questlist = QuestList.GetQuestList();
         // questlist.AddQuest(this);
 
     }
 
-    public bool CanBeCompleted(InventoryModel inventory)
+    public bool CanBeCompleted(Inventory inventory)
     {
         // if quest does have required item
         if (Base.RequiredItem != null)
@@ -82,7 +82,7 @@ public class Quest
             ;
             foreach (var item in Base.RequiredItems)
             {
-                var check = inventory.Contains(item);
+                var check = inventory.ContainsItem(item);
                 if (!check) { return check; }
                 return check;
             }

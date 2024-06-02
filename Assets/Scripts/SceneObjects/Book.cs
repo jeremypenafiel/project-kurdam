@@ -13,7 +13,7 @@ public class Book : MonoBehaviour, Interactable, ISavable
     [SerializeField] ItemsBase itemAcquired;
     [SerializeField] QuestBase questToComplete; // interaction with this item will complete questToComplete
     [SerializeField] GameObject objectToActivateOnComplete;
-    private InventoryModel _playerInventory;
+    [SerializeField] Inventory _playerInventory;
     [SerializeField] QuestBase questToStart;
     [SerializeField] QuestBase questInProgress;
     [SerializeField] GameObject objectToActivateOnInteract;
