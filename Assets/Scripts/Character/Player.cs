@@ -5,6 +5,7 @@ using Items;
 using TMPro;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
+using UnityEngine.Rendering.Universal;
 
 public class Player : MonoBehaviour
 {
@@ -12,11 +13,14 @@ public class Player : MonoBehaviour
     [SerializeField] int playerlevel;
     Aswang player;
     [SerializeField] public Inventory inventory;
+    [SerializeField] private Light2D suga;
 
     private void Start()
     {
         player = new Aswang(playertype,playerlevel);
+        inventory.OnSugaEquipped += CheckForSuga;
         inventory.ConnectPlayerToController(player);
+        suga.gameObject.SetActive(false);
         // inventorySystem.Controller._itemsModel.OnEquippedItemsChanged += OnEquippedItemsChanged;
     }
 
@@ -29,6 +33,20 @@ public class Player : MonoBehaviour
     {
         return player;
     }
+    private void CheckForSuga()
+    {
+        if (player.EquippedItems[(EquippableItemsBase.ItemType.suga)] != null )
+        {
+            Debug.Log("Suga equipped!");
+            suga.gameObject.SetActive(true);
+            // Do something when suga is equipped
+        }
+        else
+        {
+            suga.gameObject.SetActive(false);
+            Debug.Log("Suga not equipped.");
+            // Do something when suga is not equipped
+        }
+    }
 
-   
 }

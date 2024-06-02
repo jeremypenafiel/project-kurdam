@@ -103,7 +103,7 @@ public class Aswang
         new Dictionary<EquippableItemsBase.ItemType, EquippableItem>
         {
             { EquippableItemsBase.ItemType.armasIsa, null },
-            { EquippableItemsBase.ItemType.armasDuha, null },
+            { EquippableItemsBase.ItemType.suga, null },
             { EquippableItemsBase.ItemType.antingAnting, null },
             { EquippableItemsBase.ItemType.paa, null },
             { EquippableItemsBase.ItemType.tiil, null },

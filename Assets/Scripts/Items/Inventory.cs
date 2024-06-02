@@ -19,6 +19,11 @@ public class Inventory : MonoBehaviour
         remove => view.OnExitPressed -= value;
     }
 
+    public event Action OnSugaEquipped
+    {
+        add => controller.OnSugaEquipped += value;
+        remove => controller.OnSugaEquipped -= value;
+    }
 
     void Awake()
     {

@@ -27,7 +27,7 @@ namespace Items
             { EquippableItemsBase.ItemType.lawas, null },
             { EquippableItemsBase.ItemType.armasIsa, null },
             { EquippableItemsBase.ItemType.tiil, null },
-            { EquippableItemsBase.ItemType.armasDuha, null },
+            { EquippableItemsBase.ItemType.suga, null },
         };
 
 
