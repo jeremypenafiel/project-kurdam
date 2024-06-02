@@ -66,7 +66,7 @@ public class BattleState : State<GameController>
     {
         AudioManager.i.PlayMusic(null);
         SceneManager.LoadSceneAsync(0);
-        var objects = GameObject.Find("Essentials(Clone)");
+        var objects = GameObject.Find("Essentials");
         Destroy(objects);
         
         
