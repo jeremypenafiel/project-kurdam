@@ -1,13 +1,8 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using Items;
 using JetBrains.Annotations;
-using TMPro;
 using UnityEngine;
-using Unity.Properties;
-using UnityEngine.UI;
 using UnityEngine.UIElements;
 
 
@@ -54,55 +49,8 @@ public class InventoryView : StorageView
         InventorySlots = new Slot[viewModel.Capacity];
         EquipmentSlots = new Slot[6];
         root = document.rootVisualElement;
-        //root.Clear();
         
         root.styleSheets.Add(styleSheet);
-        
-        //container =  root.CreateChild("container");
-        
-        // var inventory = container.CreateChild("inventory");
-        // var equipment = container.CreateChild("equipment");
-        // var descriptionBox = container.CreateChild("descriptionBox");
-        // var dialogBox = container.CreateChild("dialogBox");
-        //
-        // // description stuff
-        // var description = new TextElement().AddClass("descriptionText");
-        // var itemName = new TextElement().AddClass("itemName");
-        //
-        // descriptionBox.Add(itemName);
-        // descriptionBox.Add(description);
-        //
-        // // dialogbox stuff
-        // var dialogBoxContainer = dialogBox.CreateChild("dialogBoxContainer");
-        // dialogBoxContainer.Add(new Label("Use").AddClass("useText"));
-        // dialogBoxContainer.Add(new Label("Discard").AddClass("discardText"));
-        // dialogBox.visible = false;
-        //
-        // // inventory stuff
-        // inventory.CreateChild("inventoryFrame");
-        // inventory.CreateChild("inventoryHeader").Add(new Label(panelName));
-        // var slotsContainerInventory = inventory.CreateChild("slotsContainer");
-        //
-        // for (var i = 0; i < viewModel.Capacity; i++)
-        // {
-        //     var slot = slotsContainerInventory.CreateChild<Slot>("slot");
-        //     // var highlight = slot.CreateChild("highlight");
-        //     InventorySlots[i] = slot;
-        // }
-        //
-        // // equipment stuff
-        // equipment.CreateChild("inventoryFrame");
-        // equipment.CreateChild("inventoryHeader").Add(new Label("Equipment"));
-        // var slotsContainerEquipment = equipment.CreateChild("slotsContainer");
-        // for (var i = 0; i < 6; i++)
-        // {
-        //     var slot = slotsContainerEquipment.CreateChild<Slot>("slot");
-        //     EquipmentSlots[i] = slot;
-        // }
-        //
-        // ghostIcon = container.CreateChild("ghostIcon");
-        // ghostIcon.BringToFront();
-
         
         var inventorySlotList = root.Q("Inventory").Q("ItemSlots").Q("VisualElement").Query<Slot>(className:"slot").ToList();
         Debug.Log(inventorySlotList.Count);
