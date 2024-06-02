@@ -84,7 +84,7 @@ public class Quest
             {
                 var check = inventory.ContainsItem(item);
                 if (!check) { return check; }
-                return check;
+                
             }
             
         }
