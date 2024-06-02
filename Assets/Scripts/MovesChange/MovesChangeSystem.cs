@@ -126,6 +126,7 @@ public class MovesChangeSystem : MonoBehaviour
         {
 
             AudioManager.i.PlaySFX(AudioId.UISelect);
+            dialogBox.UpdateChangeSelection();
             ChangeMvoe(currentMove, currentAction);
         }
         else if (Input.GetKeyDown(KeyCode.X))
