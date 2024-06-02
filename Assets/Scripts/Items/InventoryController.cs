@@ -124,8 +124,8 @@ namespace Items
         {
             Debug.Log(index);
             var item = model.GetFromEquipment(index);
-            model.currentItem = item;
-            view.SetItemDescriptionBox(item);
+            model.currentItem = model.EquippedItems[item];
+            view.SetItemDescriptionBox(model.EquippedItems[item]);
         }
 
         private void HandleOnInventoryActionSelected(int action, int itemIndex) // action = 0 is use/equip, action = 1 is discard
@@ -181,7 +181,8 @@ namespace Items
             
             for(int i = 0; i < 6; i++)
             {
-                var item = model.GetFromEquipment(i);
+                var itemType = model.GetFromEquipment(i);
+                var item = model.EquippedItems[itemType];
                 if (item == null)
                 {
                     view.EquipmentSlots[i].Set(SerializableGuid.Empty, null);

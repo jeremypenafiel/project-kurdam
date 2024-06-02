@@ -70,9 +70,9 @@ namespace Items
         }
 
         public Item GetFromInventory(int index) => Items[index];
-        public EquippableItem GetFromEquipment(int index)
+        public EquippableItemsBase.ItemType GetFromEquipment(int index)
         {
-            var array = EquippedItems.Values.ToArray();
+            var array = EquippedItems.Keys.ToArray();
             Debug.Log(array[index]);
             return array[index];
         }
@@ -85,22 +85,22 @@ namespace Items
             var type = ((EquippableItemsBase)item.details).type;
             if(EquippedItems[type] != null)
             {
-                Unequip(EquippedItems[type]);
+                Unequip(type);
             }
             EquippedItems[type] = item;
             OnEquipmentChanged?.Invoke(EquippedItems);
         }
         
-        public void Unequip(EquippableItem item)
+        public void Unequip(EquippableItemsBase.ItemType itemType)
         {
-            var type = item.Details.type;
-            EquippedItems[type] = null;
+            var item = EquippedItems[itemType];
+            EquippedItems[itemType] = null;
             Items.TryAdd(item);
             OnEquipmentChanged?.Invoke(EquippedItems);
         }
 
         public bool RemoveFromInventory(Item item) => Items.TryRemove(item);
-        public bool RemoveFromEquipment(EquippableItem item) => EquippedItems.Remove(((EquippableItemsBase)item.details).type);
+        public bool RemoveFromEquipment(EquippableItemsBase.ItemType itemType) => EquippedItems.Remove(itemType);
 
         public void Swap(int source, int target) => Items.Swap(source, target);
 

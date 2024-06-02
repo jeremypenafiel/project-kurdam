@@ -240,6 +240,8 @@ public class InventoryView : StorageView
             {
                 OnEquipmentActionSelected?.Invoke(selectedAction, currentActiveEquipmentSlot);
             }
+            useText.style.color = Color.black;
+            discardText.style.color = Color.black;
             isDialogBoxActive = false;
             AudioManager.i.PlaySFX(AudioId.UISelect);
         }
