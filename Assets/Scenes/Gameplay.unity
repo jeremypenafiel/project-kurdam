@@ -139,6 +139,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: Essentials
       objectReference: {fileID: 0}
+    - target: {fileID: 1048490251923281965, guid: 1a746e40473efbd4090ba274d5e8a85e, type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1048490251923281965, guid: 1a746e40473efbd4090ba274d5e8a85e, type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.data[4]
+      value: -573085299
+      objectReference: {fileID: 0}
+    - target: {fileID: 1048490251923281965, guid: 1a746e40473efbd4090ba274d5e8a85e, type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.data[5]
+      value: 1925268741
+      objectReference: {fileID: 0}
+    - target: {fileID: 1048490251923281965, guid: 1a746e40473efbd4090ba274d5e8a85e, type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.data[6]
+      value: -1630174301
+      objectReference: {fileID: 0}
+    - target: {fileID: 1048490251923281965, guid: 1a746e40473efbd4090ba274d5e8a85e, type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.data[7]
+      value: 1170746105
+      objectReference: {fileID: 0}
+    - target: {fileID: 1048490251923281965, guid: 1a746e40473efbd4090ba274d5e8a85e, type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.data[8]
+      value: 1372572789
+      objectReference: {fileID: 0}
+    - target: {fileID: 1048490251923281965, guid: 1a746e40473efbd4090ba274d5e8a85e, type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.data[9]
+      value: 1118444357
+      objectReference: {fileID: 0}
     - target: {fileID: 1319186208694714943, guid: 1a746e40473efbd4090ba274d5e8a85e, type: 3}
       propertyPath: uniqueId
       value: 1fd73a13-db36-4389-935e-ecb0aefd769d
