@@ -123,6 +123,24 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &10825220 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6021599357922479573, guid: 1a746e40473efbd4090ba274d5e8a85e, type: 3}
+  m_PrefabInstance: {fileID: 253928245}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &10825231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 10825220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9f085e72e7fe734a9ed2c6a72184b2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movesChangeSystem: {fileID: 121046973}
 --- !u!1 &20207584
 GameObject:
   m_ObjectHideFlags: 0
@@ -729,6 +747,10 @@ PrefabInstance:
       propertyPath: suga
       value: 
       objectReference: {fileID: 939660499}
+    - target: {fileID: 6463567495204533961, guid: 1a746e40473efbd4090ba274d5e8a85e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -745,6 +767,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8635733759808163774, guid: 1a746e40473efbd4090ba274d5e8a85e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 606893958}
+    - targetCorrespondingSourceObject: {fileID: 6021599357922479573, guid: 1a746e40473efbd4090ba274d5e8a85e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 10825231}
   m_SourcePrefab: {fileID: 100100000, guid: 1a746e40473efbd4090ba274d5e8a85e, type: 3}
 --- !u!1 &373816828
 GameObject:
@@ -2368,11 +2393,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogText: {fileID: 1575998498}
   lettersPerSecond: 0
-  highlightedColor:
-    r: 0.8773585
-    g: 0
-    b: 0
-    a: 0
+  highlightedColor: {r: 0.8773585, g: 0, b: 0, a: 0}
   actionSelector: {fileID: 1317385211}
   moveSelector: {fileID: 1532122530}
   moveDetails: {fileID: 56074399}
