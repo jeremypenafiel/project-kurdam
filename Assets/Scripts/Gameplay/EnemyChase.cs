@@ -49,7 +49,17 @@ public class EnemyChase : MonoBehaviour
     private void Update()
     {
         SetCheckRadius();
-        var targetPos = target.position;
+        Vector3 targetPos;
+        if (target != null)
+        {
+            targetPos = target.position;
+            
+        }
+        else
+        {
+            return;
+        }
+        
         var unitPos = transform.position;
 
         isInChaseRange = Physics2D.OverlapCircle(unitPos, currentCheckRadius, chase);

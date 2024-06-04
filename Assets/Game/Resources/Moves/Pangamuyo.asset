@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Pangamuyo
   m_EditorClassIdentifier: 
   name: Pangamuyo
-  description: 
+  description: Pray to god
   level: 0
   type: {fileID: 0}
   baseDamage: 10

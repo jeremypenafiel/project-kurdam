@@ -8,7 +8,7 @@ namespace Items
         public int amount;
         public override void ExecuteEffect(Aswang player)
         {
-            player.HP += amount;
+             player.HP = Mathf.Min(player.HP + amount, player.MaxHP);
         }
     }
 }

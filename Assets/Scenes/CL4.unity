@@ -141,7 +141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &201449753
 Transform:
   m_ObjectHideFlags: 0
@@ -1097,8 +1097,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.104500055, y: 0.07490003, z: 0}
-    m_Extent: {x: 2.3185, y: 2.0277, z: 0}
+    m_Center: {x: 0.111800075, y: 0.07255006, z: 0}
+    m_Extent: {x: 2.3221002, y: 2.02705, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -1161,7 +1161,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialog:
     lines:
-    - Go outside through the right door
+    - Go outside through the left door
     - As for the monsters you encounter, deal with it yourself
   line: 
   closed: {fileID: -905866652, guid: 2f97225da3aedd44d9a7e042384a78f7, type: 3}

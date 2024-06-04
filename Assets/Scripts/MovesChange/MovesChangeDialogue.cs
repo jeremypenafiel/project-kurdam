@@ -12,11 +12,13 @@ public class MovesChangeDialogue : MonoBehaviour
     [SerializeField] GameObject actionSelector;
     [SerializeField] GameObject moveSelector;
     [SerializeField] GameObject moveDetails;
+    
 
     [SerializeField] List<TextMeshProUGUI> actionTexts;
     [SerializeField] List<TextMeshProUGUI> moveTexts;
     [SerializeField] List<TextMeshProUGUI> moveChangeTexts;
-
+    
+    [SerializeField] TextMeshProUGUI description;
     [SerializeField] TextMeshProUGUI attackText;
     [SerializeField] TextMeshProUGUI typeText;
 
@@ -64,8 +66,9 @@ public class MovesChangeDialogue : MonoBehaviour
             }
             else
             {
-               moveChangeTexts[i].color = Color.black;
+               moveChangeTexts[i].color = Color.white;
             }
+            description.text= $"{move.Base.Description}";
             attackText.text = $"{move.Base.RollNumber}{move.Base.DiceBase.name}";
             typeText.text = $"{move.Base.Type.GetModifierText().ToUpper()}";
         }
@@ -75,7 +78,7 @@ public class MovesChangeDialogue : MonoBehaviour
         for (int i = 0; i < moveChangeTexts.Count; i++)
         {
 
-           moveChangeTexts[i].color = Color.black;
+           moveChangeTexts[i].color = Color.white;
             
         }
     }
@@ -92,7 +95,7 @@ public class MovesChangeDialogue : MonoBehaviour
             {
                 moveTexts[i].color = Color.black;
             }
-
+            description.text= $"{move.Base.Description}";
             attackText.text = $"{move.Base.RollNumber}{move.Base.DiceBase.name}";
             typeText.text = $"{move.Base.Type.GetModifierText().ToUpper()}";
         }

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Tapak
   m_EditorClassIdentifier: 
   name: Tapak
-  description: 
+  description: Ari imo ay, tapakan ta ka
   level: 0
   type: {fileID: 11400000, guid: b3581a895c7329d44b86d30d94994bb5, type: 2}
   baseDamage: 2
